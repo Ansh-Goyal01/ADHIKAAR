@@ -12,6 +12,11 @@ class AssessRequest(BaseModel):
     profile: dict | None = Field(
         default=None, description="Profile from a previous turn (send back unchanged)"
     )
+    engine: Literal["rules", "llm"] | None = Field(
+        default=None,
+        description="Override the decider: deterministic rules engine (default) or "
+        "LLM-only baseline (kept for comparison).",
+    )
 
 
 class AssessResponse(BaseModel):

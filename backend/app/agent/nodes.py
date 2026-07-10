@@ -48,6 +48,32 @@ Rules:
 - Leave a field null if not stated. Do not default anything.
 - annual_family_income_inr is yearly family income in rupees (convert "2 lakh" = 200000,
   monthly incomes to yearly).
+- Field meanings (set only when stated/clearly implied; else null):
+  - is_farmer_with_land: family owns cultivable land in their own name.
+  - cultivates_crops: actively cultivates crops (as owner, tenant, or sharecropper).
+  - has_land_ownership_or_tenure_docs: has land papers OR a valid written tenancy agreement.
+  - family_member_in_govt_service: the person or a family member holds a government job.
+  - receives_govt_pension_over_10k: a family member draws a government pension above
+    Rs 10,000/month.
+  - house_type: "kutcha" (mud/thatch/temporary, 0-2 rooms) or "pucca" (brick/concrete).
+  - owns_motorized_vehicle: household owns a motorised 2/3/4-wheeler or fishing boat.
+  - is_pmjay_priority_category: household clearly matches an SECC deprivation or listed
+    occupational category (landless households on manual casual labour, destitute,
+    ragpickers, domestic workers, street vendors, construction workers, sanitation
+    workers, and similar).
+  - has_lpg_connection: household already has an LPG gas connection.
+  - is_street_vendor: sells goods/services from a cart/stall/public space.
+  - has_vending_certificate_or_lor: holds a Certificate of Vending, ULB vendor ID card,
+    is listed in the vending survey, or holds a Letter of Recommendation.
+  - is_vishwakarma_trade_artisan: SELF-EMPLOYED artisan working with hands and tools in
+    the unorganized sector in one of the 18 Vishwakarma trades: carpenter, boat maker,
+    armourer, blacksmith, hammer/tool-kit maker, locksmith, goldsmith, potter,
+    sculptor/stone carver, cobbler, mason, basket/mat/broom maker, doll & toy maker,
+    barber, garland maker, washerman, tailor, fishing-net maker. Machine operators
+    (e.g. powerloom) and traders/vendors are NOT.
+  - is_post_matric_student: studying beyond class 10 (class 11/12, diploma, UG, PG) at a
+    recognized institution.
+  - daughter_age: age of the person's (youngest relevant) daughter, if mentioned.
 - is_enough_to_assess: true if the description gives at least a broad picture
   (some of: age, occupation, income, family situation). false only if it is too
   thin to say anything useful.

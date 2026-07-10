@@ -1,6 +1,7 @@
 """Groq (Llama 3.3 70B) client — secondary model used as the independent eval judge."""
 
 import logging
+import time
 
 from groq import APIError, Groq
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
@@ -20,9 +21,12 @@ def _get_client() -> Groq:
     return _client
 
 
+THROTTLE_SECONDS = 1.0  # keep well inside the free-tier requests/tokens-per-minute caps
+
+
 @retry(
-    stop=stop_after_attempt(4),
-    wait=wait_exponential(multiplier=2, min=2, max=30),
+    stop=stop_after_attempt(6),
+    wait=wait_exponential(multiplier=2, min=2, max=90),
     retry=retry_if_exception_type(APIError),
 )
 def _complete(prompt: str, temperature: float, json_mode: bool) -> str:
@@ -47,6 +51,7 @@ def complete(prompt: str, temperature: float = 0.0, json_mode: bool = False) -> 
     if text is None:
         text = _complete(prompt, temperature, json_mode)
         cache.set(key, text)
+        time.sleep(THROTTLE_SECONDS)
     else:
         logger.debug("groq cache hit")
     return text

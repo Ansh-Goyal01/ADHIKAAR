@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
     groq_api_key: str = ""
 
+    # "rules" = deterministic engine decides (Phase 2, default);
+    # "llm" = LLM decides (Phase 1 baseline, kept for the eval comparison)
+    eligibility_engine: str = "rules"
+
     gemini_model: str = "gemini-2.5-flash"
     groq_model: str = "llama-3.3-70b-versatile"
     embedding_model: str = "BAAI/bge-small-en-v1.5"

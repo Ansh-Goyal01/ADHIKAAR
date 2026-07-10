@@ -59,7 +59,7 @@ def assess(request: AssessRequest) -> AssessResponse:
     and send their reply together with the returned `profile`.
     """
     try:
-        state = run_assessment(request.message, request.profile)
+        state = run_assessment(request.message, request.profile, engine=request.engine)
     except Exception:
         logger.exception("assessment pipeline failed")
         raise HTTPException(

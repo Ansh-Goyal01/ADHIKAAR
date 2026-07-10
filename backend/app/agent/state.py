@@ -31,6 +31,19 @@ class UserProfile(BaseModel):
     pays_income_tax: bool | None = None
     is_student: bool | None = None
     daughter_age: int | None = None
+    # Facts that make occupation/household rules deterministic (Phase 2 engine).
+    family_member_in_govt_service: bool | None = None
+    receives_govt_pension_over_10k: bool | None = None
+    cultivates_crops: bool | None = None
+    has_land_ownership_or_tenure_docs: bool | None = None
+    house_type: Literal["kutcha", "pucca"] | None = None
+    owns_motorized_vehicle: bool | None = None
+    is_pmjay_priority_category: bool | None = None
+    has_lpg_connection: bool | None = None
+    is_street_vendor: bool | None = None
+    has_vending_certificate_or_lor: bool | None = None
+    is_vishwakarma_trade_artisan: bool | None = None
+    is_post_matric_student: bool | None = None
     notes: str = ""
 
 

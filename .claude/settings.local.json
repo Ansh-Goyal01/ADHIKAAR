@@ -34,7 +34,9 @@
       "mcp__plugin_ecc_chrome-devtools__take_screenshot",
       "mcp__plugin_ecc_chrome-devtools__take_snapshot",
       "mcp__plugin_ecc_chrome-devtools__click",
-      "mcp__plugin_ecc_chrome-devtools__evaluate_script"
+      "mcp__plugin_ecc_chrome-devtools__evaluate_script",
+      "PowerShell(& D:\\\\Adhikaar\\\\backend\\\\.venv\\\\Scripts\\\\python.exe -X utf8 -c \"import json`nfrom pathlib import Path`nfor sid, secs in [\\('pmjjby',['eligibility']\\),\\('apy',['eligibility','exclusions']\\),\\('pmsby',['eligibility']\\),\\('ignwps',['eligibility']\\),\\('pmv',['eligibility','exclusions']\\),\\('pmfby',['eligibility']\\),\\('pmay-g',['exclusions']\\),\\('pm-svanidhi',['eligibility']\\)]:`n    d = json.loads\\(Path\\(rf'D:\\\\Adhikaar\\\\data\\\\corpus\\\\{sid}.json'\\).read_text\\(encoding='utf-8'\\)\\)`n    for s in secs:`n        t = ' '.join\\(d['sections'].get\\(s,''\\).split\\(\\)\\)`n        print\\(f'--- {sid}/{s}: {t[:420]}'\\)`n\")",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Adhikaar\\\\6c637291-b2ab-43d5-9d37-b144676b2584\\\\tasks\\\\b78138yap.output\" | Where-Object { $_ -match '^\\\\[\\\\d+/41\\\\]' } | Select-Object -Last 3)"
     ]
   }
 }
