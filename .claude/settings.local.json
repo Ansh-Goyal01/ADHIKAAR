@@ -1,0 +1,12 @@
+{
+  "env": {
+    "ECC_GATEGUARD": "off"
+  },
+  "permissions": {
+    "allow": [
+      "PowerShell(npm *)",
+      "PowerShell(git *)",
+      "PowerShell(& D:\\\\Adhikaar\\\\backend\\\\.venv\\\\Scripts\\\\python.exe \"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Adhikaar\\\\6c637291-b2ab-43d5-9d37-b144676b2584\\\\scratchpad\\\\smoke_keys.py\")"
+    ]
+  }
+}
