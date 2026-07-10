@@ -22,6 +22,10 @@ class Settings(BaseSettings):
     # "llm" = LLM decides (Phase 1 baseline, kept for the eval comparison)
     eligibility_engine: str = "rules"
 
+    # "gemini" (default) or "groq" — set PRIMARY_LLM=groq when Gemini free-tier
+    # quota is exhausted to skip its retry latency entirely.
+    primary_llm: str = "gemini"
+
     gemini_model: str = "gemini-2.5-flash"
     groq_model: str = "llama-3.3-70b-versatile"
     embedding_model: str = "BAAI/bge-small-en-v1.5"

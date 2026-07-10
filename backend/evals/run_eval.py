@@ -22,7 +22,8 @@ CASE_DELAY_SECONDS = 2.0  # stay well inside free-tier rate limits
 
 
 def load_cases() -> list[dict]:
-    return [json.loads(line) for line in DATASET.read_text(encoding="utf-8").splitlines() if line.strip()]
+    lines = DATASET.read_text(encoding="utf-8").splitlines()
+    return [json.loads(line) for line in lines if line.strip()]
 
 
 def run(phase: str) -> dict:
@@ -39,7 +40,8 @@ def run(phase: str) -> dict:
         try:
             state = run_assessment(case["message"], engine=engine)
         except Exception as exc:  # noqa: BLE001 — rate-limit weather: wait out, retry once
-            print(f"[{i + 1}/{len(cases)}] {case['case_id']}: ERROR {type(exc).__name__}; retrying in 60s")
+            name = type(exc).__name__
+            print(f"[{i + 1}/{len(cases)}] {case['case_id']}: ERROR {name}; retrying in 60s")
             time.sleep(60)
             try:
                 state = run_assessment(case["message"], engine=engine)
@@ -68,7 +70,13 @@ def run(phase: str) -> dict:
         # Excerpt = the retrieved chunk when the citation points at one; for rule
         # citations the quote itself is the (human-verified) official clause.
         pre_claims = [
-            (reason.text, "\n".join(chunks[c.chunk_id] for c in reason.citations if c.chunk_id in chunks) or None)
+            (
+                reason.text,
+                "\n".join(
+                    chunks[c.chunk_id] for c in reason.citations if c.chunk_id in chunks
+                )
+                or None,
+            )
             for a in state.get("assessments", [])
             for reason in a.reasons
         ]
@@ -119,7 +127,8 @@ def run(phase: str) -> dict:
 
     RESULTS_DIR.mkdir(exist_ok=True)
     out = RESULTS_DIR / f"{phase}-{datetime.now(UTC):%Y%m%d-%H%M}.json"
-    out.write_text(json.dumps({"summary": summary, "per_case": per_case}, indent=1), encoding="utf-8")
+    payload = json.dumps({"summary": summary, "per_case": per_case}, indent=1)
+    out.write_text(payload, encoding="utf-8")
     print(json.dumps(summary, indent=1))
     print(f"saved -> {out}")
     return summary

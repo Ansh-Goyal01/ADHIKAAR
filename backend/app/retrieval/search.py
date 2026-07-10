@@ -32,7 +32,9 @@ def _collection() -> chromadb.Collection:
     return client.get_collection(COLLECTION_NAME)
 
 
-def _to_chunks(ids: list[str], docs: list[str], metas: list[dict], scores: list[float]) -> list[RetrievedChunk]:
+def _to_chunks(
+    ids: list[str], docs: list[str], metas: list[dict], scores: list[float]
+) -> list[RetrievedChunk]:
     return [
         RetrievedChunk(
             chunk_id=chunk_id,

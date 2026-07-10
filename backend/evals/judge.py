@@ -24,7 +24,7 @@ Official excerpt:
 
 Is every factual assertion in the claim directly supported by the excerpt (no outside
 knowledge, no charitable inference)? Reply with JSON: {{"supported": true}} or {{"supported": false}}.
-"""
+"""  # noqa: E501 — do not reflow: the prompt is a cache key shared across eval phases
 
 
 def claim_supported(claim: str, excerpt: str) -> bool:

@@ -37,7 +37,13 @@ def _score_pair(gold: str, pred: Pred) -> Outcome:
     if gold == "eligible":
         return {"positive": "correct", "negative": "fn", "abstain": "abstain", "absent": "fn"}[pred]
     if gold == "not_eligible":
-        return {"positive": "fp", "negative": "correct", "abstain": "abstain", "absent": "correct"}[pred]
+        outcomes: dict[Pred, Outcome] = {
+            "positive": "fp",
+            "negative": "correct",
+            "abstain": "abstain",
+            "absent": "correct",
+        }
+        return outcomes[pred]
     return {"positive": "fp", "negative": "fn", "abstain": "correct", "absent": "abstain"}[pred]
 
 
@@ -61,7 +67,8 @@ def score_case(
 
 def summarize(outcomes: list[PairOutcome]) -> dict[str, float | int]:
     total = len(outcomes)
-    counts = {k: sum(1 for o in outcomes if o.outcome == k) for k in ("correct", "fp", "fn", "abstain")}
+    kinds = ("correct", "fp", "fn", "abstain")
+    counts = {k: sum(1 for o in outcomes if o.outcome == k) for k in kinds}
     return {
         "pairs": total,
         "accuracy": round(counts["correct"] / total, 4) if total else 0.0,

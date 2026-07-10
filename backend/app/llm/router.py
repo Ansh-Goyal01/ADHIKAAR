@@ -12,6 +12,7 @@ from typing import TypeVar
 
 from pydantic import BaseModel
 
+from app.config import settings
 from app.llm import gemini, groq_client
 
 logger = logging.getLogger(__name__)
@@ -33,13 +34,14 @@ def generate_structured_resilient(
 ) -> T:
     """Structured output from Gemini, falling back to Groq. `validate` may raise
     to reject a semantically-bad result and trigger the fallback."""
-    try:
-        result = gemini.generate_structured(prompt, schema)
-        if validate is not None:
-            validate(result)
-        return result
-    except Exception as exc:  # noqa: BLE001 — any primary failure triggers fallback
-        logger.warning("gemini failed (%s: %s); falling back to groq", type(exc).__name__, exc)
+    if settings.primary_llm == "gemini":
+        try:
+            result = gemini.generate_structured(prompt, schema)
+            if validate is not None:
+                validate(result)
+            return result
+        except Exception as exc:  # noqa: BLE001 — any primary failure triggers fallback
+            logger.warning("gemini failed (%s: %s); falling back to groq", type(exc).__name__, exc)
 
     text = groq_client.complete(
         prompt + GROQ_JSON_SUFFIX.format(schema=json.dumps(schema.model_json_schema())),

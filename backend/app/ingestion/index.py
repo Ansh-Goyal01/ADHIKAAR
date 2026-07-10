@@ -1,5 +1,7 @@
 """Embed corpus chunks with BGE-small (fastembed/ONNX) and index them in Chroma."""
 
+import contextlib
+
 import chromadb
 from fastembed import TextEmbedding
 
@@ -26,10 +28,8 @@ def build_index() -> int:
     vectors = [v.tolist() for v in embedder.embed([c.text for c in chunks], batch_size=32)]
 
     client = get_client()
-    try:
+    with contextlib.suppress(Exception):  # collection may not exist yet
         client.delete_collection(COLLECTION_NAME)
-    except Exception:  # noqa: BLE001 — collection may not exist yet
-        pass
     collection = client.create_collection(COLLECTION_NAME, metadata={"hnsw:space": "cosine"})
     collection.add(
         ids=[c.chunk_id for c in chunks],

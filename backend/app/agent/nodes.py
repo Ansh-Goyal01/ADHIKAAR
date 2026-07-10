@@ -213,7 +213,9 @@ def assess(state: AgentState) -> AgentState:
     for assessment in batch.assessments:
         canonical = candidates.get(assessment.scheme_id.strip().lower())
         if canonical is None:
-            logger.warning("assessor referenced unknown scheme %r — discarded", assessment.scheme_id)
+            logger.warning(
+                "assessor referenced unknown scheme %r — discarded", assessment.scheme_id
+            )
             continue
         assessments.append(assessment.model_copy(update={"scheme_id": canonical}))
     return {"assessments": assessments}
