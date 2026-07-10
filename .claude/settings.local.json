@@ -27,7 +27,14 @@
       "PowerShell(& D:\\\\Adhikaar\\\\backend\\\\.venv\\\\Scripts\\\\python.exe -X utf8 \"C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Adhikaar\\\\6c637291-b2ab-43d5-9d37-b144676b2584\\\\scratchpad\\\\gen_scheme_notes.py\")",
       "PowerShell(Set-Location D:\\\\Adhikaar\\\\backend; Start-Process -WindowStyle Hidden .venv\\\\Scripts\\\\python.exe -ArgumentList '-X','utf8','-m','uvicorn','app.api.main:app','--port','8000'; Start-Sleep -Seconds 12; $h = Invoke-RestMethod http://127.0.0.1:8000/health; Write-Output \"health: $\\($h.status\\)\"; $s = Invoke-RestMethod http://127.0.0.1:8000/api/schemes; Write-Output \"schemes: $\\($s.Count\\)\"; $body = @{message='I am a 30 year old street vendor in Delhi selling vegetables from a cart.'} | ConvertTo-Json; $r = Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/assess -ContentType 'application/json' -Body $body; Write-Output \"status: $\\($r.status\\)\"; $r.results | ForEach-Object { Write-Output \"$\\($_.short_name\\) => $\\($_.verdict\\)\" })",
       "PowerShell($body = @{message='I am a 30 year old street vendor in Delhi selling vegetables from a cart.'} | ConvertTo-Json; $r = Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/assess -ContentType 'application/json' -Body $body; Write-Output \"results count: $\\($r.results.Count\\)\"; foreach \\($x in $r.results\\) { Write-Output \"$\\($x.short_name\\) => $\\($x.verdict\\) | reasons: $\\($x.reasons.Count\\) | dropped: $\\($x.dropped_claims\\)\" })",
-      "PowerShell(Get-Process *)"
+      "PowerShell(Get-Process *)",
+      "PowerShell(Set-Location D:\\\\Adhikaar\\\\web; npx --yes shadcn@4.12.0 init -y -b radix 2>&1 | Select-Object -Last 4; npx --yes shadcn@4.12.0 add button card badge skeleton textarea separator collapsible 2>&1 | Select-Object -Last 4; Write-Output \"button: $\\(Test-Path components\\\\ui\\\\button.tsx\\) json: $\\(Test-Path components.json\\)\")",
+      "PowerShell(try { $h = Invoke-RestMethod http://127.0.0.1:8000/health -TimeoutSec 5; Write-Output \"backend: $\\($h.status\\)\" } catch { Write-Output 'backend: DOWN' }; Set-Location D:\\\\Adhikaar\\\\web; Start-Process -WindowStyle Hidden npm -ArgumentList 'run','start'; Start-Sleep -Seconds 10; try { \\(Invoke-WebRequest http://localhost:3000 -UseBasicParsing -TimeoutSec 10\\).StatusCode } catch { 'frontend not up yet' })",
+      "PowerShell(Start-Sleep -Seconds 8; try { \\(Invoke-WebRequest http://localhost:3000 -UseBasicParsing -TimeoutSec 10\\).StatusCode } catch { Write-Output \"still down: $\\($_.Exception.Message\\)\" })",
+      "mcp__plugin_ecc_chrome-devtools__take_screenshot",
+      "mcp__plugin_ecc_chrome-devtools__take_snapshot",
+      "mcp__plugin_ecc_chrome-devtools__click",
+      "mcp__plugin_ecc_chrome-devtools__evaluate_script"
     ]
   }
 }

@@ -153,7 +153,8 @@ For each candidate scheme:
     unverifiable fact remains (e.g. BPL list membership).
   - "not_eligible" — the profile clearly violates at least one criterion or exclusion.
   - "need_more_info" — a required fact is null in the profile; list it in missing_info.
-- summary: one kind, plain-language sentence for the person.
+- summary: one kind, plain-language sentence speaking directly to the person as "you"
+  (e.g. "You appear to qualify because…"), never "the person" or "the applicant".
 - reasons: each reason states ONE criterion check, and MUST cite the chunk_id it came
   from with a short VERBATIM quote (copy the exact words) from that chunk.
 - Never invent criteria, amounts, or entitlements not present in the excerpts.
