@@ -24,6 +24,9 @@ web/next-env.d.ts
 # ML model caches
 .sentence_transformers/
 
+# Obsidian vault — personal thinking space, kept out of git for now (user decision 2026-07-10)
+obsidian-vault/
+
 # OS / editor
 .DS_Store
 Thumbs.db
