@@ -1,0 +1,273 @@
+"""Pipeline nodes: profile-builder → retriever → assessor → verifier → composer.
+
+Phase 1: the assessor is an LLM judging eligibility from retrieved official text.
+Phase 2 will swap it for the deterministic rules engine; every other node stays.
+"""
+
+import json
+import logging
+import re
+
+from app.agent.state import (
+    AgentState,
+    AssessmentBatch,
+    ProfileExtraction,
+    SchemeResult,
+    UserProfile,
+    VerifiedCitation,
+    VerifiedReason,
+)
+from app.ingestion.corpus import load_corpus
+from app.ingestion.models import CorpusDoc
+from app.llm.router import generate_structured_resilient
+from app.retrieval.search import RetrievedChunk, get_sections, search
+
+logger = logging.getLogger(__name__)
+
+TOP_K = 18
+MAX_CONTEXT_CHUNKS = 26
+MIN_QUOTE_CHARS = 12
+
+_corpus_by_id: dict[str, CorpusDoc] | None = None
+
+
+def corpus_by_id() -> dict[str, CorpusDoc]:
+    global _corpus_by_id
+    if _corpus_by_id is None:
+        _corpus_by_id = {doc.scheme_id: doc for doc in load_corpus()}
+    return _corpus_by_id
+
+
+# --- 1. profile builder ---
+
+PROFILE_PROMPT = """You extract structured facts from how a person describes their life
+situation, for checking Indian government welfare scheme eligibility.
+
+Rules:
+- Extract ONLY what the person actually stated or clearly implied. Never guess.
+- Leave a field null if not stated. Do not default anything.
+- annual_family_income_inr is yearly family income in rupees (convert "2 lakh" = 200000,
+  monthly incomes to yearly).
+- is_enough_to_assess: true if the description gives at least a broad picture
+  (some of: age, occupation, income, family situation). false only if it is too
+  thin to say anything useful.
+- If false, write ONE kind clarifying question in simple words asking only for the
+  most decision-relevant missing facts (at most 3 things).
+
+Previously known profile (merge; new statements override): {prior}
+
+The person says:
+\"\"\"{message}\"\"\"
+"""
+
+
+def build_profile(state: AgentState) -> AgentState:
+    prior = state.get("prior_profile") or {}
+    prompt = PROFILE_PROMPT.format(
+        prior=json.dumps(prior, ensure_ascii=False), message=state["message"]
+    )
+    extraction = generate_structured_resilient(prompt, ProfileExtraction)
+
+    # Merge: keep prior values unless the new extraction states them.
+    merged = UserProfile.model_validate(prior) if prior else UserProfile()
+    update = extraction.profile.model_dump(exclude_none=True, exclude={"notes"})
+    merged = merged.model_copy(update=update)
+    if extraction.profile.notes:
+        merged.notes = extraction.profile.notes
+
+    if extraction.is_enough_to_assess:
+        return {"profile": merged, "status": "ok"}
+    return {
+        "profile": merged,
+        "status": "need_info",
+        "question": extraction.clarifying_question
+        or "Could you share your age, what you do for a living, and your family's yearly income?",
+    }
+
+
+# --- 2. retriever ---
+
+
+def _profile_query(profile: UserProfile) -> str:
+    parts: list[str] = []
+    if profile.age is not None:
+        parts.append(f"{profile.age} year old")
+    if profile.gender:
+        parts.append(profile.gender)
+    if profile.marital_status:
+        parts.append(profile.marital_status)
+    if profile.occupation:
+        parts.append(profile.occupation)
+    if profile.is_farmer_with_land:
+        parts.append("farmer with cultivable land")
+    if profile.area:
+        parts.append(f"{profile.area} area")
+    if profile.social_category and profile.social_category != "general":
+        parts.append(profile.social_category.upper())
+    if profile.has_bpl_card:
+        parts.append("below poverty line BPL card")
+    if profile.disability_percent:
+        parts.append(f"{profile.disability_percent}% disability")
+    if profile.annual_family_income_inr is not None:
+        parts.append(f"family income {profile.annual_family_income_inr} rupees per year")
+    if profile.is_student:
+        parts.append("student")
+    if profile.daughter_age is not None:
+        parts.append(f"daughter aged {profile.daughter_age}")
+    if profile.notes:
+        parts.append(profile.notes)
+    return "eligibility for government welfare schemes: " + ", ".join(parts)
+
+
+def retrieve(state: AgentState) -> AgentState:
+    hits = search(_profile_query(state["profile"]), k=TOP_K)
+
+    # Guarantee the LLM sees the decisive sections of every candidate scheme.
+    seen: dict[str, RetrievedChunk] = {c.chunk_id: c for c in hits}
+    for scheme_id in {c.scheme_id for c in hits}:
+        for chunk in get_sections(scheme_id, ["eligibility", "exclusions"]):
+            seen.setdefault(chunk.chunk_id, chunk)
+
+    chunks = sorted(seen.values(), key=lambda c: c.score, reverse=True)[:MAX_CONTEXT_CHUNKS]
+    return {"retrieved": chunks}
+
+
+# --- 3. assessor (Phase 1: LLM judgment) ---
+
+ASSESS_PROMPT = """You are checking which Indian central government welfare schemes a person
+may be eligible for, using ONLY the official scheme text excerpts provided.
+
+Person's profile (null = unknown, never assume):
+{profile}
+
+Official excerpts (each begins with CHUNK <chunk_id>):
+{context}
+
+Candidate scheme ids — output EXACTLY ONE assessment for EACH of these:
+{candidate_ids}
+
+For each candidate scheme:
+- verdict:
+  - "eligible" — the profile clearly satisfies every criterion visible in the excerpts.
+  - "likely_eligible" — criteria in the excerpts are satisfied but a self-declared or
+    unverifiable fact remains (e.g. BPL list membership).
+  - "not_eligible" — the profile clearly violates at least one criterion or exclusion.
+  - "need_more_info" — a required fact is null in the profile; list it in missing_info.
+- summary: one kind, plain-language sentence for the person.
+- reasons: each reason states ONE criterion check, and MUST cite the chunk_id it came
+  from with a short VERBATIM quote (copy the exact words) from that chunk.
+- Never invent criteria, amounts, or entitlements not present in the excerpts.
+- missing_info: plain-language names of the missing facts (only for need_more_info).
+"""
+
+
+def assess(state: AgentState) -> AgentState:
+    context = "\n\n".join(f"CHUNK {c.chunk_id}\n{c.text}" for c in state["retrieved"])
+    candidate_ids = sorted({c.scheme_id for c in state["retrieved"]})
+    prompt = ASSESS_PROMPT.format(
+        profile=state["profile"].model_dump_json(indent=1),
+        context=context,
+        candidate_ids=", ".join(candidate_ids),
+    )
+    def reject_empty(batch: AssessmentBatch) -> None:
+        if not batch.assessments:
+            raise ValueError("assessor returned an empty batch despite retrieved candidates")
+
+    batch = generate_structured_resilient(prompt, AssessmentBatch, validate=reject_empty)
+
+    # LLMs sometimes echo the scheme's name instead of its id — map both back.
+    candidates: dict[str, str] = {}
+    for chunk in state["retrieved"]:
+        candidates[chunk.scheme_id.lower()] = chunk.scheme_id
+        candidates[chunk.short_name.lower()] = chunk.scheme_id
+        candidates[chunk.scheme_name.lower()] = chunk.scheme_id
+
+    assessments = []
+    for assessment in batch.assessments:
+        canonical = candidates.get(assessment.scheme_id.strip().lower())
+        if canonical is None:
+            logger.warning("assessor referenced unknown scheme %r — discarded", assessment.scheme_id)
+            continue
+        assessments.append(assessment.model_copy(update={"scheme_id": canonical}))
+    return {"assessments": assessments}
+
+
+# --- 4. verifier ---
+
+
+def _normalize(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
+def verify_and_compose(state: AgentState) -> AgentState:
+    """Drop any claim whose citation can't be matched to retrieved official text,
+    then compose final per-scheme results enriched with documents & how-to-apply."""
+    chunks = {c.chunk_id: c for c in state["retrieved"]}
+    corpus = corpus_by_id()
+    results: list[SchemeResult] = []
+
+    for assessment in state["assessments"]:
+        doc = corpus.get(assessment.scheme_id)
+        if doc is None:
+            continue
+        verified_reasons: list[VerifiedReason] = []
+        dropped = 0
+        for reason in assessment.reasons:
+            kept: list[VerifiedCitation] = []
+            for citation in reason.citations:
+                chunk = chunks.get(citation.chunk_id)
+                quote_ok = (
+                    chunk is not None
+                    and len(citation.quote) >= MIN_QUOTE_CHARS
+                    and _normalize(citation.quote) in _normalize(chunk.text)
+                )
+                if quote_ok:
+                    kept.append(
+                        VerifiedCitation(
+                            chunk_id=citation.chunk_id,
+                            quote=citation.quote,
+                            section=chunk.section,
+                            source_url=chunk.source_url,
+                        )
+                    )
+                else:
+                    dropped += 1
+            if kept:
+                verified_reasons.append(VerifiedReason(text=reason.text, citations=kept))
+            else:
+                dropped += 1
+
+        verdict = assessment.verdict
+        summary = assessment.summary
+        missing = list(assessment.missing_info)
+        if not verified_reasons and verdict != "need_more_info":
+            verdict = "need_more_info"
+            summary = (
+                "We couldn't verify this against the official scheme text, "
+                "so we're not making a claim either way."
+            )
+            missing = missing or ["verification against official text"]
+            logger.warning(
+                "verifier downgraded %s: no verifiable citations", assessment.scheme_id
+            )
+
+        results.append(
+            SchemeResult(
+                scheme_id=assessment.scheme_id,
+                scheme_name=doc.name,
+                short_name=doc.short_name,
+                verdict=verdict,
+                summary=summary,
+                reasons=verified_reasons,
+                missing_info=missing,
+                documents=doc.sections.get("documents", ""),
+                how_to_apply=doc.sections.get("application", ""),
+                page_url=doc.page_url,
+                references=[r.model_dump() for r in doc.references],
+                dropped_claims=dropped,
+            )
+        )
+
+    order = {"eligible": 0, "likely_eligible": 1, "need_more_info": 2, "not_eligible": 3}
+    results.sort(key=lambda r: order[r.verdict])
+    return {"results": results, "status": "ok"}
