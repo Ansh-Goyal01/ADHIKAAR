@@ -21,12 +21,12 @@ def _get_client() -> Groq:
     return _client
 
 
-THROTTLE_SECONDS = 1.0  # keep well inside the free-tier requests/tokens-per-minute caps
+THROTTLE_SECONDS = 2.5  # keep well inside the free-tier requests/tokens-per-minute caps
 
 
 @retry(
-    stop=stop_after_attempt(6),
-    wait=wait_exponential(multiplier=2, min=2, max=90),
+    stop=stop_after_attempt(8),
+    wait=wait_exponential(multiplier=2, min=2, max=120),
     retry=retry_if_exception_type(APIError),
 )
 def _complete(prompt: str, temperature: float, json_mode: bool) -> str:

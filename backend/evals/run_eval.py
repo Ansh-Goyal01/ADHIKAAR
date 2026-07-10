@@ -18,7 +18,7 @@ from evals.metrics import PairOutcome, retrieval_metrics, score_case, summarize
 
 DATASET = Path(__file__).parent / "dataset.jsonl"
 RESULTS_DIR = Path(__file__).parent / "results"
-CASE_DELAY_SECONDS = 2.0  # stay well inside free-tier rate limits
+CASE_DELAY_SECONDS = 5.0  # stay well inside free-tier rate limits
 
 
 def load_cases() -> list[dict]:
