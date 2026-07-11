@@ -1,9 +1,10 @@
 """Faithfulness judge — RAGAS-style claim-support checking.
 
 Every reason the assessor produced is checked against the official text it cited,
-by an independent model (Groq Llama 3.3 70B, not the Gemini generator) to reduce
-self-preference bias. Hallucination rate = unsupported claims / total claims.
-Claims with no resolvable citation are unsupported by definition.
+by an independent model (Groq Llama 3.1 8B — a different family and quota bucket
+than the generator) to reduce self-preference bias. Hallucination rate =
+unsupported claims / total claims. Claims with no resolvable citation are
+unsupported by definition.
 """
 
 import json

@@ -1,6 +1,7 @@
 """Gemini client: JSON-schema structured output, disk-cached, retried."""
 
 import logging
+import time
 from typing import TypeVar
 
 from google import genai
@@ -14,6 +15,8 @@ from app.llm.cache import cache_key, get_cache
 logger = logging.getLogger(__name__)
 
 T = TypeVar("T", bound=BaseModel)
+
+THROTTLE_SECONDS = 6.5  # free tier allows 10 requests/minute
 
 _client: genai.Client | None = None
 
@@ -55,6 +58,7 @@ def generate_structured(prompt: str, schema: type[T], temperature: float = 0.0) 
     if text is None:
         text = _generate(prompt, schema, temperature)
         cache.set(key, text)
+        time.sleep(THROTTLE_SECONDS)
     else:
         logger.debug("gemini cache hit")
     return schema.model_validate_json(text)

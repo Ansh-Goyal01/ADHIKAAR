@@ -27,6 +27,7 @@ logger = logging.getLogger(__name__)
 TOP_K = 18
 MAX_CONTEXT_CHUNKS = 26
 MIN_QUOTE_CHARS = 12
+MIN_DECISIVE_FACTS = 3
 
 _corpus_by_id: dict[str, CorpusDoc] | None = None
 
@@ -101,7 +102,15 @@ def build_profile(state: AgentState) -> AgentState:
     if extraction.profile.notes:
         merged.notes = extraction.profile.notes
 
-    if extraction.is_enough_to_assess:
+    # "Enough to assess" is policy, not extraction — decide it deterministically.
+    # Location/gender alone don't drive eligibility; three other concrete facts do.
+    low_signal_fields = {"notes", "state", "area", "gender"}
+    decisive_facts = sum(
+        1
+        for field, value in merged.model_dump().items()
+        if field not in low_signal_fields and value is not None
+    )
+    if extraction.is_enough_to_assess or decisive_facts >= MIN_DECISIVE_FACTS:
         return {"profile": merged, "status": "ok"}
     return {
         "profile": merged,
