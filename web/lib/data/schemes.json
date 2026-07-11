@@ -1,0 +1,787 @@
+[
+ {
+  "scheme_id": "ab-pmjay",
+  "short_name": "PM-JAY",
+  "name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+  "category": "health",
+  "ministry": "Ministry Of Health & Family Welfare",
+  "page_url": "https://www.myscheme.gov.in/schemes/ab-pmjay",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://www.pmjay.gov.in/about/pmjay"
+   },
+   {
+    "title": "Guidelines For Beneficiary Identification",
+    "url": "https://sha.uk.gov.in//ScannedDocs/WebSite/Uploads/BIS/beneficiary-identification-guidelineson-6-5-19.pdf"
+   },
+   {
+    "title": "Guidelines On Payment For Special Cases",
+    "url": "https://pmjay.gov.in/sites/default/files/2020-05/NHA-Guidelines-for-Special-Cases-vFinal_0.pdf"
+   },
+   {
+    "title": "Guidelines On Claim Settlement",
+    "url": "https://www.pmjay.gov.in/sites/default/files/2018-07/GuidelinesonClaimSettlement_0.pdf"
+   },
+   {
+    "title": "UMANG",
+    "url": "https://web.umang.gov.in/landing/department/pradhan-mantri-jan-arogya-yojana.html"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "> **Financial Health Insurance Cover:** - **Annual Hospitalization Coverage:** Cashless coverage up to ₹5,00,000/- per family per year.- **Comprehensive Treatment Costs:** Covers consultation, medicines, diagnostics,…",
+  "sections": {
+   "details": "The scheme “Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana” implemented by the National Health Authority (NHA) under Ministry of Health and Family Welfare, Government of India, aims to provide cashless hospitalisation coverage of ₹5,00,000 per family per year to poor and vulnerable families for secondary and tertiary healthcare services. It was launched on 23rd September 2018 in Ranchi, Jharkhand, by the Hon’ble Prime Minister of India.\n\"Ayushman Bharat\" is an attempt to move from a sectoral and segmented approach to health service delivery to a comprehensive need-based health care service. This scheme aims to undertake path-breaking interventions to holistically address the healthcare system (covering prevention, promotion, and ambulatory care) at the primary, secondary, and tertiary levels. Ayushman Bharat adopts a continuum of care approach, comprising two interrelated components, which are -\n\n  - **Health and Wellness Centres (HWCs):** The scheme aims to provide comprehensive primary healthcare services, including maternal and child health, non-communicable disease care, free essential drugs, and diagnostics, close to people’s homes. The centres promote preventive healthcare and healthy behaviours to reduce the risk of chronic diseases.\n\n  - **Pradhan Mantri Jan Arogya Yojana (PM-JAY):** The second component under Ayushman Bharat is the Pradhan Mantri Jan Arogya Yojna or PM-JAY as it is popularly known. It aims to provide cashless health insurance coverage of up to ₹5,00,000 per family per year for secondary and tertiary hospitalization to poor and vulnerable families.",
+   "benefits": "> **Financial Health Insurance Cover:**\n\n- **Annual Hospitalization Coverage:** Cashless coverage up to ₹5,00,000/- per family per year.- **Comprehensive Treatment Costs:** Covers consultation, medicines, diagnostics, surgery, ICU, implants, accommodation, and food.- **Pre and Post Hospitalization Support:** Covers 3 days pre-hospitalization and 15 days post-hospitalization expenses.- **Treatment Complication Coverage:** Covers complications arising during treatment.\n> **Coverage Features:**\n\n- **Pre-Existing Disease Coverage:** Covers all pre-existing diseases from day one.- **No Family Size Limit:** No restriction on age, gender, or family size.- **Nationwide Portability:** Benefits available across India in empanelled hospitals.- **Wide Procedure Coverage:** Covers approximately 1,929 medical procedures.",
+   "eligibility": "> **Rural Beneficiaries**\n\nOut of the total seven deprivation criteria for rural areas, PM-JAY covered all such families who fall into at least one of the following six deprivation criteria and automatic inclusion(Destitute/ living on alms, manual scavenger households, primitive tribal group, legally released bonded labour) criteria:\n\n1. Only one room with kucha walls and kucha roof\n1. No adult member between ages 16 to 59\n1. Households with no adult male member between ages 16 to 59\n1. Disabled member and no able-bodied adult member\n1. SC/ST households\n1. Landless households deriving a major part of their income from manual casual labour\n\n- Automatically includedHouseholds without shelter\n\n1. Destitute/ living on alms,\n1. Manual scavenger families,\n1. Primitive tribal groups,\n1. Legally released bonded labour.\n\n> **Urban Beneficiaries**\n\nFor urban areas, the following 11 occupational categories of workers are eligible for the scheme:\n\n1. Ragpicker\n1. Beggar\n1. Domestic worker\n1. Street vendor/ Cobbler/hawker / other service provider working on streets\n1. Construction worker/ Plumber/ Mason/ Labour/ Painter/ Welder/ Security guard/ Coolie and other head-load worker\n1. Sweeper/ Sanitation worker/ Mali\n1. Home-based worker/ Artisan/ Handicrafts worker/ Tailor\n1. Transport worker/ Driver/ Conductor/ Helper to drivers and conductors/ Cart puller/ Rickshaw puller\n1. Shop worker/ Assistant/ Peon in small establishment/ Helper/Delivery assistant / Attendant/ Waiter\n1. Electrician/ Mechanic/ Assembler/ Repair worker\n1. Washer-man/ Chowkidar",
+   "exclusions": "1. Those who own a two, three, or four-wheeler or a motorized fishing boat.\n1. Those who own mechanized farming equipment.\n1. Those who have Kisan cards with a credit limit of ₹50,000/-.\n1. Those employed by the government.\n1. Those who work in government-managed non-agricultural enterprises.\n1. Those earning a monthly income above ₹10,000/-.\n1. Those owning refrigerators and landlines.\n1. Those with decent, solidly built houses.\n1. Those owning 5 acres or more of agricultural land.",
+   "application": "### Application mode: Offline\n\n  - The Arogya Mitra searches the available list of beneficiaries using details such as name, location, ration card number, mobile number, or the RSBY URN of the beneficiary. After this, the beneficiary is searched for in the BIS. The individual is identified and the scanned valid ID documents are then uploaded.\n\n  - To get a **PMJAY e-card** for themselves and their family, a potential beneficiary needs to visit either a hospital or a Community Service Centre (CSC) for identification and follow the steps mentioned below:\n**Step 1:** Potential AB-PMJAY beneficiaries are to submit the PM letter/ RSBY URN/ RC Number/ Mobile Number - The operator (commonly known as the Arogya Mitra) searches the available list of beneficiaries. The operator does this by entering details such as name, location, Ration Card number, mobile number, or even RSBY URN of the beneficiary.\n**Step 2:** Search in the BIS Application - The operator searches for the potential beneficiary in the entitled SECC, RSBY, State Health Scheme, Additional Data Collection Drive databases.\n**Step 3:** Individual Identification - The identification process is carried out if the name is found in the list. For this, documents like Aadhaar or any government ID and a Ration Card or an alternative family ID are required to validate against the details available in the system. Scanned documents are then uploaded.\n**Step 4:** Family Identification - The Arogya Mitra then identifies the family records through the ration card and the scanned documents are then uploaded. The Arogya Mitra then submits the individual and family records to the trust/insurance company for approval.\n**Step 5:** Approval or Rejection - The Health insurance company or trust may then approve or recommend rejection for the submitted beneficiaries. The cases that are recommended for rejection will be finally verified for approval or rejection by the State Health Agency (SHA).\n**Step 6:** E-card Issuance - On approval by SHA/insurance company/trust, an e-card will be issued to the beneficiary.\n\n### Application mode: Online\n\n##### ***Step 1:********* ***Register on the UMANG Portal***\n- Visit the [official website](https://web.umang.gov.in/landing/) of UMANG. In the top right corner of the landing page, click \"[Register](https://web.umang.gov.in/web_new/register).\" You will be taken to the Registration Page.\n##### ***Step 2:********* ***Mobile Number Verification and MPIN Creation***\n- You will be redirected to the mobile number verification page. Enter your mobile number and get it verified via OTP. Create an MPIN to complete the registration process. You will be taken to the UMANG homepage. [Login](https://web.umang.gov.in/web_new/login) using your Mobile Number and MPIN.\n##### ***Step 3:********* ***Accessing Services on UMANG***\n- In the tabs provided at the bottom of the page, click on the \"All Services\" tab. Select the service you want to apply for. You will be taken to the Online Application Form.\n##### ***Step 5:********* ***Completing the Application***\n- In the application form, fill in all the mandatory fields and upload all the required documents in the specified format and size.\n##### ***Step 6:********* ***Review and Confirmation***\n- Carefully review all the information provided and the documents uploaded. Make any necessary corrections, if required. Acknowledge and agree to the terms and conditions, declaration, and privacy policy, if any.\n##### ***Step 7:********* ***Submitting the Application***\n- Click the \"Submit\" or \"Apply\" button to submit your application. You'll receive a confirmation message upon successful submission of the application.",
+   "documents": "1.\tAge & Identity Proof (Aadhaar Card / PAN Card).\n2.\tProof of Address.\n3.\tContact details (Mobile, e-mail).\n4.\tCaste Certificate.\n5.\tIncome Certificate.\n6.\tDocument Proof of the Current Status of the Family (Joint or Nuclear).\n7. Aadhaar Card."
+  },
+  "rules": [
+   {
+    "id": "secc-priority-category",
+    "kind": "require",
+    "clause": "Eligibility is based on the SECC 2011 deprivation and occupational criteria — e.g. landless households deriving a major part of their income from manual casual labour, and listed urban occupational categories (ragpicker, domestic worker, street vendor, construction worker, sanitation worker and similar).",
+    "source_url": "https://www.myscheme.gov.in/schemes/ab-pmjay"
+   },
+   {
+    "id": "exclude-monthly-income-over-10k",
+    "kind": "exclude",
+    "clause": "Households earning a monthly income above ₹10,000/- are excluded.",
+    "source_url": "https://www.myscheme.gov.in/schemes/ab-pmjay"
+   },
+   {
+    "id": "exclude-government-employee",
+    "kind": "exclude",
+    "clause": "Households with any member employed in government are excluded.",
+    "source_url": "https://www.myscheme.gov.in/schemes/ab-pmjay"
+   },
+   {
+    "id": "exclude-motorized-vehicle",
+    "kind": "exclude",
+    "clause": "Households owning a motorised two/three/four wheeler or fishing boat are excluded (SECC automatic exclusion).",
+    "source_url": "https://www.myscheme.gov.in/schemes/ab-pmjay"
+   }
+  ]
+ },
+ {
+  "scheme_id": "apy",
+  "short_name": "APY",
+  "name": "Atal Pension Yojana",
+  "category": "pension",
+  "ministry": "Ministry Of Finance",
+  "page_url": "https://www.myscheme.gov.in/schemes/apy",
+  "references": [
+   {
+    "title": "Scheme Guidelines",
+    "url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf"
+   },
+   {
+    "title": "APY Subscriber Contribution Chart",
+    "url": "https://www.npscra.nsdl.co.in/nsdl/scheme-details/APY_Subscribers_Contribution_Chart_1.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "#### Upon exit on attaining 60 years The subscriber shall receive the following three benefits on attaining the age of 60: **(i) Guaranteed minimum pension amount:** Each subscriber under APY shall receive a guaranteed…",
+  "sections": {
+   "details": "Atal Pension Yojana (APY) is an old age income security scheme for a   savings account holder in the  age group of **18-40 years who is not an income tax-payee. The scheme helps in addressing** the longevity risks among the workers in the unorganized sector and encourages the workers to voluntarily save for their retirement.\n#### Focus of APY\nThe scheme is mainly targeted **at the poor, the under-privileged and workers in** the  unorganized sector.\n#### APY Subscriber Contribution Chart -\n[ https://www.npscra.nsdl.co.in/nsdl/scheme-details/APY_Subscribers_Contribution_Chart_1.pdf](https://www.npscra.nsdl.co.in/nsdl/scheme-details/APY_Subscribers_Contribution_Chart_1.pdf)\n#### **Charges and fees and overdue interest under APY:**\nThe charges and fees and the overdue interest for non-payment or delayed payment of prescribed contribution amount shall be levied on the subscribers of APY. These charges and their method of application shall be prescribed by PFRDA from time to time, in consultation with the Central Government.\n##### **Raising Grievance Under APY**\n A subscriber can raise grievance anytime free of cost from anywhere by visiting: [www.npscra.nsdl.co.in](https://www.npscra.nsdl.co.in/)\n>>Home >> select: NPS-Lite or through CGMS Subscriber raising the grievance will be allotted a token number against the grievance raised. Subscriber may check the status of the grievance under “Check the status of Grievance / Enquiry already registered”.",
+   "benefits": "#### Upon exit on attaining 60 years\nThe subscriber shall receive the following three benefits on attaining the age of 60:\n**(i) Guaranteed minimum pension amount:** Each subscriber under APY shall receive a  guaranteed minimum pension of Rs. 1000/- per month or Rs. 2000/- per month or Rs. 3000/- per month or Rs. 4000/- per month or Rs. 5000/- per month, after the age of 60 years until death.\n**(ii) Guaranteed minimum pension amount to the spouse:** After the subscriber’s demise, the spouse of the subscriber shall be entitled to receive the same pension amount as that of the subscriber,until death.\n**(iii) Return of the pension wealth to the nominee of the subscriber:** After the demise of both the subscriber and the spouse, the nominee of the subscriber shall be entitled to receive the pension wealth, as accumulated till the  subscriber's age of 60 years.\nContributions to the Atal Pension Yojana (APY) are  eligible for tax benefits similar to the National Pension System (NPS) under section 80CCD(1).\n#### Voluntary exit (Exit before 60 Years of age):\nThe subscriber shall  be refunded only the contributions made by him to APY alongwith the net actual accrued income earned on his contributions (after deducting the account maintenance charges).\nHowever, in case of subscribers who joined the scheme before 31st March 2016 and have received the Government Co-Contribution,  shall not receive the same including the   accrued  income earned thereon.\n#### For death before 60 years\n**Option 1:** In case of death of the subscriber before 60 years, option will be available to the spouse of the subscriber to continue contribution in the APY account of the subscriber, which can be maintained in the spouse’s name, for the remaining vesting period, till the original subscriber would have attained the age of 60 years. The spouse of the subscriber shall be entitled to receive the same pension amount as the subscriber until death of the spouse. Such APY account and pension amount would be in addition even if the spouse has his/her APY account and pension amount in own name.\n**Option 2:** The entire accumulated pension corpus till date under APY will be returned to the spouse / nominee.",
+   "eligibility": "#### Age of joining and contribution period\n\n1. The minimum age of joining APY is 18 years and maximum is 40 years.\n1. The age of exit and start of pension is 60 years.\n1. Subscriber contribution to APY shall be made through the facility of ‘auto-debit’ of the prescribed contribution amount from the savings bank account of the subscriber on monthly, quarterly or half-yearly basis.\n1. The subscribers are required to contribute the prescribed contribution amount from the age of joining APY till the age of  60 years.",
+   "exclusions": "**From 1st October, 2022, any citizen who is or has been an income tax payer, shall  not be eligible to join  APY.**\n####",
+   "application": "### Application mode: Online\n\n#### **Process 1:**\n\n1. One can also open an APY account online using one's Net banking facility.\n1. The applicant can login into his/her internet banking account and search for APY on dashboard.\n1. Customer has to fill basic and Nominee details.\n1. Customer has to give consent for  auto debit of premium from the account and submit the form.\n\n##### **Process 2:**\n##### Visit website “[https://enps.nsdl.com/eNPS/NationalPensionSystem.html]() “ and select “Atal Pension Yojana”.\n##### Select “APY Registration”\n##### Fill the basic details in the form. One can complete KYC through 3 options –\n\n  - Offline KYC – Where one has to upload XML file of Aadhaar\n  - Aadhaar – Where KYC is done through OTP verification on Mobile Number register with Aadhaar\n  - Virtual ID – Where Aadhaar virtual ID is created for KYC\n\n**Citizen can select either one of three options.**\n##### Once the basic details are filled, an acknowledgement number is generated.\n\n  - Citizen then has to fill personal details and decide the pension amount he/she wants after 60 years.\n  - The Citizen also has to decide the frequency of contribution for the scheme.\n  - Once the citizen “confirms” for personal details, he/she  has to then fill nominee details.\n  - After submitting the personal and Nominee details, Citizen is redirected to NSDL website for eSign.\n  - Once Aadhaar is OTP verified,  Citizen gets successfully registered in APY.\n  - One can also join digitally through e-APY portal or through web portal of banks providing such facility.\n\n##### Visit website “[https://enps.nsdl.com/eNPS/NationalPensionSystem.html ](https://enps.nsdl.com/eNPS/NationalPensionSystem.html)“ and select “Atal Pension Yojana”.\n##### Helpline Number - - Toll Free Helpline number for APY Scheme is 1800-110-069\n\n### Application mode: Offline\n\n##### One can visit the nearest Bank branch or Post Office where he/ she is having a saving bank account and submit the APY registration form for opening the APY account.",
+   "documents": "**KYC details are fetched from active Bank/Post Office Savings account.**"
+  },
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "The minimum age of joining APY is 18 years and maximum is 40 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/apy"
+   },
+   {
+    "id": "age-at-most-40",
+    "kind": "require",
+    "clause": "The minimum age of joining APY is 18 years and maximum is 40 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/apy"
+   },
+   {
+    "id": "savings-bank-account",
+    "kind": "require",
+    "clause": "Subscriber contribution to APY shall be made through the facility of 'auto-debit' of the prescribed contribution amount from the savings bank account of the subscriber.",
+    "source_url": "https://www.myscheme.gov.in/schemes/apy"
+   },
+   {
+    "id": "exclude-income-tax-payer",
+    "kind": "exclude",
+    "clause": "From 1st October, 2022, any citizen who is or has been an income tax payer, shall not be eligible to join APY.",
+    "source_url": "https://www.myscheme.gov.in/schemes/apy"
+   }
+  ]
+ },
+ {
+  "scheme_id": "igndps",
+  "short_name": "IGNDPS",
+  "name": "Indira Gandhi National Disability Pension Scheme",
+  "category": "pension",
+  "ministry": "Ministry Of Rural Development",
+  "page_url": "https://www.myscheme.gov.in/schemes/igndps",
+  "references": [
+   {
+    "title": "Scheme Guidelines",
+    "url": "https://nsap.dord.gov.in/Guidelines/dps.pdf"
+   },
+   {
+    "title": "Office Memorandum",
+    "url": "https://nsap.dord.gov.in/Guidelines/social_audit_guidelines.pdf"
+   },
+   {
+    "title": "Official Website",
+    "url": "https://nsap.dord.gov.in/"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "- A pension of ₹300/- per month is provided to Divyangjan between 18-79 years. - A pension of ₹500/- per month will be provided to Divyangjan aged 80 years and above.",
+  "sections": {
+   "details": "The \"Indira Gandhi National Disability Scheme\" was launched in February 2009 by the Ministry of Rural Development, headed by the central government, to support disabled people in our country. This scheme, introduced under the National Social Assistance Program provides a monthly pension to disabled people for the prosperity of their lives. Any disabled person whose age is more than 18 years, and with a disability of 80% or more belonging to the poverty line can apply for this scheme.",
+   "benefits": "- A pension of ₹300/- per month is provided to Divyangjan between 18-79 years.\n- A pension of ₹500/- per month will be provided to Divyangjan aged 80 years and above.",
+   "eligibility": "1. The age of the applicant should be 18 years and above.\n1. The applicant should be a resident of India.\n1. The applicant should be a physically or mentally disabled person.\n1. The applicant’s disability should be more than 80%.\n1. Dwarfs are also eligible for this scheme.\n1. The applicant should belong to the below poverty line.",
+   "application": "### Application mode: Online\n\n**Step 01:** Applicants can apply online through the UMANG App or the official [National Social Assistance Programme (NSAP) Portal. ](https://www.dord.gov.in/offerings/schemes-and-services/details/national-social-assistance-programme-nsap-wN1cTNtQWa)\n**Step 02:** Login using the registered mobile number and OTP/MPIN.\n**Step 03:** Search for “NSAP” or “Indira Gandhi National Disability Pension Scheme (IGNDPS)”.\n**Step 04:** Click on “Apply Online”.\n**Step 05:** Fill in the required details such as personal information, Aadhaar number, bank account details, and disability-related information.\n**Step 06:** Choose the preferred mode of pension payment.\n**Step 07:** Upload the required documents and photograph.\n**Step 08:** Review the application details and click on “Submit” to complete the application process.\n**Step 09:** Applicants may also track the application and beneficiary payment status through the UMANG platform.\n\n### Application mode: Offline\n\n- Individuals can submit completely filled applications to the Gram Panchayat / Block Office in the rural area and the Municipality / Municipal Council in the urban area, as per eligibility.\n- A Verification Officer or Verification Team under an authorized officer verifies the applications with reference to facts related to eligibility\n- The Verification Officer make the necessary recommendation for sanction or rejection with reasons.\n- The list of applicants with the recommendations of the Verifying Authority is discussed in the Gram Sabha in rural areas or Ward Sabha / Area Sabha as designated by the State Government in urban areas and thereafter in the Gram Panchayats and Municipalities.\n- If the time limits are not adhered to by Gram Sabha / Ward Sabhas, Gram Panchayats / Municipalities the Verification Officer directly submits his recommendations to the Sanctioning Authority under intimation to the Gram Panchayat / Municipality.\n- After receipt of applications which are verified and recommended by the Gram Sabha / Ward Committee / Area Sabha, the Sanctioning Authority convey approval to the applicant in the form of a Sanction Order with a copy to Gram Panchayat / Municipality concerned.\n- The Sanctioning Authority issues Sanction Order under his seal\n- Every beneficiary who has been sanctioned pension under schemes of NSAP are issued a Pension Passbook. The Passbook contain details of the Sanction Order, particulars of the pensioner and disbursement details\n- The list of beneficiaries to whom sanctions are issued is displayed at the Gram Panchayat / Ward / Municipal Office and updated every three months.\n- The Pension amount is directly paid to the beneficiaries through the Direct Benefit Transfer (DBT) process to their post office or bank account."
+  },
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "The applicant should be in the age group of 18-79 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/igndps"
+   },
+   {
+    "id": "age-at-most-79",
+    "kind": "require",
+    "clause": "The applicant should be in the age group of 18-79 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/igndps"
+   },
+   {
+    "id": "disability-at-least-80",
+    "kind": "require",
+    "clause": "The applicant's disability should be more than 80%.",
+    "source_url": "https://www.myscheme.gov.in/schemes/igndps"
+   },
+   {
+    "id": "bpl-household",
+    "kind": "require",
+    "clause": "The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India.",
+    "source_url": "https://www.myscheme.gov.in/schemes/igndps"
+   }
+  ]
+ },
+ {
+  "scheme_id": "ignwps",
+  "short_name": "IGNWPS",
+  "name": "Indira Gandhi National Widow Pension Scheme",
+  "category": "pension",
+  "ministry": "Ministry Of Rural Development",
+  "page_url": "https://www.myscheme.gov.in/schemes/ignwps",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://nsap.dord.gov.in/Guidelines/wps.pdf"
+   },
+   {
+    "title": "NSAP FAQs",
+    "url": "https://nsap.dord.gov.in/circular.do?method=faq"
+   },
+   {
+    "title": "Official Website",
+    "url": "https://nsap.dord.gov.in/"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "A pension of ₹ 300/- per month is provided to Widows between 40 years and 79 years. For persons who are 80 years and above, the pension is ₹ 500/- per month.",
+  "sections": {
+   "details": "Indira Gandhi National Widow Pension Scheme (IGNWPS) is implemented by Ministry of Rural Development, Government of India. It is a non-contributory pension scheme to provide social security to widows of poor family (BPL)  of the society.",
+   "benefits": "A pension of ₹ 300/- per month is provided to Widows between 40 years and 79 years.  For persons who are 80 years and above, the pension is ₹ 500/- per month.",
+   "eligibility": "The eligibility criteria under Indira Gandhi National Widow Pension Scheme (IGNWPS) is:\n\n- The applicant must be a widow in the age group of 40-79 years.\n- The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India",
+   "exclusions": "Pension will be discontinued\n\n- In case of remarriage of widow\n- Once the widow moves above poverty line",
+   "application": "### Application mode: Online\n\n- One can download UMANG App or visit website [https://web.umang.gov.in/web_new/home](https://web.umang.gov.in/web_new/home) - The citizen can login using mobile number and OTP.\n- Once logged In, citizen can search for NSAP.\n- Click on “Apply Online”\n- Fill the basic details, choose the mode of payment of pension, upload photo and click on “Submit”.\n\n### Application mode: Offline\n\n- Individuals can submit completely filled applications to the Gram Panchayat / Block Office in the rural area and the Municipality / Municipal Council in the urban area, as per eligibility.\n- A Verification Officer or Verification Team under an authorized officer verifies the applications with reference to facts related to eligibility\n- The Verification Officer make the necessary recommendation for sanction or rejection with reasons.\n- The list of applicants with the recommendations of the Verifying Authority is discussed in the Gram Sabha in rural areas or Ward Sabha / Area Sabha as designated by the State Government in urban areas and thereafter in the Gram Panchayats and Municipalities.\n- If the time limits are not adhered to by Gram Sabha / Ward Sabhas, Gram Panchayats / Municipalities the Verification Officer directly submits his recommendations to the Sanctioning Authority under intimation to the Gram Panchayat / Municipality.\n- After receipt of applications which are verified and recommended by the Gram Sabha / Ward Committee / Area Sabha, the Sanctioning Authority convey approval to the applicant in the form of a Sanction Order with a copy to Gram Panchayat / Municipality concerned.\n- The Sanctioning Authority issues Sanction Order under his seal\n- Every beneficiary who has been sanctioned pension under schemes of NSAP are issued a Pension Passbook. The Passbook contain details of the Sanction Order, particulars of the pensioner and disbursement details\n- The list of beneficiaries to whom sanctions are issued is displayed at the Gram Panchayat / Ward / Municipal Office and updated every three months.\n- The Pension amount is directly paid to the beneficiaries through the Direct Benefit Transfer (DBT) process to their post office or bank account."
+  },
+  "rules": [
+   {
+    "id": "widowed",
+    "kind": "require",
+    "clause": "The applicant must be a widow.",
+    "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
+   },
+   {
+    "id": "woman",
+    "kind": "require",
+    "clause": "The applicant must be a widow (the pension is for women who lost their husband).",
+    "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
+   },
+   {
+    "id": "age-at-least-40",
+    "kind": "require",
+    "clause": "The applicant must be a widow in the age group of 40-79 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
+   },
+   {
+    "id": "age-at-most-79",
+    "kind": "require",
+    "clause": "The applicant must be a widow in the age group of 40-79 years. (From 80 years the Indira Gandhi National Old Age Pension Scheme applies.)",
+    "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
+   },
+   {
+    "id": "bpl-household",
+    "kind": "require",
+    "clause": "The applicant should belong to a household living below the poverty line according to the criteria prescribed by the Govt. of India.",
+    "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
+   }
+  ]
+ },
+ {
+  "scheme_id": "nsap-ignoaps",
+  "short_name": "IGNOAPS",
+  "name": "NSAP - Indira Gandhi National Old Age Pension Scheme",
+  "category": "pension",
+  "ministry": "Ministry Of Rural Development",
+  "page_url": "https://www.myscheme.gov.in/schemes/nsap-ignoaps",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://nsap.dord.gov.in/Guidelines/social_audit_guidelines.pdf"
+   },
+   {
+    "title": "Official Website",
+    "url": "https://nsap.dord.gov.in/"
+   },
+   {
+    "title": "FAQs",
+    "url": "https://nsap.dord.gov.in/circular.do?method=faq"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "- ₹200 per month for beneficiaries aged 60–79 years. - ₹500 per month for beneficiaries aged 80 years and above.",
+  "sections": {
+   "details": "The \"Indira Gandhi National Old Age Pension Scheme (IGNOAPS)\" is one of the five sub-schemes of the National Social Assistance Programme, Ministry of Rural Development. Under this scheme, persons belonging to BPL households and 60 years or above in age are eligible to apply. This program is being implemented in rural areas as well as urban areas.\nThe Government of India, on 15th August 1995, introduced the National Social Assistance Programme (NSAP) as a fully funded Centrally Sponsored Scheme targeting the destitute, defined as any person who has little or no regular means of subsistence from his/her own source of income or through financial support from family members or other sources.\n> **The NSAP at present includes five sub-schemes as its components-**\n\na) Indira Gandhi National Old Age Pension Scheme (IGNOAPS)\nb) Indira Gandhi National Widow Pension Scheme (IGNWPS)\nc) Indira Gandhi National Disability Pension Scheme (IGNDPS)\nd) National Family Benefit Scheme (NFBS)\ne) Annapurna Scheme\n> **Objectives of NSAP-**\n\n1. Provides social assistance benefits to poor households in the case of death, maternity, or old age of the breadwinner.\n2. Ensure minimum national standards, in addition to the benefits that the states are currently providing or might provide in the future.\n3. Ensure uniform social protection for the beneficiaries across the country without interruption.\n> **Expansion to cover all eligible BPL persons-**\n\nIn 2007, the scheme was expanded to cover all eligible persons Below Poverty Line (BPL).",
+   "benefits": "- ₹200 per month for beneficiaries aged 60–79 years.\n- ₹500 per month for beneficiaries aged 80 years and above.\n\n> **Note:** At present old age beneficiaries are getting anywhere between ₹200/- to ₹1000/- depending on the State Contribution.",
+   "eligibility": "1. The applicant should be a citizen of India.\n1. The applicant should belong to a Below Poverty Line (BPL) household.\n1. The applicant should be 60 years of age or above.",
+   "application": "### Application mode: Online\n\n**Step 01:** One can download UMANG App or visit the website [https://web.umang.gov.in/web_new/home](https://web.umang.gov.in/web_new/home)\n**Step 02:** The citizen can log in using their mobile number and OTP.\n**Step 03:** Once logged in, the citizen can search for NSAP.\n**Step 04:** Click on “Apply Online”\n**Step 05:** Fill in the basic details, choose the mode of payment of pension, upload photo and click on \"Submit.\"",
+   "documents": "- Passport-size Photo\n- Domicile Certificate\n- Residential Proof (Voter card/Electricity Bill/Aadhar Card)\n- Age Proof (Birth Certificate issued by the School last attended or Municipal authority or SHO or through the medical board)\n- Aadhaar Number\n- Bank Passbook\n- Ration Card\n- Affidavit duly attested by Judicial Magistrate/Executive Magistrate that she/he is not in receipt of any pension/financial assistance from any other source"
+  },
+  "rules": [
+   {
+    "id": "age-60-or-above",
+    "kind": "require",
+    "clause": "The applicant should be 60 years of age or above.",
+    "source_url": "https://www.myscheme.gov.in/schemes/nsap-ignoaps"
+   },
+   {
+    "id": "bpl-household",
+    "kind": "require",
+    "clause": "The applicant must belong to a household living below the poverty line according to the criteria prescribed by the Government of India.",
+    "source_url": "https://www.myscheme.gov.in/schemes/nsap-ignoaps"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pm-kisan",
+  "short_name": "PM-KISAN",
+  "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "category": "farmers",
+  "ministry": "Ministry Of Agriculture and Farmers Welfare",
+  "page_url": "https://www.myscheme.gov.in/schemes/pm-kisan",
+  "references": [
+   {
+    "title": "Scheme Guidelines",
+    "url": "https://pmkisan.gov.in/Documents/RevisedPM-KISANOperationalGuidelines(English).pdf"
+   },
+   {
+    "title": "E-KYC",
+    "url": "https://pmkisan.gov.in/Documents/Note-on-Modes-and-processes-of-ekyc-13th-Nov-English.pdf"
+   },
+   {
+    "title": "New Farmer Registration Form",
+    "url": "https://pmkisan.gov.in/RegistrationFormupdated.aspx"
+   },
+   {
+    "title": "Know Your Registration",
+    "url": "https://www.pmkisan.gov.in/KnowYour_Registration.aspx"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "- **Financial Assistance:** An amount of ₹6,000/- per year in 3 equal installments of ₹2,000/- every four months is provided to each eligible family.",
+  "sections": {
+   "details": "The scheme \"Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)\" implemented by the Department of Agriculture, Cooperation & Farmers’ Welfare, Ministry of Agriculture and Farmers Welfare,  aims to supplement the financial needs of all landholding farmers’ families by procuring various inputs to ensure proper crop health and appropriate yields, commensurate with the anticipated farm income as well as for domestic needs. Under the scheme, an amount of ₹ 6,000/- per year is released by the Central Government online directly into the bank accounts of the eligible farmers under the Direct Benefit Transfer mode, subject to certain exclusions.",
+   "benefits": "- **Financial Assistance:** An amount of ₹6,000/- per year in 3 equal installments of ₹2,000/- every four months is provided to each eligible family.",
+   "eligibility": "- All landholding farmers' families, which have cultivable land holding in their names are eligible to get benefit under the scheme.",
+   "exclusions": "The following categories of beneficiaries of higher economic status shall not be eligible for benefit under the scheme:\n\n1. All Institutional Land holders.\n1. Farmer families in which one or more of its members belong to following categories\n1. Former and present holders of constitutional posts\n1. Former and present Ministers/ State Ministers and former/present Members of LokSabha/ RajyaSabha/ State Legislative Assemblies/ State Legislative Councils,former and present Mayors of Municipal Corporations, former and present Chairpersons of District Panchayats.\n1. All serving or retired officers and employees of Central/ State Government Ministries /Offices/Departments and its field units Central or State PSEs and Attached offices /Autonomous Institutions under Government as well as regular employees of the Local Bodies (Excluding Multi Tasking Staff /Class IV/Group D employees)\n1. All superannuated/retired pensioners whose monthly pension is Rs.10,000/-or more (Excluding Multi Tasking Staff / Class IV/Group D employees) of above category\n1. All Persons who paid Income Tax in last assessment year\n1. Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and Architects registered with Professional bodies and carrying out profession by undertaking practices.",
+   "application": "### Application mode: Online\n\n**Step 1:** Visit the [PM-KISAN Portal](https://pmkisan.gov.in/).\n**Step 2:** Click on \"New Farmer Registration\" option.\n**Step 3:** Enter Your Aadhaar Number and Mobile Number.\n**Step 4:** Enter the received OTP to authenticate your Aadhaar with UIDAI.\n**Step 5:** Fill in the required information and upload the mandatory documents.\n**Step 6:** Click on \"Submit\".\n> **Know Your Status:** [Click here](https://pmkisan.gov.in/BeneficiaryStatus_New.aspx).\n\n### Application mode: Online - via CSC\n\n**Step 1:** Visit the nearest [CSC Centres](https://locator.csccloud.in/).\n**Step 2:** The VLE will fill in the complete details of farmer registration details like State, district, subdistrict block, and village, key in the Aadhaar number, Name of the beneficiary, category, Bank detail, Land Registration ID, and Date of birth as printed on the Aadhaar card for authentication..\n**Step 3:** The VLE will fill in the Land details like Survey/ Kahta No., Khasra No., and area of land as mentioned in the Land Holding papers.\n**Step 4:** Upload the supporting documents like Land, Aadhar, and Bank passbook.\n**Step 5:** Self-declaration needs to be accepted.\n**Step 6:** After saving the application form, make the payment through CSC ID.\n> **Know Your Status:** [Click here](https://pmkisan.gov.in/BeneficiaryStatus_New.aspx).",
+   "documents": "1. Aadhaar Card.\n1. Landholding papers.\n1. Savings Bank Account."
+  },
+  "rules": [
+   {
+    "id": "landholding-farmer-family",
+    "kind": "require",
+    "clause": "All landholding farmers' families, which have cultivable land holding in their names are eligible to get benefit under the scheme.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-kisan"
+   },
+   {
+    "id": "exclude-income-tax-payer",
+    "kind": "exclude",
+    "clause": "The following categories of beneficiaries of higher economic status shall not be eligible: ... All Persons who paid Income Tax in last assessment year.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-kisan"
+   },
+   {
+    "id": "exclude-government-employee-family",
+    "kind": "exclude",
+    "clause": "Farmer families in which one or more of its members are serving or retired officers and employees of Central/State Government Ministries/Offices/Departments shall not be eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-kisan"
+   },
+   {
+    "id": "exclude-pensioner-over-10k",
+    "kind": "exclude",
+    "clause": "All superannuated/retired pensioners whose monthly pension is Rs.10,000/- or more shall not be eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-kisan"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pm-svanidhi",
+  "short_name": "PM SVANidhi",
+  "name": "PM Street Vendor’s AtmaNirbhar Nidhi (PM SVANidhi)",
+  "category": "livelihood",
+  "ministry": "Ministry Of Housing & Urban Affairs",
+  "page_url": "https://www.myscheme.gov.in/schemes/pm-svanidhi",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=Scheme+Guidelines.pdf&path=MiscFiles"
+   },
+   {
+    "title": "FAQs",
+    "url": "https://mohua.gov.in/pm_svandhi/FAQ.pdf"
+   },
+   {
+    "title": "Offline Application Form",
+    "url": "https://www.pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=PM+SVANidhi+LAF.pdf&path=MiscFiles"
+   },
+   {
+    "title": "Check Application Status",
+    "url": "https://pmsvanidhi.mohua.gov.in/Schemes/SearchVendor"
+   },
+   {
+    "title": "User Manuals For Applicant",
+    "url": "https://pmsvanidhi.mohua.gov.in/Schemes/UserManual"
+   },
+   {
+    "title": "Pre-Application Steps",
+    "url": "https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=FAQEng.pdf&path=MiscFiles"
+   },
+   {
+    "title": "Helpdesk",
+    "url": "https://pmsvanidhi.mohua.gov.in/Home/Contact"
+   },
+   {
+    "title": "Application Submission/Log In",
+    "url": "https://pmsvanidhi.mohua.gov.in/Login"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "> **Working Capital Loan:** - **1st Tranche:** Loan up to ₹15,000/-; repayment within 12 months. - **2nd Tranche:** Loan up to ₹25,000/-; repayment within 18 months.",
+  "sections": {
+   "details": "The scheme \"PM Street Vendor’s AtmaNirbhar Nidhi (PM SVANidhi)\" by the Ministry of Housing and Urban Affairs, Government of India aims to formalize street vendors and enhance their economic opportunities through providing collateral-free working capital loans, interest subsidy, and digital transaction incentives to street vendors. It was launched on 1st June 2020 as a central sector scheme. The scheme supports vendors in restarting and expanding their businesses. It also promotes digital payments to increase financial inclusion. Street vendors include hawkers, thelewala, rehriwala, and others engaged in small-scale vending activities.\nThe scheme aims to formalize the street vendors and open up new opportunities for this sector to move up the economic ladder. Street vendors represent a very important constituent of the urban informal economy and play a significant role in ensuring availability of the goods and services at affordable rates at the doorstep of the city dwellers. They are known as vendors, hawkers, thelewala, rehriwala, theliphadwala, etc. in different areas/ contexts. The goods supplied by them include vegetables, fruits, ready-to-eat street food, tea, pakodas, bread, eggs, textile, apparel, footwear, artisan products, books/ stationary, etc. The services include barber shops, cobblers, pan shops, laundry services, etc.",
+   "benefits": "> **Working Capital Loan:**\n\n  - **1st Tranche:** Loan up to ₹15,000/-; repayment within 12 months.  - **2nd Tranche:** Loan up to ₹25,000/-; repayment within 18 months.  - **3rd Tranche:** Loan up to ₹50,000/-; repayment within 36 months.  - Next tranche available on timely or early repayment.\n  - No prepayment penalty on early repayment.\n\n> **Interest Subsidy:**\n\n  - Subsidy at 7% per annum on loan amount.\n  - Credited quarterly to beneficiary’s bank account.\n  - Applicable only for standard (non-NPA) accounts.\n  - Valid up to 31st March 2033.\n\n> **Digital Transaction Cashback:**\n\n  - Cashback up to ₹100/- per month for digital transactions.\n\n> **Credit Guarantee Support:**\n\n  - 31.87% guarantee cover for 1st tranche loan.\n  - 8.25% guarantee cover for 2nd tranche loan.\n  - 6% guarantee cover for 3rd tranche loan.\n  - No charges for lending institutions.\n\n> **UPI Linked RuPay Credit Card:**\n\n  - Initial credit limit of ₹10,000/-; extendable up to ₹30,000/-.\n  - Validity of 5 years.\n  - Available after successful repayment of 2nd tranche loan.",
+   "eligibility": "- Street vendors in possession of Certificate of Vending / Identity Card issued by Urban Local Bodies (ULBs).\n  - The vendors, who have been identified in the survey but have not been issued Certificate of Vending / Identity Card.\n  - Street Vendors left out of the ULB-led identification survey or who have started vending after completion of the survey and have been issued a Letter of Recommendation (LoR) to that effect by the ULB / Town Vending Committee (TVC).\n  - The vendors of surrounding development/ peri-urban/rural areas vending in the geographical limits of the ULBs, who have been issued a Letter of Recommendation (LoR) to that effect by the ULB / TVC.",
+   "application": "### Application mode: Online\n\n**Step 1:** Visit [https://pmsvanidhi.mohua.gov.in/ ](https://pmsvanidhi.mohua.gov.in/)and click on the \"Log In\" button on the homepage.\n**Step 2:** Enter Mobile number and captcha. Click request OTP.\n**Step 3:** After successful login, select valid \"vendor category\" among the available options. Enter \"**Survey Reference Number**\" (SRN) which is mandatory.\n**Step 4:** On entering these basic details, fill the application form online, upload the relevant documents and submit.\n**Note:**\n\n- For any kind of clarification and access detailed stepwise process, refer [User Manual](https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=Helping+User+Manual+For+First+Term+Other+State.pdf&path=MiscFiles).- For any query one can call on the toll free number i.e 1800111979 between 9.30 AM to 6.00 PM on Monday to Saturday except national holidays.\n- **Contact Details:** [Click here](https://pmsvanidhi.mohua.gov.in/Home/Contact).\n\n### Application mode: Offline\n\n**Step 1:** Understand the information documents required to fill out the [Loan application form (LAF)](https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=PM+SVANidhi+LAF.pdf&path=MiscFiles) for the Scheme.\n**Step 2:** Keep all the information ready before you start the application process.\n**Step 3:** Ensure the mobile phone is linked to the Aadhaar number.\n**Step 4:** This will be required for e-KYC/Aadhaar validation during online application process.\n**Step 5:** It will also help you to get a letter of Recommendation from ULB (in case required).\n**Step 6:** It will also help you avail future benefits under Government welfare schemes.\n**Step 7:** Check your eligibility status as per the scheme Rules.\n**Step 8:** One will fall in one of the [4 categories of Street vendors](https://pmsvanidhi.mohua.gov.in/Home/PreApplication).\n**Step 9:** Check your status and the documents/ information that you need to keep ready.",
+   "documents": "> **For 1st Loan :**\n\n**For Category A and B vendors:**\n\n   1. Certificate of Vending\n   1. Identity Card\n\n**For Category C and D vendors:**\n\n   1. Letter of Recommendation\n\n>  **KYC documents required in addition to CoV/ID/LoR :**\n\n   1. Aadhaar Card\n   1. Voter Identity Card\n   1. Driving License\n   1. MNREGA Card\n   1. PAN Card\n\n> **For Letter of Recommendation :**\n\n   1. Copy of Account Statement/Passbook\n   1. Copy of Membership Card/any other proof of membership\n   1. Any other document to substantiate the claim as a vendor\n   1. Request letter to ULB\n\n> **For Second Loan**\n\n   1. Loan Closure Document"
+  },
+  "rules": [
+   {
+    "id": "street-vendor",
+    "kind": "require",
+    "clause": "The scheme is available to street vendors engaged in vending in urban areas.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-svanidhi"
+   },
+   {
+    "id": "vending-certificate-survey-or-lor",
+    "kind": "require",
+    "clause": "Eligible: street vendors in possession of a Certificate of Vending / Identity Card issued by Urban Local Bodies; vendors identified in the survey but not yet issued a Certificate; and vendors left out of the survey who have been issued a Letter of Recommendation (LoR).",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-svanidhi"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmay-g",
+  "short_name": "PMAY-G",
+  "name": "Pradhan Mantri Awaas Yojana - Gramin",
+  "category": "housing",
+  "ministry": "Ministry Of Rural Development",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmay-g",
+  "references": [
+   {
+    "title": "Guidelines (Hindi)",
+    "url": "https://pmayg.dord.gov.in/netiayHome/Uploaded/Guidelines-Hindi_book_final.pdf"
+   },
+   {
+    "title": "Guidelines (ENGLISH)",
+    "url": "https://pmayg.dord.gov.in/netiayHome/Uploaded/Guidelines-English_Book_Final.pdf"
+   },
+   {
+    "title": "Official Website",
+    "url": "https://pmayg.dord.gov.in/netiayHome/home.aspx"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "1. Financial Assistance of ₹ 1,20,000 per unit for plain areas; and ₹ 1,30,000 per unit for hilly areas, difficult areas, and IAP districts (Himalayan states, North-Eastern states, and Union Territories of Jammu &…",
+  "sections": {
+   "details": "Launch on 1st April 2016, Pradhan Mantri Awaas Yojana Gramin (PMAY-G) is centre's flagship mission by the Ministry of Rural Development (MoRD), implemented by the Ministry of Housing and Urban Affairs (MoHUA). PMAY-G aims at providing a pucca house, with basic amenities, to all houseless households and those households living in kutcha and dilapidated house. PMAY-G addresses the rural housing shortage and bridges the housing deficit in rural areas of India, contributing significantly to the mission of \"Housing for All\". The minimum size of the houses under PMAY-G is 25 sq m including a dedicated area for hygienic cooking. As of 27th Sept 2022, 2.00 crore houses have been constructed out of the total target of 2.72 crores. The beneficiaries are identified using the Socio-Economic and Caste Census (SECC) parameters and verified by the Gram Sabhas. The amount is transferred directly to the Aadhaar-Linked Bank Account / Post-Office Account of the beneficiary. PMAY-G has been extended for another two years, i.e. till 31st March 2024.\n> **Aim and Objective:**\n\nPMAY-G aims to provide a pucca house with basic amenities to all houseless households and households living in kutcha and dilapidated house in rural areas by 2024. The immediate objective is to cover 1.00 Crore households in rural areas, that are houseless or living in kutcha / dilapidated house, in three years from 2016-17 to 2018-19 and enable construction of quality houses by the beneficiaries using local materials, designs and trained masons. For houses to become homes, adoption of a habitat approach through convergence is proposed.",
+   "benefits": "1. Financial Assistance of ₹ 1,20,000 per unit for plain areas; and ₹ 1,30,000 per unit for hilly areas, difficult areas, and IAP districts (Himalayan states, North-Eastern states, and Union Territories of Jammu & Kashmir).\n1. A willing beneficiary can avail of institutional finance (loan) of up to ₹ 70,000 at 3% lower interest rate, to build a permanent house. The maximum principal amount for which subsidy can be sought is ₹ 2,00,000.\n1. The minimum size of the house shall be is 25 sq m including a dedicated area for hygienic cooking.\n1. In convergence with Swachh Bharat Mission-Gramin (SBM-G), the beneficiaries get financial assistance of up to ₹ 12,000 for the construction of toilets.\n1. In convergence with MGNREGA, the beneficiary is entitled to employment as unskilled labor (Rural Mason Training) at ₹ 90.95 per day for 95 days.\n1. In convergence with Pradhan Mantri Ujjwala Yojana, one LPG connection per house is provided.\n1. Convergence with different government programmes for piped drinking water, electricity connection, clean & efficient cooking fuel, treatment of social and liquid waste, etc.\n1. Payments are made electronically directly to bank accounts or post office accounts that are linked to Aadhaar.\n\n**Note:** Beneficiaries are identified using the \"Housing Deprivation Parameters\" from the Socio-Economic and Caste Census (SECC) 2011, further verified by the Gram Sabhas.",
+   "eligibility": "The universe of eligible beneficiaries under PMAY-G will include all the houseless households living in zero, one, or two-room houses with kutcha walls and kutcha roofs (as per SECC data, and subject to the exclusion process).\n> **Criteria for Automatic/Compulsory Inclusion -**\n\n1.\tHouseholds without shelter\n2.\tDestitute/ living on alms\n3.\tManual scavengers\n4.\tPrimitive Tribal Groups\n5.\tLegally released bonded laborer\n> **Prioritisation within the Universe**\n\ni.  There will be multilayered prioritization within the universe of eligible PMAY-G beneficiaries. Priority will first be assigned on the basis of parameters reflecting housing deprivation in each category viz., SC/ST, Minorities, and Others.\nii.  To begin with, households will be prioritized based on houselessness followed by the number of rooms; zero, one, and two rooms, in that order.\niii.  In a particular social category viz., SC/ST, Minorities, and Others, households that are houseless or living in houses with a lower number of rooms shall not be ranked below households living in houses with a higher number of rooms.\nWithin the above priority groups, households that fulfill the criteria of \"compulsory inclusion\", will be further elevated. Automatically included households shall not rank lower than other households within a priority group. Inter-se priority within the two subgroups viz. households which are automatically included and otherwise will be determined based on their cumulative deprivation scores.\nThe scores will be calculated from the socio-economic parameters given below with each having equal weight:\ni.\tHouseholds with no adult member between ages 16 to 59\nii.\tFemale-headed households with no adult male member between ages 16 to 59\niii.\tHouseholds with no literate adult above 25 years\niv.\tHouseholds with any disabled member and no able-bodied adult member\nv.\tLandless Households deriving the major part of their income from manual casual labor\nvi. Households with higher deprivation scores will be ranked higher within the subgroups.\n**Note:** _To ensure that assistance is targeted at those who are genuinely deprived and that the selection is objective and verifiable, the housing deprivation parameters in the SECC data will be used for identifying households and then verified by the Gram Sabhas._\n> ***Earmarking of Targets -***\n\n**For SC/ST:**\n60% of the target allocated to each State/ UT should be earmarked for SC/STs, subject to the availability of eligible beneficiaries. Within earmarked targets, the proportion of SC and ST is to be decided from time to time by the respective States/UTs. Further, the States/ UTs would be allowed to interchange targets between SC and ST if there are no eligible beneficiaries from either of the category and it is certified as such. In case all eligible SC and ST households are covered, the State/ UT targets would be allocated to beneficiaries from the 'Other' categories included in the Permanent Wait List drawn from SECC 2011.\n**For Minorities:**\nFurther, as far as possible, 15% of the total fund would be earmarked for Minorities at the National Level for households. The allocation of targets for Minorities among the States/UTs will be on the basis of the proportionate rural population of Minorities in the respective State/UT as per Census 2011 data. Minorities notified under Section 2(c) of the National Commission for Minorities Act, 1992 are to be considered eligible for receiving benefits against Minority earmarks.\n**For PwDs:**\nAccordingly, in the scheme of PMAY-G, while deciding the inter-se priority among the beneficiaries who are to be provided assistance, households with any disabled member and no able-bodied adult member have been accorded additional deprivation score so that such households are given priority while allotting the houses. Keeping in view the provisions of the Persons with Disabilities Act, of 1995, the States to the extent possible, may ensure that 3% of beneficiaries at the State Level are from among persons with disabilities.\n> **Tie Breaker**\n\nIn case there is a tie with more than one household within a subgroup having the same deprivation score, the households will be ranked according to priority on the basis of the following parameters:\ni.\tHouseholds with widows and next-of-kin of members of defence/paramilitary/police forces killed in action.\nii.\tHouseholds where a member is suffering from leprosy or cancer and People living with HIV (PLHIV).\niii.\tHouseholds with a single girl child.\niv.\tBeneficiary families of the Scheduled Tribes and Other Traditional Forest Dwellers (Recognition of Forest Rights) Act, 2006, commonly known as the Forest Rights Act.\nv.\tTransgender persons.",
+   "exclusions": "> **Step 1: Exclusion of pucca houses**\n\nAll households living in houses with pucca roofs and/or pucca walls and households living in houses with more than 2 rooms are filtered out.\n> **Step 2: Automatic Exclusion**\n\nFrom the remaining set of households, all households fulfilling any one of the 13 parameters listed below are automatically excluded:-\n1.\tMotorised two/three/four wheeler/ fishing boat\n2.\tMechanised three/four-wheeler agricultural equipment\n3.\tKisan Credit Card with a credit limit of Rs.50,000 or above\n4.\tHousehold with any member as a Government employee\n5.\tHouseholds with non-agricultural enterprises registered with the Government\n6.\tAny member of the family earning more than Rs.10,000 per month\n7.\tPaying income tax\n8.\tPaying professional tax\n9.\tOwn a refrigerator\n10.\tOwn a landline phone\n11.\tOwn 2.5 acres or more of irrigated land with at least one irrigation equipment\n12.\t5 acres or more of irrigated land for two or more crop seasons\n13.\tOwning at least 7.5 acres of land or more with at least one irrigation equipment",
+   "application": "### Application mode: Online\n\n**Beneficiary Registration Manual** - [https://pmayg.nic.in/netiayHome/Document/Document-PMAYG-Registratio-Manual.pdf](https://pmayg.dord.gov.in/netiayHome/Document/Document-PMAYG-Registratio-Manual.pdf)\nThere are four sections to the beneficiary registration process:\nPersonal details, Bank account details, Convergence details, and Details from the concerned office.\nTo successfully register or add the beneficiary, follow the steps given below:\nVisit the official website for login PMAY-G.\n\n1. Fill in the details required in the personal details section (such as gender, mobile number, Aadhaar number, etc.)\n1. Upload the consent form required to use the Aadhaar number.\n1. Click on the search button to find the beneficiary name, PMAY ID, and priority.\n1.  Click on ‘'Select to Register’'.\n1. The beneficiary details will be automatically generated and displayed.\n1. The remaining beneficiary details can now be filled in, such as ownership type, relation, Aadhaar number, etc.\n1. Upload the consent form required to use the Aadhaar number on behalf of the beneficiary\n1. In the next section, add the beneficiary account details in the required fields, such as beneficiary name, bank account number, etc.\n1. If the beneficiary wants to avail a loan, select ‘'Yes’' and enter the required loan amount.\n1. In the next section, enter the MGNREGA job card number and Swachh Bharat Mission (SBM) number of the beneficiary\n1. The next section will be filled in by the concerned office."
+  },
+  "rules": [
+   {
+    "id": "rural-household",
+    "kind": "require",
+    "clause": "The universe of eligible beneficiaries under PMAY-G includes all the houseless households and households living in kutcha houses in rural areas.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
+   },
+   {
+    "id": "kutcha-house",
+    "kind": "require",
+    "clause": "All households living in houses with pucca roofs and/or pucca walls and households living in houses with more than 2 rooms are filtered out.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
+   },
+   {
+    "id": "exclude-motorized-vehicle",
+    "kind": "exclude",
+    "clause": "Automatic exclusion: households owning a motorised two/three/four wheeler or fishing boat.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
+   },
+   {
+    "id": "exclude-income-tax-payer",
+    "kind": "exclude",
+    "clause": "Automatic exclusion: any household member paying income tax.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
+   },
+   {
+    "id": "exclude-government-employee",
+    "kind": "exclude",
+    "clause": "Automatic exclusion: households with any member as a government employee.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmfby",
+  "short_name": "PMFBY",
+  "name": "Pradhan Mantri Fasal Bima Yojna (PMFBY)",
+  "category": "farmers",
+  "ministry": "Ministry Of Agriculture and Farmers Welfare",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmfby",
+  "references": [
+   {
+    "title": "Official Website",
+    "url": "https://pmfby.gov.in/"
+   },
+   {
+    "title": "Guidelines",
+    "url": "https://pmfby.gov.in/pdf/Revamped%20Operational%20Guidelines_17th%20August%202020.pdf"
+   },
+   {
+    "title": "FAQ",
+    "url": "https://pmfby.gov.in/pdf/FAQ%E2%80%93For%20Portal.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "- **Affordable Premiums:****** The maximum premium payable by the farmer will be 2% for the Kharif food and oilseed crops.",
+  "sections": {
+   "details": "Launched on 18th February 2016, \"Pradhan Mantri Fasal Bima Yojana\" is a crop insurance scheme by the Department of Agriculture, Cooperation and Farmers’ Welfare, Ministry of Agriculture. PMFBY aims to provide financial protection to farmers against crop loss due to natural disasters (hail, drought, famine), pests, and diseases. PMFBY provides crop insurance at a cost-effective premium to all Indian farmers. PMFBY is an affordable crop insurance product implemented through a network of insurance companies and banks. The scheme covers over 50 crore farmers and provides insurance coverage for over 50 different crops.\n**Objectives**\n\n  - To provide financial assistance and support to farmers suffering from crop damage or loss arising out of unforeseen events.\n  - To stabilise the income of farmers and ensure continuance in farming.\n  - To encourage the farmers to adopt modern and innovative agricultural practices.\n  - To ensure crop diversification, and credit-worthiness of the farmers, enhance growth and competitiveness of the agriculture sector and protect the farmers from production risks.",
+   "benefits": "- **Affordable Premiums:****** The maximum premium payable by the farmer will be 2% for the Kharif food and oilseed crops. For rabi food and oilseeds crop, it is 1.5% and for yearly commercial or horticultural crops it will be 5%. The remaining premium is subsidized by the government.\n\n- * For the farmers in North-Eastern States, Jammu, Kashmir, and Himachal Pradesh, the government also pays the entire premium.\n- **Comprehensive Coverage:** The scheme covers natural disasters (droughts, floods), pests, and diseases. Post-harvest losses due to local risks like hailstorms and landslides are also included.- **Timely Compensation:** PMFBY aims to process claims within two months of the harvest to ensure that farmers get the compensation quickly, preventing them from falling into debt traps.- **Technology-Driven Implementation:** PMFBY integrates advanced technologies like satellite imaging, drones, and mobile apps for precise estimation of crop loss, ensuring accurate claim settlements.\n\n> **RISKS COVERED**\n\n- **Yield Losses (Standing Crops):** The Government provides this insurance coverage for yield losses that fall under the non-preventable risks, such as Natural Fire and Lightning: Storm, Hailstorm, Tornado etc.:  Flood, Inundation and Landslide;  Pests/ Diseases, etc.; Drought etc.- **Prevented Sowing:** Cases may arise where most of the farmers (insured )of notified areas may want to plant or sow. In such cases, they have to bear the expenditure for that cause and are restricted from planting or sowing insured crops because of unfavourable weather conditions. These farmers will then become eligible for the indemnity claims of up to a maximum of 25% of the sum insured.- **Post-harvest Losses:** The Government provides for post-harvest losses on an individual farm basis. The Government offers coverage of up to 14 days (maximum) from harvesting for crops that are stored in “cut and spread” condition. It means that the Government covers farmers who have put the crops to become sun-baked in the field after harvesting that have been destroyed due to cyclone or cyclonic rains occurred across the country.- **Localised Calamities:** The Government provides for localised calamities on an individual farm basis. Risks such as loss or damage arising from identified localised hazards, such as hailstorms, landslides, and inundation impacting separated farmlands in the notified area comes under this coverage.",
+   "eligibility": "1. All farmers, including tenant farmers and sharecroppers growing notified crops in notified areas.\n1. Farmers must have an insurable interest in the insured crops.\n1. Farmers must possess a valid and authenticated land ownership certificate or a valid land tenure agreement.\n1. The farmer must be a cultivator or sharecropper on the insured land.\n1. The farmer must apply for insurance coverage within the prescribed time frame, usually within 2 weeks of the start of the sowing season.\n1. Farmers must not have received compensation for the same crop loss from any other medium or source.",
+   "exclusions": "> **Non-Notified Areas**\n\nPMFBY applies to notified areas, and crop losses in non-notified areas are generally not covered. Farmers in areas not designated under the scheme may not receive compensation.\n> **Losses Outside the Crop Cycle**\n\nCrop losses occurring outside the specified crop cycle are often excluded from coverage. If a loss is not directly related to the growing season, it may not be eligible for compensation.\n> **Negligence and Non-Compliance**\n\nLosses resulting from farmer negligence, non-compliance with recommended agricultural practices, or failure to protect the crop adequately may be excluded.\n> **Losses Beyond Specified Limits**\n\nSome losses beyond specified limits or thresholds may not be covered. The scheme may have predefined criteria for determining the extent of loss that qualifies for compensation.\n> **Non-Premium Payment**\n\nFarmers who fail to pay their premium contributions as required may not be eligible for coverage. Non-payment of premiums can result in the cancellation of insurance.",
+   "application": "### Application mode: Online\n\n**Step 1:** Visit the [Official Website](https://pmfby.gov.in/) of \"Pradhan Mantri Fasal Bima Yojana\".\n**Step 2:** At the top right corner of the homepage, click \"Farmer Corner\".\nIn the popup window, click \"Guest Farmer\". You will be taken to the [Online Registration Form](https://pmfby.gov.in/farmerRegistrationForm).\n_*If already registered, skip to Step: 4._\n**Step 3:** In the Registration Form, fill in the following mandatory fields (marked with a red asterisk):\n***\"FARMER DETAILS\" Section:******* Full Name, Passbook Name, Relationship, Relative Name, Mobile No., Age, Caste Category, Gender, Farmer Type, Farmer Category,\n***\"RESIDENTIAL DETAILS\" Section:*** State, District, Sub District, Residential Village/ Town, Address, PIN Code\n\"FARMER ID\" Section: ID Type, ID No,\n***\"ACCOUNT DETAILS\" Section:*** IFSC, Bank Name, Branch Name, Savings Bank A/C No., Confirm Savings Bank A/C No..\nAt the bottom of the registration form, fill in the Captcha Code and click \"Create User\".\n**Step 4:** Upon successful registration, click \"Farmer Corner (Apply for Crop Insurance Yourself)\".\nIn the popup window, click \"Login for Farmer\". You will be taken to the Login Page.\nhttps://pmfby.gov.in/farmerLogin\n**Step 5:** On the Login Page, provide your Mobile Number, fill the Captcha Code, then click \"Request for OTP\". Enter the OTP received on your registered Mobile Number, and click \"Submit\". You will be taken to the \"Farmer Application Form\".\n**Step 6:** Fill in all the mandatory fields of the Application Form and upload all the mandatory documents in the specified format and size.\nClick \"Preview\" to carefully review all the information provided and the uploaded documents. Click \"Submit\" to submit your application. You'll receive a confirmation message.\n**Step 7:** In the popup window, the following options will be displayed: \"Pay Later\" and \"Make Payment\". Select \"Pay Later\" if you intend to pay for the insurance at a later stage. Else, select \"Make Payment\".\n**Step 8:** Upon successful payment, you may print the receipt of the payment.\n> **Track Your Application**\n\nYou can track the application status on the PMFBY website through the ‘Application Status’ option on the home page.\n\n### Application mode: Offline\n\n**Step 1:** The interested applicant should visit the nearest [participating bank](https://pmfby.gov.in/bankBranchDirectory) or [insurance office,](https://pmfby.gov.in/insuranceCompanyDirectory) and request the prescribed format of the application form from the staff.\n**Step 2:** In the application form, fill in all the mandatory fields, paste the passport-sized photograph (sign across, if required), and attach copies of all the mandatory documents (self-attest, if required).\n**Step 3:** Submit the duly filled and signed application form to the staff, along with the attached copies of the documents. Pay the applicable premium amount at the office.\n**Step 4:** You will be provided with an application reference number which you can use to track the status of your application.\n> **Track Your Application**\n\nYou can track the application status on the PMFBY website through the ‘Application Status’ option on the home page.\n\n### Application mode: Online - via CSC\n\n**Step 1:** Visit your nearest [Common Service Centre (CSC)](https://locator.csccloud.in/). CSCs are government-authorized centres that provide various services to citizens.\n**Step 2:** Inform the Village Level Entrepreneur (VLE) at the CSC that you intend to apply for PMFBY. Inform the VLE if you need assistance/guidance with the application or if you want the VLE to apply for the scheme on your behalf.\n**Step 3:** Provide the VLE with the information on the mandatory fields and soft copies of the required documents.\n**Step 4:** Upon successful submission of your application, pay the applicable premium amount to the VLE. The premium amount may vary depending on the crop, area, and other factors.\n**Step 5:** Receive an acknowledgement receipt from the VLE as proof of application submission.\n> **Track Your Application**\n\nYou can track the application status on the PMFBY website through the ‘Application Status’ option on the home page.\n_* Keep copies of all documents submitted and the acknowledgement receipt for future reference._\n_* Note down the contact details of the CSC centre for any queries or assistance._",
+   "documents": "- Passport–sized Photograph\n- Passbook\n- Identity Proof (Aadhaar Card/PAN Card/Voter ID/Bank Passbook with Photo, Kisan Photo Book/NREGA Job Card)\n- Address Proof (Aadhaar Card/PAN Card/Voter ID/Electricity Bill/Bank Passbook with Photo).\n- Evidence of Land records, as per the State Records of Right (RoR), Land Possession Certificate (LPC), and other applicable agreements, contracts notified or permitted by the state.\n- Declaration about the crop sown/intended to be sown."
+  },
+  "rules": [
+   {
+    "id": "cultivating-farmer",
+    "kind": "require",
+    "clause": "All farmers, including tenant farmers and sharecroppers growing notified crops in notified areas ... The farmer must be a cultivator or sharecropper on the insured land.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmfby"
+   },
+   {
+    "id": "land-ownership-or-tenure-documents",
+    "kind": "require",
+    "clause": "Farmers must possess a valid and authenticated land ownership certificate or a valid land tenure agreement.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmfby"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmjjby",
+  "short_name": "PMJJBY",
+  "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+  "category": "insurance",
+  "ministry": "Ministry Of Finance",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmjjby",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "1. PMJJBY offers one- year term **life cover of ₹ 2.00 Lakh** to all the subscribers in the age group of 18-50 years.1. It covers death due to any reason. 1.",
+  "sections": {
+   "details": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) is an insurance scheme offering life insurance cover for death due to any reason. It is a one-year cover, renewable from year to year. The scheme is offered by banks/post offices and administered through life insurance companies. All individuals who are account holders of participating banks/ post office in the age group of 18 to 50 years are entitled to join.",
+   "benefits": "1. PMJJBY offers one- year term **life cover of ₹ 2.00 Lakh** to all the subscribers in the age group of 18-50 years.1. It covers death due to any reason.\n1. **Premium payable is ₹ 436/- per annum** per subscriber, to be auto debited from the subscriber’s bank/post office account.",
+   "eligibility": "1. The age of the applicant must be between 18 to 50 Years.\n1. The applicant must hold an individual bank / post office account.",
+   "application": "### Application mode: Offline\n\n**Offline**\n**Step 01:** Download and take print of the “CONSENT-CUM-DECLARATION FORM” given in the link below: [https://www.jansuraksha.gov.in/Files/PMJJBY/English/ApplicationForm.pdf#zoom=250](https://www.jansuraksha.gov.in/Files/PMJJBY/English/ApplicationForm.pdf#zoom=250)\n**Step 02:** Duly fill and sign the application form, attach the self-attested copies of the required documents, and submit the case to the authorised official of Bank / Post Office. The official will return you the “ACKNOWLEDGEMENT SLIP CUM CERTIFICATE OF INSURANCE”.\n\n### Application mode: Online\n\nOne can also avail cover under PMJJBY online using their bank's Net banking facility."
+  },
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "The age of the applicant must be between 18 to 50 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmjjby"
+   },
+   {
+    "id": "age-at-most-50",
+    "kind": "require",
+    "clause": "The age of the applicant must be between 18 to 50 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmjjby"
+   },
+   {
+    "id": "bank-or-post-office-account",
+    "kind": "require",
+    "clause": "The applicant must hold an individual bank / post office account.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmjjby"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pms-sc",
+  "short_name": "PMS-SC",
+  "name": "Post Matric Scholarship for SC Students (PM-PMS-SC)",
+  "category": "education",
+  "ministry": "Ministry of Social Justice and Empowerment",
+  "page_url": "https://socialjustice.gov.in/schemes/25",
+  "references": [
+   {
+    "title": "Official scheme document (PDF)",
+    "url": "https://socialjustice.gov.in/writereaddata/UploadFile/PMS_for_SCs_Scheme_Guidelines.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "## 12. Duration and Renewal of Awards 12.1 The award once made will be payable up to the completion of the course subject to satisfactory academic performance and attendance of 75% in every academic year.",
+  "sections": {
+   "details": "HOM\nसत्यमेव जयते\nGovernment Of India\n\nGUIDELINES\nPOST MATRIC SCHOLARSHIPS\nTO THE STUDENTS BELONGING TO\nSCHEDULED CASTES\nFOR STUDIES IN INDIA\n(2020-2021 to 2025-26)\n\nGOVERNMENT OF INDIA\nMINISTRY OF SOCIAL JUSTICE &\nEMPOWERMENT\nDepartment of Social Justice & Empowerment\n(March, 2021)\n\nSCHEME OF POST MATRIC SCHOLARSHIPS\nTO THE STUDENTS BELONGING TO SCHEDULED CASTES FOR\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nSTUDIES IN INDIA (PMS-SC)\n(With effect from 2020-2021)\n\n## 1. Objective\n\n1.1 The objective of the scheme is to appreciably increase the Gross Enrolment Ratio of SC students in higher education with a focus on those from the poorest households, by providing financial assistance at post-matriculation or post-secondary stage to enable them to complete their education.\n\n## 2. Scope\n\n2.1 These scholarships are available for studies in India only and the awardees are selected by the State Government/Union Territory to which the applicant actually belongs (i.e. the State/UT in which permanently settled or domiciled, as per the terms of domicile decided by the State).\n2.2 This is applicable to all the students who are currently beneficiaries of the scheme as well as fresh admissions.\n\n## 3. Definitions\n\na) \"Group 1: Degree and Post Graduate level professional courses\" shall mean: all Professional courses in Medicine, Engineering, Technology, Planning, Architecture, Design, Fashion Technology, Agriculture, Veterinary & Allied Sciences, Management, Business Finance /Administration, Computer Science/ Applications (ii) Post Graduate Diploma courses in various branches of Management & Medicine(iii) C.A./I.C.W.A./C.S./I.C.F.A. etc. (iv) M.Phil., Ph.D. and Post-Doctoral Programmes (D.Lit., D.Sc. etc.) of Group I, Group II and Group III courses. (v) L.L.B, Integrated L.L.B, L.L.M\nb) \"Group 2: Other Professional Courses leading to Degree, Diploma, Certificate\" shall mean all Professional Courses leading to Degree, M Ed. / M. Pharma., Diploma, Certificate in areas like Pharmacy (B Pharma.), Nursing (B Nursing), BFS, other para-medical branches like rehabilitation, diagnostics etc., Mass Communication, Hotel Management & Catering, Travel/Tourism/Hospitality Management, Interior Decoration, Nutrition& Dietetics, Commercial Art, Financial Services (e.g. Banking, Insurance, Taxation etc.) for which entrance qualification is minimum Sr. Secondary (10+2) and\n\nPage 2 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nVocational stream, ITI courses and Polytechnic where entrance qualification is Class XII or above.\nc) \"Group 3: Graduate and Post Graduate course\" shall mean: courses not covered under Group 1& Group 2 e.g. B.A / B.Sc. / B.Com etc. M.A/ M. Sc./ M.Com etc.\nd) \"Group 4: All post-matriculation (Post Class X level) non-degree courses\" shall mean: All post-matriculation level non-degree courses for which entrance qualification is High School (Class X), e.g. Senior secondary certificate (class XI and XII); both general and vocational stream, ITI courses, 3 year diploma courses in Polytechnics, etc.\nNote: The list of courses in various groups is indicative and States/UTs may add courses as per laid down standard in the State/UT.\ne) \"Compulsory non-refundable fees\" shall mean: fee payable for enrolment/registration, tuition, games, Union, Library, Magazine, Medical Examination and such other fees compulsorily payable by the scholar to the institution or University/ Board, but does not include Refundable deposits like caution money, security deposit will, however, be excluded.\nf) \"Demand\" for a year indicates the total fund requirement for release of scholarship to all eligible students under the scheme as per the entitlements for that particular year.\ng) \"Freeship Card\" shall mean: A card issued by the State Govt./UT Administration that entitles a student eligible for scholarship under this Scheme, to take admission in an institution, without pre-payment of tuition fee and hostel fee.",
+   "benefits": "## 12. Duration and Renewal of Awards\n\n12.1 The award once made will be payable up to the completion of the course subject to satisfactory academic performance and attendance of 75% in every academic year. The attendance will be verified through Aadhaar based attendance System.\n12.2 If a scholar is unable to appear in the annual examination owing to illness, the award may be renewed subject to production of medical certificate from prescribed authority and acceptance of the same by institution /college.\n12.3 If, according to the Regulations of a University/Institution, a student is promoted to the next higher class even though he/she may not have actually passed in lower class and is\n\nPage 12 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nrequired to take examination of the junior class again after sometime, he/she will be entitled to scholarship for the class to which he/she is promoted if the student is otherwise eligible for scholarship. Further, in case a student fails in any class and then again joins the same class as a regular student, he/she will be eligible for scholarship for one additional year or the actual period, whichever is lower.\n\n## 13. IT Framework\n\n13.1. The scheme shall be run on an online platform with robust cyber security measures that would assure transparency, accountability, efficiency, and timely delivery of the assistance without any delays. The National Scholarship Portal (NSP) would be suitably modified for this purpose.\n13.2. If any State is already a running online portal that fulfils all the laid down parameters, they can continue with it, but share the data on real-time basis to the National Scholarship Portal or any other portal as specified by the Department of Social Justice & Empowerment in due course through instructions for enabling constant monitoring. Therefore, all States/UTs implementing the scheme will migrate to online processing of disbursal of scholarships, where not already done. The scholarship portal should mandatorily have the following features:\na) The IT portal shall be integrated with the AISHE/UDISE portal for pulling the data about the institution in which the student has taken admission.\nb) At the time of registration for Freeship Card, every student should provide an Aadhaar ID/Aadhaar EID and other alternative form of ID as per this Ministry's notification no. 428 dated 16.02.2017 which will enable elimination of duplication and false claims. The Aadhaar authentication is mandatory in case of renewals, if not provided at the time of admission. The Aadhaar number entered by the students should go through demo-auth on real-time basis before allowing entry into the registration portal.\nc) The States shall undertake fool-proof verification of the eligibility, caste status, Aadhaar identification and bank account details on the online portal.\nd) There shall be no upload of any documents or any certificates into the system. All data should be auto-verified by linking databases through digilocker or any such\n\nPage 13 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nmechanism, such as (i) school boards' results, including the CBSE/ICSE along with the certificates maintained by them; (ii) database of income certificates, domicile and caste certificates issued by State/District Administration and (iii) databases maintained by the Universities and Colleges, using Aadhaar number as the link.\ne) All verification process of the students should be done using the above authenticated databases automatically using the digital process with little or no manual intervention. There should be no system of verification by the institutions or even the district level officers. Till such time such a system is put in place, the manual verification shall be completed within 30 days from the date of application, with a provision for 'presumed approval' if the same is not completed within 30 days.\nf) A suitable system will be put in place for taking Aadhaar based attendance system which is non-intrusive and automatic. Till such a system is finalized by the Central Govt., the institution shall upload the attendance of the scholarship holder every month in the Attendance module that would be developed in the IT system.\ng) There shall be no system of calling for the bank account details of the students and authenticating it. All payments should preferably go through Aadhaar Based Payment System (APB – Aadhaar Payment Bridge) after checking the Aadhaar number with the NPCI mapper.\nh) The renewals should be automatic based on promotion to the next class and having the required attendance, subject to confirmation of the student having joined back the same course as hosteller/day scholar, as the case may be. There should not be any requirement for the student to apply for renewals.\ni) A performance module to monitor the progress of student as well as performance of the institution should be suitably designed and incorporated.\nj) Apart from this, the States shall maintain a complete database of the beneficiaries under various other scholarship schemes to ensure de-duplication of the beneficiaries.\nk) The portal shall incorporate an online grievance redressal mechanism linking all the authorities responsible for implementation on the scholarship portal.\nl) There shall be a provision indicating the students of the poorest households, as per the parameters provided under the Scheme, selected for scholarship.\nm) The portal will make arrangements so that the students, once declared blacklisted, may not be able to apply for scholarship again.\n\nPage 14 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\n## 14. Annual Action Plan\n\n14.1 Every participating State/UT, on or before 28th February of the preceding year, will prepare a State level Annual Plan for the PMS-SC scheme. In case the State has any other initiative on similar lines to PMS-SC, this may be mentioned separately in the Action Plan. The Action Plan should give clearly the targets, eligibility, proposed coverage separately for poorest households, processes for identification, identification of courses having employment potential, systems for monitoring etc.\n14.2 The Department will constitute an Project Appraisal Committee to appraise and approve the Annual Action Plans. These plans would be appraised at the Centre and the outlay for each State would be finalized before 15th April, of every year as per the annual increase indicated under the funding pattern. The constitution of the committee will be informed through separate instructions.\n\n## 15. Performance of the States/UTs\n\n15.1 The performance of the States/UTs would be measured annually on certain parameters like (i) payments as per the given time schedule (ii) coverage from the poorest households (iii) academic outcomes of the scholarship-holders (iv) Implementation of Aadhaar based attendance (v) Digitization of various certificates required for determining eligibility etc.\n15.2. The States/UTs would be ranked on the above parameters and top performing States will be awarded. The details in this regard will be prepared after consultations, and will be shared through instructions in due course.\n\n## 16. Announcement of the Scheme by States/UTs\n\n16.1 All the State Governments/UT Administrations will announce starting from April, the details of the Scheme and invite applications by issuing an advertisement in the leading newspapers of the State and through their respective websites/ Scholarship portals and other modes of media. The applicant should submit the completed application to the prescribed authority on the portal specified for this purpose before the last date prescribed for receipt of applications.",
+   "eligibility": "## 4. Eligibility of Educational Institutions\n\n4.1 Only such educational Institutions which maintain the laid down academic standards shall be covered under the scheme. The following conditions regarding the courses offered, performance of the institution, Aadhaar based attendance system are also required to be adhered to by the Institutions/Universities/Colleges in order to be eligible under the scheme:\ni. Only Institutions/Colleges with the 'AISHE Code'/UDISE' Code' shall be eligible for the scholarship scheme. Based on the AISHE/UDISE-Code of the institution, all details of the institution such as registration, affiliation and accreditation, courses being offered and number of seats approved for each course - will be pulled from the AISHE/UDISE server on to the scholarship portal automatically.\n\nPage 3 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nii. All participating higher education institutions shall get NAAC/NBA accreditation before 2024, for continuation in the scheme from 2025-26 onwards.\niii. The scholarship benefits shall be linked with Aadhaar based attendance system. Therefore, the college/institution will maintain Aadhaar based attendance on a daily basis and will submit attendance details on the portal.\niv. The institutions will submit half-yearly self-audited reports to the State Governments in a prescribed format which shall be separately issued.\nv. The institutions should be willing to honour the FREESHIP CARD issued by the State/District Authority through the scholarship portal and admit the student without insisting on pre-payment of the college/tuition fee or hostel fee. This would be paid by the student on release of the scholarship amount by the Government as per the provisions of this scheme. In this regard, the State Governments will coordinate with the institutions located in their respective States.\n4.2 Scholarships will be given for the study of all recognized post-matriculation or post-secondary courses (Intermediate/Senior Secondary, Diploma, long-term Vocational Training Certificate, Graduate, Post Graduate courses etc.) pursued in recognized Institutions/ Universities/ Colleges falling in any of the following 9 categories:\ni. Institutions of National Importance;\nii. Central University/ State University/ Autonomous colleges recognized by UGC and Universities /Colleges recognized under section 2(f) of UGC Act;\niii. Deemed Universities;\niv. All Private Universities recognized by State/Centre;\nv. Private Professional Institutions affiliated to a recognized Central/State University and covered by a Fee Fixation Committee as mandated by Supreme Court;\nvi. Recognized schools/colleges for Classes XI and class XII;\nvii. Diploma granting Institutions as recognized by State/UT Governments;\nviii. Vocational Training Institutes affiliated to National Council of Vocational Training (NCVT);\nix. Institutions affiliated/ approved by the appropriate bodies like NMC/AICTE etc. or any regulatory body established by State/UT/Centre.\n\nPage 4 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nProvided that where a particular number of seats for a particular course have been recognized / authorized by the concerned regulatory authority, the scholarships shall be restricted to those numbers and courses.\n\n## 5. Conditions of Eligibility of Students\n\n5.1 The scholarships are open to Nationals of India only.\n5.2 Only those candidates who belong to Scheduled Castes so specified in relation to the State/Union Territory to which the applicant actually belongs /domiciled as determined by the State/UT and who have passed the Matriculation or Higher Secondary or any higher examination of a recognized University or Board of Secondary Education will be eligible.\n5.3 Scholarships will be paid to the students whose parents'/guardians' income from all sources does not exceed Rs. 2,50,000/- (Rupees Two lakh Fifty thousand only) during the last Financial Year. Income certificate is required to be taken once only i.e. at the time of admission only to courses which are continuing for more than one year. The income certificate shall be issued by the Authority as decided by the State Government.\n5.4 The ceiling on age limit for admission as regular student in different classes should be decided by concerned Institutions.\n5.5 Candidates who, after passing one stage of education are studying in the same stage of education in a different subject e.g. Intermediate Science after Intermediate Arts or B.Com after B.A. or M.A in one subject after M.A in other subjects will not be eligible.\n5.6 Students, who pursue their studies through correspondence/online courses, are also eligible. The term correspondence includes distant and continuous education for courses in Central/ State Universities only. Non-refundable fees shall be paid and no academic allowance will be paid.\n5.7 All the children of any parent/guardian will be entitled to receive benefits of the scheme.\n5.8 A scholarship holder under this scheme will not hold any other scholarship/stipend. If awarded any other scholarship/stipend, the student can exercise his/her option for either of the two scholarships/stipends, whichever is more beneficial to him/her, and should inform the awarding authority through the Head of the Institution about the option made. No scholarship will be paid to the students under this scheme from the date he/she accepts another scholarship/stipend. The student can however, accept free lodging or a grant or ad-hoc monetary help from the State Government or any other source for the purchase of\n\nPage 5 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nbooks, equipment or for meeting the expenses on board and lodging in addition to the scholarship amount paid under this scheme.\n5.9 All seats filled through arbitrary and non-transparent processes (including management quota, NRI quota, spot admissions etc.) without following the merit criteria as decided by the State Government are not eligible for these scholarships. The fees claimed against management quota seats, spot admission seat in any Institution /University will not be reimbursed. In case of any contradiction on the classification of seats or non-clarity on the classification of seats in the State/UT, the following criteria may be followed:\ni) If there is no arbitrariness/ discretion in the admission process and the fee for the course is fixed by the Fee Fixation/Fee Rationalization committee set up by the competent authority, the said seats may not be considered as the Management Quota Seats. However, the State Governments may satisfy themselves of the following before release of scholarships:\ni. That the applicants claiming the scholarship have been admitted through a transparent process which involved calling of applications through advertisements, preparation of ranks, selection of candidates on merit list, and publication of selection list and others as deemed fit by the State Government;\nii. That the fees for courses are duly approved by the Fee Fixation/Fee Rationalization Committee set up by the competent authority.\n5.10 Students shall be encouraged to have Aadhaar linked Bank accounts to facilitate payments through the Aadhaar Payment Bridge.\n\n## 6. Role of the State Governments\n\n6.1 Although many SC students have availed benefits under this scheme and have occupied high positions in the society, still the Gross Enrolment Ratio (GER) of SCs in higher education (23.0%) lags behind the national average (27.0%). It is the endeavour of the Government to raise the GER of SCs in higher education from 23.0% to the national average in the next five years. Similarly, the GER in Senior Secondary education of SCs has to increase from the current 56% to the national average in the next five years. Towards this end, special focus of the implementing agencies is required to achieve the goal.\n\nPage 6 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\n6.2 All the SC students with annual income of up to Rs 2.50 lakh per annum would be eligible under the scheme. However, the State Government will additionally make special efforts to identify the poorest households from various sources and enroll the eligible students under the scheme in a mission mode. Further, these students would be monitored on regular basis so that they continue with their studies. Such students shall include (i) students from SC households with three or more deprivations as per SECC-2011 (ii) students from SC households where one or both the parents are illiterate and (iii) the students who have passed 10th standard from a State Government/ Municipality/Local Body school. In this regard, States/UTs will launch special campaigns to identify and cover such students.\n6.3 States/UTs may adopt methodology suitable to the local conditions for identification of such students e.g. SC majority districts/blocks/villages may be taken first for identification of poorest students or students leaving class 10th or 12th class may be tracked in association with the education department or data emanating from other Central/State schemes indicating the dropouts rates or other sources as deemed fit. Every State Government shall undertake a campaign every year in March/April to identify such students and mentor them to enrol and avail scholarships. Such students will be helped for identification of courses also as per their skills.\n6.4 Awareness drive shall be undertaken by the State Governments/UTs about the scheme through the Gram Panchayats Notice Boards, school committees, and discussions in the parent-teacher association meetings and other public awareness measures, in order to extend its coverage and also minimize any misuse by unscrupulous elements.\n6.5 The States are required to take up identification of the students for fresh enrolment by taking up systematic drive covering all the higher secondary schools and encouraging the pupils who have dropped out after Class 12th to come back to higher education.\n6.6 It is essential that the fresh enrolments to the extent possible are made in the courses which are having employment potential. For this purpose, the State may do an exercise in consultation with the Higher Education Department of the State Government, and the State Skill Mission for identifying courses which would improve the employment potential of the students. It is strongly advised that fresh enrolment may be made in these courses. Such skill courses should be long term courses with periodicity of at least 1 year and conducted by the institutions as per Para 4 of the scheme guidelines.\n6.7. State Government will ensure that the beneficiary, at the time of admission, applies for the scholarship also. In this regard, the State Government may open facilitation centers\n\nPage 7 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nor nominate a nodal officer in the educational institutions so that the entry into the student database for renewals and fresh admissions can be done in a stipulated timeframe.\n6.8 The State Governments shall put in place a scholarship portal that has all features as prescribed in para 13 of these guidelines and share the data on a real-time basis with the Central portal.\n6.9 The State/Central Government shall have robust monitoring systems, including field inspections, social audits, data analytics etc. so that timely payments are made to eligible beneficiaries.\n6.10 States/UTs shall ensure that Fee Rationalization/Fixation Committees are set up for all courses.\n\n## 7. Components of the Scholarship\n\n7.1 The scholarship includes the following components for the complete duration of the course:-\ni. Compulsory non-refundable fees including tuition fee, as fixed by the Fee Fixation/Rationalization Committee of the State Government\nii. Academic allowance\n\n| Category of courses                                                              | Hostellers | Day Scholars |\n| :------------------------------------------------------------------------------- | :--------- | :----------- |\n| Group 1: Degree and Post Graduate level professional courses                     | 13500      | 7000         |\n| Group 2: Other Professional Courses leading to Degree, Diploma, Certificate      | 9500       | 6500         |\n| Group 3: Graduate and Post Graduate courses not covered under Group I & Group II | 6000       | 3000         |\n| Group 4: All post-matriculation (Post Class X level) non-degree courses          | 4000       | 2500         |\n\nNote 1. Ten percent extra allowances shall be provided for Divyang students.\nNote 2. Students pursuing C.A. /I.C.W.A. /C.S. /I.C.F.A. shall be treated as day scholars for the purpose of academic allowance. Students studying through correspondence/online courses shall not be eligible for academic allowance.\nNote 3. The academic allowance as above shall be applicable from the year 2021-22. For the year 2020-21 the allowances as applicable under the earlier guidelines shall apply.\n\nPage 8 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\n7.3 The Academic Allowance will be linked with the Consumer Price Index Number for Industrial workers. The Annual increment will be applicable w.e.f. April of each year and will be based on Index for the period January-December of the preceding year. The first revision would be applicable w.e.f. April, 2022 and in this regard Department will issue separate orders on Annual basis.\n7.4 The State Governments may, if they so decide, top up the academic allowance from their own resources.\n\n## 8. Freeship Card and process for issue\n\n8.1 All eligible students shall be entitled to take admission in the institutions without pre-payment of tuition fees and hostel fees as per the Scheme Guidelines. To enable this, a FREESHIP CARD will be issued by the State Government to the eligible students, as per procedure detailed below. This Freeship card shall make the student eligible to study in the institution without pre-payment of the fees, and on the condition that as and when amount is released to the student's account, the institution would be intimated to collect the same from the student.\n8.2 The student shall, well before the expected date of admission, register for issuance of a Freeship Card on the respective scholarship portal giving the details like the Aadhaar number, the name of the course in which he/she wants to take admission (e.g. MBBS, B.Sc., Class XI etc.) and an undertaking that the institution's charges would be paid within 7 working days from the date of receipt of the scholarship amount in his/her account. For the purpose of registration of Freeship Card, the portals shall remain open throughout the year.\n8.3 The verification of the income, caste and merit details should be automatically done from the databases which are linked online for instant verification. The process should be entirely paperless. Until the above system is brought into effect, the documents may be scanned and uploaded which include: passport size photograph, copy of each of the certificates for diploma, degree etc. in respect of all examinations passed, Caste certificate duly signed by the authorized officer, valid Income certificate issued by the competent authority as prescribed by the State Govt. etc.\n8.4 After the registration on the Portal, if the student is found eligible, all States/UTs will complete the verification process within 30 days from the receipt of the registration request from the students and issue the Freeship Card through the IT portal, mentioning the course\n\nPage 9 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nfor which application is made so that the eligible students are not denied admissions due to delay in depositing tuition fees. It should be possible for the student to download the Free Ship Card from the portal itself. Once complete digitization of all the required certificates is done, such Freeship Card shall be automatically generated immediately on registration, if the student is found eligible.\n8.5 The Freeship Card shall contain the details given in Annexure-1, and shall be digitally signed. For the purpose of admission, the Freeship card will remain valid for period of one year from the date of issue.\n8.6 If a student wants to change his/her course before taking admission in an institution, he can do so by logging on IT portal and a fresh Freeship Card shall be issued automatically for all eligible students.\n8.7 In case of renewal students, there shall be no need for fresh registration for the Freeship card and a card once issued to him/her shall be valid for the entire duration of the course.\n\n## 21. Other Conditions for the Award\n\n21.1. If a student is found to have obtained a scholarship by false statements, his/her scholarship will be cancelled forthwith and the amount of the scholarship paid will be recovered, at the discretion of the concerned State Government. The student concerned will be blacklisted and debarred for scholarship in any scheme forever.\n21.2. A scholarship awarded may be cancelled if the scholar changes the subject of the course of study for which the scholarship was originally awarded or changes the institution of study, without prior approval of the State Government. The Head of the Institution shall report such cases to the State which will stop payment of the scholarship money. The amount already paid may also be recovered at the discretion of the State Government.\n21.3. A scholar is liable to refund the scholarship amount at the discretion of the State Government, if during the course of the year, the studies for which the scholarship has been awarded, is discontinued by him/her.\n21.4. The provisions of this scheme can be changed at any time at the discretion of the Government of India.\n\n********\n\nPage 17 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nAnnexure-I\n\nThe following important parameters should be contained in the FREE SHIP CARD\n\nName of the Student\nStudent's ID on the portal\nFathers' Name-\nAadhaar Card Number-\nCaste\nDate of Birth\nAnnual Family income\nDomicile State-\nAddress of the Student\nCourse (in which admission is sought)-\nDuration of Course-\nClass (presently studying)-\nClass (Last class previously studied)-\nMajor provisions of the scheme\nStudent's undertaking to reimburse the amount to institution within 7 days after receipt of scholarship\n\nPage 18 of 18",
+   "application": "## 9. Application for Scholarship and Verification\n\n9.1 Application-on-the-day-of-admission: The institutions shall ensure that all students admitted to their institution and having Freeship Cards issued as detailed in para 8 of these Guidelines, apply on the IT portal for the scholarship on the same day as the date of admission into the institution.\n9.2 On the day of admission itself, the institution shall verify on the scholarship portal that the student has taken admission in the institution with the same course as mentioned on the Free ship card and is now a bonafide student of the institution.\n9.3. In case of renewal students, the student shall be auto-renewed based on the attendance and confirmation from the institution of the student having been promoted to the next class and having joined back the same course as hosteller/day scholar, as the case may be.\n\n## 10. Funding Pattern of the Scheme\n\n10.1 There will be a 60: 40 sharing ratio between the Centre and States (90:10 in case of North Eastern States) of the average demand for the scheme for three year period 2017-18 to 2019-20 (to be considered as the base period), with a 5% overall annual increase each\n\nPage 10 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nyear in the Central assistance for all States put together in absolute terms w.r.t. base period. The above shall be applicable from 2020-21 onwards and the scheme will be continued upto the financial year 2025-26.\n10.2 Thus, for the purpose of determining the demand for the year 2020-21, the average demand of 2017-18 to 2019-20, or the actual demand for 2020-21, whichever is lesser, will be considered for each State/UT. For subsequent years i.e. 2021-22 & onwards, the Central assistance for all States put together will be limited by a 5% annual increase over the average demand for the scheme for the base period of 2017-18 to 2019-20, which shall be ensured by the Project Appraisal Committee (PAC) while appraising the States' Annual Action Plans. The Ministry will have the flexibility of adjusting the allocation of funds between the States subject to the total allocation approved, without disrupting the 60:40 sharing ratio between the Centre and the States.\n10.3 If the total fund requirement is over and above the annual 5% limit, the central share will be limited to that and the additional requirement of funds, if any, shall be met by the State Governments from their own resources.\n10.3. All the State Governments and Union Territory Administrations implementing the scheme will maintain the data of all the beneficiaries on their online portal and will distinctly mention the amount of scholarship under various components as mentioned in the Scheme.\n\n## 11. Payment Mechanism\n\n11.1 The entire scholarship amount both from the State and Central Government - including the tuition fees, academic allowance and any other admissible allowance will be paid directly into the account of the students ONLY through DBT preferably through an Aadhaar Based Payment System (Aadhaar Payment Bridge) from 2021-22. The States shall preferably release the payments through PFMS System so that the accounts of the students are not required to be validated again.\n11.2 Starting from 2021-22, the Central share in the scheme would also be released on DBT mode directly into the bank accounts of the students, after ensuring that the concerned State Government has released their share.\n11.3 All the States/UTs/Centre would adhere to the following timelines for processing of the applications and release of scholarship amounts:\n\nPage 11 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\n* The scholarship portals would remain open throughout the year so that all eligible students can register for the Freeship Card and apply for the scholarships.\n* Disbursal of scholarships for all applications (fresh/renewals) shall be made in one instalment as per the following schedule:\n\n| Dates of receiving of applications | Date by which State share (40%; 10% in case of NE States) should be released | Date by which Central share (60%; 90% in case of NE States) should be released |\n| :--------------------------------- | :-------------------------------------------------------------------------- | :---------------------------------------------------------------------------- |\n| From 1st April to 31st July        | 15th August                                                                 | 30th August                                                                   |\n| From 1st August to 30th November   | 30th December                                                               | 26th January                                                                  |\n| From 1st December to 31st January* | 28th February                                                               | 15th March                                                                    |\n| From 1st February to 31st March*   | With 75 days of application                                                 | Within 90 days of application                                                 |\n\n\\*Portal shall remain open only for submission of applications for scholarships for courses where admission is after November.\n11.4 There shall be no delays in payment of the scholarships. For this purpose the State shall ensure that their installments are disbursed to the students by the timelines defined in previous para so that the Central share can also be released in time.\n11.5 The Ministry of Social Justice vide notification number 428 dated Feb, 16,2017 has notified Aadhaar as identity document under Section 7 of Aadhaar Act 2016 for all Scholarship Schemes w.e.f. 16th February 2017.\n11.6 The authentication through Aadhaar would be compulsory at the time of renewals, if not provided earlier at the time of admission.\n\n## 17. Process of Registration and Application for the student\n\nPage 15 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\n17.1 The student shall, well before the expected date of admission, register on the online on scholarship portal for issue of a Freeship Card as detailed in Para 8.2 of these Guidelines.\n17.2 On admission to the institution to a course mentioned in the Freeship Card, the student shall apply, on the day of the admission itself, for scholarship, giving details of the Freeship card and the course and institution admitted to.\n17.3 Students continuing their courses for which they have already been sanctioned scholarship in the previous year, i.e. renewal students, shall, be automatically renewed for scholarship as detailed in para 8.7.\n\n## 18. Evaluation/Social Audit and follow up action\n\n18.1. There shall be thorough evaluation of the outcomes of the scheme in regular intervals to ascertain the effectiveness of scheme implementation and for tracking the progress of the students. This may include conduct of social audits once a year, annual third-party evaluation, and half-yearly self-audited reports from each institution.\n18.2. The social audits are to be conducted by the Social Audit Units of the State Governments formed by the Ministry of Rural Development, Govt. of India duly meeting the cost from the administrative cost of the scheme.\n18.3. The State Government shall also set up a robust monitoring mechanism for monitoring the academic progress of the students enrolled to the scheme.\n18.4. The students who are found to be lagging behind should be provided remedial coaching so that their academic outcome shall not be less than the average academic outcomes. The State Action Plan should contain clear provisions for this.\n18.5. In order to ensure proper accountability, physical verifications at various levels viz. Block/District/State levels shall be done by the States/UTs covering at least 10% of the institutions/students, chosen randomly through an algorithm. All private institutions offering courses at the level of graduation or above shall, however, be mandatorily inspected annually.\n\n## 19. Administrative Charges\n\n19.1. The administrative cost for administration, monitoring and evaluation shall be limited to 1% of the annual outlay.\n19.2. Each State/UT shall project the requirement of funds for undertaking the monitoring of the implementation, in its Annual Action Plan. In case, funds are required for Book,\n\nPage 16 of 18\n\nPost Matric Scholarship for SCs: Scheme Guidelines\n\nthese may be indicated under the Administrative charges. This would be considered by the PAC, ensuring that the total outflow on this count does not exceed 1% of the annual outlay.\n19.3. The PAC shall give first priority in approving administrative charges for development of IT infrastructure, setting up of Technical Support Group cum Project Monitoring Unit at the Central/State level and social audits.\n\n## 20. Mechanism for redressal of grievances\n\n20.1. There shall be an online grievance redressal mechanism linking all the authorities responsible for implementation on the scholarship portal.\n20.2. The student shall be able to lodge a grievance either through the portal or by a mobile app.\n20.3. Every institution shall have a Grievance Redressal Officer (GRO) who is responsible for entertaining the grievances and resolving them by following up with the appropriate authority.\n20.4. The non-resolution of the grievance at the institution level in a given time frame shall automatically be escalated to the district and later to the State level for resolution."
+  },
+  "rules": [
+   {
+    "id": "scheduled-caste",
+    "kind": "require",
+    "clause": "Only those candidates who belong to Scheduled Castes so specified in relation to the State/Union Territory to which the applicant actually belongs will be eligible (guidelines §5.2).",
+    "source_url": "https://socialjustice.gov.in/schemes/25"
+   },
+   {
+    "id": "post-matric-student",
+    "kind": "require",
+    "clause": "Candidates who have passed the Matriculation or Higher Secondary or any higher examination of a recognized University or Board of Secondary Education will be eligible (guidelines §5.2).",
+    "source_url": "https://socialjustice.gov.in/schemes/25"
+   },
+   {
+    "id": "family-income-cap-250k",
+    "kind": "require",
+    "clause": "Scholarships will be paid to the students whose parents'/guardians' income from all sources does not exceed Rs. 2,50,000/- during the last Financial Year (guidelines §5.3).",
+    "source_url": "https://socialjustice.gov.in/schemes/25"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmsby",
+  "short_name": "PMSBY",
+  "name": "Pradhan Mantri Suraksha Bima Yojana",
+  "category": "insurance",
+  "ministry": "Ministry Of Finance",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmsby",
+  "references": [
+   {
+    "title": "Scheme Guidelines",
+    "url": "https://jansuraksha.gov.in/Files/PMSBY/English/Rules.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "1. On Death- the Nominee shall get Rs. 2 Lakhs. 1. Total and irrecoverable loss of both eyes or loss of use of both hands or feet or loss of sight of one eye and loss of use of hand or foot- Subscriber shall get Rs.",
+  "sections": {
+   "details": "An Accident Insurance Scheme offering accidental death and disability cover for death or disability on account of an accident.\n**Premium:**\nRs.20/- per annum per member. The premium will be deducted from the account holder’s bank / Post office account through ‘auto debit’ facility on or before 1st June of each annual coverage period under the scheme.\n**Coverage Duration:**\nCoverage under PMJJBY is valid for one year from 1st June to 31st May on payment of annual premium.\n**Accident cover assurance termination:**\nThe accident cover of the member shall terminate / be restricted accordingly on any of the following events:\n•\tOn attaining age 70 years (age nearer birth day).\n•\tClosure of account with the Bank or insufficiency of balance to keep the insurance in force.\nIn case a member is covered under PMSBY through more than one account and premium is received by insurance company inadvertently, insurance cover will be restricted to Rs. 2 lakh.",
+   "benefits": "1. On Death- the Nominee shall get Rs. 2 Lakhs.\n1. Total and irrecoverable loss of both eyes or loss of use of both hands or feet or loss of sight of one eye and loss of use of hand or foot-  Subscriber shall get Rs. 2 Lakhs.\n1. Total and irrecoverable loss of sight of one eye or loss of use of one hand or foot –subscriber shall get Rs. 1 Lakh.",
+   "eligibility": "Individual bank account holders of participating banks aged between 18 years (completed) and 70 years (age nearer birthday) who give their consent to join / enable auto-debit, will be enrolled into the scheme.",
+   "application": "### Application mode: Offline\n\n**Step 01:** In order to enrol in PMSBY offline, one can visit the bank branch where one has a savings account or the candidate can visit the official site: [https://jansuraksha.gov.in/Forms-PMSBY.aspx](https://jansuraksha.gov.in/Forms-PMSBY.aspx)**** to download the form.\n**Step 02:** After downloading the application form , candidate can fill in all the details and submit  them to the bank along with the  required documents.\n**Step 03:** Once it is successfully submitted , subscriber will get an Acknowledgement Slip Cum Certificate of Insurance.\nContact:\n**State wise tollfree number** - [https://jansuraksha.gov.in/files/STATEWISETOLLFREE.pdf ](https://jansuraksha.gov.in/files/STATEWISETOLLFREE.pdf)\n**National Toll Free Number** - 1800-180-1111 / 1800-110-001\n\n### Application mode: Online\n\nOne can also avail cover under PMSBY online using their bank's Net banking facility."
+  },
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "Individual bank account holders aged between 18 years (completed) and 70 years are eligible to be enrolled into the scheme.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmsby"
+   },
+   {
+    "id": "age-at-most-70",
+    "kind": "require",
+    "clause": "Individual bank account holders aged between 18 years (completed) and 70 years (age nearer birthday) are eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmsby"
+   },
+   {
+    "id": "bank-account",
+    "kind": "require",
+    "clause": "Individual bank account holders of participating banks ... who give their consent to join / enable auto-debit will be enrolled into the scheme.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmsby"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmuy",
+  "short_name": "PMUY",
+  "name": "Pradhan Mantri Ujjwala Yojana",
+  "category": "household",
+  "ministry": "Ministry Of Petroleum and Natural Gas",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmuy",
+  "references": [
+   {
+    "title": "Scheme Guidelines",
+    "url": "http://nadia.gov.in/DISHA/DISHASchemeGuidelines/Pradhan%20Mantri%20UJJWALA%20Yojna%20Guideline.pdf"
+   },
+   {
+    "title": "Additional Guidelines",
+    "url": "https://www.pmuy.gov.in/index.aspx"
+   },
+   {
+    "title": "Additional Guidelines",
+    "url": "https://mopng.gov.in/en/marketing/pmuy"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "1. Rs. 1600 for a connection 14.2kg cylinder or Rs. 1150 for a 5 kg cylinder. 1. Additionally, All PMUY beneficiaries will be provided with first LPG refill and Stove (hot plate) both free of cost along with their…",
+  "sections": {
+   "details": "In May 2016, the Ministry of Petroleum and Natural Gas (MOPNG), introduced the ‘Pradhan Mantri Ujjwala Yojana’ (PMUY) as a flagship scheme with an objective to make clean cooking fuel such as LPG available to the rural and deprived households which were otherwise using traditional cooking fuels such as firewood, coal, cow-dung cakes etc. Usage of traditional cooking fuels had detrimental impacts on the health of rural women as well as on the environment.\nThe scheme was launched on 1st May 2016 in Ballia, Uttar Pradesh by Hon’ble Prime Minister of India, Shri. Narendra Modi\n\n- The target under the scheme was to release 8 Crore LPG Connections to the deprived households by March 2020.\n- On 7th September 2019, Hon’ble Prime Minister of India handed over the 8th Crore LPG connection in Aurangabad, Maharashtra.\n- The release of 8 Crore LPG connections under the scheme has also helped in increasing the LPG coverage from 62% on 1st May 2016 to 99.8% as on 1st April 2021.\n- Under the Union Budget for FY 21-22, provision for release of additional 1 Crore LPG connections under the PMUY scheme has been made. In this phase, special facility has been given to migrant families.",
+   "benefits": "1. Rs. 1600 for a connection 14.2kg cylinder or Rs. 1150 for a 5 kg cylinder.\n1. Additionally, All PMUY beneficiaries will be provided with first LPG refill and Stove (hot plate) both free of cost along with their deposit free connection.\n\n#### Note:\nPriority would be given to the states which have lower LPG coverage (Compared to the national average) as on 1st Jan 2016.",
+   "eligibility": "An adult woman belonging to a poor household and not having an LPG connection in her household will be eligible under UJJWALA 2.0. The beneficiaries should belong to any of the following categories:\n\n1. Eligible as per SECC 2011 list\n1. Belongs to SC/ST households, be a beneficiary of Pradhan Mantri Awas Yojana (PMAY), Antyodaya Anna Yojana (AAY), Forest dwellers, Most Backward Classes (MBC), Tea and Ex-Tea Garden Tribes, People residing in river islands (Beneficiary will submit supporting document)\n1. If she is not falling in the above 2 categories, then she can stake her claim to be a beneficiary under Poor household by submitting 14-point declaration (as per prescribed format)",
+   "exclusions": "Male Member from a household cannot apply for the scheme.",
+   "application": "### Application mode: Online\n\n1. Following are the prerequisites for the enrollment process:\n\n   1. Aadhar Card\n   1. Ration card\n   1. Address Proof\n   1. Passport size photograph\n   1. Bank Details\n\n1. Apply the application form through online [official website](www.pmuy.gov.in). 1. Select the oil company name example Indane / Bharatgas / HP Gas\n1. Select Type of Connection like Ujjwala 2.0 New Connection\n1. Choose State, District and Name of Distributor.\n1. Enter Mobile Number, Captcha and OTP.\n1. Select Migrant Family status in YES or NO\n1. For family Identifier in NO fill Annexure 1\n1. For  family Identifier in Yes fill Ration Card\n1. Select Category.\n1. Fill all Family Details, Personal details, address details, bank details, Choose Cylinder Types, Select rural or urban and select declaration and submit.\n1. Generate Reference number and visit Gas agency."
+  },
+  "rules": [
+   {
+    "id": "woman-applicant",
+    "kind": "require",
+    "clause": "An adult woman belonging to a poor household and not having an LPG connection in her household is eligible. Male members from a household cannot apply.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmuy"
+   },
+   {
+    "id": "adult",
+    "kind": "require",
+    "clause": "An adult woman belonging to a poor household is eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmuy"
+   },
+   {
+    "id": "poor-household",
+    "kind": "require",
+    "clause": "The applicant should belong to a poor household (SECC 2011 list, or a listed category such as SC/ST, PMAY-G, AAY, forest dweller, tea-garden worker, or per a 14-point declaration).",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmuy"
+   },
+   {
+    "id": "no-existing-lpg-connection",
+    "kind": "require",
+    "clause": "The woman should not be having an LPG connection in her household (no LPG connection in the name of any family member).",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmuy"
+   }
+  ]
+ },
+ {
+  "scheme_id": "pmv",
+  "short_name": "PM Vishwakarma",
+  "name": "PM Vishwakarma",
+  "category": "livelihood",
+  "ministry": "Ministry Of Micro, Small and Medium Enterprises",
+  "page_url": "https://www.myscheme.gov.in/schemes/pmv",
+  "references": [
+   {
+    "title": "Guidelines",
+    "url": "https://pmvishwakarma.gov.in/Home/EbookPdf"
+   },
+   {
+    "title": "FAQ",
+    "url": "https://pmvishwakarma.gov.in/Home/FAQ"
+   },
+   {
+    "title": "Official Website",
+    "url": "https://pmvishwakarma.gov.in/"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "1. **Recognition**: Recognition as Vishwakarma through Certificate and ID Card 1. **Skilling**: 1. Skill Verification followed by 5-7 days (40 hours) of Basic Training 1.",
+  "sections": {
+   "details": "PM Vishwakarma is a Central Sector Scheme launched by Ministry of Micro, Small and Medium Enterprises to provide holistic and end-to-end support to artisans and craftspeople through access to collateral free credit, skill training, modern tools, incentive for digital transactions and market linkage support. The scheme will initially be implemented for five years up to 2027-28.\n> **Objectives**\n\n   1. To enable the recognition of artisans and craftspeople as Vishwakarma making them eligible to avail all the benefits under the Scheme.\n   1. To provide skill upgradation to hone their skills and make relevant and suitable training opportunities available to them.\n   1. To provide support for better and modern tools to enhance their capability, productivity, and quality of products.\n   1. To provide the intended beneficiaries easy access to collateral-free credit and reduce the cost of credit by providing interest subvention.\n   1. To provide incentives for digital transactions to encourage the digital empowerment of these Vishwakarmas.\n   1. To provide a platform for brand promotion and market linkages to help them access new opportunities for growth.\n\n> **Implementing Agency**\n\n  - The scheme is conjointly implemented by the following Ministries/Departments:\n  - Ministry of Micro, Small and Medium Enterprises (MoMSME).\n  - Ministry of Skill Development and Entrepreneurship (MSDE).\n  - Department of Financial Services (DFS), Ministry of Finance (MoF).",
+   "benefits": "1. **Recognition**: Recognition as Vishwakarma through Certificate and ID Card   1. **Skilling**:\n      1. Skill Verification followed by 5-7 days (40 hours) of Basic Training\n      1. Interested candidates can also enrol for 15 days (120 hours) of Advanced Training\n      1. Training Stipend: ₹500/- per day.\n\n   1. **Toolkit Incentive**: ₹15,000/- grant.   1. **Credit Support**:\n      1. Collateral-free Enterprise Development Loans: ₹1,00,000/- (First Tranche for 18 months repayment) &amp; ₹2,00,000/- (Second Tranche for 30 months repayment)\n      1. Concessional Rate of Interest: 5% to be charged from the beneficiary with an Interest Subvention cap of 8% to be paid by MoMSME\n      1. Credit Guarantee fees to be borne by GoI\n\n   1. **Incentive for Digital Transaction**: ₹1/- per transaction for a maximum of up to 100 transactions (monthly)   1. **Marketing Support**: The National Committee for Marketing (NCM) will provide services such as Quality Certification, Branding and Promotion, e-commerce Linkage, Trade Fair Advertising, Publicity, and Other Marketing Activities.\n> **NOTE**: Notification to beneficiaries on disbursement of incentives will be done through SMS.",
+   "eligibility": "- The applicant should be an artisan or craftsperson working with hands and tools.\n  - The applicant should be engaged in an unorganized sector on a self-employment basis.\n  - The applicant should be engaged in one of the 18 family-based traditional trades mentioned in the scheme.\n  - On the date of registration for the scheme, the minimum age of the applicant should be 18 years.\n  - The applicant should be engaged in the concerned trade on the date of registration.\n  - The applicant should not have availed loans under similar credit-based schemes of the Central Government or State Government for self-employment/ business development, e.g. PMEGP, PM SVANidhi, Mudra, in the past 5 years.\n  - The registration and benefits under the Scheme shall be restricted to one member of the family.",
+   "exclusions": "- A person in government service and their family members shall not be eligible.",
+   "application": "### Application mode: Online - via CSC\n\n(i) The eligible beneficiaries are required to get themselves enrolled through nearest CSC in their area.\n(ii) The beneficiary can apply either on their own or with the help of the CSCs through Village Level Entrepreneurs (VLEs) or Enumerators.\n> **Registration**:\n\n**Step 1:** Visit the [Official Portal](https://pmvishwakarma.gov.in/) of \"PM Vishwakarma\" and on the top right corner, click \"Login\". Then click \"CSC - Register Artisans\".\n You will be taken to the [Registration.](https://pmvishwakarma.gov.in/Registration)\n**Step 2:** On the \"Registration Now\" Page, answer the Set of Questions as Yes/No, and click \"Continue\". On the \"Aadhaar Verification\" Page, enter the 6-digit OTP received on your Aadhaar-linked Mobile Number. Click \"Continue\". On the next page, enter your Aadhaar Number and the Aadhaar Registered Mobile Number. Click \"Continue\".\n> **Application**:\n\n**Step 1:** Visit your nearest CSC and complete the Biometric Verification Process.\n**Step 2:** In the Online Application Form, fill in all the mandatory details, and click \"Submit\". In the next screen, note down the \"Application Number\" for future reference. Click \"Done\".\n> **Verification**:\n\n**Stage 1:** Verification of Eligibility at Gram Panchayat or ULB level.\n**Stage 2:** Vetting and Recommendation of the Applications by the District Implementation Committee.\n**Stage 3:** The Screening Committee will accord final approval of the beneficiaries for registration after satisfying itself as to their eligibility.\n> **Benefit Disbursal:**\n\nAfter a successful three-step verification, the artisans and craftspeople will formally register under this Scheme as Vishwakarmas. They will receive a Digital ID, a PM Vishwakarma Digital Certificate and a PM Vishwakarma ID Card. The certificate will enable the applicants’ recognition as a Vishwakarma, making them eligible to avail of all the benefits under the Scheme.",
+   "documents": "**Required documents or information**:\n\n   1. Aadhaar,\n   1. Mobile number,\n   1. Bank details,\n   1. Ration card mandatory for the registration.\n\n> **Note: 1** In case of a beneficiary not having a ration card, they would be required to produce Aadhaar cards of all family members.\n\n> **Note: 2** If beneficiary does not have bank account, they will be first required to open a bank account for which hand holding shall be done by the CSC."
+  },
+  "rules": [
+   {
+    "id": "vishwakarma-trade-artisan",
+    "kind": "require",
+    "clause": "The applicant should be an artisan or craftsperson working with hands and tools, engaged in an unorganized sector on a self-employment basis, in one of the 18 family-based traditional trades mentioned in the scheme (carpenter, boat maker, armourer, blacksmith, hammer and tool kit maker, locksmith, goldsmith, potter, sculptor/stone carver, cobbler, mason, basket/mat/broom maker, doll and toy maker, barber, garland maker, washerman, tailor, fishing net maker).",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmv"
+   },
+   {
+    "id": "minimum-age-18",
+    "kind": "require",
+    "clause": "On the date of registration for the scheme, the minimum age of the applicant should be 18 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmv"
+   },
+   {
+    "id": "exclude-government-service-family",
+    "kind": "exclude",
+    "clause": "A person in government service and their family members shall not be eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmv"
+   }
+  ]
+ },
+ {
+  "scheme_id": "sukanya-samriddhi",
+  "short_name": "SSY",
+  "name": "Sukanya Samriddhi Yojana (Sukanya Samriddhi Account Scheme, 2019)",
+  "category": "savings",
+  "ministry": "Ministry of Finance (Department of Posts)",
+  "page_url": "https://www.indiapost.gov.in/VAS/Pages/PMODashboard/SukanyaSamriddhiAccount.aspx",
+  "references": [
+   {
+    "title": "Official scheme document (PDF)",
+    "url": "https://www.indiapost.gov.in/documents/offerings/schemesandservices/posb/SukanyaSamriddhiAccountScheme2019English.pdf"
+   }
+  ],
+  "fetched_at": "2026-07-10",
+  "benefit_snippet": "4. Deposits.-(1) The account may be opened with a minimum initia l deposit of two hundred and fifty rupees and in multiples of fifty rupees thereafter and sub sequent deposits shall be in multiples of fifty rup ees…",
+  "sections": {
+   "details": "G.S.R. 914(E).— In exercise of the powers conferred by section 3A o f the Government Savings \nPromotion Act, 1873 (5 of 1873), the Central Government hereby makes the following Scheme,  namely:-\n\n1.  Short title and commencement.- (1) This Scheme may be called the Sukanya Samriddhi  Account  \nScheme, 2019.  \n(2) It shall come into force on the date of its publication in the Official Gazette.\n\n2.   Definitions.-(1)  In this Scheme, unless the context otherwise requires,- \n(a)  “account” means an account opened under this Scheme ;  \n(b)  “account  holder” means a girl child in whose name the account is held; \n(c)  “Act” means the Government Savings Promotion Act, 1 873 (5 of 1873); \n(d)  “birth certificate” means birth certificate issued by the municipal authority or any office authorised  \nto issue birth and death certificate by the Registr ar of Births and Deaths or the Indian Consulate as \ndefined in clause (d) of sub-section (1) of section 2 of the Citizenship Act, 1955 (57 of 1955); \n(e)  “family” means a unit consisting of a person and hi s spouse (both or either of whom are alive or \ndeceased) and their children, adopted or otherwise; \n(f)  “financial year” means the period commencing on the   1 st day of April and ending on the 31 st day of \nMarch of the following year; \n(g)  “Form” means forms appended to this Scheme; \n(h)  “General Rules” means the Government Savings Promot ion General Rules, 2018; \n(i)  “maturity” means maturity of an account on completi on of a period of twenty-one years from the \ndate of its opening. \n(2) Words and the expressions used herein but not d efined shall have the meanings respectively assigne d to \nthem in the Act and the General Rules.\n\n10.  Application of General Rules.- Provisions of the General Rules shall, so far as may be, apply in relation \nto the matters for which no provisions have been made in this Scheme.\n\n11. Power to relax.- Where the Central Government is satisfied that the operation of any of the provisions of \nthis Scheme causes undue hardship to the account ho lder, it may, by order and for reasons to be record ed in \nwriting, relax the requirement of that provision or  provisions in respect of such account holder, in a  manner \nnot inconsistent with the  provisions of the Act. \n[F. No. 2/2/2018-NS (Pt. I)] \nRAJAT  KUMAR  MISHRA, Jt. Secy.",
+   "benefits": "4. Deposits.-(1) The account may be opened with a minimum initia l deposit of two hundred and fifty rupees \nand in multiples of fifty rupees thereafter and sub sequent deposits shall be in multiples of fifty rup ees subject \nto the condition that a minimum of two hundred and fifty rupees shall be made as deposit in a financial year in \none account. \n(2) The total amount deposited in an account shall not exceed one lakh fifty thousand rupees in a financial \nyear:  \nProvided that the deposit in excess of one lakh fif ty thousand rupees in any financial year, if accept ed \ndue to any accounting error, shall not be eligible for any interest and be returned immediately to the depositor.  \n(3) Deposits may be made in the account till the co mpletion of a period of fifteen years from the date  of \nopening of the account.   \n(4)  An account in which minimum amount as specifie d in sub-paragraph (1) has not been deposited shall  \nbe considered as an account under default:  \nProvided that an account under default may be regul arised any time till completion of a period of \nfifteen years from the date of opening of account o n payment of a penalty of fifty rupees for each yea r of \ndefault along with the minimum annual deposit in respect of the defaulted years. \n(5) In case of an account under default, if not reg ularised within the time specified under  \nsub-paragraph (4), then the whole deposit, includin g the deposits made prior to the date of default, s hall be \neligible for interest at the rate applicable to the Scheme till closure of the account. \n¹Hkkx IIµ[k.M 3(i)]  Hkkjr dk jkti=k % vlk/kj.k 13\n\n5. Interest on deposit.-(1) Deposits in the account shall earn interest at the rate 8.4 per cent per annum. \n(2) The interest shall be calculated for the calend ar month on the lowest balance in the account between the \nclose of the fifth day and the end of the month. Th e interest shall be credited to the account at the end of each \nfinancial year and any amount of interest in fracti on of a rupee shall be rounded off to the nearest r upee and \nfor this purpose any amount of fifty paisa or more shall be treated as one rupee and any amount less t han fifty \npaisa shall be ignored. \n(3) Interest shall be credited at the end of the fi nancial year irrespective of the change of the acco unt office \ndue to transfer of the account during the financial year.\n\n7. Premature closure of account.-\n(1) In the event of death of the account holder,                                                                      \nthe account shall be closed immediately on application in Form-2, on  production of death certificate issued by \nthe competent authority and the balance at the cred it of the account and interest due thereon till the  date of \ndeath shall  be paid to the guardian. \n(2) Interest for the period between the date of dea th of the account holder and date of closure of the  \naccount shall be paid at the rate applicable on Pos t Office Savings Account for the balance held in th e \naccount. \n(3) Where the accounts office is satisfied that in case of extreme compassionate grounds such as medic al \nsupport in life-threatening diseases of the account  holder or death of the guardian that the operation  or \ncontinuation of the account is causing undue hardsh ip to the account holder, it may, after complete \ndocumentation establishing the grounds for such clo sure, by order and for reasons to be recorded in wr iting, \nallow premature closure of the account. Outstanding  balance in the account with interest due as applic able to \nthe Scheme shall be paid to the account holder or guardian, as the case may be: \nProvided that no premature closure of an account un der this sub-paragraph shall be made before \ncompletion of five years from the date of opening of the account.\n\n8. Withdrawal.- (1) On an application in Form-3, withdrawal of upto  a maximum of fifty per cent. of the \namount in the account at the end of the financial y ear preceding the year of application for withdrawa l, shall \nbe allowed for the purpose of education of the account holder:  \nProvided that such withdrawal shall be allowed afte r the account holder attains the age of eighteen \nyears or has passed tenth standard, whichever is earlier. \n(2) The application for withdrawal under sub-paragraph (1) shall be accompanied by documentary proof in the \nform of a confirmed offer of admission of the accou nt holder in an educational institution or a fee-sl ip from \nsuch institution indicating such financial requirement. \n(3)  The withdrawal under sub-paragraph (1) may be made in one lump sum or in instalments, not exceedi ng \none per year, for a maximum of five years, subject to the ceiling specified in sub-paragraph (1):  \nProvided that the amount of withdrawal shall be res tricted to the actual requirement on account of fee  \nand other charges required at the time of admission  as shown in the offer of admission or the relevant  fee-slip \nissued by the educational institution.\n\n9.   Closure on maturity.-(1) The account shall mature on completion of a period of twenty-one years from \nthe date of its opening.  \n(2) The closure of the account may also be permitte d before completion of twenty-one years if the \naccount holder on an application makes a request fo r such closure for the reason of intended marriage of the \naccount holder on furnishing of a declaration duly signed on non-judicial stamp paper attested by the notary \nsupported with proof of age confirming that the app licant will not be less than eighteen years of age on the \ndate of marriage: \nProvided that no such closure shall be allowed befo re one month from the date of the intended \nmarriage or after three months from the date of marriage. \n(3)    On an application in Form-4 by the account h older, the balance outstanding along with interest as \napplicable under paragraph 5 shall be payable to the account holder.",
+   "eligibility": "3. Opening of account.- (1) The account may be opened by one of the guardia n in the name of a girl child, \nwho has not attained the age of ten years as on the date of opening of the account. \n(2) Every account holder shall have a single accoun t under this Scheme. \n(3) The application in Form-1 for opening an accoun t shall be accompanied by birth certificate of the \ngirl child in whose name the account is to be opened, along with required documents of guardian.  \n(4) An account under this Scheme may be opened for a maximum of two girl children in one family: \nProvided that more than two accounts may be opened in a family if such children are born in the first \nor in the second order of birth or in both, on subm ission of an affidavit by the guardian supported wi th birth \ncertificates of the twins/triplets regarding the birth of such multiple girl children in the first two orders of birth \nin a family: \nProvided further that the above proviso shall not a pply to girl child of the second order of birth, if  the \nfirst order of birth in the family results in two or more surviving girl children.",
+   "application": "6. Operation of account.- (1) The account shall be operated by the guardian t ill the account holder attains the \nage of eighteen years. The account shall be operate d by the account holder herself after attaining age  of \neighteen years by submitting necessary documents."
+  },
+  "rules": [
+   {
+    "id": "girl-child-under-10",
+    "kind": "require",
+    "clause": "The account may be opened by one of the guardians in the name of a girl child who has not attained the age of ten years as on the date of opening of the account (Sukanya Samriddhi Account Scheme, 2019, clause 3(1)).",
+    "source_url": "https://www.indiapost.gov.in/documents/offerings/schemesandservices/posb/SukanyaSamriddhiAccountScheme2019English.pdf"
+   }
+  ]
+ }
+]
