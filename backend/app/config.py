@@ -28,6 +28,9 @@ class Settings(BaseSettings):
 
     gemini_model: str = "gemini-2.5-flash"
     groq_model: str = "llama-3.3-70b-versatile"
+    # Faithfulness judge runs on a separate model: its own free-tier quota bucket,
+    # and it reduces self-preference when judging the 70B generator's claims.
+    groq_judge_model: str = "llama-3.1-8b-instant"
     embedding_model: str = "BAAI/bge-small-en-v1.5"
 
     raw_dir: Path = DATA_DIR / "raw"

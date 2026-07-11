@@ -29,9 +29,9 @@ THROTTLE_SECONDS = 2.5  # keep well inside the free-tier requests/tokens-per-min
     wait=wait_exponential(multiplier=2, min=2, max=120),
     retry=retry_if_exception_type(APIError),
 )
-def _complete(prompt: str, temperature: float, json_mode: bool) -> str:
+def _complete(prompt: str, temperature: float, json_mode: bool, model: str) -> str:
     response = _get_client().chat.completions.create(
-        model=settings.groq_model,
+        model=model,
         messages=[{"role": "user", "content": prompt}],
         temperature=temperature,
         response_format={"type": "json_object"} if json_mode else None,
@@ -39,17 +39,20 @@ def _complete(prompt: str, temperature: float, json_mode: bool) -> str:
     return response.choices[0].message.content or ""
 
 
-def complete(prompt: str, temperature: float = 0.0, json_mode: bool = False) -> str:
+def complete(
+    prompt: str, temperature: float = 0.0, json_mode: bool = False, model: str | None = None
+) -> str:
     """Plain completion, served from disk cache when possible."""
+    model = model or settings.groq_model
     key = cache_key(
         "groq",
-        settings.groq_model,
+        model,
         {"prompt": prompt, "temperature": temperature, "json": json_mode},
     )
     cache = get_cache()
     text = cache.get(key)
     if text is None:
-        text = _complete(prompt, temperature, json_mode)
+        text = _complete(prompt, temperature, json_mode, model)
         cache.set(key, text)
         time.sleep(THROTTLE_SECONDS)
     else:

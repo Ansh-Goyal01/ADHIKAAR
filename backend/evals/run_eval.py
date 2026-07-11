@@ -36,6 +36,7 @@ def run(phase: str) -> dict:
 
     engine = {"llm": "llm", "rules": "rules"}[phase]
     errored: list[str] = []
+    judge_failures: list[str] = []
     for i, case in enumerate(cases):
         try:
             state = run_assessment(case["message"], engine=engine)
@@ -91,10 +92,15 @@ def run(phase: str) -> dict:
             for r in state.get("results", [])
             for reason in r.reasons
         ]
-        s, t = faithfulness(pre_claims)
-        pre_supported, pre_total = pre_supported + s, pre_total + t
-        s, t = faithfulness(post_claims)
-        post_supported, post_total = post_supported + s, post_total + t
+        try:
+            s, t = faithfulness(pre_claims)
+            pre_supported, pre_total = pre_supported + s, pre_total + t
+            s, t = faithfulness(post_claims)
+            post_supported, post_total = post_supported + s, post_total + t
+        except Exception as exc:  # noqa: BLE001 — judge rate-limited: keep outcomes,
+            # exclude this case's claims from faithfulness aggregates.
+            judge_failures.append(case["case_id"])
+            print(f"    judge unavailable for {case['case_id']} ({type(exc).__name__})")
 
         per_case.append(
             {
@@ -112,6 +118,7 @@ def run(phase: str) -> dict:
         "run_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "cases": len(cases),
         "errored_cases": errored,
+        "judge_unavailable_cases": judge_failures,
         "eligibility": summarize(all_outcomes),
         "retrieval": {
             "precision": round(sum(precisions) / len(precisions), 4) if precisions else 0.0,

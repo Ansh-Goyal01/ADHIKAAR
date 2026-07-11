@@ -9,6 +9,7 @@ Claims with no resolvable citation are unsupported by definition.
 import json
 import logging
 
+from app.config import settings
 from app.llm.groq_client import complete
 
 logger = logging.getLogger(__name__)
@@ -28,7 +29,11 @@ knowledge, no charitable inference)? Reply with JSON: {{"supported": true}} or {
 
 
 def claim_supported(claim: str, excerpt: str) -> bool:
-    text = complete(JUDGE_PROMPT.format(claim=claim, excerpt=excerpt), json_mode=True)
+    text = complete(
+        JUDGE_PROMPT.format(claim=claim, excerpt=excerpt),
+        json_mode=True,
+        model=settings.groq_judge_model,
+    )
     try:
         return bool(json.loads(text).get("supported", False))
     except json.JSONDecodeError:
