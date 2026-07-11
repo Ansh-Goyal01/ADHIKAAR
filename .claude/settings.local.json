@@ -42,7 +42,8 @@
       "PowerShell(Set-Location D:\\\\Adhikaar\\\\backend; & .venv\\\\Scripts\\\\python.exe -m ruff check app evals tests --output-format concise 2>&1 | Select-String ':' | ForEach-Object { \\($_ -split ':'\\)[0..1] -join ':' } | Group-Object | Select-Object Count, Name)",
       "PowerShell(Set-Location D:\\\\Adhikaar\\\\backend; $env:PRIMARY_LLM='groq'; & .venv\\\\Scripts\\\\python.exe -u -X utf8 -m evals.run_eval --phase llm; & .venv\\\\Scripts\\\\python.exe -u -X utf8 -m evals.run_eval --phase rules)",
       "PowerShell(Stop-Process *)",
-      "Read(//c/Users/Lenovo/AppData/Local/Temp/claude/D--Adhikaar/6c637291-b2ab-43d5-9d37-b144676b2584/tasks/**)"
+      "Read(//c/Users/Lenovo/AppData/Local/Temp/claude/D--Adhikaar/6c637291-b2ab-43d5-9d37-b144676b2584/tasks/**)",
+      "Bash(grep -rInE \"\\(api[_-]?key|secret|token|password\\)\\\\s*=\\\\s*['\\\\\"][A-Za-z0-9_\\\\-]{10,}\" --include=\"*.py\" --include=\"*.ts\" --include=\"*.tsx\" backend web)"
     ]
   }
 }

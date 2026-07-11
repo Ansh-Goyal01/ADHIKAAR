@@ -45,6 +45,18 @@ export interface UserProfile {
   pays_income_tax?: boolean | null;
   is_student?: boolean | null;
   daughter_age?: number | null;
+  family_member_in_govt_service?: boolean | null;
+  receives_govt_pension_over_10k?: boolean | null;
+  cultivates_crops?: boolean | null;
+  has_land_ownership_or_tenure_docs?: boolean | null;
+  house_type?: "kutcha" | "pucca" | null;
+  owns_motorized_vehicle?: boolean | null;
+  is_pmjay_priority_category?: boolean | null;
+  has_lpg_connection?: boolean | null;
+  is_street_vendor?: boolean | null;
+  has_vending_certificate_or_lor?: boolean | null;
+  is_vishwakarma_trade_artisan?: boolean | null;
+  is_post_matric_student?: boolean | null;
   notes?: string;
 }
 

@@ -1,9 +1,12 @@
 """Adhikaar API — assessment pipeline over 15 central welfare schemes."""
 
 import logging
+import time
+from collections import defaultdict, deque
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.agent.graph import run_assessment
 from app.agent.nodes import corpus_by_id
@@ -23,11 +26,34 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://*.vercel.app"],
+    allow_origins=["http://localhost:3000"],
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
+
+# The pipeline spends shared free-tier LLM quota, so the public endpoint is
+# rate-limited per client (sliding window, in-process — one container serves this).
+RATE_LIMIT_REQUESTS = 10
+RATE_LIMIT_WINDOW_SECONDS = 60.0
+_request_times: defaultdict[str, deque[float]] = defaultdict(deque)
+
+
+@app.middleware("http")
+async def rate_limit_assess(request: Request, call_next):
+    if request.url.path == "/api/assess" and request.method == "POST":
+        client_ip = request.client.host if request.client else "unknown"
+        now = time.monotonic()
+        window = _request_times[client_ip]
+        while window and now - window[0] > RATE_LIMIT_WINDOW_SECONDS:
+            window.popleft()
+        if len(window) >= RATE_LIMIT_REQUESTS:
+            return JSONResponse(
+                status_code=429,
+                content={"detail": "Too many requests — please wait a minute and try again."},
+            )
+        window.append(now)
+    return await call_next(request)
 
 
 @app.get("/health")
@@ -58,8 +84,9 @@ def assess(request: AssessRequest) -> AssessResponse:
     Conversational: when the response is `need_info`, show `question` to the user
     and send their reply together with the returned `profile`.
     """
+    prior = request.profile.model_dump(exclude_none=True) if request.profile else None
     try:
-        state = run_assessment(request.message, request.profile, engine=request.engine)
+        state = run_assessment(request.message, prior, engine=request.engine)
     except Exception:
         logger.exception("assessment pipeline failed")
         raise HTTPException(

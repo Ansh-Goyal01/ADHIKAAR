@@ -47,11 +47,14 @@ TEMPLATE_SUMMARIES: dict[Verdict, str] = {
 
 def _reason_text(finding: RuleFinding) -> str:
     label = finding.rule_id.replace("-", " ")
+    if finding.kind == "exclude":
+        label = label.removeprefix("exclude ")
+        if finding.status == "excluded":
+            return f"An official exclusion applies — {label}."
+        return f"Exclusion checked — {label} does not apply to you."
     if finding.status == "met":
         return f"Requirement met — {label}."
-    if finding.status == "failed":
-        return f"Requirement not met — {label}."
-    return f"An official exclusion applies — {label.removeprefix('exclude ')}."
+    return f"Requirement not met — {label}."
 
 
 def _finding_reasons(verdict: RuleVerdict) -> list[VerifiedReason]:
@@ -75,13 +78,13 @@ def _finding_reasons(verdict: RuleVerdict) -> list[VerifiedReason]:
     ]
 
 
-class SchemeSummary(BaseModel):
+class SchemeExplanation(BaseModel):
     scheme_id: str
     summary: str
 
 
 class SummaryBatch(BaseModel):
-    summaries: list[SchemeSummary]
+    summaries: list[SchemeExplanation]
 
 
 EXPLAIN_PROMPT = """You explain welfare-scheme eligibility verdicts in one kind sentence each.
@@ -113,7 +116,11 @@ def _llm_summaries(state: AgentState, verdicts: list[RuleVerdict]) -> dict[str, 
     try:
         batch = generate_structured_resilient(
             EXPLAIN_PROMPT.format(
-                profile=state["profile"].model_dump_json(exclude_none=True),
+                # notes carries user-influenced free text — keep it out of the
+                # explainer prompt so injected wording can't reach summaries.
+                profile=state["profile"].model_dump_json(
+                    exclude_none=True, exclude={"notes"}
+                ),
                 verdict_block=block,
             ),
             SummaryBatch,

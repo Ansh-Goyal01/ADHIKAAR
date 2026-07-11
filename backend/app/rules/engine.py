@@ -32,8 +32,11 @@ class Condition(BaseModel):
         forms = sum([self.field is not None, self.any is not None, self.all is not None])
         if forms != 1:
             raise ValueError("condition must be exactly one of: leaf(field/op/value), any, all")
-        if self.field is not None and self.op is None:
-            raise ValueError(f"leaf condition on {self.field!r} needs an op")
+        if self.field is not None:
+            if self.op is None:
+                raise ValueError(f"leaf condition on {self.field!r} needs an op")
+            if self.field not in UserProfile.model_fields:
+                raise ValueError(f"unknown profile field {self.field!r}")
         return self
 
 
@@ -90,6 +93,7 @@ class SchemeRules(BaseModel):
 
 class RuleFinding(BaseModel):
     rule_id: str
+    kind: Literal["require", "exclude"]
     status: RuleStatus
     clause: str
     source_url: str
@@ -120,6 +124,7 @@ def evaluate_scheme(scheme: SchemeRules, profile: UserProfile) -> RuleVerdict:
     findings = [
         RuleFinding(
             rule_id=rule.id,
+            kind=rule.kind,
             status=_rule_status(rule, profile),
             clause=rule.clause,
             source_url=rule.source_url,
