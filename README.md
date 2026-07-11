@@ -54,9 +54,21 @@ flowchart LR
 
 A labeled set of **41 synthetic-but-realistic cases** (~90 (profile, scheme) judgments) with deliberate boundary traps — age 59 vs 60, income ₹2.0L vs ₹3.2L against a ₹2.5L cap, daughter aged 9 vs 10 — and abstention probes where the right answer is "ask, don't guess". False positives (promising an entitlement that isn't owed) and false negatives (missing one that is) are reported separately. Faithfulness is judged claim-by-claim against the cited official text by an independent model.
 
-**Results: _baseline eval in progress — table lands here when both phases complete._**
+**Results** (2026-07-11, 40/41 cases · 90 labeled pairs — one case skipped in *both* phases after persistent free-tier rate limits, so the comparison is apples-to-apples):
 
-Reproduce: `python -m evals.run_eval --phase llm` then `--phase rules` (all calls cached to disk).
+| | LLM-only baseline | Rules-as-code (this system) |
+|---|---:|---:|
+| Eligibility accuracy | 60.0% | **90.0%** |
+| False positives (entitlement promised that isn't owed) | 16 | **0** |
+| False negatives (entitlement missed) | 11 | **1** |
+| Declined to judge a labeled pair | 9 | 8 |
+| Faithfulness — shipped claims supported by their cited official text | 19.2% | **65.7%** |
+
+Both phases share the same retriever and the same generator (Llama 4 Scout 17B via Groq); the only variable is who decides eligibility. Faithfulness is scored claim-by-claim by an independent judge (Llama 3.1 8B) with a strict standard: a claim with no resolvable citation is unsupported *by definition* — which is precisely what sinks the LLM baseline, and why rule-backed reasons (each carrying its official clause) score 3.4× higher. The rules engine's single false negative is a retrieval miss (the scheme never reached the decider), not a wrong decision: **across 90 judgments the rules engine never asserted a false entitlement.**
+
+Retrieval (shared by both phases): precision 0.22 / recall 0.88 — deliberately broad retrieval, strict deciding.
+
+Reproduce: `python -m evals.run_eval --phase llm` then `--phase rules` (all calls cached to disk). Raw run artifacts: `backend/evals/results/`.
 
 ## Repository layout
 
@@ -69,7 +81,7 @@ backend/
   app/llm/         disk-cached Gemini/Groq clients + fallback router
   app/api/         FastAPI (OpenAPI-documented)
   evals/           labeled dataset, metrics, faithfulness judge, runner
-  tests/           73 tests: every rule in 3 logic states + boundaries + pipeline
+  tests/           76 tests: every rule in 3 logic states + boundaries + pipeline
 web/               Next.js 16 + Tailwind v4 chat app (light civic theme)
 data/corpus/       cleaned official text (committed, with fetch dates)
 data/raw/          raw API responses & source PDFs (provenance)
