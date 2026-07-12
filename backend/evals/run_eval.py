@@ -21,13 +21,13 @@ RESULTS_DIR = Path(__file__).parent / "results"
 CASE_DELAY_SECONDS = 5.0  # stay well inside free-tier rate limits
 
 
-def load_cases() -> list[dict]:
-    lines = DATASET.read_text(encoding="utf-8").splitlines()
+def load_cases(dataset: Path) -> list[dict]:
+    lines = dataset.read_text(encoding="utf-8").splitlines()
     return [json.loads(line) for line in lines if line.strip()]
 
 
-def run(phase: str) -> dict:
-    cases = load_cases()
+def run(phase: str, dataset: Path = DATASET) -> dict:
+    cases = load_cases(dataset)
     all_outcomes: list[PairOutcome] = []
     precisions: list[float] = []
     recalls: list[float] = []
@@ -115,6 +115,7 @@ def run(phase: str) -> dict:
 
     summary = {
         "phase": phase,
+        "dataset": dataset.name,
         "run_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "cases": len(cases),
         "errored_cases": errored,
@@ -133,7 +134,8 @@ def run(phase: str) -> dict:
     }
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    out = RESULTS_DIR / f"{phase}-{datetime.now(UTC):%Y%m%d-%H%M}.json"
+    tag = "" if dataset == DATASET else f"{dataset.stem}-"
+    out = RESULTS_DIR / f"{tag}{phase}-{datetime.now(UTC):%Y%m%d-%H%M}.json"
     payload = json.dumps({"summary": summary, "per_case": per_case}, indent=1)
     out.write_text(payload, encoding="utf-8")
     print(json.dumps(summary, indent=1))
@@ -144,5 +146,8 @@ def run(phase: str) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--phase", choices=["llm", "rules"], default="llm")
+    parser.add_argument(
+        "--dataset", type=Path, default=DATASET, help="cases file (e.g. evals/heldout.jsonl)"
+    )
     args = parser.parse_args()
-    run(args.phase)
+    run(args.phase, args.dataset)
