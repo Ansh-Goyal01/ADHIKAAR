@@ -15,7 +15,7 @@ import httpx
 from pydantic import BaseModel
 
 from app.config import settings
-from app.ingestion.fetch import HEADERS, SEARCH_URL, _get
+from app.ingestion.fetch import SEARCH_URL, _get
 
 PAGE_SIZE = 50
 REQUEST_DELAY_SECONDS = 0.8
