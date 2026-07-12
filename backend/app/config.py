@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     # and it reduces self-preference when judging the 70B generator's claims.
     groq_judge_model: str = "llama-3.1-8b-instant"
     embedding_model: str = "BAAI/bge-small-en-v1.5"
+    # Local ONNX cross-encoder for reranking (free, CPU, ~80MB on disk).
+    reranker_model: str = "Xenova/ms-marco-MiniLM-L-6-v2"
 
     raw_dir: Path = DATA_DIR / "raw"
     corpus_dir: Path = DATA_DIR / "corpus"

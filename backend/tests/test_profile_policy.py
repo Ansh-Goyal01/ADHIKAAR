@@ -27,3 +27,17 @@ def test_location_and_gender_do_not_count_as_decisive():
 def test_model_yes_is_respected_even_when_sparse():
     profile = UserProfile(age=62, occupation="farmer")
     assert run_with_extraction(profile, says_enough=True) == "ok"
+
+
+def test_decisive_entitlement_overrides_sparse_fact_count():
+    """daughter-9-boundary class: only two decisive facts, but the rules engine
+    already reaches a full 'eligible' for Sukanya Samriddhi — abstaining here
+    would hide an entitlement the person can act on today."""
+    profile = UserProfile(gender="female", has_bank_account=True, daughter_age=9)
+    assert run_with_extraction(profile, says_enough=False) == "ok"
+
+
+def test_sparse_profile_without_entitlement_still_asks():
+    """One decisive fact and no scheme decisively satisfied — keep asking."""
+    profile = UserProfile(age=45)
+    assert run_with_extraction(profile, says_enough=False) == "need_info"

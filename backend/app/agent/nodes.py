@@ -20,7 +20,10 @@ from app.agent.state import (
 from app.ingestion.corpus import load_corpus
 from app.ingestion.models import CorpusDoc
 from app.llm.router import generate_structured_resilient
-from app.retrieval.search import RetrievedChunk, get_sections, search
+from app.retrieval.rerank import search_reranked
+from app.retrieval.search import RetrievedChunk, get_sections
+from app.rules.engine import evaluate_scheme
+from app.rules.loader import load_all_rules
 
 logger = logging.getLogger(__name__)
 
@@ -116,7 +119,11 @@ def build_profile(state: AgentState) -> AgentState:
         for field, value in merged.model_dump().items()
         if field not in low_signal_fields and value is not None
     )
-    if extraction.is_enough_to_assess or decisive_facts >= MIN_DECISIVE_FACTS:
+    if (
+        extraction.is_enough_to_assess
+        or decisive_facts >= MIN_DECISIVE_FACTS
+        or _rules_reach_entitlement(merged)
+    ):
         return {"profile": merged, "status": "ok"}
     return {
         "profile": merged,
@@ -124,6 +131,17 @@ def build_profile(state: AgentState) -> AgentState:
         "question": extraction.clarifying_question
         or "Could you share your age, what you do for a living, and your family's yearly income?",
     }
+
+
+def _rules_reach_entitlement(profile: UserProfile) -> bool:
+    """True when the stated facts already fully satisfy at least one scheme's
+    rules (eligible / likely_eligible). Abstaining then would hide a concrete
+    entitlement behind a clarifying question, so the gate lets the case through
+    even if the overall fact count is sparse. Deterministic and LLM-free."""
+    return any(
+        evaluate_scheme(scheme_rules, profile).verdict in ("eligible", "likely_eligible")
+        for scheme_rules in load_all_rules().values()
+    )
 
 
 # --- 2. retriever ---
@@ -161,7 +179,7 @@ def _profile_query(profile: UserProfile) -> str:
 
 
 def retrieve(state: AgentState) -> AgentState:
-    hits = search(_profile_query(state["profile"]), k=TOP_K)
+    hits = search_reranked(_profile_query(state["profile"]), k=TOP_K)
 
     # Guarantee the LLM sees the decisive sections of every candidate scheme.
     seen: dict[str, RetrievedChunk] = {c.chunk_id: c for c in hits}
