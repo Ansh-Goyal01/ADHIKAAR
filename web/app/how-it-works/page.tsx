@@ -11,7 +11,7 @@ import {
 
 import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
-import { SCHEME_COUNT } from "@/lib/site";
+import { RULE_COUNT, SCHEME_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -28,7 +28,7 @@ const PIPELINE = [
   {
     icon: FileSearch,
     title: "Official rules are retrieved",
-    body: `The scheme text comes straight from government sources — myScheme and official guidelines — kept with its section labels and source links. ${SCHEME_COUNT} central schemes, 44 encoded rules.`,
+    body: `The scheme text comes straight from government sources — myScheme and official guidelines — kept with its section labels and source links. ${SCHEME_COUNT} central schemes, ${RULE_COUNT} encoded rules.`,
   },
   {
     icon: Scale,

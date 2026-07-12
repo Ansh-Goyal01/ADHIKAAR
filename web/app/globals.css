@@ -72,6 +72,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Anchored targets must clear the sticky 4rem header when scrolled to */
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 ::selection {
   background-color: var(--color-accent-soft);
 }

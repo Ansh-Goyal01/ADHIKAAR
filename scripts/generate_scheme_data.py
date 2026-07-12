@@ -21,7 +21,8 @@ def strip_markdown(text: str) -> str:
     """Corpus sections are markdown-ish; catalog snippets must be plain prose."""
     out = re.sub(r"^\s{0,3}#{1,6}\s*", "", text, flags=re.MULTILINE)  # headings
     out = re.sub(r"^\s{0,3}>\s?", "", out, flags=re.MULTILINE)  # blockquotes
-    out = re.sub(r"^\s*(?:[-*+]|\d+\.)\s+", "", out, flags=re.MULTILINE)  # list markers
+    # list markers — bullets tolerate a missing space after the marker ("-Cashless…")
+    out = re.sub(r"^\s*(?:[-*+]\s*|\d+\.\s+)", "", out, flags=re.MULTILINE)
     out = re.sub(r"\*\*([^*]+)\*\*", r"\1", out)  # bold
     out = re.sub(r"\*([^*]+)\*", r"\1", out)  # italics
     out = re.sub(r"`([^`]+)`", r"\1", out)  # code
@@ -32,6 +33,9 @@ def strip_markdown(text: str) -> str:
 def first_sentences(text: str, max_chars: int = 220) -> str:
     """A short, clean snippet for catalog cards."""
     flat = re.sub(r"\s+", " ", strip_markdown(text or "")).strip()
+    # bullets glued to the previous sentence survive line-based stripping
+    # ("…per year.- Comprehensive…") — a sentence break is what was meant
+    flat = re.sub(r"\.\s*-\s+", ". ", flat)
     if len(flat) <= max_chars:
         return flat
     cut = flat[:max_chars]

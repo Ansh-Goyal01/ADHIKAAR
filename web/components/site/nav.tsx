@@ -20,7 +20,7 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="print-hidden sticky top-0 z-40 border-b border-border bg-background/95">
+    <header className="print-hidden sticky top-0 z-40 border-b border-border bg-background">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5">
           <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">

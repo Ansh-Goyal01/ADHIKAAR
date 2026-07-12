@@ -6,6 +6,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteNav } from "@/components/site/nav";
 import { ToastProvider } from "@/components/ui/toast";
+import { SCHEME_COUNT } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,8 +24,7 @@ export const metadata: Metadata = {
     default: "Adhikaar — know what you're owed",
     template: "%s · Adhikaar",
   },
-  description:
-    "Answer a few plain-language questions and Adhikaar checks 15 Indian central government welfare schemes — explaining exactly why you qualify, with every claim cited to the official scheme text.",
+  description: `Answer a few plain-language questions and Adhikaar checks ${SCHEME_COUNT} Indian central government welfare schemes — explaining exactly why you qualify, with every claim cited to the official scheme text.`,
 };
 
 export default function RootLayout({

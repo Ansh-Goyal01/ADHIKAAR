@@ -44,16 +44,14 @@ export default function LandingPage() {
     <>
       {/* Hero */}
       <section className="border-b border-border">
-        <Container className="flex flex-col items-center gap-8 py-20 text-center sm:py-28">
+        <Container className="flex flex-col items-center py-20 text-center sm:py-24">
           <h1 className="max-w-3xl font-serif text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
             Find out exactly what government support you&rsquo;re entitled to
           </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
-            Answer a few plain questions. Adhikaar checks the official rules of
-            fifteen central government schemes and shows its work — every claim
-            linked to the government&rsquo;s own words.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
+            {`Answer a few plain questions. Adhikaar checks the official rules of ${SCHEME_COUNT} central government schemes and shows its work — every claim linked to the government's own words.`}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <ButtonLink href="/check" size="lg">
               Check your eligibility
               <ArrowRight className="size-4.5" aria-hidden="true" />
@@ -62,7 +60,7 @@ export default function LandingPage() {
               See how it works
             </ButtonLink>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="mt-5 text-sm text-muted-foreground">
             Free · No login · Takes about 3 minutes
           </p>
         </Container>

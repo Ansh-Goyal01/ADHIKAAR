@@ -23,7 +23,7 @@ import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/toast";
 import { ApiError, assess } from "@/lib/api";
-import { DISCLAIMER } from "@/lib/site";
+import { DISCLAIMER, SCHEME_COUNT } from "@/lib/site";
 import type { AssessResponse, SchemeResult, UserProfile } from "@/lib/types";
 import { useIsClient } from "@/lib/use-is-client";
 import {
@@ -193,8 +193,7 @@ function ResultsContent() {
             Preparing your report
           </h1>
           <p className="leading-relaxed text-muted-foreground" role="status">
-            Checking your answers against the official rules of 15 schemes — this
-            usually takes under half a minute.
+            {`Checking your answers against the official rules of ${SCHEME_COUNT} schemes — this usually takes under half a minute.`}
           </p>
         </div>
         <ResultsSkeleton />
@@ -283,7 +282,7 @@ function ResultsContent() {
             ? "Based on what you told us and the official rules, here is where you stand — including exactly why, what to bring, and where to apply."
             : groups.moreInfo.length > 0
               ? "A few schemes need one more detail each before we can say — they're listed below with exactly what to confirm."
-              : "Based on what you told us, none of the 15 covered schemes matched — the reasons are below, and the rules they rest on are linked."}
+              : `Based on what you told us, none of the ${SCHEME_COUNT} covered schemes matched — the reasons are below, and the rules they rest on are linked.`}
         </p>
 
         <ProfileChips profile={response.profile} />

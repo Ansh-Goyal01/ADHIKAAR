@@ -17,6 +17,7 @@ import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { CATEGORY_LABELS, SCHEMES, getScheme } from "@/lib/schemes";
+import { SCHEME_COUNT } from "@/lib/site";
 
 export function generateStaticParams() {
   return SCHEMES.map((scheme) => ({ schemeId: scheme.scheme_id }));
@@ -198,8 +199,7 @@ export default async function SchemeDetailPage({
           Wondering if this applies to you?
         </p>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Answer a few plain questions and we&rsquo;ll check this scheme — and
-          the other fourteen — against the official rules.
+          {`Answer a few plain questions and we'll check this scheme — and the other ${SCHEME_COUNT - 1} — against the official rules.`}
         </p>
         <ButtonLink href="/check">
           Check your eligibility

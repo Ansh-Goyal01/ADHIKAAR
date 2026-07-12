@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 
 import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
-import { DISCLAIMER, GITHUB_URL, MYSCHEME_URL } from "@/lib/site";
+import { DISCLAIMER, GITHUB_URL, MYSCHEME_URL, SCHEME_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -27,10 +27,10 @@ export default function AboutPage() {
         </p>
         <p className="leading-relaxed text-muted-foreground">
           Adhikaar is an attempt to close that gap carefully. It answers one
-          question — <em>&ldquo;what am I entitled to?&rdquo;</em> — for fifteen
-          central schemes, in plain language, with every claim traceable to the
-          government&rsquo;s own text. It would rather say &ldquo;not sure, ask
-          this at the office&rdquo; than be confidently wrong.
+          question — <em>&ldquo;what am I entitled to?&rdquo;</em> —{" "}
+          {`for ${SCHEME_COUNT} central schemes, in plain language, with every claim traceable to the government's own text.`}{" "}
+          It would rather say &ldquo;not sure, ask this at the office&rdquo;
+          than be confidently wrong.
         </p>
       </div>
 
