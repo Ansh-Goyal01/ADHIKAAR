@@ -84,9 +84,11 @@ class Rule(BaseModel):
     ask: str  # plain-language question to resolve an unknown
     self_declared: bool = False
     # Human verification state, versioned with the rule itself:
-    # encoded = machine-encoded + unit-tested; verified = a human read the rule
-    # beside its source clause and certified it. Flipped only by the signer.
-    review_status: Literal["encoded", "verified"] = "encoded"
+    # proposed = LLM-drafted, lives only in rules/proposed/ (never loaded by
+    # the engine); encoded = machine-encoded + unit-tested; verified = a human
+    # read the rule beside its source clause and certified it. Only the signer
+    # moves a rule forward.
+    review_status: Literal["proposed", "encoded", "verified"] = "encoded"
 
 
 class SchemeRules(BaseModel):

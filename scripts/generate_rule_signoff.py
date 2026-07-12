@@ -16,8 +16,10 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
+PROPOSED_DIR = ROOT / "backend" / "app" / "rules" / "proposed"
 CORPUS_DIR = ROOT / "data" / "corpus"
 OUT = ROOT / "obsidian-vault" / "03-Rules-as-code" / "Rule-Sign-off-Checklist.md"
+QUEUE_OUT = ROOT / "obsidian-vault" / "03-Rules-as-code" / "Review-Queue.md"
 
 STATUS_LABEL = {"encoded": "☐ encoded — awaiting sign-off", "verified": "✅ verified"}
 
@@ -107,6 +109,75 @@ def main() -> None:
     OUT.write_text("\n".join(lines), encoding="utf-8")
     print(f"wrote {OUT} — {total} rules, {verified} verified, "
           f"{sum(len(s.get('simplifications') or []) for s in schemes)} simplifications flagged")
+    write_review_queue()
+
+
+def write_review_queue() -> None:
+    """Render LLM-proposed rules (rules/proposed/*.yaml) awaiting human review."""
+    proposals = [
+        yaml.safe_load(path.read_text(encoding="utf-8"))
+        for path in sorted(PROPOSED_DIR.glob("*.yaml"))
+    ] if PROPOSED_DIR.exists() else []
+
+    lines = [
+        "---",
+        "title: Review-Queue",
+        "tags: [rules-as-code, review-queue, generated]",
+        f"updated: {date.today().isoformat()}",
+        "---",
+        "",
+        "# Review queue — LLM-proposed rules (NOT live)",
+        "",
+        "> [!important] Nothing here affects the product. Proposals live in",
+        "> `backend/app/rules/proposed/` — a directory the engine never loads.",
+        "> To approve a rule: verify its clause against the source URL, then move",
+        "> it into `backend/app/rules/schemes/<scheme_id>.yaml` with",
+        "> `review_status: encoded` (or `verified`), add unit tests, and delete it",
+        "> from the proposal file. Regenerate this page afterwards.",
+        "",
+    ]
+    if not proposals:
+        lines.append("*The queue is empty — no proposals awaiting review.*")
+    for prop in proposals:
+        meta = prop.get("extraction", {})
+        lines += [
+            f"## {prop['scheme_id']} — extracted {meta.get('extracted_at', '?')} "
+            f"({meta.get('status', 'unknown')})",
+            "",
+            f"Source: {meta.get('source_url', '?')}",
+            "",
+        ]
+        rules = prop.get("rules") or []
+        if rules:
+            lines += [
+                "| # | rule | kind | encoded condition | official clause (verbatim) | decision |",
+                "|---|------|------|-------------------|----------------------------|----------|",
+            ]
+            for i, rule in enumerate(rules, 1):
+                clause = " ".join(rule["clause"].split())
+                flags = " *(self-declared)*" if rule.get("self_declared") else ""
+                lines.append(
+                    f"| {i} | `{rule['id']}`{flags} | {rule['kind']} | "
+                    f"{condition_text(rule['when'])} | {clause} | ☐ approve / ☐ edit / ☐ reject |"
+                )
+            lines.append("")
+        for title, key, render in (
+            ("Blocked — needs a new profile field (human decision)", "blocked_rules",
+             lambda b: f"- ⛔ {b['criterion']} → proposed field "
+                       f"`{b['proposed_field']['name']}` ({b['proposed_field']['type']}): "
+                       f"{b['proposed_field']['meaning']}"),
+            ("Rejected drafts (failed schema validation)", "rejected_drafts",
+             lambda r: f"- ✖ `{r['draft'].get('id', '?')}` — {r['error'].splitlines()[0]}"),
+            ("Proposed simplifications", "simplifications",
+             lambda s: f"- ⚠️ {' '.join(s.split())}"),
+        ):
+            entries = prop.get(key) or []
+            if entries:
+                lines += [f"**{title}:**", *[render(e) for e in entries], ""]
+
+    QUEUE_OUT.write_text("\n".join(lines), encoding="utf-8")
+    n_rules = sum(len(p.get("rules") or []) for p in proposals)
+    print(f"wrote {QUEUE_OUT} — {len(proposals)} proposal(s), {n_rules} rules queued")
 
 
 if __name__ == "__main__":
