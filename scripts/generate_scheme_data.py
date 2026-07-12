@@ -17,9 +17,21 @@ RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
 OUT = ROOT / "web" / "lib" / "data" / "schemes.json"
 
 
+def strip_markdown(text: str) -> str:
+    """Corpus sections are markdown-ish; catalog snippets must be plain prose."""
+    out = re.sub(r"^\s{0,3}#{1,6}\s*", "", text, flags=re.MULTILINE)  # headings
+    out = re.sub(r"^\s{0,3}>\s?", "", out, flags=re.MULTILINE)  # blockquotes
+    out = re.sub(r"^\s*(?:[-*+]|\d+\.)\s+", "", out, flags=re.MULTILINE)  # list markers
+    out = re.sub(r"\*\*([^*]+)\*\*", r"\1", out)  # bold
+    out = re.sub(r"\*([^*]+)\*", r"\1", out)  # italics
+    out = re.sub(r"`([^`]+)`", r"\1", out)  # code
+    out = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", out)  # links
+    return out
+
+
 def first_sentences(text: str, max_chars: int = 220) -> str:
     """A short, clean snippet for catalog cards."""
-    flat = re.sub(r"\s+", " ", text or "").strip()
+    flat = re.sub(r"\s+", " ", strip_markdown(text or "")).strip()
     if len(flat) <= max_chars:
         return flat
     cut = flat[:max_chars]

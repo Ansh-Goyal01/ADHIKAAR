@@ -40,7 +40,7 @@ export function Field({ id, label, help, error, optional, className, children }:
       )}
       {control}
       {error && (
-        <p id={errorId} className="text-sm text-destructive">
+        <p id={errorId} role="alert" className="text-sm text-destructive">
           {error}
         </p>
       )}

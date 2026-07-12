@@ -32,14 +32,14 @@ function describe(profile: UserProfile): string[] {
   return chips;
 }
 
-/** "What we understood" — the structured facts the answer is based on. */
+/** The structured facts this report is based on. */
 export function ProfileChips({ profile }: { profile: UserProfile }) {
   const chips = describe(profile);
   if (chips.length === 0) return null;
   return (
-    <div aria-label="What we understood from your description">
+    <div aria-label="The facts this report is based on">
       <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-        What we understood
+        Based on what you told us
       </span>
       <div className="mt-1.5 flex flex-wrap gap-1.5">
         {chips.map((chip) => (

@@ -7,7 +7,8 @@ Describe your situation in plain language — *"I'm a 45-year-old widow in rural
 > **Core principle: it never invents an entitlement.** Eligibility is decided by a deterministic, unit-tested rules engine in which every rule links to its source clause in an official government document. The LLM only (a) turns your messy description into structured facts and (b) phrases the verdict kindly — it never decides. If a needed fact is missing, the system asks instead of guessing.
 
 ![Adhikaar home](docs/screenshots/home.png)
-![Eligibility results with citations](docs/screenshots/results.png)
+![Guided eligibility wizard](docs/screenshots/wizard.png)
+![Eligibility report with citations](docs/screenshots/results.png)
 
 ## Why this architecture
 
@@ -82,7 +83,8 @@ backend/
   app/api/         FastAPI (OpenAPI-documented)
   evals/           labeled dataset, metrics, faithfulness judge, runner
   tests/           76 tests: every rule in 3 logic states + boundaries + pipeline
-web/               Next.js 16 + Tailwind v4 chat app (light civic theme)
+web/               Next.js 16 + Tailwind v4 app: guided wizard, cited report,
+                   scheme explorer (warm ivory/terracotta design system)
 data/corpus/       cleaned official text (committed, with fetch dates)
 data/raw/          raw API responses & source PDFs (provenance)
 ```

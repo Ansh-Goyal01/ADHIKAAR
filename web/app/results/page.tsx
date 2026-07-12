@@ -26,7 +26,13 @@ import { ApiError, assess } from "@/lib/api";
 import { DISCLAIMER } from "@/lib/site";
 import type { AssessResponse, SchemeResult, UserProfile } from "@/lib/types";
 import { useIsClient } from "@/lib/use-is-client";
-import { type Answers, STORAGE_KEY, answersToProfile, decodeAnswers } from "@/lib/wizard";
+import {
+  type Answers,
+  STORAGE_KEY,
+  answersToProfile,
+  decodeAnswers,
+  encodeAnswers,
+} from "@/lib/wizard";
 
 type Phase =
   | { kind: "loading" }
@@ -151,7 +157,11 @@ function ResultsContent() {
   }, [answers]);
 
   const handleCopyLink = async () => {
-    const url = `${window.location.origin}/results${code ? `?p=${code}` : ""}`;
+    // Derive the code from loaded answers when the URL doesn't carry one, so
+    // the copied link always reproduces this report for its recipient.
+    const shareCode = code ?? (answers ? encodeAnswers(answers) : null);
+    if (!shareCode) return;
+    const url = `${window.location.origin}/results?p=${shareCode}`;
     try {
       await navigator.clipboard.writeText(url);
       toast("Link copied — anyone with it sees this report, so share with care.");

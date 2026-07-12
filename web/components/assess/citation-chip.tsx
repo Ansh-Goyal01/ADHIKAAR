@@ -40,20 +40,22 @@ export function CitationChip({ citation }: { citation: VerifiedCitation }) {
           aria-hidden="true"
         />
       </button>
-      {open && (
-        <blockquote className="mt-2 rounded-lg border border-accent/20 bg-accent-soft/60 p-3 text-sm leading-relaxed text-foreground">
-          “{citation.quote}”
-          <a
-            href={citation.source_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 flex w-fit items-center gap-1 text-xs font-medium text-accent underline-offset-2 hover:underline"
-          >
-            View the official source
-            <ExternalLink className="size-3" aria-hidden="true" />
-          </a>
-        </blockquote>
-      )}
+      {/* Kept in the DOM so printed reports carry their evidence. */}
+      <blockquote
+        hidden={!open}
+        className="print-block mt-2 rounded-lg border border-accent/20 bg-accent-soft/60 p-3 text-sm leading-relaxed text-foreground"
+      >
+        “{citation.quote}”
+        <a
+          href={citation.source_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 flex w-fit items-center gap-1 text-xs font-medium text-accent underline-offset-2 hover:underline"
+        >
+          View the official source
+          <ExternalLink className="size-3" aria-hidden="true" />
+        </a>
+      </blockquote>
     </div>
   );
 }

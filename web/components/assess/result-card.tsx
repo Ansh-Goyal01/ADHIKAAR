@@ -5,7 +5,7 @@ import { ChevronDown, ExternalLink, FileText, Landmark } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import type { SchemeResult } from "@/lib/types";
 import { CitationChip } from "./citation-chip";
 import { VerdictBadge } from "./verdict-badge";
@@ -26,7 +26,7 @@ function Expandable({
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="flex w-full items-center justify-between py-3 text-sm font-medium text-foreground transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        className="print-hidden flex w-full items-center justify-between py-3 text-sm font-medium text-foreground transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <span className="flex items-center gap-2">
           {icon}
@@ -37,11 +37,14 @@ function Expandable({
           aria-hidden="true"
         />
       </button>
-      {open && (
-        <div className="prose-sm pb-4 text-sm leading-relaxed text-muted-foreground [&_a]:text-accent [&_a]:underline-offset-2 [&_li]:mt-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5">
-          {children}
-        </div>
-      )}
+      {/* Stays in the DOM so the printed report is complete even when collapsed. */}
+      <div
+        hidden={!open}
+        className="print-block prose-sm pb-4 text-sm leading-relaxed text-muted-foreground [&_a]:text-accent [&_a]:underline-offset-2 [&_li]:mt-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5"
+      >
+        <h5 className="mb-1 hidden font-semibold text-foreground print:block">{title}</h5>
+        {children}
+      </div>
     </div>
   );
 }
@@ -51,9 +54,9 @@ export function ResultCard({ result }: { result: SchemeResult }) {
     <Card className="border-border bg-card shadow-xs">
       <CardHeader className="gap-2">
         <div className="flex flex-wrap items-start justify-between gap-2">
-          <CardTitle className="font-serif text-lg leading-snug">
+          <h3 className="font-serif text-lg leading-snug font-semibold">
             {result.scheme_name}
-          </CardTitle>
+          </h3>
           <VerdictBadge verdict={result.verdict} />
         </div>
         <p className="text-[15px] leading-relaxed text-foreground">{result.summary}</p>

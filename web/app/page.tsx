@@ -49,8 +49,8 @@ export default function LandingPage() {
             Find out exactly what government support you&rsquo;re entitled to
           </h1>
           <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
-            Answer a few plain questions. Adhikaar checks the official rules of{" "}
-            {SCHEME_COUNT} central government schemes and shows its work — every claim
+            Answer a few plain questions. Adhikaar checks the official rules of
+            fifteen central government schemes and shows its work — every claim
             linked to the government&rsquo;s own words.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
