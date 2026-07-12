@@ -80,8 +80,8 @@ export function ResultCard({ result }: { result: SchemeResult }) {
         )}
 
         {result.missing_info.length > 0 && (
-          <div className="rounded-lg bg-caution-soft p-3 text-sm leading-relaxed text-caution">
-            <span className="font-medium">To be sure, tell us: </span>
+          <div className="rounded-lg bg-verdict-info-soft p-3 text-sm leading-relaxed text-verdict-info">
+            <span className="font-medium">To be sure, confirm: </span>
             {result.missing_info.join(" · ")}
           </div>
         )}

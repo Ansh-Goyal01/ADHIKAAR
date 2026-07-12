@@ -2,16 +2,27 @@
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 from app.agent.state import SchemeResult, UserProfile
 
 
 class AssessRequest(BaseModel):
-    message: str = Field(min_length=3, max_length=4000, description="What the person said")
+    message: str = Field(
+        default="",
+        max_length=4000,
+        description="What the person said. May be empty when a structured "
+        "profile (from the guided wizard) is supplied instead.",
+    )
     profile: UserProfile | None = Field(
         default=None, description="Profile from a previous turn (send back unchanged)"
     )
+
+    @model_validator(mode="after")
+    def _message_or_profile(self) -> "AssessRequest":
+        if not self.message.strip() and self.profile is None:
+            raise ValueError("Provide a message, a profile, or both.")
+        return self
     engine: Literal["rules", "llm"] | None = Field(
         default=None,
         description="Override the decider: deterministic rules engine (default) or "

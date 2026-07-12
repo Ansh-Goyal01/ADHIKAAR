@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, ScrollText, X } from "lucide-react";
@@ -18,9 +18,6 @@ const LINKS = [
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  // Close the mobile menu whenever navigation happens.
-  useEffect(() => setOpen(false), [pathname]);
 
   return (
     <header className="print-hidden sticky top-0 z-40 border-b border-border bg-background/95">
@@ -86,6 +83,7 @@ export function SiteNav() {
                 key={href}
                 href={href}
                 aria-current={pathname === href ? "page" : undefined}
+                onClick={() => setOpen(false)}
                 className="rounded-md px-3 py-2.5 text-base text-foreground transition-colors duration-150 hover:bg-muted"
               >
                 {label}

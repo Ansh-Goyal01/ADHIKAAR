@@ -90,10 +90,16 @@ The person says:
 
 def build_profile(state: AgentState) -> AgentState:
     prior = state.get("prior_profile") or {}
-    prompt = PROFILE_PROMPT.format(
-        prior=json.dumps(prior, ensure_ascii=False), message=state["message"]
-    )
-    extraction = generate_structured_resilient(prompt, ProfileExtraction)
+
+    # Structured submissions (the guided wizard) send a full profile and no
+    # message — nothing to extract, so the LLM call is skipped entirely.
+    if not state["message"].strip():
+        extraction = ProfileExtraction(profile=UserProfile(), is_enough_to_assess=False)
+    else:
+        prompt = PROFILE_PROMPT.format(
+            prior=json.dumps(prior, ensure_ascii=False), message=state["message"]
+        )
+        extraction = generate_structured_resilient(prompt, ProfileExtraction)
 
     # Merge: keep prior values unless the new extraction states them.
     merged = UserProfile.model_validate(prior) if prior else UserProfile()
