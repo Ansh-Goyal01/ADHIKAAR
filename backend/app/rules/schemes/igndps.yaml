@@ -28,3 +28,7 @@ rules:
       to the criteria prescribed by the Govt. of India.
     source_url: https://www.myscheme.gov.in/schemes/igndps
     ask: "Is your household on the Below Poverty Line (BPL) list?"
+simplifications:
+  - >-
+    myScheme text says disability "more than 80%" but the rule encodes ≥ 80%
+    (NSAP guidelines phrase it as "80% and above") — signer to confirm the boundary.

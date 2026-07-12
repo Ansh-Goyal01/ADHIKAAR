@@ -35,3 +35,11 @@ rules:
       (SECC automatic exclusion).
     source_url: https://www.myscheme.gov.in/schemes/ab-pmjay
     ask: "Does your household own a motorised vehicle or fishing boat?"
+simplifications:
+  - >-
+    The "monthly income above ₹10,000" exclusion is approximated as annual family
+    income above ₹1,20,000.
+  - >-
+    Full SECC 2011 deprivation/occupational criteria are approximated by a
+    self-declared priority-category / BPL proxy — final eligibility rests on the
+    household's presence in the SECC/PMJAY beneficiary list.

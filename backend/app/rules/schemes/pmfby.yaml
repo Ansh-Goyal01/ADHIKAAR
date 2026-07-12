@@ -17,3 +17,8 @@ rules:
       land tenure agreement.
     source_url: https://www.myscheme.gov.in/schemes/pmfby
     ask: "Do you have land ownership papers or a valid written tenancy agreement?"
+simplifications:
+  - >-
+    Notified-crop / notified-area requirements are not modeled (they vary by
+    state, season, and notification).
+  - Seasonal enrollment cut-off dates are not modeled.

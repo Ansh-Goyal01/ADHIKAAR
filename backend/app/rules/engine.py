@@ -83,12 +83,19 @@ class Rule(BaseModel):
     source_url: str
     ask: str  # plain-language question to resolve an unknown
     self_declared: bool = False
+    # Human verification state, versioned with the rule itself:
+    # encoded = machine-encoded + unit-tested; verified = a human read the rule
+    # beside its source clause and certified it. Flipped only by the signer.
+    review_status: Literal["encoded", "verified"] = "encoded"
 
 
 class SchemeRules(BaseModel):
     scheme_id: str
     version: str
     rules: list[Rule]
+    # Honest omissions: criteria in the official text that the rules do not yet
+    # encode. Surfaced on the sign-off checklist and the site's limitations page.
+    simplifications: list[str] = []
 
 
 class RuleFinding(BaseModel):

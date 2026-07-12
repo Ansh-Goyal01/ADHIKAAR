@@ -34,3 +34,12 @@ rules:
       shall not be eligible.
     source_url: https://www.myscheme.gov.in/schemes/pm-kisan
     ask: "Does anyone in your family receive a government pension of ₹10,000 or more per month?"
+simplifications:
+  - >-
+    Official exclusions not yet encoded: institutional landholders; former/present
+    holders of constitutional posts, Ministers, MPs/MLAs/MLCs, mayors of municipal
+    corporations, district panchayat chairpersons; and practicing registered
+    professionals (doctors, engineers, lawyers, chartered accountants, architects).
+  - >-
+    The government-employee exclusion is encoded broader than the official text,
+    which exempts Multi-Tasking Staff / Class IV / Group D employees.

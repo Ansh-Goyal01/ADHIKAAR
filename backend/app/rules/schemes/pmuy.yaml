@@ -36,3 +36,7 @@ rules:
       in the name of any family member).
     source_url: https://www.myscheme.gov.in/schemes/pmuy
     ask: "Does anyone in your household already have an LPG connection?"
+simplifications:
+  - >-
+    The 14-point-declaration route for poor households outside the SECC/priority
+    lists is folded into the self-declared poor-household proxy.

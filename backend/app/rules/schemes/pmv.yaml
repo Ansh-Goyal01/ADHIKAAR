@@ -28,3 +28,8 @@ rules:
       A person in government service and their family members shall not be eligible.
     source_url: https://www.myscheme.gov.in/schemes/pmv
     ask: "Are you or any family member in government service?"
+simplifications:
+  - >-
+    Official exclusion not yet encoded: persons who availed credit-based
+    self-employment schemes (e.g. PMEGP, PM SVANidhi, Mudra) in the past 5 years.
+  - The one-registration-per-family restriction is not modeled.
