@@ -1,8 +1,8 @@
 """Typed state flowing through the agent pipeline."""
 
-from typing import Literal, TypedDict
+from typing import Literal, TypedDict, get_args
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from app.retrieval.search import RetrievedChunk
 
@@ -45,6 +45,22 @@ class UserProfile(BaseModel):
     is_vishwakarma_trade_artisan: bool | None = None
     is_post_matric_student: bool | None = None
     notes: str = ""
+
+    @field_validator(
+        "gender", "marital_status", "area", "social_category", "house_type", mode="before"
+    )
+    @classmethod
+    def _normalize_category(cls, value: object, info) -> object:
+        """Extractors sometimes return 'SC', 'Rural', or junk like 'BPL' (an
+        economic status, not a social category). Lowercase valid values; treat
+        anything outside the Literal as "not stated" rather than failing the
+        whole request — with disk-cached completions such a failure would be
+        deterministic and permanent."""
+        if not isinstance(value, str):
+            return value
+        lowered = value.strip().lower()
+        allowed = get_args(get_args(cls.model_fields[info.field_name].annotation)[0])
+        return lowered if lowered in allowed else None
 
 
 class ProfileExtraction(BaseModel):
