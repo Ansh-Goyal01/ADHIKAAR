@@ -43,11 +43,24 @@ def generate_structured_resilient(
         except Exception as exc:  # noqa: BLE001 — any primary failure triggers fallback
             logger.warning("gemini failed (%s: %s); falling back to groq", type(exc).__name__, exc)
 
-    text = groq_client.complete(
-        prompt + GROQ_JSON_SUFFIX.format(schema=json.dumps(schema.model_json_schema())),
-        json_mode=True,
-    )
-    result = schema.model_validate_json(text)
-    if validate is not None:
-        validate(result)
-    return result
+    full_prompt = prompt + GROQ_JSON_SUFFIX.format(schema=json.dumps(schema.model_json_schema()))
+    text = groq_client.complete(full_prompt, json_mode=True)
+    try:
+        result = schema.model_validate_json(text)
+        if validate is not None:
+            validate(result)
+        return result
+    except Exception as exc:  # noqa: BLE001 — one repair pass, then let it propagate
+        # Completions are disk-cached by prompt: without a repair pass, an invalid
+        # output would fail deterministically on every retry (same key, same text).
+        # Feeding the error back changes the cache key and usually fixes the output.
+        logger.warning("groq output failed validation (%s); one repair retry", type(exc).__name__)
+        repair_prompt = (
+            f"{full_prompt}\n\nYour previous JSON response failed validation with this "
+            f"error:\n{exc}\n\nReturn a corrected JSON object that fixes exactly this."
+        )
+        text = groq_client.complete(repair_prompt, json_mode=True)
+        result = schema.model_validate_json(text)
+        if validate is not None:
+            validate(result)
+        return result
