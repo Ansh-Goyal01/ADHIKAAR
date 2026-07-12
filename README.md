@@ -48,26 +48,26 @@ flowchart LR
 ```
 
 - **Corpus**: 15 central schemes fetched from [myScheme](https://www.myscheme.gov.in) (Government of India's scheme portal) plus official PDFs where a scheme isn't listed there (Sukanya Samriddhi gazette notification; PMS-SC guidelines). 177 section-labeled chunks, each carrying its official source URL. Cleaned corpus is committed — clones don't re-scrape.
-- **Rules repository** (`backend/app/rules/schemes/*.yaml`): 44 rules, each one clause of official text made executable, with three-valued logic — `met / failed / unknown`. Unknown facts become questions, never guesses. Facts the state must verify (BPL/SECC lists) are marked `self_declared` and soften verdicts to *likely eligible*.
+- **Rules repository** (`backend/app/rules/schemes/*.yaml`): 49 rules, each one clause of official text made executable, with three-valued logic — `met / failed / unknown`. Unknown facts become questions, never guesses. Facts the state must verify (BPL/SECC lists) are marked `self_declared` and soften verdicts to *likely eligible*.
 - **Resilience**: Gemini free tier is the primary LLM with an automatic Groq (Llama 3.3 70B) fallback; every LLM call is disk-cached so re-runs and eval batches don't burn quota.
 
 ## Evaluation
 
 A labeled set of **41 synthetic-but-realistic cases** (~90 (profile, scheme) judgments) with deliberate boundary traps — age 59 vs 60, income ₹2.0L vs ₹3.2L against a ₹2.5L cap, daughter aged 9 vs 10 — and abstention probes where the right answer is "ask, don't guess". False positives (promising an entitlement that isn't owed) and false negatives (missing one that is) are reported separately. Faithfulness is judged claim-by-claim against the cited official text by an independent model.
 
-**Results** (2026-07-11, 40/41 cases · 90 labeled pairs — one case skipped in *both* phases after persistent free-tier rate limits, so the comparison is apples-to-apples):
+**Results** (2026-07-13, all 41 cases · 92 labeled pairs):
 
 | | LLM-only baseline | Rules-as-code (this system) |
 |---|---:|---:|
-| Eligibility accuracy | 60.0% | **90.0%** |
+| Eligibility accuracy | 56.5% | **91.3%** |
 | False positives (entitlement promised that isn't owed) | 16 | **0** |
-| False negatives (entitlement missed) | 11 | **1** |
+| False negatives (entitlement missed) | 15 | **0** |
 | Declined to judge a labeled pair | 9 | 8 |
-| Faithfulness — shipped claims supported by their cited official text | 19.2% | **65.7%** |
+| Faithfulness — shipped claims supported by their cited official text | 24.4% | **66.8%** |
 
-Both phases share the same retriever and the same generator (Llama 4 Scout 17B via Groq); the only variable is who decides eligibility. Faithfulness is scored claim-by-claim by an independent judge (Llama 3.1 8B) with a strict standard: a claim with no resolvable citation is unsupported *by definition* — which is precisely what sinks the LLM baseline, and why rule-backed reasons (each carrying its official clause) score 3.4× higher. The rules engine's single false negative is a retrieval miss (the scheme never reached the decider), not a wrong decision: **across 90 judgments the rules engine never asserted a false entitlement.**
+Both phases share the same retriever and the same generator (Llama 4 Scout 17B via Groq); the only variable is who decides eligibility. Faithfulness is scored claim-by-claim by an independent judge (Llama 3.1 8B) with a strict standard: a claim with no resolvable citation is unsupported *by definition* — which is precisely what sinks the LLM baseline, and why rule-backed reasons (each carrying its official clause) score 2.7× higher. **Across 92 judgments the rules engine asserted zero false entitlements and missed zero owed ones.** (The 2026-07-11 baseline run — 90 pairs, rules 90.0% with one false negative — is preserved in the vault log; the FN was a readiness-gate abstention, fixed by letting the rules engine inform the gate.)
 
-Retrieval (shared by both phases): precision 0.22 / recall 0.88 — deliberately broad retrieval, strict deciding.
+Retrieval (shared by both phases): precision 0.257 / recall 0.925 — a broad dense sweep reranked by a small local cross-encoder that scores *schemes* by their best-matching clause (chosen over BM25 fusion and plain chunk reranking on measured precision *and* recall; the losing variants are logged in the vault).
 
 Reproduce: `python -m evals.run_eval --phase llm` then `--phase rules` (all calls cached to disk). Raw run artifacts: `backend/evals/results/`.
 

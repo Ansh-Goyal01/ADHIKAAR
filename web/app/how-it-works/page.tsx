@@ -50,7 +50,7 @@ const PIPELINE = [
 const PRINCIPLES = [
   {
     title: "We never invent an entitlement",
-    body: "A wrong “you qualify” costs real people bus fare, queues, and hope. The rules engine can only conclude what the encoded official clauses support. In our evaluation it asserted zero false entitlements across 90 judgments — the AI-only baseline asserted 16.",
+    body: "A wrong “you qualify” costs real people bus fare, queues, and hope. The rules engine can only conclude what the encoded official clauses support. In our evaluation it asserted zero false entitlements across 92 judgments — the AI-only baseline asserted 16.",
   },
   {
     title: "“Not sure” is a first-class answer",
@@ -137,13 +137,13 @@ export default function HowItWorksPage() {
             </span>
           </div>
           <div className="flex flex-col gap-1 rounded-lg bg-background p-4">
-            <span className="font-serif text-3xl font-semibold text-foreground">90%</span>
+            <span className="font-serif text-3xl font-semibold text-foreground">91%</span>
             <span className="text-sm leading-snug text-muted-foreground">
-              eligibility accuracy, against 60% for the AI-only baseline
+              eligibility accuracy, against 57% for the AI-only baseline
             </span>
           </div>
           <div className="flex flex-col gap-1 rounded-lg bg-background p-4">
-            <span className="font-serif text-3xl font-semibold text-foreground">3.4×</span>
+            <span className="font-serif text-3xl font-semibold text-foreground">2.7×</span>
             <span className="text-sm leading-snug text-muted-foreground">
               more of its claims verifiably supported by the cited official text
             </span>
