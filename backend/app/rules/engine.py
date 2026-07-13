@@ -93,6 +93,9 @@ class Rule(BaseModel):
     # read the rule beside its source clause and certified it. Only the signer
     # moves a rule forward.
     review_status: Literal["proposed", "encoded", "verified"] = "encoded"
+    # Free-text flag for the human reviewer (e.g. auto-composed OR groups the
+    # signer should confirm). Review metadata only; the engine ignores it.
+    notes_for_reviewer: str = ""
 
 
 class SchemeRules(BaseModel):

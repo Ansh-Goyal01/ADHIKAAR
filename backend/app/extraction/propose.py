@@ -23,7 +23,7 @@ from pydantic import BaseModel, ValidationError
 from app.agent.state import UserProfile
 from app.ingestion.models import CorpusDoc
 from app.llm.router import generate_structured_resilient
-from app.rules.engine import Rule
+from app.rules.engine import Condition, Rule
 
 logger = logging.getLogger(__name__)
 
@@ -86,6 +86,17 @@ Write one rule per checkable criterion:
 - id: short kebab-case (e.g. "age-at-least-18", "exclude-income-tax-payer").
 - field / op ("eq","ne","gt","gte","lt","lte") / value. Use `any_of`/`all_of`
   with sub-conditions only when the text itself is an OR/AND of criteria.
+- CRITICAL — alternatives are ONE rule with `any_of`, never several require rules.
+  When the text lists options where satisfying ANY ONE qualifies — "SC, ST or OBC",
+  "EWS/LIG/MIG income bands", "a farmer OR a member of a Self-Help Group" — emit a
+  SINGLE require rule whose `when` is `any_of` of the options. Emitting them as
+  separate require rules means ALL must hold, which for one field is impossible
+  (nobody is both SC and OBC) and wrongly rejects every applicant. Example — the
+  text "candidates belonging to SC, ST or OBC": one rule, when =
+  any_of[(field social_category eq sc), (field social_category eq st),
+  (field social_category eq obc)].
+  A single field cannot equal two values; if you find yourself writing two
+  require rules on the same field, they are alternatives — combine them.
 - clause: the EXACT sentence(s) of official text the rule encodes — copy verbatim,
   never paraphrase, never merge distant sentences.
 - ask: one kind plain-language question that would resolve the fact if unknown.
@@ -203,6 +214,65 @@ def validate_draft(draft: RuleDraft, source_url: str) -> Rule:
     )
 
 
+def compose_or_groups(rules: list[Rule]) -> list[Rule]:
+    """Merge separate `require` rules that share a (field, op) into one `any_of`.
+
+    Alternatives the extractor split into parallel require rules — "SC, ST or
+    OBC", income bands, age floors for different tracks — are AND-ed by the
+    engine when kept separate, which for a single field can never be satisfied
+    (nobody is both SC and OBC) and rejects every applicant. Grouping same
+    (field, op) leaves into an `any_of` restores OR semantics. Only touches
+    `require` leaf rules with 2+ members; ranges (age gte + age lte) differ in
+    op and are left alone. Merged rules are flagged for the human reviewer.
+    """
+    groups: dict[tuple[str, str], list[Rule]] = {}
+    order: list[object] = []  # preserves output ordering: group-key or single Rule
+    for rule in rules:
+        w = rule.when
+        is_mergeable_leaf = (
+            rule.kind == "require" and w.field is not None and w.any is None and w.all is None
+        )
+        if is_mergeable_leaf:
+            key = (w.field, w.op)
+            if key not in groups:
+                groups[key] = []
+                order.append(key)
+            groups[key].append(rule)
+        else:
+            order.append(rule)
+
+    composed: list[Rule] = []
+    for item in order:
+        if isinstance(item, Rule):
+            composed.append(item)
+            continue
+        members = groups[item]
+        if len(members) < 2:
+            composed.append(members[0])
+            continue
+        field, op = item
+        leaves = [Condition(field=field, op=op, value=m.when.value) for m in members]
+        merged_ids = [m.id for m in members]
+        composed.append(
+            Rule(
+                id=f"any-{field}",
+                kind="require",
+                when=Condition(any=leaves),
+                clause="; ".join(dict.fromkeys(m.clause for m in members)),
+                source_url=members[0].source_url,
+                ask=members[0].ask,
+                self_declared=any(m.self_declared for m in members),
+                review_status="proposed",
+                notes_for_reviewer=(
+                    f"AUTO-COMPOSED from {len(members)} same-field require rules "
+                    f"({', '.join(merged_ids)}) as an OR group — confirm these are "
+                    "genuine alternatives, not separate requirements."
+                ),
+            )
+        )
+    return composed
+
+
 def propose_rules(doc: CorpusDoc) -> SchemeProposal:
     prompt = EXTRACT_PROMPT.format(
         scheme_name=doc.name,
@@ -229,7 +299,7 @@ def propose_rules(doc: CorpusDoc) -> SchemeProposal:
         scheme_name=doc.name,
         extracted_at=datetime.now(UTC).strftime("%Y-%m-%d"),
         source_url=doc.page_url,
-        rules=rules,
+        rules=compose_or_groups(rules),
         rejected_drafts=rejected,
         blocked_rules=output.blocked_rules,
         simplifications=output.simplifications,

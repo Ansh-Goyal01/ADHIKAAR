@@ -12,6 +12,7 @@ from app.extraction.propose import (
     ExtractionOutput,
     RuleDraft,
     SchemeProposal,
+    compose_or_groups,
     profile_rule_fields,
     propose_rules,
     validate_draft,
@@ -19,6 +20,91 @@ from app.extraction.propose import (
     write_proposal,
 )
 from app.ingestion.models import CorpusDoc
+from app.rules.engine import Condition, Rule
+
+
+def _require(rule_id: str, field: str, op: str, value) -> Rule:
+    return Rule(
+        id=rule_id,
+        kind="require",
+        when=Condition(field=field, op=op, value=value),
+        clause=f"clause for {rule_id}",
+        source_url="https://example.gov.in",
+        ask="?",
+        review_status="proposed",
+    )
+
+
+def test_same_field_eq_requires_merge_into_one_any_of():
+    """The pm-daksh bug: SC AND OBC AND EWS (impossible) → OR of the three."""
+    rules = [
+        _require("sc", "social_category", "eq", "sc"),
+        _require("obc", "social_category", "eq", "obc"),
+        _require("ews", "social_category", "eq", "general"),
+    ]
+    composed = compose_or_groups(rules)
+    assert len(composed) == 1
+    merged = composed[0]
+    assert merged.when.any is not None
+    assert {leaf.value for leaf in merged.when.any} == {"sc", "obc", "general"}
+    assert "AUTO-COMPOSED" in merged.notes_for_reviewer
+
+
+def test_age_range_gte_plus_lte_is_not_merged():
+    """Different ops on one field are a RANGE (AND), never an OR."""
+    rules = [
+        _require("age-min", "age", "gte", 18),
+        _require("age-max", "age", "lte", 40),
+    ]
+    composed = compose_or_groups(rules)
+    assert len(composed) == 2
+    assert all(r.when.any is None for r in composed)
+
+
+def test_income_bands_same_op_merge_to_any_of():
+    """EWS/LIG/MIG income caps are alternative bands, not additive."""
+    rules = [
+        _require("ews", "annual_family_income_inr", "lte", 300000),
+        _require("lig", "annual_family_income_inr", "lte", 600000),
+    ]
+    composed = compose_or_groups(rules)
+    assert len(composed) == 1
+    assert {leaf.value for leaf in composed[0].when.any} == {300000, 600000}
+
+
+def test_single_require_is_untouched():
+    rules = [_require("solo", "age", "gte", 18)]
+    composed = compose_or_groups(rules)
+    assert len(composed) == 1
+    assert composed[0].id == "solo"
+    assert composed[0].when.any is None
+
+
+def test_excludes_are_not_merged():
+    """Only require rules compose; excludes each disqualify independently."""
+    excl = [
+        Rule(
+            id=f"ex{i}", kind="exclude",
+            when=Condition(field="occupation", op="eq", value=v),
+            clause="c", source_url="https://x.gov.in", ask="?", review_status="proposed",
+        )
+        for i, v in enumerate(["meat", "crops"])
+    ]
+    composed = compose_or_groups(excl)
+    assert len(composed) == 2
+
+
+def test_compose_preserves_non_mergeable_ordering():
+    rules = [
+        _require("a", "social_category", "eq", "sc"),
+        _require("b", "age", "gte", 18),
+        _require("c", "social_category", "eq", "obc"),
+    ]
+    composed = compose_or_groups(rules)
+    # the two social_category rules merge; age stays as its own rule
+    ids_and_fields = [(r.when.field, bool(r.when.any)) for r in composed]
+    assert ("age", False) in ids_and_fields
+    assert any(r.when.any and r.when.any[0].field == "social_category" for r in composed)
 
 
 def test_prompt_vocabulary_matches_the_profile_schema_exactly():
