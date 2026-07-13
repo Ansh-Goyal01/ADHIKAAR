@@ -24,6 +24,10 @@ export interface SchemeData {
     Record<"details" | "benefits" | "eligibility" | "exclusions" | "application" | "documents", string>
   >;
   rules: SchemeRule[];
+  /** Applicant is not an individual — the eligibility check can never apply.
+   * Distinct from "coming soon" (rules pending review). */
+  out_of_scope?: boolean;
+  out_of_scope_reason?: string;
 }
 
 export const SCHEMES = data as SchemeData[];

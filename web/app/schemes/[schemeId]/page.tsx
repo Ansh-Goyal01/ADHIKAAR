@@ -61,7 +61,7 @@ export default async function SchemeDetailPage({
   const { schemeId } = await params;
   const scheme = getScheme(schemeId);
   if (!scheme) notFound();
-  const isCheckable = scheme.rules.length > 0;
+  const isCheckable = scheme.rules.length > 0 && !scheme.out_of_scope;
 
   return (
     <Container className="flex max-w-3xl flex-col gap-10 py-10 sm:py-14">
@@ -82,7 +82,11 @@ export default async function SchemeDetailPage({
               Official text fetched {scheme.fetched_at}
             </Chip>
           )}
-          {!isCheckable && <Chip tone="info">Eligibility check coming soon</Chip>}
+          {scheme.out_of_scope ? (
+            <Chip tone="neutral">Individuals only — out of scope</Chip>
+          ) : (
+            !isCheckable && <Chip tone="info">Eligibility check coming soon</Chip>
+          )}
         </div>
         <h1 className="font-serif text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           {scheme.name}
@@ -130,22 +134,37 @@ export default async function SchemeDetailPage({
       })}
 
       {/* The exact rules Adhikaar checks */}
-      {!isCheckable && (
+      {scheme.out_of_scope ? (
         <section
           aria-label="Eligibility check status"
-          className="flex flex-col gap-2 rounded-xl border border-verdict-info-border bg-verdict-info-soft p-5"
+          className="flex flex-col gap-2 rounded-xl border border-border bg-muted p-5"
         >
-          <p className="text-sm leading-relaxed font-medium text-verdict-info">
-            The eligibility check doesn&rsquo;t decide this scheme yet.
+          <p className="text-sm leading-relaxed font-medium text-foreground">
+            Outside Adhikaar&rsquo;s scope.
           </p>
-          <p className="text-sm leading-relaxed text-verdict-info">
-            Its rules have been drafted from the official text and are waiting
-            for human verification — we never judge eligibility from rules a
-            person hasn&rsquo;t certified. Until then, use the official page
-            below; the documented benefits and sources here are already drawn
-            from government text.
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {scheme.out_of_scope_reason} We list it here for reference — use the
+            official page below to apply.
           </p>
         </section>
+      ) : (
+        !isCheckable && (
+          <section
+            aria-label="Eligibility check status"
+            className="flex flex-col gap-2 rounded-xl border border-verdict-info-border bg-verdict-info-soft p-5"
+          >
+            <p className="text-sm leading-relaxed font-medium text-verdict-info">
+              The eligibility check doesn&rsquo;t decide this scheme yet.
+            </p>
+            <p className="text-sm leading-relaxed text-verdict-info">
+              Its rules have been drafted from the official text and are waiting
+              for human verification — we never judge eligibility from rules a
+              person hasn&rsquo;t certified. Until then, use the official page
+              below; the documented benefits and sources here are already drawn
+              from government text.
+            </p>
+          </section>
+        )
       )}
       {scheme.rules.length > 0 && (
         <section aria-labelledby="section-rules" className="flex flex-col gap-3">

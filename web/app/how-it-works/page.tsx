@@ -11,7 +11,7 @@ import {
 
 import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
-import { CATALOG_COUNT, RULE_COUNT, SCHEME_COUNT } from "@/lib/site";
+import { OUT_OF_SCOPE_COUNT, PENDING_COUNT, RULE_COUNT, SCHEME_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -67,7 +67,7 @@ const PRINCIPLES = [
 ];
 
 const LIMITATIONS = [
-  `The eligibility check decides ${SCHEME_COUNT} central schemes today. ${CATALOG_COUNT - SCHEME_COUNT} more are documented in the catalog with machine-drafted rules awaiting human verification — each joins the check only when a person has certified every rule against its official source.`,
+  `The eligibility check decides ${SCHEME_COUNT} central schemes today. ${PENDING_COUNT} more are documented in the catalog with machine-drafted rules awaiting human verification — each joins the check only when a person has certified every rule against its official source. ${OUT_OF_SCOPE_COUNT === 1 ? "One more is listed for reference only: its applicant is an institution, not an individual, so a personal check can't apply." : ""}`,
   "State schemes — often the most relevant — aren't included yet, so “not eligible here” never means “not eligible anywhere”.",
   "Answers are self-reported. The final decision always rests with the implementing authority, and the report is designed to be taken to them — not to replace them. Where a verdict rests on a fact only the office can verify (BPL or SECC lists), the report now says exactly what to confirm and where.",
   "A few rarely-triggered criteria are simplified — for example, PM-KISAN's exclusions for constitutional-post holders and practicing professionals are now encoded, while notified-crop areas (PMFBY) and the two-accounts-per-family cap (Sukanya Samriddhi) are not. Every remaining simplification is listed in the open-source rule files, beside the rule it affects.",

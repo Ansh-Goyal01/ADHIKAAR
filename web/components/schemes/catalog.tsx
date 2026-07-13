@@ -115,8 +115,12 @@ export function SchemeCatalog() {
                     {scheme.short_name}
                   </span>
                   <span className="flex flex-wrap justify-end gap-1.5">
-                    {scheme.rules.length === 0 && (
-                      <Chip tone="info">Check coming soon</Chip>
+                    {scheme.out_of_scope ? (
+                      <Chip tone="neutral">Individuals only</Chip>
+                    ) : (
+                      scheme.rules.length === 0 && (
+                        <Chip tone="info">Check coming soon</Chip>
+                      )
                     )}
                     <Chip tone="neutral">
                       {CATEGORY_LABELS[scheme.category] ?? scheme.category}

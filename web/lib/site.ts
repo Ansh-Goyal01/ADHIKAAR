@@ -14,13 +14,22 @@ export const MYSCHEME_URL = "https://www.myscheme.gov.in";
 
 /** Derived from the generated catalog so copy can never drift from the data.
  * SCHEME_COUNT counts schemes the eligibility check actually decides (live,
- * human-reviewed rules); CATALOG_COUNT counts everything browsable. The gap
- * is the extraction review queue — never claim the bigger number for the check. */
+ * human-reviewed rules); CATALOG_COUNT counts everything browsable; the rest
+ * split into rules-pending-review (PENDING_COUNT) and out-of-scope
+ * (OUT_OF_SCOPE_COUNT, e.g. institution-only schemes). Never claim the bigger
+ * number for the check. */
 export const SCHEME_COUNT = schemes.filter(
-  (scheme) => scheme.rules.length > 0,
+  (scheme) => scheme.rules.length > 0 && !scheme.out_of_scope,
 ).length;
 
 export const CATALOG_COUNT = schemes.length;
+
+export const OUT_OF_SCOPE_COUNT = schemes.filter(
+  (scheme) => scheme.out_of_scope,
+).length;
+
+export const PENDING_COUNT =
+  CATALOG_COUNT - SCHEME_COUNT - OUT_OF_SCOPE_COUNT;
 
 export const RULE_COUNT = schemes.reduce(
   (total, scheme) => total + scheme.rules.length,

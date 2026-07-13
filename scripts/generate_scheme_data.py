@@ -16,6 +16,16 @@ CORPUS_DIR = ROOT / "data" / "corpus"
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
 OUT = ROOT / "web" / "lib" / "data" / "schemes.json"
 
+# Schemes deliberately outside Adhikaar's scope — the applicant is not an
+# individual, so the eligibility check can never apply. Distinct from
+# "coming soon" (a rules-pending state): this is a final, honest exclusion.
+OUT_OF_SCOPE = {
+    "hepsn": (
+        "This grant is applied for by a college or institution, not by an "
+        "individual — so a personal eligibility check doesn't apply."
+    ),
+}
+
 
 def strip_markdown(text: str) -> str:
     """Corpus sections are markdown-ish; catalog snippets must be plain prose."""
@@ -88,6 +98,8 @@ def main() -> None:
                     if sections.get(key)
                 },
                 "rules": load_rules(doc["scheme_id"]),
+                "out_of_scope": doc["scheme_id"] in OUT_OF_SCOPE,
+                "out_of_scope_reason": OUT_OF_SCOPE.get(doc["scheme_id"], ""),
             }
         )
 
