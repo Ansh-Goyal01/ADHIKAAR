@@ -93,6 +93,240 @@ SCHEME_SOURCES: list[SchemeSource] = [
         name="PM Vishwakarma",
         category="livelihood",
     ),
+    # --- Scaling batch (2026-07-13): 35 additional central schemes from the
+    # --- discovery index; rules arrive via the extraction review queue only.
+    SchemeSource(
+        slug="pm-sym",
+        short_name="PM-SYM",
+        name="Pradhan Mantri Shram Yogi Maan-dhan",
+        category="pension",
+    ),
+    SchemeSource(
+        slug="nfbs",
+        short_name="NFBS",
+        name="National Family Benefit Scheme",
+        category="pension",
+    ),
+    SchemeSource(
+        slug="pmjdy",
+        short_name="PMJDY",
+        name="Pradhan Mantri Jan Dhan Yojana",
+        category="savings",
+    ),
+    SchemeSource(
+        slug="pmegp",
+        short_name="PMEGP",
+        name="Prime Minister's Employment Generation Programme",
+        category="livelihood",
+    ),
+    SchemeSource(
+        slug="pmmy",
+        short_name="PMMY",
+        name="Pradhan Mantri Mudra Yojana",
+        category="livelihood",
+    ),
+    SchemeSource(
+        slug="pm-daksh",
+        short_name="PM-DAKSH",
+        name="Pradhan Mantri Dakshta Aur Kushalta Sampann Hitgrahi (PM-DAKSH)",
+        category="livelihood",
+    ),
+    SchemeSource(
+        slug="pmmvy",
+        short_name="PMMVY",
+        name="Pradhan Mantri Matru Vandana Yojana",
+        category="household",
+    ),
+    SchemeSource(
+        slug="hepsn",
+        short_name="HEPSN",
+        name=(
+            "Persons With Disabilities Scheme In Colleges: Higher Education For Persons "
+            "With Special Needs"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="sag",
+        short_name="SAG",
+        name="Scheme For Adolescent Girls",
+        category="household",
+    ),
+    SchemeSource(
+        slug="pg-igssgc",
+        short_name="PG-IGSSGC",
+        name="Post Graduate Indira Gandhi Scholarship For Single Girl Child",
+        category="education",
+    ),
+    SchemeSource(
+        slug="bhmnsp",
+        short_name="BHMNSP",
+        name="Begum Hazrat Mahal National Scholarship Program",
+        category="education",
+    ),
+    SchemeSource(
+        slug="pre-sc",
+        short_name="PRE-SC",
+        name="Pre-Matric Scholarship for Scheduled Caste Students",
+        category="education",
+    ),
+    SchemeSource(
+        slug="post-st",
+        short_name="POST-ST",
+        name=(
+            "Post Matric Scholarship Scheme For The Students Belonging To Scheduled "
+            "Tribe For Studies In India"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="csspremsobcsi",
+        short_name="PRE-OBC",
+        name=(
+            "Centrally Sponsored Scheme of Pre-matric Scholarship to Other Backward "
+            "Classes (OBC) for Studies in India"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="post-dis",
+        short_name="POST-DIS",
+        name="Post Matric Scholarship Students With Disabilities",
+        category="education",
+    ),
+    SchemeSource(
+        slug="pre-dis",
+        short_name="PRE-DIS",
+        name="Pre Matric Scholarship For Students With Disabilities",
+        category="education",
+    ),
+    SchemeSource(
+        slug="tce-sc",
+        short_name="TCE-SC",
+        name="Top Class Education For Scheduled Caste Students",
+        category="education",
+    ),
+    SchemeSource(
+        slug="tce-swd",
+        short_name="TCE-SWD",
+        name="Top Class Education For Students With Disabilities",
+        category="education",
+    ),
+    SchemeSource(
+        slug="nmmss",
+        short_name="NMMSS",
+        name="National Means-cum-Merit Scholarship Scheme",
+        category="education",
+    ),
+    SchemeSource(
+        slug="csss-cus",
+        short_name="PM-USP CSSS",
+        name=(
+            "Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Central Sector Scheme "
+            "of Scholarship for College and University students"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="sak-deg",
+        short_name="SAKSHAM",
+        name="AICTE – Saksham Scholarship Scheme For Specially-Abled Student (Degree)",
+        category="education",
+    ),
+    SchemeSource(
+        slug="psgs-dip",
+        short_name="PRAGATI-DIP",
+        name="Pragati Scholarship Scheme For Girl Students (Technical Diploma)",
+        category="education",
+    ),
+    SchemeSource(
+        slug="dacssiselosobcebc",
+        short_name="DACSSIS",
+        name=(
+            "Dr Ambedkar Central Sector Scheme of Interest Subsidy on Educational Loans "
+            "for Overseas Studies for Other Backward Classes (OBCs) and Economically "
+            "Backward Classes (EBCs)"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="nts-ug",
+        short_name="NTS-UG",
+        name="National Talent Scholarship Undergraduate",
+        category="education",
+    ),
+    SchemeSource(
+        slug="inspire-she",
+        short_name="INSPIRE-SHE",
+        name=(
+            "Innovation In Science Pursuit For Inspired Research (INSPIRE) - Scholarship "
+            "For Higher Education (SHE)"
+        ),
+        category="education",
+    ),
+    SchemeSource(
+        slug="kcc",
+        short_name="KCC",
+        name="Kisan Credit Card",
+        category="farmers",
+    ),
+    SchemeSource(
+        slug="rkvyshfshc",
+        short_name="SHC",
+        name="RKVY Soil Health and Fertility - Soil Health Card",
+        category="farmers",
+    ),
+    SchemeSource(
+        slug="nswf",
+        short_name="NSWF",
+        name="National Scheme Of Welfare Of Fishermen",
+        category="livelihood",
+    ),
+    SchemeSource(
+        slug="gispw",
+        short_name="GISPW",
+        name="Group Insurance Scheme for Powerloom Weavers",
+        category="insurance",
+    ),
+    SchemeSource(
+        slug="lws-h",
+        short_name="LWS-H",
+        name="Labour Welfare Scheme (Health)",
+        category="health",
+    ),
+    SchemeSource(
+        slug="vdcspds",
+        short_name="VIKAAS",
+        name="Vikaas-Day Care Scheme For Person with Disability Children",
+        category="household",
+    ),
+    SchemeSource(
+        slug="cmhtp-crwtp-smile",
+        short_name="SMILE",
+        name=(
+            "Support for Marginalized Individuals for Livelihood and Enterprise (SMILE): "
+            "Composite Medical Health for Transgender Persons"
+        ),
+        category="livelihood",
+    ),
+    SchemeSource(
+        slug="pmay-u",
+        short_name="PMAY-U",
+        name="Pradhan Mantri Awas Yojana - Urban",
+        category="housing",
+    ),
+    SchemeSource(
+        slug="mssc",
+        short_name="MSSC",
+        name="Mahila Samman Savings Certificate",
+        category="savings",
+    ),
+    SchemeSource(
+        slug="pm-vikas",
+        short_name="PM VIKAS",
+        name="Pradhan Mantri Virasat ka Samvardhan",
+        category="livelihood",
+    ),
 ]
 
 

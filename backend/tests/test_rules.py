@@ -111,8 +111,32 @@ def test_pm_kisan_all_clear_is_eligible():
             pays_income_tax=False,
             family_member_in_govt_service=False,
             receives_govt_pension_over_10k=False,
+            holds_constitutional_or_political_post=False,
+            is_practicing_registered_professional=False,
         )
         == "eligible"
+    )
+
+
+def test_pm_kisan_practicing_professional_family_is_excluded():
+    assert (
+        verdict(
+            "pm-kisan",
+            is_farmer_with_land=True,
+            is_practicing_registered_professional=True,
+        )
+        == "not_eligible"
+    )
+
+
+def test_pm_kisan_political_post_family_is_excluded():
+    assert (
+        verdict(
+            "pm-kisan",
+            is_farmer_with_land=True,
+            holds_constitutional_or_political_post=True,
+        )
+        == "not_eligible"
     )
 
 

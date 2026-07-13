@@ -47,6 +47,8 @@ export interface UserProfile {
   daughter_age?: number | null;
   family_member_in_govt_service?: boolean | null;
   receives_govt_pension_over_10k?: boolean | null;
+  holds_constitutional_or_political_post?: boolean | null;
+  is_practicing_registered_professional?: boolean | null;
   cultivates_crops?: boolean | null;
   has_land_ownership_or_tenure_docs?: boolean | null;
   house_type?: "kutcha" | "pucca" | null;

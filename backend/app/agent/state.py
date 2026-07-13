@@ -34,6 +34,8 @@ class UserProfile(BaseModel):
     # Facts that make occupation/household rules deterministic (Phase 2 engine).
     family_member_in_govt_service: bool | None = None
     receives_govt_pension_over_10k: bool | None = None
+    holds_constitutional_or_political_post: bool | None = None
+    is_practicing_registered_professional: bool | None = None
     cultivates_crops: bool | None = None
     has_land_ownership_or_tenure_docs: bool | None = None
     house_type: Literal["kutcha", "pucca"] | None = None

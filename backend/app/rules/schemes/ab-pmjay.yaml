@@ -37,8 +37,10 @@ rules:
     ask: "Does your household own a motorised vehicle or fishing boat?"
 simplifications:
   - >-
-    The "monthly income above ₹10,000" exclusion is approximated as annual family
-    income above ₹1,20,000.
+    The "monthly income above ₹10,000" exclusion is tested on yearly income
+    (monthly incomes are converted ×12 at extraction, so the ₹1,20,000/year
+    threshold is the exact equivalent) — households with strongly seasonal
+    income may be classified differently than a literal month-by-month test.
   - >-
     Full SECC 2011 deprivation/occupational criteria are approximated by a
     self-declared priority-category / BPL proxy — final eligibility rests on the

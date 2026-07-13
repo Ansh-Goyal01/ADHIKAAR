@@ -49,6 +49,8 @@ is_student: bool — currently studying
 daughter_age: int — age of the (youngest relevant) daughter
 family_member_in_govt_service: bool — any family member holds a government job
 receives_govt_pension_over_10k: bool — family member draws govt pension above Rs 10,000/month
+holds_constitutional_or_political_post: bool — self/family holds(-held) constitutional/elected post
+is_practicing_registered_professional: bool — self/family is a registered practicing professional
 cultivates_crops: bool — actively cultivates crops (owner, tenant, or sharecropper)
 has_land_ownership_or_tenure_docs: bool — has land papers or a valid written tenancy agreement
 house_type: "kutcha" | "pucca"

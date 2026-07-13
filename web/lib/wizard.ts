@@ -205,6 +205,24 @@ export const STEPS: StepDef[] = [
         condition: isFarmer,
       },
       {
+        key: "holds_constitutional_or_political_post",
+        type: "yesno",
+        label:
+          "Has anyone in your family held a constitutional post or elected office — minister, MP, MLA, mayor, or district panchayat chairperson?",
+        options: YES_NO_UNSURE,
+        condition: isFarmer,
+        help: "PM-KISAN excludes families of such office-holders.",
+      },
+      {
+        key: "is_practicing_registered_professional",
+        type: "yesno",
+        label:
+          "Is anyone in your family a practicing registered professional — doctor, engineer, lawyer, chartered accountant, or architect?",
+        options: YES_NO_UNSURE,
+        condition: isFarmer,
+        help: "PM-KISAN excludes families of practicing registered professionals.",
+      },
+      {
         key: "has_vending_certificate_or_lor",
         type: "yesno",
         label: "Do you have a vending certificate or a letter of recommendation from your town body?",
@@ -391,6 +409,12 @@ export function answersToProfile(answers: Answers): UserProfile {
     daughter_age: num("daughter_age"),
     family_member_in_govt_service: toBool(answers.family_member_in_govt_service),
     receives_govt_pension_over_10k: toBool(answers.receives_govt_pension_over_10k),
+    holds_constitutional_or_political_post: toBool(
+      answers.holds_constitutional_or_political_post,
+    ),
+    is_practicing_registered_professional: toBool(
+      answers.is_practicing_registered_professional,
+    ),
     cultivates_crops: toBool(answers.cultivates_crops),
     has_land_ownership_or_tenure_docs: toBool(answers.has_land_ownership_or_tenure_docs),
     house_type:

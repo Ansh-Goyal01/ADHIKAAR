@@ -59,6 +59,12 @@ Rules:
   - family_member_in_govt_service: the person or a family member holds a government job.
   - receives_govt_pension_over_10k: a family member draws a government pension above
     Rs 10,000/month.
+  - holds_constitutional_or_political_post: the person or a family member holds or
+    formerly held a constitutional post or elected political office (minister, MP,
+    MLA/MLC, mayor of a municipal corporation, district panchayat chairperson).
+  - is_practicing_registered_professional: the person or a family member is a
+    professional registered with a professional body (doctor, engineer, lawyer,
+    chartered accountant, architect) AND practices that profession.
   - house_type: "kutcha" (mud/thatch/temporary, 0-2 rooms) or "pucca" (brick/concrete).
   - owns_motorized_vehicle: household owns a motorised 2/3/4-wheeler or fishing boat.
   - is_pmjay_priority_category: household clearly matches an SECC deprivation or listed
