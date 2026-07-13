@@ -2,164 +2,107 @@ scheme_id: inspire-she
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: held-back-needs-rework
+  status: awaiting-human-review
   source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  hold_reason: Extractor conflated 4 alternative merit routes (top-1% Class XII / JEE-AIPMT
-    rank / KVPY / NTSE-Olympiad) into AND-required rules — as encoded, no one could ever qualify.
-    Needs any-of restructuring.
 rules:
-- id: is_student
+- id: is-student
   kind: require
   when:
     field: is_student
     op: eq
     value: true
-    any: null
-    all: null
-  clause: The scheme aims to attract students to study basic and natural Science subjects
-    at undergraduate and postgraduate levels and pursue research as a career by providing
-    scholarships to interested and deserving students.
+  clause: Meritorious Students with aggregate marks within the top 1% of their Class XII examination
+    of any State/ Central Education Board in India are eligible.
   source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Are you currently studying?
+  ask: Are you currently a student?
   self_declared: false
   verify_hint: ''
   review_status: proposed
-- id: pursuing-natural-science-courses
-  kind: require
-  when:
-    field: occupation
-    op: eq
-    value: student
-    any: null
-    all: null
-  clause: The scheme aims to attract students to study basic and natural Science subjects
-    at undergraduate and postgraduate levels and pursue research as a career by providing
-    scholarships to interested and deserving students.
-  source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Are you pursuing a course in Natural and Basic Sciences?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: aggregate-marks-within-top-1percent
-  kind: require
-  when:
-    field: null
-    op: null
-    value: null
-    any:
-    - field: annual_family_income_inr
-      op: lt
-      value: null
-      any: null
-      all: null
-    all: null
-  clause: (a) Meritorious Students with aggregate marks within the top 1% of their Class XII
+  notes_for_reviewer: ''
+blocked_rules:
+- criterion: Meritorious Students with aggregate marks within the top 1% of their Class XII
     examination of any State/ Central Education Board in India are eligible.
-  source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Did you score within the top 1% of your Class XII examination?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: jeee-rank-within-top-10000
-  kind: require
-  when:
-    field: null
-    op: null
-    value: null
-    any:
-    - field: annual_family_income_inr
-      op: lt
-      value: null
-      any: null
-      all: null
-    all: null
-  clause: (b) Those students who have secured ranks in the JEE of IIT, AIPMT (within the top
-    10000 ranks), and are presently pursuing Natural and Basic Science courses in India at
-    the B.Sc., B.S., Int. M.Sc./M.S. level.
-  source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Did you secure a rank within the top 10000 in the JEE of IIT or AIPMT?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: kvpy-selected
-  kind: require
-  when:
-    field: null
-    op: null
-    value: null
-    any:
-    - field: annual_family_income_inr
-      op: lt
-      value: null
-      any: null
-      all: null
-    all: null
-  clause: (d) Students who have been selected under Kishore Vaigyanik Protsahan Yojana (KVPY)
-    and pursuing Bachelor/Master level courses in Natural Sciences.
-  source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Have you been selected under the Kishore Vaigyanik Protsahan Yojana (KVPY)?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: ntse-jbnsts-international-olympiad-medallist
-  kind: require
-  when:
-    field: null
-    op: null
-    value: null
-    any:
-    - field: annual_family_income_inr
-      op: lt
-      value: null
-      any: null
-      all: null
-    all: null
-  clause: (e) National Talent Search Examination (NTSE) scholars, Jagadish Bose National Science
+  proposed_field:
+    name: class_xii_top_1_percent
+    type: boolean
+    meaning: Whether the student's aggregate marks are within the top 1% of their Class XII
+      examination of any State/Central Education Board in India.
+  suggested_rule_id: class-xii-top-1-percent
+- criterion: Those students who have secured ranks in the JEE of IIT, AIPMT (within the top
+    10000 ranks)
+  proposed_field:
+    name: has_eligible_jee_aipmt_rank
+    type: boolean
+    meaning: Whether the student has secured a rank in JEE of IIT or an AIPMT rank within
+      the top 10000.
+  suggested_rule_id: has-eligible-jee-aipmt-rank
+- criterion: Students who have been selected under Kishore Vaigyanik Protsahan Yojana (KVPY)
+  proposed_field:
+    name: is_kvpy_scholar
+    type: boolean
+    meaning: Whether the student has been selected under Kishore Vaigyanik Protsahan Yojana
+      (KVPY).
+  suggested_rule_id: is-kvpy-scholar
+- criterion: National Talent Search Examination (NTSE) scholars, Jagadish Bose National Science
+    Talent Search (JBNSTS) scholars and International Olympiad medallists
+  proposed_field:
+    name: is_ntse_jbnsts_or_olympiad_scholar
+    type: boolean
+    meaning: Whether the student is an NTSE scholar, JBNSTS scholar, or International Olympiad
+      medallist.
+  suggested_rule_id: is-ntse-jbnsts-or-olympiad-scholar
+- criterion: the student must be pursuing courses in Natural and Basic Sciences at the B.Sc.,
+    B.S., and Int.M.Sc./M.S. level. Courses other than these subjects such as Engineering,
+    Medicine, Military Science, Defence Studies, Agriculture, Psychology, Seed Technology,
+    Home Science, Geography, Economics, Education (including B.Sc.-B.Ed. dual degree course),
+    Biotechnology, Computer Science, Computer Applications, Bioinformatics, Instrumentation,
+    Information Technology, Physical Education, courses in Distance Education mode at Open
+    Universities and other professional courses etc. are NOT supported.
+  proposed_field:
+    name: is_pursuing_eligible_natural_science_course
+    type: boolean
+    meaning: Whether the student is pursuing Bachelor/Master level courses in eligible Natural
+      and Basic Sciences subjects as defined by the scheme, excluding non-supported courses.
+  suggested_rule_id: pursuing-eligible-natural-science-course
+- criterion: pursuing Integrated M.S. courses in Natural and Basic Sciences at IISERs, NISER
+    and Department of Atomic Energy Centre for the Basic Sciences University of Mumbai and
+    Visva-Bharati, Shanti Niketan.
+  proposed_field:
+    name: is_enrolled_in_specific_int_ms_institutions
+    type: boolean
+    meaning: Whether the student is pursuing Integrated M.S. courses in Natural and Basic
+      Sciences at IISERs, NISER, Department of Atomic Energy Centre for the Basic Sciences
+      University of Mumbai, or Visva-Bharati, Shanti Niketan.
+  suggested_rule_id: enrolled-in-specific-int-ms-institutions
+- criterion: Meritorious Students with aggregate marks within the top 1% of their Class XII
+    examination of any State/ Central Education Board in India are eligible. In addition,
+    the student must be pursuing courses in Natural and Basic Sciences at the B.Sc., B.S.,
+    and Int.M.Sc./M.S. level. OR Those students who have secured ranks in the JEE of IIT,
+    AIPMT (within the top 10000 ranks), and are presently pursuing Natural and Basic Science
+    courses in India at the B.Sc., B.S., Int. M.Sc./M.S. level. OR Students with aggregate
+    marks within the top 1% of their Class XII examination of any State/ Central Education
+    Board in India and pursuing Integrated M.S. courses in Natural and Basic Sciences at IISERs,
+    NISER and Department of Atomic Energy Centre for the Basic Sciences University of Mumbai
+    and Visva-Bharati, Shanti Niketan. OR Students who have been selected under Kishore Vaigyanik
+    Protsahan Yojana (KVPY) and pursuing Bachelor/Master level courses in Natural Sciences.
+    OR National Talent Search Examination (NTSE) scholars, Jagadish Bose National Science
     Talent Search (JBNSTS) scholars and International Olympiad medallists pursuing Bachelor/
     Master level courses in Natural Sciences are also eligible.
-  source_url: https://www.myscheme.gov.in/schemes/inspire-she
-  ask: Are you a National Talent Search Examination (NTSE) scholar, Jagadish Bose National
-    Science Talent Search (JBNSTS) scholar, or an International Olympiad medallist?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: aggregate marks within the top 1% of their Class XII examination
   proposed_field:
-    name: class_xii_aggregate_marks
-    type: float
-    meaning: The aggregate marks obtained in the Class XII examination
-  suggested_rule_id: aggregate-marks-within-top-1percent
-- criterion: JEE or AIPMT rank within the top 10000
-  proposed_field:
-    name: jee_or_aipmt_rank
-    type: integer
-    meaning: The rank obtained in the JEE or AIPMT examination
-  suggested_rule_id: jeee-rank-within-top-10000
-- criterion: KVPY selection
-  proposed_field:
-    name: kvpy_selected
+    name: meets_inspire_she_eligibility
     type: boolean
-    meaning: Whether the student has been selected under the Kishore Vaigyanik Protsahan Yojana
-      (KVPY)
-  suggested_rule_id: kvpy-selected
-- criterion: NTSE, JBNSTS, or International Olympiad medallist status
-  proposed_field:
-    name: ntse_jbnsts_or_international_olympiad_medallist
-    type: boolean
-    meaning: Whether the student is an NTSE, JBNSTS, or International Olympiad medallist
-  suggested_rule_id: ntse-jbnsts-international-olympiad-medallist
-- criterion: pursuing Natural and Basic Science courses
-  proposed_field:
-    name: pursuing_natural_and_basic_science_courses
-    type: boolean
-    meaning: Whether the student is pursuing a course in Natural and Basic Sciences
-  suggested_rule_id: pursuing-natural-science-courses
+    meaning: Whether the student meets any of the five specified eligibility criteria (a)
+      through (e) for the INSPIRE SHE scheme, including academic performance, competitive
+      exam ranks, or specific scholarship/medallist status, while pursuing eligible natural
+      and basic science courses at the specified levels and institutions.
+  suggested_rule_id: meets-inspire-she-eligibility
 rejected_drafts: []
 simplifications:
-- The scheme has a limited number of scholarships (12,000) and the selection process may involve
-  additional criteria not mentioned in the text.
-- The text does not provide information on the application process, enrollment windows, or
-  document formalities.
-- The text does not provide information on the state-specific notification or eligibility
-  criteria.
+- Selected candidates will be supported for a maximum period of five years, starting from
+  the 1st year B.Sc., B.S., Int. M.Sc./Int.M.S. or until the completion of the course, whichever
+  is earlier.
+- Continuation of the scholarship for the selected candidates is based on good academic performance
+  in the examinations conducted by the University and upon the recommendation by the Head
+  of the Institution.
+- The scholarship will be transferred to the scholar’s State Bank of India (SBI) bank account
+  directly through Direct Benefit Transfer (DBT) mode.
