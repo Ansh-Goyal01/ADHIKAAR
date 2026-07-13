@@ -1,0 +1,125 @@
+scheme_id: csspremsobcsi
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+rules:
+- id: annual-family-income-at-most-250000
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 250000
+    any: null
+    all: null
+  clause: The scholarship award will be sanctioned in the case of students whose parents/guardians'
+    income from all sources does not exceed ₹ 2,50,000/- per annum.
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: social-category-obc
+  kind: require
+  when:
+    field: social_category
+    op: eq
+    value: obc
+    any: null
+    all: null
+  clause: '"Centrally Sponsored Scheme of Pre-matric Scholarship to Other Backward Classes
+    (OBC) for Studies in India" is a Scholarship Scheme by the Department of Social Justice
+    and Empowerment, Ministry of Social Justice and Empowerment.'
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+  ask: What is your social category?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: is-student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The scholarships may be given to the students enrolled in class 1st or any subsequent
+    class of the pre-matric stage in the case of day scholars, and class 3rd or any subsequent
+    class of the pre-matric stage in the case of hostlers.
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: girl-student
+  kind: require
+  when:
+    field: gender
+    op: eq
+    value: female
+    any: null
+    all: null
+  clause: 30% of the beneficiaries should be reserved for girl students.
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+  ask: What is your gender?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: student-with-disability
+  kind: require
+  when:
+    field: disability_percent
+    op: gt
+    value: 0
+    any: null
+    all: null
+  clause: At least 5% of students with disabilities should be covered by grants or scholarships.
+  source_url: https://www.myscheme.gov.in/schemes/csspremsobcsi
+  ask: Do you have a disability?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: attendance records of not less than 60% in the previous year
+  proposed_field:
+    name: attendance_percentage
+    type: int
+    meaning: previous year's attendance percentage
+  suggested_rule_id: attendance-at-least-60
+- criterion: not availing of benefits under any other pre-matric scholarship scheme
+  proposed_field:
+    name: receives_other_pre_matric_scholarship
+    type: bool
+    meaning: whether the student receives another pre-matric scholarship
+  suggested_rule_id: not-receiving-other-pre-matric-scholarship
+rejected_drafts:
+- draft:
+    id: attendance-at-least-60
+    kind: require
+    when: {}
+    clause: Regular attendance records of not less than 60% in the previous year should be
+      a pre-requisite for availing scholarship.
+    ask: What was your attendance percentage in the previous year?
+    self_declared: false
+    notes_for_reviewer: 'Proposed field: attendance_percentage (int, previous year''s attendance
+      percentage)'
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: not-receiving-other-pre-matric-scholarship
+    kind: exclude
+    when: {}
+    clause: The scholar obtaining benefits under this scheme shall not be allowed to avail
+      of benefits under any other pre-matric scholarship scheme.
+    ask: Are you receiving any other pre-matric scholarship?
+    self_declared: false
+    notes_for_reviewer: 'Proposed field: receives_other_pre_matric_scholarship (bool, whether
+      the student receives another pre-matric scholarship)'
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+simplifications:
+- State-specific notification and enrollment windows
+- Document formalities

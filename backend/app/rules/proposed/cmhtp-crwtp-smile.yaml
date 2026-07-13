@@ -1,0 +1,32 @@
+scheme_id: cmhtp-crwtp-smile
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/cmhtp-crwtp-smile
+rules:
+- id: is-transgender
+  kind: require
+  when:
+    field: gender
+    op: eq
+    value: other
+    any: null
+    all: null
+  clause: The applicant should be Transgender.
+  source_url: https://www.myscheme.gov.in/schemes/cmhtp-crwtp-smile
+  ask: Are you transgender?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The applicant should not be availing similar benefits from any other schemes
+    of the Central Government or State Government.
+  proposed_field:
+    name: receives_similar_scheme_benefits
+    type: boolean
+    meaning: Is the applicant currently receiving similar benefits from any other Central
+      or State Government scheme?
+  suggested_rule_id: exclude-similar-scheme-benefits
+rejected_drafts: []
+simplifications: []

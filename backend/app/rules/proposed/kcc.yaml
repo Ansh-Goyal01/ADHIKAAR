@@ -1,0 +1,76 @@
+scheme_id: kcc
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/kcc
+rules:
+- id: is-farmer
+  kind: require
+  when:
+    field: cultivates_crops
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: Farmers - individual/joint borrowers who are owner cultivators;
+  source_url: https://www.myscheme.gov.in/schemes/kcc
+  ask: Do you cultivate crops?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: is-tenant-farmer
+  kind: require
+  when:
+    field: cultivates_crops
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: Tenant farmers, oral lessees & share croppers;
+  source_url: https://www.myscheme.gov.in/schemes/kcc
+  ask: Do you cultivate crops as a tenant or sharecropper?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: is-self-help-group
+  kind: require
+  when:
+    field: occupation
+    op: eq
+    value: Self Help Group
+    any: null
+    all: null
+  clause: Self Help Groups (SHGs) or Joint Liability Groups (JLGs) of farmers including tenant
+    farmers, share croppers etc
+  source_url: https://www.myscheme.gov.in/schemes/kcc
+  ask: Are you a member of a Self Help Group?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: Scale of finance for the crop
+  proposed_field:
+    name: scale_of_finance
+    type: float
+    meaning: The amount of money allocated for a particular crop
+  suggested_rule_id: scale-of-finance
+- criterion: Extent of area cultivated
+  proposed_field:
+    name: area_cultivated
+    type: float
+    meaning: The area of land used for cultivation
+  suggested_rule_id: area-cultivated
+- criterion: Cost escalation/increase in the scale of finance
+  proposed_field:
+    name: cost_escalation
+    type: float
+    meaning: The increase in the cost of production due to various factors
+  suggested_rule_id: cost-escalation
+rejected_drafts: []
+simplifications:
+- The KCC Scheme was introduced with the objective of providing adequate and timely credit
+  to the farmers for their agricultural operations.
+- The Government of India provides interest subvention of 2% and Prompt Repayment Incentive
+  of 3% to the farmers, thus making the credit available at a very subsidized rate of 4% per
+  annum.

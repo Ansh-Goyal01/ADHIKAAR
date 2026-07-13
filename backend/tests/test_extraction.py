@@ -40,6 +40,21 @@ def test_valid_draft_promotes_to_engine_rule_with_proposed_status():
     assert rule.when.field == "age"
 
 
+def test_list_valued_leaf_expands_to_any_of():
+    """Models sometimes collapse 'SC or ST' into one leaf with a list value
+    instead of an any_of of two leaves — expand rather than reject it."""
+    draft = RuleDraft(
+        id="sc-or-st",
+        kind="require",
+        when=ConditionDraft(field="social_category", op="eq", value=["sc", "st"]),
+        clause="The applicant must belong to SC or ST category.",
+        ask="Do you belong to SC or ST?",
+    )
+    rule = validate_draft(draft, "https://example.gov.in")
+    assert rule.when.any is not None
+    assert {c.value for c in rule.when.any} == {"sc", "st"}
+
+
 def test_unknown_field_draft_is_rejected():
     draft = RuleDraft(
         id="pregnant-woman",

@@ -1,0 +1,152 @@
+scheme_id: pmay-u
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+rules:
+- id: annual-family-income-ews
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 300000
+    any: null
+    all: null
+  clause: 'a) Economically Weaker Section (EWS): households with annual income up to ₹3,00,000.'
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-lig
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: gt
+    value: 300000
+    any: null
+    all: null
+  clause: 'b) Low Income Group (LIG): households with annual income between ₹3,00,001 and
+    ₹6,00,000.'
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-mig-1
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: gt
+    value: 600000
+    any: null
+    all: null
+  clause: 'c) Middle Income Group-1 (MIG-1): households with annual income between ₹6,00,001
+    and ₹12,00,000.'
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-mig-2
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: gt
+    value: 1200000
+    any: null
+    all: null
+  clause: 'd) Middle Income Group-2 (MIG-2): households with annual income between ₹12,00,001
+    and ₹18,00,000.'
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: house-type-pucca
+  kind: exclude
+  when:
+    field: house_type
+    op: eq
+    value: pucca
+    any: null
+    all: null
+  clause: The applicant or his/her family members must not own a pucca house in any part of
+    the country.
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: Do you or your family members own a pucca house?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: family-structure
+  kind: require
+  when:
+    field: marital_status
+    op: eq
+    value: married
+    any: null
+    all: null
+  clause: The family must comprise of husband/wife and unmarried children.
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: What is your marital status?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: area-urban
+  kind: require
+  when:
+    field: area
+    op: eq
+    value: urban
+    any: null
+    all: null
+  clause: The town/city in which the family resides must be covered under the scheme.
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: Do you live in an urban area?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: previous-benefits
+  kind: exclude
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: has_bpl_card
+      op: eq
+      value: true
+      any: null
+      all: null
+    - field: pays_income_tax
+      op: eq
+      value: true
+      any: null
+      all: null
+    all: null
+  clause: The family MUST NOT have previously availed the benefits of any housing-related
+    schemes set up by the Government of India.
+  source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  ask: Have you or your family members previously received benefits from any government housing
+    schemes?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The family must comprise of husband/wife and unmarried children.
+  proposed_field:
+    name: family_structure
+    type: string
+    meaning: Description of family structure
+  suggested_rule_id: family-structure
+- criterion: The town/city in which the family resides must be covered under the scheme.
+  proposed_field:
+    name: scheme_coverage_area
+    type: string
+    meaning: Area covered under the scheme
+  suggested_rule_id: scheme-coverage-area
+rejected_drafts: []
+simplifications:
+- State-specific notification and enrollment windows
+- Document formalities for scheme enrollment

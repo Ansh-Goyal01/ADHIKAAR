@@ -1,0 +1,56 @@
+scheme_id: nfbs
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/nfbs
+rules:
+- id: family-bpl
+  kind: require
+  when:
+    field: has_bpl_card
+    op: eq
+    value: true
+  clause: The family of the applicant must be living Below Poverty Line (BPL).
+  source_url: https://www.myscheme.gov.in/schemes/nfbs
+  ask: Is your family living Below Poverty Line (BPL)?
+  self_declared: true
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The applicant must be a citizen of India.
+  proposed_field:
+    name: is_indian_citizen
+    type: boolean
+    meaning: True if the applicant is a citizen of India.
+  suggested_rule_id: is-indian-citizen
+- criterion: The primary breadwinner of the applicant's family must have been deceased.
+  proposed_field:
+    name: primary_breadwinner_deceased
+    type: boolean
+    meaning: True if the primary breadwinner of the applicant's family has passed away.
+  suggested_rule_id: primary-breadwinner-deceased
+- criterion: The age of the deceased breadwinner must have been more than 18 years and less
+    than 60 years.
+  proposed_field:
+    name: deceased_breadwinner_age_at_death
+    type: integer
+    meaning: The age of the primary breadwinner at the time of their death.
+  suggested_rule_id: deceased-breadwinner-age-range
+- criterion: The applicant must be the succeeding primary breadwinner of the family.
+  proposed_field:
+    name: applicant_is_succeeding_primary_breadwinner
+    type: boolean
+    meaning: True if the applicant is the succeeding primary breadwinner of the family.
+  suggested_rule_id: applicant-is-succeeding-breadwinner
+- criterion: The family benefit will be paid to such surviving member of the household of
+    the deceased poor , who after local inquiry, is found to be the head of the household.
+  proposed_field:
+    name: applicant_is_found_head_of_household
+    type: boolean
+    meaning: True if the applicant is found to be the head of the household after the death
+      of the primary breadwinner.
+  suggested_rule_id: applicant-is-found-head-of-household
+rejected_drafts: []
+simplifications:
+- The verification process involves a 'local inquiry' to determine the head of the household.

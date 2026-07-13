@@ -1,0 +1,143 @@
+scheme_id: mssc
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/mssc
+rules:
+- id: female-gender
+  kind: require
+  when:
+    field: gender
+    op: eq
+    value: female
+    any: null
+    all: null
+  clause: This scheme is only for women and girl children.
+  source_url: https://www.myscheme.gov.in/schemes/mssc
+  ask: What is your gender?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: account can be opened by guardian for minor girl
+  proposed_field:
+    name: account_holder_type
+    type: string
+    meaning: Type of account holder (self, guardian, etc.)
+  suggested_rule_id: account-holder-type
+- criterion: interest rate of 7.5% per annum
+  proposed_field:
+    name: interest_rate
+    type: float
+    meaning: Interest rate of the scheme
+  suggested_rule_id: interest-rate
+rejected_drafts:
+- draft:
+    id: citizen-of-india
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: The applicants must have Indian citizenship.
+    ask: Are you an Indian citizen?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: no-upper-age-limit
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: There is no upper age limit, and women of all ages can avail the benefits of this
+      scheme.
+    ask: Is there an upper age limit for this scheme?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: single-holder-type-account
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: An account opened under this Scheme shall be a single-holder type account.
+    ask: Is the account a single-holder type account?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: minimum-deposit-1000
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: A minimum of ₹1000/- and any sum in multiples of one hundred rupees may be deposited
+      in an account and no subsequent deposit shall be allowed in that account.
+    ask: What is the minimum deposit amount?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: maximum-deposit-200000
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: A maximum limit of ₹2,00,000/- shall be deposited in an account or accounts held
+      by an account holder.
+    ask: What is the maximum deposit amount?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: maturity-period-2-years
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: The deposit shall mature on completion of two years from the date of the deposit
+      and the Eligible Balance may be paid to the account holder on maturity.
+    ask: What is the maturity period of the deposit?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+- draft:
+    id: withdrawal-after-1-year
+    kind: require
+    when:
+      field: none
+      op: none
+      value: none
+    clause: The account holder shall be eligible to withdraw a maximum of up to 40% of the
+      Eligible Balance once after the expiry of one year from the date of opening of the account
+      but before the maturity of the account.
+    ask: Can the account holder withdraw after 1 year?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen.op\n  Input should be 'eq', 'ne', 'gt', 'gte',\
+    \ 'lt' or 'lte' [type=literal_error, input_value='none', input_type=str]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.13/v/literal_error"
+simplifications:
+- The scheme is available through Post Offices and eligible Public and Private Sector Banks.
+- The scheme offers a 2-year tenure with an interest rate of 7.5% per annum (compounded quarterly)
+  on deposits ranging from ₹1,000 to ₹2,00,000.

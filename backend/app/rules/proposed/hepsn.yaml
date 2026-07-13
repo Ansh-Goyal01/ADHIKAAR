@@ -1,0 +1,72 @@
+scheme_id: hepsn
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/hepsn
+rules:
+- id: has-disability
+  kind: require
+  when:
+    field: disability_percent
+    op: gt
+    value: 0
+    any: null
+    all: null
+  clause: The college applying for a grant for any one of the components of the scheme should
+    have enrolled disabled persons, including persons with visual impairment, hearing impairment,
+    locomotor disability, etc., in various courses of the institute.
+  source_url: https://www.myscheme.gov.in/schemes/hepsn
+  ask: Do you have a certified disability?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: is-student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The college applying for a grant for any one of the components of the scheme should
+    have enrolled disabled persons, including persons with visual impairment, hearing impairment,
+    locomotor disability, etc., in various courses of the institute.
+  source_url: https://www.myscheme.gov.in/schemes/hepsn
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: Institution approved by UGC under Sections 2(f) and 12
+  proposed_field:
+    name: institution_approved_by_ugc
+    type: bool
+    meaning: Whether the institution is approved by the UGC under Sections 2(f) and 12
+  suggested_rule_id: institution-approved-by-ugc
+- criterion: Expert committee involving faculty members, experts in the field and differently-abled
+    persons themselves
+  proposed_field:
+    name: has_expert_committee
+    type: bool
+    meaning: Whether the institution has an expert committee involving faculty members, experts
+      in the field and differently-abled persons themselves
+  suggested_rule_id: has-expert-committee
+rejected_drafts:
+- draft:
+    id: institution-approved-by-ugc
+    kind: require
+    when: {}
+    clause: Institutions applying for the scheme should have been approved by the UGC under
+      Sections 2(f) and 12
+    ask: Is your institution approved by the UGC under Sections 2(f) and 12?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be encoded with the available fields as it requires
+      information about the institution, not the individual.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+simplifications:
+- The UGC will make a one-time grant of up to ₹ 5,00,000 per college during the Plan period
+- The UGC will provide an ad hoc one-time grant of up to ₹1,50,000  per college during the
+  Twelfth Plan period

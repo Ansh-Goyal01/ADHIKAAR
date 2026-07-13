@@ -109,7 +109,10 @@ class ConditionDraft(BaseModel):
 
     field: str | None = None
     op: str | None = None
-    value: bool | int | str | None = None
+    # A list means "matches any of these values" — models sometimes collapse
+    # an any_of into a single leaf with a list value (e.g. social_category in
+    # [sc, st]); expanded back into any_of below rather than rejected.
+    value: bool | int | str | list[bool | int | str] | None = None
     any_of: list["ConditionDraft"] | None = None
     all_of: list["ConditionDraft"] | None = None
 
@@ -118,6 +121,10 @@ class ConditionDraft(BaseModel):
             return {"any": [c.to_engine_form() for c in self.any_of]}
         if self.all_of is not None:
             return {"all": [c.to_engine_form() for c in self.all_of]}
+        if isinstance(self.value, list):
+            return {
+                "any": [{"field": self.field, "op": self.op, "value": v} for v in self.value]
+            }
         return {"field": self.field, "op": self.op, "value": self.value}
 
 
@@ -236,7 +243,7 @@ def write_proposal(proposal: SchemeProposal) -> Path:
             "status": "awaiting-human-review",
             "source_url": proposal.source_url,
         },
-        "rules": [r.model_dump(exclude_defaults=False) for r in proposal.rules],
+        "rules": [r.model_dump(exclude_none=True) for r in proposal.rules],
         "blocked_rules": [b.model_dump() for b in proposal.blocked_rules],
         "rejected_drafts": proposal.rejected_drafts,
         "simplifications": proposal.simplifications,

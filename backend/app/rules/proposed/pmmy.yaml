@@ -1,0 +1,90 @@
+scheme_id: pmmy
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/pmmy
+rules:
+- id: not-defaulting-any-bank
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The applicant should not be a defaulter to any bank or financial institution and
+    should have a satisfactory credit track record.
+  source_url: https://www.myscheme.gov.in/schemes/pmmy
+  ask: Have you ever defaulted on a loan from any bank or financial institution?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The applicant should have a satisfactory credit track record.
+  proposed_field:
+    name: credit_score
+    type: integer
+    meaning: The applicant's credit score
+  suggested_rule_id: has-satisfactory-credit-track-record
+- criterion: The individual borrowers may be required to possess the necessary skills/experience/
+    knowledge to undertake the proposed activity.
+  proposed_field:
+    name: relevant_skills
+    type: string
+    meaning: The skills or experience relevant to the proposed activity
+  suggested_rule_id: has-necessary-skills
+- criterion: The need for educational qualification, if any, is assessed based on the nature
+    of the proposed activity and its requirement.
+  proposed_field:
+    name: educational_qualification
+    type: string
+    meaning: The educational qualification required for the proposed activity
+  suggested_rule_id: has-educational-qualification-if-required
+rejected_drafts:
+- draft:
+    id: has-satisfactory-credit-track-record
+    kind: require
+    when: {}
+    clause: The applicant should not be a defaulter to any bank or financial institution and
+      should have a satisfactory credit track record.
+    ask: Do you have a satisfactory credit track record?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information about the applicant's credit history.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: has-necessary-skills
+    kind: require
+    when: {}
+    clause: The individual borrowers may be required to possess the necessary skills/experience/
+      knowledge to undertake the proposed activity.
+    ask: Do you have the necessary skills, experience, or knowledge to undertake the proposed
+      activity?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information about the applicant's skills and experience.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: has-educational-qualification-if-required
+    kind: require
+    when: {}
+    clause: The need for educational qualification, if any, is assessed based on the nature
+      of the proposed activity and its requirement.
+    ask: Do you have the required educational qualification for the proposed activity?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information about the applicant's educational qualifications and
+      the proposed activity.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+simplifications:
+- The interest rates are declared by Member Lending Institutions from time to time as per
+  Reserve Bank of India guidelines.
+- The upfront fee/processing charges for Shishu loans are waived by most Banks.
+- There are no agents or middleman engaged by MUDRA for availing of Mudra Loans.

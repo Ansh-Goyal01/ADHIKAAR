@@ -1,0 +1,239 @@
+scheme_id: pmegp
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/pmegp
+rules:
+- id: age-at-least-18
+  kind: require
+  when:
+    field: age
+    op: gte
+    value: 18
+    any: null
+    all: null
+  clause: 1. Any individual, above 18 years of age.
+  source_url: https://www.myscheme.gov.in/schemes/pmegp
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: viii-standard-pass-for-higher-projects
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: annual_family_income_inr
+      op: gt
+      value: 1000000
+      any: null
+      all: null
+    - field: annual_family_income_inr
+      op: gt
+      value: 500000
+      any: null
+      all: null
+    all: null
+  clause: 3. For setting up of project costing above Rs.10 lakh in the Manufacturing sector
+    and above ₹ 5,00,000 in the Business /Service sector, the beneficiaries should possess
+    at least VIII standard pass educational qualification.
+  source_url: https://www.myscheme.gov.in/schemes/pmegp
+  ask: Do you have at least an VIII standard pass for projects above 10 lakh or 5 lakh?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: meat-industry-exclusion
+  kind: exclude
+  when:
+    field: occupation
+    op: eq
+    value: meat industry
+    any: null
+    all: null
+  clause: 1. Any Industry/ Business connected with Meat(slaughtered), i.e., processing, canning
+    and/or serving items made of it as food, production/Manufacturing or sale of intoxicant
+    items like Beedi/Pan/ Cigar/Cigarette etc., any Hotel or Dhaba or sales outlet serving
+    liquor, preparation/producing tobacco as raw materials, tapping of toddy for sale will
+    not be allowed.
+  source_url: https://www.myscheme.gov.in/schemes/pmegp
+  ask: Are you involved in the meat industry?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: crop-cultivation-exclusion
+  kind: exclude
+  when:
+    field: occupation
+    op: eq
+    value: crop cultivation
+    any: null
+    all: null
+  clause: 2. Any Industry/Business connected with cultivation of crops/plantation like Tea,
+    Coffee, Rubber etc. Sericulture (Cocoon rearing), Horticulture, Floriculture, Animal Husbandry
+    will not be allowed.
+  source_url: https://www.myscheme.gov.in/schemes/pmegp
+  ask: Are you involved in crop cultivation?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: VIII standard pass educational qualification
+  proposed_field:
+    name: educational_qualification
+    type: string
+    meaning: The highest level of education completed
+  suggested_rule_id: viii-standard-pass
+- criterion: Existing subsidies or schemes
+  proposed_field:
+    name: existing_subsidies
+    type: boolean
+    meaning: Whether the individual has availed of any government subsidy under other schemes
+  suggested_rule_id: exclude-existing-units
+- criterion: Margin money adjustment status
+  proposed_field:
+    name: margin_money_adjusted
+    type: boolean
+    meaning: Whether the margin money has been successfully adjusted
+  suggested_rule_id: margin-money-claimed-adjusted
+- criterion: Loan repayment status
+  proposed_field:
+    name: loan_repayment_status
+    type: boolean
+    meaning: Whether the first loan under PMEGP/REGP/MUDRA has been successfully repaid
+  suggested_rule_id: first-loan-repaid
+- criterion: Unit profitability and growth potential
+  proposed_field:
+    name: unit_profitability
+    type: boolean
+    meaning: Whether the unit is profit-making with potential for growth
+  suggested_rule_id: unit-profit-making
+- criterion: Natural calamity affected status
+  proposed_field:
+    name: natural_calamity_affected
+    type: boolean
+    meaning: Whether the individual has been affected by a natural calamity
+  suggested_rule_id: priority-to-natural-calamity-affected
+- criterion: Family members who have received assistance
+  proposed_field:
+    name: family_members_assisted
+    type: boolean
+    meaning: Whether any family member has received financial assistance under PMEGP
+  suggested_rule_id: exclude-one-person-per-family
+- criterion: Environmental or socio-economic restrictions
+  proposed_field:
+    name: environmental_restrictions
+    type: boolean
+    meaning: Whether the activities are prohibited by local authorities due to environmental
+      or socio-economic factors
+  suggested_rule_id: environmental-exclusion
+rejected_drafts:
+- draft:
+    id: no-income-ceiling
+    kind: require
+    when: {}
+    clause: 2. There will be no income ceiling for assistance in setting up projects under
+      PMEGP.
+    ask: Is there an income limit to apply for PMEGP?
+    self_declared: false
+    notes_for_reviewer: ''
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: exclude-existing-units
+    kind: exclude
+    when: {}
+    clause: 5. Existing Units (under PMRY, REGP, or any other scheme of the Government of
+      India or State Government) and the units that have already availed of Government Subsidy
+      under any other scheme of the Government of India or State Government are not eligible.
+    ask: Have you availed of any government subsidy under other schemes?
+    self_declared: false
+    notes_for_reviewer: This rule requires a proposed field to track existing subsidies or
+      schemes.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: margin-money-claimed-adjusted
+    kind: require
+    when: {}
+    clause: 1. Margin Money(subsidy)claimed under PMEGP has to be successfully adjusted on
+      the completion of the lock-in period of 3 years.
+    ask: Has your margin money been adjusted after the lock-in period?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires a proposed field for margin money adjustment status.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: first-loan-repaid
+    kind: require
+    when: {}
+    clause: 2. The first loan under PMEGP/REGP/MUDRA has to be successfully repaid in the
+      stipulated time.
+    ask: Have you repaid your first loan under PMEGP/REGP/MUDRA?
+    self_declared: false
+    notes_for_reviewer: This rule requires a proposed field to track loan repayment status.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: unit-profit-making
+    kind: require
+    when: {}
+    clause: 3. The unit is profit-making with good turnover and has the potential for further
+      growth in turnover and profit with modernization/upgrading of the technology.
+    ask: Is your unit profit-making with potential for growth?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires proposed fields for unit profitability and growth potential.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: priority-to-natural-calamity-affected
+    kind: require
+    when: {}
+    clause: Priority will be given to the persons affected by natural calamities/disasters
+      in the areas which are declared as affected by "disaster" as defined under Section 2(d)
+      of the Disaster Management Act, 2005 by the Ministry of Home Affairs.
+    ask: Have you been affected by a natural calamity?
+    self_declared: false
+    notes_for_reviewer: This rule requires a proposed field to track natural calamity affected
+      status.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: exclude-one-person-per-family
+    kind: exclude
+    when: {}
+    clause: Only one person from one family is eligible for obtaining financial assistance
+      for setting up of projects under PMEGP. The 'family’ includes self and spouse.
+    ask: Has anyone in your family received financial assistance under PMEGP?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires a proposed field to track family members who have received assistance.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: environmental-exclusion
+    kind: exclude
+    when: {}
+    clause: 3. Activities prohibited by Local Government/Authorities keeping in view environment
+      or socio-economic factors will not be allowed .
+    ask: Are your activities prohibited by local authorities?
+    self_declared: false
+    notes_for_reviewer: This rule requires a proposed field to track environmental or socio-economic
+      restrictions.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+simplifications:
+- State-specific notifications and enrollment windows
+- Document formalities for applying to PMEGP

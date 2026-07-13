@@ -1,0 +1,73 @@
+scheme_id: dacssiselosobcebc
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/dacssiselosobcebc
+rules:
+- id: is-student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The applicant should be a Student.
+  source_url: https://www.myscheme.gov.in/schemes/dacssiselosobcebc
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-inr
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 800000
+    any: null
+    all: null
+  clause: The total income of the applicant (from all sources) shall not exceed ₹ 8,00,000
+    per annum.
+  source_url: https://www.myscheme.gov.in/schemes/dacssiselosobcebc
+  ask: What is your annual family income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: social-category
+  kind: require
+  when:
+    field: social_category
+    op: eq
+    value: obc
+    any: null
+    all: null
+  clause: Dr Ambedkar Central Sector Scheme of Interest Subsidy on Educational Loans for Overseas
+    Studies for Other Backward Classes (OBCs) and Economically Backward Classes (EBCs)
+  source_url: https://www.myscheme.gov.in/schemes/dacssiselosobcebc
+  ask: What is your social category?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The student should have secured admission in the approved course at Masters,
+    M.Phil or PhD levels abroad for the [listed courses](https://socialjustice.gov.in/writereaddata/UploadFile/Guidelines%20ISEL%20Scheme%20(wef%2001%20Oct%202017).pdf).
+  proposed_field:
+    name: approved_course_abroad
+    type: boolean
+    meaning: Whether the student has secured admission in an approved course abroad.
+  suggested_rule_id: approved-course-abroad
+- criterion: The applicant should have availed loan from a scheduled bank under the Education
+    Loan Scheme of the Indian Banks Association (IBA) for the purpose.
+  proposed_field:
+    name: has_education_loan_from_ibc
+    type: boolean
+    meaning: Whether the applicant has an education loan from a scheduled bank under the IBA.
+  suggested_rule_id: has-education-loan-from-ibc
+rejected_drafts: []
+simplifications:
+- The scheme will be implemented by the Nodal Bank as per the MoU between the Banks and the
+  Ministry of Social Justice & Empowerment.
+- The funds will be released to the applicants on a first-come-first-served basis, subject
+  to a maximum amount to be worked out every year based on the total budget made available
+  that year, under the scheme.

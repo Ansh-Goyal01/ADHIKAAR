@@ -1,0 +1,258 @@
+scheme_id: nmmss
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/nmmss
+rules:
+- id: is-student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The applicant must be a student.
+  source_url: https://www.myscheme.gov.in/schemes/nmmss
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-inr-at-most-350000
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 350000
+    any: null
+    all: null
+  clause: Students whose parental income from all sources is not more than ₹3,50,000/- per
+    annum are eligible to avail the scholarship.
+  source_url: https://www.myscheme.gov.in/schemes/nmmss
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: has-bank-account
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The awardees will be required to open bank accounts preferably in SBI, any public
+    sector bank, or any scheduled bank which has a core banking facility.
+  source_url: https://www.myscheme.gov.in/schemes/nmmss
+  ask: Do you have a bank account?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The students studying in "Kendriya Vidyalayas and Jawahar Navodaya Vidyalayas"
+    are not entitled to get scholarships under this scheme.
+  proposed_field:
+    name: school_type
+    type: string
+    meaning: Type of school (Kendriya Vidyalaya, Jawahar Navodaya Vidyalaya, etc.)
+  suggested_rule_id: exclude-kendriya-vidyalayas-and-jawahar-navodaya-vidyalayas
+- criterion: Those students studying in Residential Schools run by the Centre/ State Government
+    Institutions, where facilities like boarding, lodging, and education are provided and
+    students studying in private schools are also not eligible for the scholarship under the
+    scheme.
+  proposed_field:
+    name: school_type
+    type: string
+    meaning: Type of school (Residential School, Private School, etc.)
+  suggested_rule_id: exclude-residential-schools-run-by-centre-state-government-institutions
+- criterion: No scholarship shall be available for studies abroad for any course.
+  proposed_field:
+    name: study_abroad
+    type: boolean
+    meaning: Whether the student is planning to study abroad
+  suggested_rule_id: exclude-studies-abroad
+- criterion: No scholarship at this stage is payable for studying diploma/certificate level
+    courses.
+  proposed_field:
+    name: course_type
+    type: string
+    meaning: Type of course (Diploma, Certificate, etc.)
+  suggested_rule_id: exclude-diploma-certificate-level-courses
+- criterion: The students should be studying as regular student in a Government, Government-aided
+    and local body school.
+  proposed_field:
+    name: school_type
+    type: string
+    meaning: Type of school (Government, Government-aided, Local Body, etc.)
+  suggested_rule_id: is-government-aided-local-body-school-student
+- criterion: The students must pass both the MAT and the SAT with at least 40 % marks in aggregate
+    taken together for these two tests. For the SC/ST students, this cut-off will be 32% marks.
+  proposed_field:
+    name: mat_sat_score
+    type: integer
+    meaning: Score in MAT and SAT exams
+  suggested_rule_id: mat-and-sat-at-least-40-percent
+- criterion: At the time of selection for the award of scholarship, the student must have
+    scored at least 55% mark or equivalent grade in the Class 8th examination. There will
+    be 5 % relaxation for SC/ST students.
+  proposed_field:
+    name: class_8th_score
+    type: integer
+    meaning: Score in Class 8th examination
+  suggested_rule_id: class-8th-examination-at-least-55-percent
+- criterion: The awardees should get a minimum of 60% marks in Class 10th for the continuation
+    of the scholarship (relaxable by 5% for SC/ST candidates) in the next higher classes.
+  proposed_field:
+    name: class_10th_score
+    type: integer
+    meaning: Score in Class 10th examination
+  suggested_rule_id: class-10th-examination-at-least-60-percent
+- criterion: For continuing the scholarship in class 10th and 12th, the awardees should get
+    clear promotion from class 9th to class 10th and from class 11th to class 12th in the
+    first attempt.
+  proposed_field:
+    name: clear_promotion
+    type: boolean
+    meaning: Whether the student got clear promotion from previous class
+  suggested_rule_id: clear-promotion-from-class-9th-to-class-10th
+rejected_drafts:
+- draft:
+    id: exclude-kendriya-vidyalayas-and-jawahar-navodaya-vidyalayas
+    kind: exclude
+    when: {}
+    clause: The students studying in "Kendriya Vidyalayas and Jawahar Navodaya Vidyalayas"
+      are not entitled to get scholarships under this scheme.
+    ask: Do you study in a Kendriya Vidyalaya or Jawahar Navodaya Vidyalaya?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: exclude-residential-schools-run-by-centre-state-government-institutions
+    kind: exclude
+    when: {}
+    clause: Those students studying in Residential Schools run by the Centre/ State Government
+      Institutions, where facilities like boarding, lodging, and education are provided and
+      students studying in private schools are also not eligible for the scholarship under
+      the scheme.
+    ask: Do you study in a residential school run by the Centre/State Government or a private
+      school?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: exclude-studies-abroad
+    kind: exclude
+    when: {}
+    clause: No scholarship shall be available for studies abroad for any course.
+    ask: Are you planning to study abroad?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: exclude-diploma-certificate-level-courses
+    kind: exclude
+    when: {}
+    clause: No scholarship at this stage is payable for studying diploma/certificate level
+      courses.
+    ask: Are you studying a diploma or certificate level course?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: is-government-aided-local-body-school-student
+    kind: require
+    when: {}
+    clause: The students should be studying as regular student in a Government, Government-aided
+      and local body school.
+    ask: Do you study in a Government, Government-aided, or local body school?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: mat-and-sat-at-least-40-percent
+    kind: require
+    when: {}
+    clause: The students must pass both the MAT and the SAT with at least 40 % marks in aggregate
+      taken together for these two tests. For the SC/ST students, this cut-off will be 32%
+      marks.
+    ask: Did you pass the MAT and SAT with at least 40% marks?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: class-8th-examination-at-least-55-percent
+    kind: require
+    when: {}
+    clause: At the time of selection for the award of scholarship, the student must have scored
+      at least 55% mark or equivalent grade in the Class 8th examination. There will be 5
+      % relaxation for SC/ST students.
+    ask: Did you score at least 55% in your Class 8th examination?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: class-10th-examination-at-least-60-percent
+    kind: require
+    when: {}
+    clause: The awardees should get a minimum of 60% marks in Class 10th for the continuation
+      of the scholarship (relaxable by 5% for SC/ST candidates) in the next higher classes.
+    ask: Did you score at least 60% in your Class 10th examination?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: clear-promotion-from-class-9th-to-class-10th
+    kind: require
+    when: {}
+    clause: For continuing the scholarship in class 10th and 12th, the awardees should get
+      clear promotion from class 9th to class 10th and from class 11th to class 12th in the
+      first attempt.
+    ask: Did you get clear promotion from Class 9th to Class 10th?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+- draft:
+    id: clear-promotion-from-class-11th-to-class-12th
+    kind: require
+    when: {}
+    clause: For continuing the scholarship in class 10th and 12th, the awardees should get
+      clear promotion from class 9th to class 10th and from class 11th to class 12th in the
+      first attempt.
+    ask: Did you get clear promotion from Class 11th to Class 12th?
+    self_declared: false
+    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
+      requires additional information.
+  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
+    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
+    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+simplifications:
+- State-specific notification and enrollment windows
+- Document formalities for scholarship application

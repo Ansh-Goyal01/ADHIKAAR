@@ -1,0 +1,79 @@
+scheme_id: pre-dis
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/pre-dis
+rules:
+- id: family-income-lte-250000
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 250000
+  clause: The applicant’s parents/guardian’s income from all sources should not exceed ₹2,50,000/-
+    per annum.
+  source_url: https://www.myscheme.gov.in/schemes/pre-dis
+  ask: What is your parents'/guardian's annual income from all sources?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: The applicant should be an Indian national.
+  proposed_field:
+    name: is_indian_national
+    type: boolean
+    meaning: True if the applicant is an Indian national.
+  suggested_rule_id: require-indian-national
+- criterion: The applicant should be a student with a benchmark disability and should have
+    a valid disability certificate issued by the competent authority.
+  proposed_field:
+    name: has_benchmark_disability_certificate
+    type: boolean
+    meaning: True if the applicant has a benchmark disability and a valid certificate from
+      a competent authority.
+  suggested_rule_id: require-benchmark-disability-certificate
+- criterion: 'The applicant should be a regular, full-time student studying in Classes IX
+    and X in: A Government school; or A school recognised by the Government; or A school recognised
+    by the Central/State Board of Secondary Education.'
+  proposed_field:
+    name: is_student_class_9_or_10_recognized_school
+    type: boolean
+    meaning: True if the applicant is a regular, full-time student in Class IX or X at a government
+      or recognized school.
+  suggested_rule_id: require-student-class-9-10-recognized-school
+- criterion: Not more than 2 children with disabilities of the same parents will be eligible
+    for benefits under the scheme. In case the second child is a twin, the scholarship will
+    be admissible to both twins.
+  proposed_field:
+    name: number_of_disabled_children_in_family_receiving_scheme_benefits
+    type: integer
+    meaning: The number of children with disabilities from the same parents currently receiving
+      benefits under this scheme.
+  suggested_rule_id: limit-disabled-children-per-family
+- criterion: 50% of the total scholarships available each year are reserved for female candidates.
+    If adequate eligible female candidates are not available, remaining slots may be utilised
+    for suitable male candidates.
+  proposed_field:
+    name: is_considered_under_female_reservation_quota
+    type: boolean
+    meaning: True if the applicant is being considered under the 50% female reservation quota
+      for the scholarship.
+  suggested_rule_id: scheme-reservation-female-50-percent
+- criterion: The applicant will not be eligible if he/she is already receiving another scholarship/stipend.
+    The applicant may choose the more beneficial scholarship and inform the concerned authority.
+  proposed_field:
+    name: receives_other_scholarship_or_stipend
+    type: boolean
+    meaning: True if the applicant is currently receiving another scholarship or stipend.
+  suggested_rule_id: exclude-receiving-other-scholarship
+- criterion: Scholarship will not be available for the same class for a second or subsequent
+    year if the student repeats the class.
+  proposed_field:
+    name: has_repeated_current_class
+    type: boolean
+    meaning: True if the applicant is repeating the current class (Class IX or X) for which
+      the scholarship is sought.
+  suggested_rule_id: exclude-repeating-class
+rejected_drafts: []
+simplifications: []

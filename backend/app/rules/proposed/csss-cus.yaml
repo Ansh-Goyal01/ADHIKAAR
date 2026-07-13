@@ -1,0 +1,122 @@
+scheme_id: csss-cus
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+rules:
+- id: annual-family-income-at-most-450000
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 450000
+    any: null
+    all: null
+  clause: The gross parental/ family income of the applicant should not exceed ₹4,50,000/-
+    per annum.
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+  ask: What is your family's annual income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: is-student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The applicant must be pursuing regular degree courses.
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: has-aadhaar-seeded-bank-account
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The students are required to have Aadhaar seeded bank accounts opened in their name.
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+  ask: Do you have an Aadhaar seeded bank account?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: exclude-correspondence-or-distance-mode
+  kind: exclude
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: Students who are pursuing correspondence or distance mode or pursuing Diploma courses
+    are not eligible.
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+  ask: Are you pursuing a correspondence or distance mode course?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: exclude-already-availing-scholarship
+  kind: exclude
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: pays_income_tax
+      op: eq
+      value: true
+      any: null
+      all: null
+    all: null
+  clause: Students who are already availing the benefit from any other scholarship schemes
+    including State-run scholarship schemes/ fee waiver & reimbursement schemes are not eligible.
+  source_url: https://www.myscheme.gov.in/schemes/csss-cus
+  ask: Are you already availing any other scholarship?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: Applicant must be above the 80th percentile of successful candidates in the relevant
+    stream from the respective Board of Examination in Class 12th of 10+2 pattern or equivalent.
+  proposed_field:
+    name: class_12th_percentile
+    type: float
+    meaning: The percentile of the applicant in their Class 12th board examination.
+  suggested_rule_id: class-12th-percentile-at-least-80
+- criterion: The applicant must be pursuing courses at colleges/ institutions recognized by
+    the All India Council for Technical Education and the respective Regulatory Bodies concerned.
+  proposed_field:
+    name: institution_recognition_status
+    type: boolean
+    meaning: Whether the institution is recognized by the All India Council for Technical
+      Education and the respective Regulatory Bodies concerned.
+  suggested_rule_id: institution-recognized-by-aicte
+- criterion: For renewal of scholarship in each year of study, besides getting at least 50%
+    marks in the Annual Examination, maintenance of adequate attendance should be at least
+    75%.
+  proposed_field:
+    name: annual_examination_marks
+    type: float
+    meaning: The marks obtained by the applicant in their annual examination.
+  suggested_rule_id: annual-examination-marks-at-least-50
+- criterion: For renewal of scholarship in each year of study, besides getting at least 50%
+    marks in the Annual Examination, maintenance of adequate attendance should be at least
+    75%.
+  proposed_field:
+    name: attendance_percentage
+    type: float
+    meaning: The attendance percentage of the applicant.
+  suggested_rule_id: attendance-at-least-75
+rejected_drafts: []
+simplifications:
+- The students are required to have Aadhaar seeded bank accounts opened in their name.
+- The scholarship will be disbursed directly into the Aadhar seeded bank accounts of the beneficiaries
+  through Direct Benefit Transfer (DBT).

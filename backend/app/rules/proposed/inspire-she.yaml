@@ -1,0 +1,162 @@
+scheme_id: inspire-she
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+rules:
+- id: is_student
+  kind: require
+  when:
+    field: is_student
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The scheme aims to attract students to study basic and natural Science subjects
+    at undergraduate and postgraduate levels and pursue research as a career by providing
+    scholarships to interested and deserving students.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Are you currently studying?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: pursuing-natural-science-courses
+  kind: require
+  when:
+    field: occupation
+    op: eq
+    value: student
+    any: null
+    all: null
+  clause: The scheme aims to attract students to study basic and natural Science subjects
+    at undergraduate and postgraduate levels and pursue research as a career by providing
+    scholarships to interested and deserving students.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Are you pursuing a course in Natural and Basic Sciences?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: aggregate-marks-within-top-1percent
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: annual_family_income_inr
+      op: lt
+      value: null
+      any: null
+      all: null
+    all: null
+  clause: (a) Meritorious Students with aggregate marks within the top 1% of their Class XII
+    examination of any State/ Central Education Board in India are eligible.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Did you score within the top 1% of your Class XII examination?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: jeee-rank-within-top-10000
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: annual_family_income_inr
+      op: lt
+      value: null
+      any: null
+      all: null
+    all: null
+  clause: (b) Those students who have secured ranks in the JEE of IIT, AIPMT (within the top
+    10000 ranks), and are presently pursuing Natural and Basic Science courses in India at
+    the B.Sc., B.S., Int. M.Sc./M.S. level.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Did you secure a rank within the top 10000 in the JEE of IIT or AIPMT?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: kvpy-selected
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: annual_family_income_inr
+      op: lt
+      value: null
+      any: null
+      all: null
+    all: null
+  clause: (d) Students who have been selected under Kishore Vaigyanik Protsahan Yojana (KVPY)
+    and pursuing Bachelor/Master level courses in Natural Sciences.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Have you been selected under the Kishore Vaigyanik Protsahan Yojana (KVPY)?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: ntse-jbnsts-international-olympiad-medallist
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: annual_family_income_inr
+      op: lt
+      value: null
+      any: null
+      all: null
+    all: null
+  clause: (e) National Talent Search Examination (NTSE) scholars, Jagadish Bose National Science
+    Talent Search (JBNSTS) scholars and International Olympiad medallists pursuing Bachelor/
+    Master level courses in Natural Sciences are also eligible.
+  source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  ask: Are you a National Talent Search Examination (NTSE) scholar, Jagadish Bose National
+    Science Talent Search (JBNSTS) scholar, or an International Olympiad medallist?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: aggregate marks within the top 1% of their Class XII examination
+  proposed_field:
+    name: class_xii_aggregate_marks
+    type: float
+    meaning: The aggregate marks obtained in the Class XII examination
+  suggested_rule_id: aggregate-marks-within-top-1percent
+- criterion: JEE or AIPMT rank within the top 10000
+  proposed_field:
+    name: jee_or_aipmt_rank
+    type: integer
+    meaning: The rank obtained in the JEE or AIPMT examination
+  suggested_rule_id: jeee-rank-within-top-10000
+- criterion: KVPY selection
+  proposed_field:
+    name: kvpy_selected
+    type: boolean
+    meaning: Whether the student has been selected under the Kishore Vaigyanik Protsahan Yojana
+      (KVPY)
+  suggested_rule_id: kvpy-selected
+- criterion: NTSE, JBNSTS, or International Olympiad medallist status
+  proposed_field:
+    name: ntse_jbnsts_or_international_olympiad_medallist
+    type: boolean
+    meaning: Whether the student is an NTSE, JBNSTS, or International Olympiad medallist
+  suggested_rule_id: ntse-jbnsts-international-olympiad-medallist
+- criterion: pursuing Natural and Basic Science courses
+  proposed_field:
+    name: pursuing_natural_and_basic_science_courses
+    type: boolean
+    meaning: Whether the student is pursuing a course in Natural and Basic Sciences
+  suggested_rule_id: pursuing-natural-science-courses
+rejected_drafts: []
+simplifications:
+- The scheme has a limited number of scholarships (12,000) and the selection process may involve
+  additional criteria not mentioned in the text.
+- The text does not provide information on the application process, enrollment windows, or
+  document formalities.
+- The text does not provide information on the state-specific notification or eligibility
+  criteria.

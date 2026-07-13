@@ -1,0 +1,157 @@
+scheme_id: nswf
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+rules:
+- id: age-below-60
+  kind: require
+  when:
+    field: age
+    op: lt
+    value: 60
+    any: null
+    all: null
+  clause: The age of fishermen must be below 60 years old.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: bpl-category
+  kind: require
+  when:
+    field: has_bpl_card
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: Applicant fishermen must belong to the BPL (Below Poverty Line) category.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Do you have a BPL card?
+  self_declared: true
+  verify_hint: ''
+  review_status: proposed
+- id: full-time-inland-activities
+  kind: require
+  when:
+    field: occupation
+    op: eq
+    value: inland fisherman
+    any: null
+    all: null
+  clause: They must be engaged in full-time activities inland.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Are you a full-time inland fisherman?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: licensed-by-state
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: state
+      op: ne
+      value: null
+      any: null
+      all: null
+    - field: occupation
+      op: eq
+      value: fisherman
+      any: null
+      all: null
+    all: null
+  clause: Fishermen living in coastal areas and with whom the respective States and Union
+    Territories have officially licensed are eligible for this scheme.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Are you licensed by your state as a fisherman?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: marine-fisherman-licensed
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: state
+      op: ne
+      value: null
+      any: null
+      all: null
+    - field: occupation
+      op: eq
+      value: marine fisherman
+      any: null
+      all: null
+    all: null
+  clause: Their respective States and Union Territories must officially license marine fishermen.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Are you licensed by your state as a marine fisherman?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: full-time-marine-activities
+  kind: require
+  when:
+    field: occupation
+    op: eq
+    value: marine fisherman
+    any: null
+    all: null
+  clause: They must involve themselves in full-time activities at sea.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Are you a full-time marine fisherman?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: member-of-welfare-society
+  kind: require
+  when:
+    field: null
+    op: null
+    value: null
+    any:
+    - field: occupation
+      op: eq
+      value: marine fisherman
+      any: null
+      all: null
+    all: null
+  clause: They must be a member of the Welfare Society or Federation or Cooperative Society.
+  source_url: https://www.myscheme.gov.in/schemes/nswf
+  ask: Are you a member of a welfare society or federation or cooperative society?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: officially licensed by the respective States and Union Territories
+  proposed_field:
+    name: is_officially_licensed
+    type: boolean
+    meaning: whether the fisherman is officially licensed by their state
+  suggested_rule_id: licensed-by-state
+- criterion: member of the Welfare Society or Federation or Cooperative Society
+  proposed_field:
+    name: is_welfare_society_member
+    type: boolean
+    meaning: whether the fisherman is a member of a welfare society or federation or cooperative
+      society
+  suggested_rule_id: member-of-welfare-society
+- criterion: operating under State, Union Territories, and FISHCOPFED
+  proposed_field:
+    name: operates_under_state_or_fishcopfed
+    type: boolean
+    meaning: whether the marine fisherman operates under their state or FISHCOPFED
+  suggested_rule_id: operates-under-state-or-fishcopfed
+rejected_drafts: []
+simplifications:
+- The scheme's enrollment process and required documents are not specified in the provided
+  text.
+- The text does not provide information on the state-specific notification and enrollment
+  windows.

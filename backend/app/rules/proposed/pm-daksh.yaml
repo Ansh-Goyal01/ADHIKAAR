@@ -1,0 +1,147 @@
+scheme_id: pm-daksh
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+rules:
+- id: age-at-least-18
+  kind: require
+  when:
+    field: age
+    op: gte
+    value: 18
+    any: null
+    all: null
+  clause: '- Applicant must be aged between 18 and 45 years.'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: age-at-most-45
+  kind: require
+  when:
+    field: age
+    op: lte
+    value: 45
+    any: null
+    all: null
+  clause: '- Applicant must be aged between 18 and 45 years.'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: social-category-sc
+  kind: require
+  when:
+    field: social_category
+    op: eq
+    value: sc
+    any: null
+    all: null
+  clause: '- Applicant must belong to one of the following groups: 1. Scheduled Castes (SC);'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: What is your social category?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: social-category-obc
+  kind: require
+  when:
+    field: social_category
+    op: eq
+    value: obc
+    any: null
+    all: null
+  clause: '- Applicant must belong to one of the following groups: 1. ...; 2. Other Backward
+    Classes (OBC);'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: What is your social category?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: social-category-ews
+  kind: require
+  when:
+    field: social_category
+    op: eq
+    value: general
+    any: null
+    all: null
+  clause: '- Applicant must belong to one of the following groups: ...; 3. Economically Weaker
+    Sections (EWS);'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: What is your social category?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: annual-family-income-inr-obc-ews
+  kind: require
+  when:
+    field: annual_family_income_inr
+    op: lte
+    value: 300000
+    any: null
+    all: null
+  clause: '- Applicant from OBC or EWS must have an annual family income below ₹3,00,000/-
+    .'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: What is your annual family income?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: has-aadhaar-card
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: '- Applicant must possess a valid Aadhaar card (exemption for the candidates of
+    such States which have not implemented Aadhaar completely).'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: Do you have an Aadhaar card?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: has-aadhaar-linked-bank-account
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: '- Applicant must have an Aadhaar-linked bank account.'
+  source_url: https://www.myscheme.gov.in/schemes/pm-daksh
+  ask: Do you have an Aadhaar-linked bank account?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: Applicant must be an Indian national with valid proof of nationality.
+  proposed_field:
+    name: is_indian_national
+    type: boolean
+    meaning: Whether the applicant is an Indian national
+  suggested_rule_id: is-indian-national
+- criterion: Applicant must register on the Skill India Digital Hub (SIDH).
+  proposed_field:
+    name: is_registered_on_sidh
+    type: boolean
+    meaning: Whether the applicant is registered on the Skill India Digital Hub (SIDH)
+  suggested_rule_id: is-registered-on-sidh
+- criterion: More than 70% of biometric attendance is required for each candidate to appear
+    in the assessment in all types of training.
+  proposed_field:
+    name: biometric_attendance_percentage
+    type: integer
+    meaning: The percentage of biometric attendance
+  suggested_rule_id: biometric-attendance-at-least-70
+rejected_drafts: []
+simplifications:
+- The scheme's operational details, such as enrollment windows and document formalities, are
+  not modeled.

@@ -1,0 +1,80 @@
+scheme_id: sag
+version: '2026-07-13'
+extraction:
+  extracted_at: '2026-07-13'
+  status: awaiting-human-review
+  source_url: https://www.myscheme.gov.in/schemes/sag
+rules:
+- id: age-between-14-and-18
+  kind: require
+  when:
+    field: age
+    op: gte
+    value: 14
+    any: null
+    all: null
+  clause: The applicant should be an adolescent girl in the age group of 14-18 years.
+  source_url: https://www.myscheme.gov.in/schemes/sag
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: age-not-above-18
+  kind: require
+  when:
+    field: age
+    op: lte
+    value: 18
+    any: null
+    all: null
+  clause: The applicant should be an adolescent girl in the age group of 14-18 years.
+  source_url: https://www.myscheme.gov.in/schemes/sag
+  ask: How old are you?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: gender-female
+  kind: require
+  when:
+    field: gender
+    op: eq
+    value: female
+    any: null
+    all: null
+  clause: The applicant should be an adolescent girl in the age group of 14-18 years.
+  source_url: https://www.myscheme.gov.in/schemes/sag
+  ask: What is your gender?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+- id: has-aadhaar-number
+  kind: require
+  when:
+    field: has_bank_account
+    op: eq
+    value: true
+    any: null
+    all: null
+  clause: The applicant should have an Aadhaar number to avail benefits under the scheme.
+  source_url: https://www.myscheme.gov.in/schemes/sag
+  ask: Do you have an Aadhaar number linked to a bank account?
+  self_declared: false
+  verify_hint: ''
+  review_status: proposed
+blocked_rules:
+- criterion: identified by the concerned State Government
+  proposed_field:
+    name: is_identified_by_state_government
+    type: boolean
+    meaning: Whether the applicant is identified by the concerned State Government
+  suggested_rule_id: identified-by-state-government
+- criterion: belong to the covered areas under the scheme
+  proposed_field:
+    name: is_in_covered_area
+    type: boolean
+    meaning: Whether the applicant belongs to the covered areas under the scheme
+  suggested_rule_id: belongs-to-covered-area
+rejected_drafts: []
+simplifications:
+- State-specific implementation details
+- Enrollment and document formalities
