@@ -1,9 +1,5 @@
 scheme_id: gispw
 version: '2026-07-13'
-extraction:
-  extracted_at: '2026-07-13'
-  status: awaiting-human-review
-  source_url: https://www.myscheme.gov.in/schemes/gispw
 rules:
 - id: age-at-least-18
   kind: require
@@ -18,7 +14,7 @@ rules:
   ask: How old are you?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: age-at-most-59
   kind: require
   when:
@@ -32,7 +28,7 @@ rules:
   ask: How old are you?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: occupation-powerloom-weaver
   kind: require
   when:
@@ -46,32 +42,15 @@ rules:
   ask: What is your occupation?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: The scheme is applicable to the families of powerloom workers engaged in the
-    activity of weaving on powerlooms and in allied pre-weaving/preparatory activities like
-    twisting, winding, warping and sizing.
-  proposed_field:
-    name: is_powerloom_worker_family
-    type: bool
-    meaning: Whether the person is a family member of a powerloom worker
-  suggested_rule_id: is-powerloom-worker-family
-- criterion: Self-employed weaver families owning not more than 4 looms will also be eligible.
-  proposed_field:
-    name: number_of_looms_owned
-    type: int
-    meaning: The number of looms owned by the self-employed weaver family
-  suggested_rule_id: owns-not-more-than-4-looms
-- criterion: Family for the purpose of the scheme shall be the beneficiary and his/her spouse
-    and only one of them shall be eligible for coverage.
-  proposed_field:
-    name: is_beneficiary_or_spouse
-    type: bool
-    meaning: Whether the person is the beneficiary or their spouse
-  suggested_rule_id: is-beneficiary-or-spouse
-rejected_drafts: []
+  review_status: verified
 simplifications:
 - The scheme will be universally applicable for powerloom workers/weavers irrespective of
   their status with reference to BPL/APL categories.
 - The scheme is operational on yearly basis i.e. the premium paid will cover the applicant
   under this insurance scheme for one year.
+- 'Not modeled: The scheme is applicable to the families of powerloom workers engaged in the
+  activity of weaving on powerlooms and in allied pre-weaving/preparatory activities like
+  twisting, winding, warping and sizing.'
+- 'Not modeled: Self-employed weaver families owning not more than 4 looms will also be eligible.'
+- 'Not modeled: Family for the purpose of the scheme shall be the beneficiary and his/her
+  spouse and only one of them shall be eligible for coverage.'

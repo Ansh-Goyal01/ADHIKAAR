@@ -1,20 +1,27 @@
 scheme_id: pm-svanidhi
-version: "2026-07-11"
+version: '2026-07-11'
 rules:
-  - id: street-vendor
-    kind: require
-    when: { field: is_street_vendor, op: eq, value: true }
-    clause: >-
-      The scheme is available to street vendors engaged in vending in urban areas.
-    source_url: https://www.myscheme.gov.in/schemes/pm-svanidhi
-    ask: "Do you work as a street vendor (selling goods or services from a cart, stall, or public space)?"
-  - id: vending-certificate-survey-or-lor
-    kind: require
-    when: { field: has_vending_certificate_or_lor, op: eq, value: true }
-    clause: >-
-      Eligible: street vendors in possession of a Certificate of Vending / Identity Card
-      issued by Urban Local Bodies; vendors identified in the survey but not yet issued a
-      Certificate; and vendors left out of the survey who have been issued a Letter of
-      Recommendation (LoR).
-    source_url: https://www.myscheme.gov.in/schemes/pm-svanidhi
-    ask: "Do you have a Certificate of Vending, a ULB vendor ID card, a survey listing, or a Letter of Recommendation?"
+- id: street-vendor
+  kind: require
+  when:
+    field: is_street_vendor
+    op: eq
+    value: true
+  clause: The scheme is available to street vendors engaged in vending in urban areas.
+  source_url: https://www.myscheme.gov.in/schemes/pm-svanidhi
+  ask: Do you work as a street vendor (selling goods or services from a cart, stall, or public
+    space)?
+  review_status: verified
+- id: vending-certificate-survey-or-lor
+  kind: require
+  when:
+    field: has_vending_certificate_or_lor
+    op: eq
+    value: true
+  clause: 'Eligible: street vendors in possession of a Certificate of Vending / Identity Card
+    issued by Urban Local Bodies; vendors identified in the survey but not yet issued a Certificate;
+    and vendors left out of the survey who have been issued a Letter of Recommendation (LoR).'
+  source_url: https://www.myscheme.gov.in/schemes/pm-svanidhi
+  ask: Do you have a Certificate of Vending, a ULB vendor ID card, a survey listing, or a
+    Letter of Recommendation?
+  review_status: verified

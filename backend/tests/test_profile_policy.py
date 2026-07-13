@@ -20,8 +20,19 @@ def test_three_decisive_facts_override_model_hesitation():
 
 
 def test_location_and_gender_do_not_count_as_decisive():
-    profile = UserProfile(marital_status="widowed", gender="female", state="Bihar")
+    # gender="male" keeps this focused on the fact-counting policy: a woman would
+    # now decisively reach MSSC (a gender-only scheme) and correctly proceed —
+    # covered by test_gender_alone_reaches_mssc_entitlement below.
+    profile = UserProfile(marital_status="widowed", gender="male", state="Bihar")
     assert run_with_extraction(profile, says_enough=False) == "need_info"
+
+
+def test_gender_alone_reaches_mssc_entitlement():
+    """Mahila Samman Savings Certificate is open to any woman — so stating only
+    gender=female decisively reaches an entitlement, and abstaining would hide
+    it. The gate proceeds (rules-informed), not the fact count."""
+    profile = UserProfile(gender="female")
+    assert run_with_extraction(profile, says_enough=False) == "ok"
 
 
 def test_model_yes_is_respected_even_when_sparse():
@@ -38,6 +49,8 @@ def test_decisive_entitlement_overrides_sparse_fact_count():
 
 
 def test_sparse_profile_without_entitlement_still_asks():
-    """One decisive fact and no scheme decisively satisfied — keep asking."""
-    profile = UserProfile(age=45)
+    """One decisive fact and no scheme decisively satisfied — keep asking.
+    (occupation alone, not age: any stated age >=10 now reaches PMJDY, which is
+    genuinely near-universal, so age would correctly proceed instead.)"""
+    profile = UserProfile(occupation="teacher")
     assert run_with_extraction(profile, says_enough=False) == "need_info"

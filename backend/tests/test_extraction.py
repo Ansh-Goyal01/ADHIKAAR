@@ -57,11 +57,11 @@ def test_list_valued_leaf_expands_to_any_of():
 
 def test_unknown_field_draft_is_rejected():
     draft = RuleDraft(
-        id="pregnant-woman",
+        id="owns-livestock",
         kind="require",
-        when=ConditionDraft(field="is_pregnant", op="eq", value=True),
-        clause="The applicant should be a pregnant woman.",
-        ask="Are you pregnant?",
+        when=ConditionDraft(field="owns_livestock", op="eq", value=True),
+        clause="The applicant should own livestock.",
+        ask="Do you own livestock?",
     )
     with pytest.raises(ValidationError):
         validate_draft(draft, "https://example.gov.in")

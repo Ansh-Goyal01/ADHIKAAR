@@ -2,8 +2,11 @@ scheme_id: nfbs
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/nfbs
+  hold_reason: The scheme's defining event (death of the family's primary breadwinner) is
+    entirely unencoded — only the BPL criterion is a valid rule, so any BPL household would
+    show eligible regardless of bereavement. Needs a bereavement-event field.
 rules:
 - id: family-bpl
   kind: require

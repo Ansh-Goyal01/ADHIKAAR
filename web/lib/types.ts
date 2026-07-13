@@ -59,6 +59,7 @@ export interface UserProfile {
   is_street_vendor?: boolean | null;
   has_vending_certificate_or_lor?: boolean | null;
   is_vishwakarma_trade_artisan?: boolean | null;
+  is_pregnant?: boolean | null;
   is_post_matric_student?: boolean | null;
   notes?: string;
 }

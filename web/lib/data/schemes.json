@@ -149,7 +149,26 @@
    "application": "### Application mode: Online\n\n> **New Registration****:**\n\n**Step 1:** Visit the [New Registration](https://scholarships.gov.in/otrapplication/#/) page of the National Scholarships Portal.\n**Step 2:** Guidelines for Registration will appear. Scroll to the bottom. Read the undertaking carefully and Accept the Terms. Click “Next”.\n**Step 3:** In the next window, enter your mobile number and OTP. Then click “Verify”.\n**Step 4:** After successful verification, continue with e-KYC process (as applicable).\n**Step 5:** Once completed, your reference number will be generated and the same will be sent to your registered phone number.\n> **Process for OTR ID Number Generation****:**\n\n**Step 1:** Download and install [AadhaarFaceRD](https://play.google.com/store/apps/details?id=in.gov.uidai.facerd) services in the android device.\n**Step 2:** Download and install the [NSP OTR](https://play.google.com/store/apps/details?id=in.gov.scholarships.nspotr&pli=1) App from the Google Play Store.\n**Step 3:** After opening the mobile app Select the option “eKYC with FaceAuth” highlighted in red.\n**Step 4:** Enter the allotted reference number and click on “Send OTP” to receive OTP on your mobile no.\n**Step 5:** Enter the received OTP and captcha in the screen and click Next.\n**Step 6:** Click on “Proceed for Face Authentication” button highlighted in red.\n**Step 7:** UIDAI AadhaarFaceRD services will be invoked for face authentication. Ensure AadhaarFaceRD services are preinstalled on your device.\n**Step 8:** On Successful completion of face-authentication OTR no. will be generated and will also be sent on your registered mobile no.\n> **Fresh Application****:**\n\n**Step 1:** Visit the applicant [Login ](https://scholarships.gov.in/otrapplication/#/login-page)page of the National Scholarships Portal Enter your One Time Registration (OTR) number and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to submit the application.\n> **Track Payment Status****:**\n\nThe student can track their payment status from the template “Know Your Payment” in the [Public Financial Management System (PFMS) Portal](https://pfms.nic.in/static/NewLayoutCommonContent.aspx?RequestPagename=static/TrackNSPpayments.aspx) either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n**NOTE 1:** The National Scholarships Portal will provide the timelines for opening & closing of the portal.\n**NOTE 2:** Online applications will be verified at two levels i.e. by the Institute, where the student is studying and thereafter by the concerned State Higher Education Department or any other Agency/ Official nominated by the State as State Nodal Agency (both for fresh and renewal applicants).\n**NOTE 3:** Students will not be permanently debarred for scholarships due to delay in renewal or verification. However, students will have to submit renewal applications within a cut-off date. Renewal for that year will not be allowed if an applicant misses this deadline.\n> **Standard Operating Procedures:** [Click here](https://scholarships.gov.in/public/FAQ/NSP_SOP.pdf).",
    "documents": "1. Aadhar card.\n1. Family income certificate.\n1. School verification form.\n1. Passport size photograph.\n1. Previous year marksheet.\n1. Self declaration of the minority community.\n1. Candidates bank account detail.\n1. Domicile certificate."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "gender-female",
+    "kind": "require",
+    "clause": "Only girl students belonging to six notified Minority Communities i.e. Muslims, Christians, Sikhs, Buddhists, Jains and Parsis are eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/bhmnsp"
+   },
+   {
+    "id": "social-category-minority",
+    "kind": "require",
+    "clause": "Only girl students belonging to six notified Minority Communities i.e. Muslims, Christians, Sikhs, Buddhists, Jains and Parsis are eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/bhmnsp"
+   },
+   {
+    "id": "annual-family-income-lte-200000",
+    "kind": "require",
+    "clause": "The annual income of the student’s parent/guardian from all sources does not exceed Rs.2.00 lakh.",
+    "source_url": "https://www.myscheme.gov.in/schemes/bhmnsp"
+   }
+  ]
  },
  {
   "scheme_id": "cmhtp-crwtp-smile",
@@ -177,7 +196,14 @@
    "application": "### Application mode: Online\n\n**Step 1:****** ***Ensure Possession of Mandatory Identification***\n\n- The applicant must possess the Transgender Certificate issued by the \"[National Portal for Transgender Persons](https://transgender.dosje.gov.in/)\", as this document is mandatory to avail the health insurance package.- Beneficiaries who have already received their certificates from the National Portal are automatically eligible to receive the insurance.\n\n**Step 2:****** ***Access the Benefits at an Empanelled Facility or Service Centre***\n\n- The Transgender beneficiary or applicant possessing the Transgender Certificate should visit an empanelled hospital or a [Common Service Centre (CSE)](https://findmycsc.nic.in/csc/). - These empanelled hospitals are identified from the list of institutions already approved under the Ayushman Bharat Scheme.\n\n**Step 3:****** ***Verification of Certificate Details on the System***\n\n- The applicant is required to present their registration Identification/Transgender person’s certificate serial number from the National Portal to the staff at the facility or centre.\n- The beneficiary's details will then be entered and verified on a real-time basis, adhering to the current Beneficiary Identification System procedure utilized for Pradhan Mantri Jan Arogya Yojana beneficiaries.\n\n**Step 4:****** ***Obtain the Ayushman Transgender Health Card***\n\n- If an individual does not possess the mandatory Transgender Certificate, they shall be redirected to the National Portal website to obtain the required document.\n- After successful verification of the Transgender Certificate, the eligible applicant will subsequently be issued the specific Ayushman Transgender Health card.\n\n***Contact Us***\n\n- **For General Queries:** 011-20893988, mahimanisd@gmail.com- **For Technical Queries:** +91 79 23268279, tghelp@mail.inflibnet.ac.in- **Working Hours:** 10:00 AM to 17:00 PM, Monday to Friday",
    "documents": "- Transgender Certificate And Identity Card Issued By The National Portal For Transgender Persons (Mandatory Document To Avail Health Insurance Package).\n- Registration Identification/Transgender Person’s Certificate Serial Number (Required From The National Portal For Transgender Persons To Access Benefits)."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-transgender",
+    "kind": "require",
+    "clause": "The applicant should be Transgender.",
+    "source_url": "https://www.myscheme.gov.in/schemes/cmhtp-crwtp-smile"
+   }
+  ]
  },
  {
   "scheme_id": "csspremsobcsi",
@@ -201,7 +227,26 @@
    "application": "### Application mode: Online\n\n**Step 1:** Visit the [National Scholarship Portal](http://www.scholarships.gov.in/). Here, you should click on the \"New Registration\" option. This will lead you to a set of guidelines for registration. Please scroll down to read the undertaking carefully. After understanding and accepting the terms, click on \"Continue.\"\n\n**Step 2:** A registration form will appear. In this form, you'll notice that some fields are marked with an asterisk (*), indicating that they are mandatory. Fill in the required details and then click \"Register.\" Your unique Application ID and password will be displayed on the screen, and you'll also receive this information via SMS on your registered mobile number.\n\n**Step 3:** Proceed to the \"[New Registration](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)\" page. Here, select \"Login to Apply\" and provide your Application ID and password. Enter the CAPTCHA code to confirm your identity, and then click \"Login.\" You'll be asked to enter an OTP sent to your registered mobile number. After this, you'll be directed to a page where you can reset your password. Create a new password, confirm it, and click \"Submit.\" This will lead you to the \"Applicant’s Dashboard.\"\n\n**Step 4:** On the left side of the \"Applicant's Dashboard,\" you'll find an option labelled \"Application Form.\" Remember, the fields marked with an asterisk (*) are mandatory. Fill in the required information and make sure to upload the necessary documents. You have the choice to \"Save as Draft\" if you wish to complete the application at a later time, or you can select \"Final Submit\" to submit the application right away.",
    "documents": "1. Passport Sized Photograph\n1. Aadhaar Number\n1. Proof of Educational Qualification\n1. Bonafide Certificate (issued by an institution duly recognized by the concerned State Government/ Union Territory Administration)\n1. OBC Caste Certificate\n1. Income Certificate\n1. Details of the Aadhaar-linked Bank Account."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "annual-family-income-at-most-250000",
+    "kind": "require",
+    "clause": "The scholarship award will be sanctioned in the case of students whose parents/guardians' income from all sources does not exceed ₹ 2,50,000/- per annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csspremsobcsi"
+   },
+   {
+    "id": "social-category-obc",
+    "kind": "require",
+    "clause": "\"Centrally Sponsored Scheme of Pre-matric Scholarship to Other Backward Classes (OBC) for Studies in India\" is a Scholarship Scheme by the Department of Social Justice and Empowerment, Ministry of Social Justice and Empowerment.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csspremsobcsi"
+   },
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The scholarships may be given to the students enrolled in class 1st or any subsequent class of the pre-matric stage in the case of day scholars, and class 3rd or any subsequent class of the pre-matric stage in the case of hostlers.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csspremsobcsi"
+   }
+  ]
  },
  {
   "scheme_id": "csss-cus",
@@ -234,7 +279,26 @@
    "application": "### Application mode: Online\n\n**One Time Registration (OTR)**\n**Step 1:** Visit the National Scholarships Portal (NSP) One Time Registration page and Click on “Apply for OTR”\n**Step 2:** Guidelines for OTR will appear. Scroll to the bottom. Read carefully the undertaking. Accept the Terms. Click “Next”.\n**Step 3:** Register your active mobile number in the OTR registration form. All correspondence/communication will be done on the submitted mobile/e-mail only.\n**Step 4:** Complete Aadhaar e-KYC by entering Parent/Legal Guardian/Student Aadhaar number. Submit the OTP received and Click “verify”\n**Step 5:** Enter details on the next page and click “Finish”. You will receive a Reference Number. Download the NSP OTR App and the Aadhaar FaceRD App from Google Play Store and complete face authentication for generating OTR.\n**Step 6:** On successful face authentication, your 14-digit OTR number will be generated and sent via SMS.\n\n**Fresh Application**\n**Step 1:** Visit the Applicant Login page of the National Scholarships Portal. Select “OTR Login” and enter your OTR number and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents. The verification of credentials of the students (caste, educational qualifications etc.) will be done through the DIGILOCKER facility of the MeitY, Govt. of India.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to apply.\n\n**Track Payment Status**\nThe student can track their payment status from the template “Know Your Payment” in the Public Financial Management System (PFMS) Portal either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n**NOTE 1:** The National Scholarships Portal will provide the timelines for opening & closing of the portal.\n**NOTE 2:** Online applications will be verified at two levels i.e. by the Institute, where the student is studying and thereafter by the concerned State Higher Education Department or any other Agency/ Official nominated by the State as State Nodal Agency (both for fresh and renewal applicants).\n**NOTE 3:** Students will not be permanently debarred for scholarships due to delay in renewal or verification. However, students will have to submit renewal applications within a cut-off date. Renewal for that year will not be allowed if an applicant misses this deadline. However, students can apply for renewal in the following year if they meet the eligibility conditions.﻿\n\n**Grievance Redressal**\nIn case of any grievances/complaints regarding the above scheme, the same may be registered to the following link: http://pgportal.gov.in/grievancenew.aspx other than to the Nodal Officer whose email is available on the NSP portal (Services Tab).",
    "documents": "The following documents need to be uploaded on the Portal at the time of application:\n**a. FRESH:** 12th Mark Sheet, Family Income Certificate, Category/ caste Certification for reserved category students, Disability Certificate (if applicable)\n**b. RENEWAL:** Previous Year Mark Sheet\n_The copy of above-mentioned documents must be provided to the institutes at the time of verification, if sought for by the Institute Nodal Officer (INO)._"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "annual-family-income-at-most-450000",
+    "kind": "require",
+    "clause": "The gross parental/ family income of the applicant should not exceed ₹4,50,000/- per annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csss-cus"
+   },
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The applicant must be pursuing regular degree courses.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csss-cus"
+   },
+   {
+    "id": "has-aadhaar-seeded-bank-account",
+    "kind": "require",
+    "clause": "The students are required to have Aadhaar seeded bank accounts opened in their name.",
+    "source_url": "https://www.myscheme.gov.in/schemes/csss-cus"
+   }
+  ]
  },
  {
   "scheme_id": "dacssiselosobcebc",
@@ -266,7 +330,26 @@
    "application": "### Application mode: Offline\n\n**Step 1:** The interest Subsidy shall be linked with the existing Educational Loan Scheme of the Indian Banks Association (IBA) and restricted to students enrolled for courses at Master, M.Phil and PhD levels.\n**Step 2:** The Nodal Bank will lay down the detailed procedure for processing and sanctioning interest subsidies to eligible students in consultation with the Ministry.\n**Step 3:** The Recommendatory Committee headed by the Joint Secretary in charge of the Backward Classes Division with representatives of the Finance Division, a representative of Nodal Bank and the concerned Director/Deputy Secretary as convener will examine and recommend the applications for the award of interest subsidy on a quarterly basis.",
    "documents": "1. Passport Sized Photograph\n1. Aadhaar Number\n1. Proof of Educational Qualification\n1. Bonafide Certificate\n1. For the candidate applying under the OBC category, the OBC Caste certificate in the [prescribed Performa](https://socialjustice.gov.in/writereaddata/UploadFile/Guidelines%20ISEL%20Scheme%20(wef%2001%20Oct%202017).pdf) issued by the competent authority.1. Income certificate produced by the student for availing Educational Loan viz. ITR/Form 16/Audited Accounts/Income certificate issued by the authority of the State Government/UT Administration.\n1. Details of the Aadhaar-linked Bank Account."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The applicant should be a Student.",
+    "source_url": "https://www.myscheme.gov.in/schemes/dacssiselosobcebc"
+   },
+   {
+    "id": "annual-family-income-inr",
+    "kind": "require",
+    "clause": "The total income of the applicant (from all sources) shall not exceed ₹ 8,00,000 per annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/dacssiselosobcebc"
+   },
+   {
+    "id": "social-category",
+    "kind": "require",
+    "clause": "Dr Ambedkar Central Sector Scheme of Interest Subsidy on Educational Loans for Overseas Studies for Other Backward Classes (OBCs) and Economically Backward Classes (EBCs)",
+    "source_url": "https://www.myscheme.gov.in/schemes/dacssiselosobcebc"
+   }
+  ]
  },
  {
   "scheme_id": "gispw",
@@ -302,7 +385,26 @@
    "application": "### Application mode: Offline\n\n***Application Process***\n**Step 1:** A prospective beneficiary shall be required to fill up an[ application-cum-nomination form](https://www.txcindia.gov.in/html/Format1.PDF) and submit the same to the nodal agency along with his share of the premium.\n**Step 2:** The Powerloom Service Centres (PSCs), [Regional Offices](https://www.txcindia.gov.in/html/Guidlines%20Revised%20GIS.pdf) (RO) and Karnataka State Textile Infrastructure Development Corporation Ltd. (KSTIDC) would enroll the powerloom workers/weavers as members under the scheme, collect their premium and send the applications along with premium to the respective RO / KSTIDC as the case may be by 25th of each month.\n**Step 3:** The premium amount should be sent to the RO / KSTIDC in the form of demand draft drawn in favour of LIC and payable at the location of the concerned jurisdictional LIC office. Step 4: The ROs and KSTIDC as the case may be, on receipt of the details and the premium, will compile the applications received from workers as one Group, along with the amount of premium received from beneficiary and submit it to the concerned Regional Office of the LIC by the last working day of the month.\n**Note 1:** The Regional Offices (RO) of Textile Commissioner shall be the nodal agencies for implementation of this scheme except in case of Karnataka, where the nodal agency will be Karnataka State Textile Infrastructure Development Corporation Ltd. (KSTIDC), Bangalore.\n**Note 2:** Their responsibilities include sensitising the powerloom workers/weavers about the benefits of the scheme, enrolling as many powerloom workers/weavers as possible under the scheme and facilitating them in filling the applications.\n**Note 3:** These nodal agencies would be given the responsibility and accountability to ensure that the contribution of workers/weavers reach in time so that they are not deprived of the insurance benefits of the scheme as well as for ensuring that workers/weavers are not inconvenienced in getting their claim.\n**Note 4:** On receipt of the list of beneficiaries along with the applications and the premium amount, the LIC would issue the master policy from the 1st day of the following calendar month.\n**Note 5:** The premium once paid shall not be refunded.\n**Note 6:** In the event of non-payment of the insurance premium for the next year by the member, the insurance cover shall automatically cease. The beneficiary will however be free to rejoin the scheme thereafter on payment of required premium.\n**Note 7:** In case a powerloom worker changes his employment during the period of insurance cover from one unit to another, he / she, being the beneficiary of the scheme, shall intimate about such change to the nodal agency.\n**Note 8:** On receipt of funds from the Government, towards its share of premium, Office of the Textile Commissioner would release the fund to the concerned Regional office of LIC, based on the number of workers enrolled during each month in the concerned region.\n***Claim Procedure:***\n**Step 1:** In case of death or disability, nominee/ beneficiary concerned shall submit his/ her claim to the LIC through the Nodal Agency with required documentary evidence such as death certificate/ police complaint (FIR) in the case of accident / post–mortem examination report/ medical certificate/ discharge certificate and other related documents, as applicable. ([Claim Form](https://www.txcindia.gov.in/html/Format1.PDF))\n**Step 2:** The nodal agency will arrange to forward the same along with the claim papers to LIC i.e.; the Branch which has originally finalised the insurance cover.\n**Step 3:** LIC will settle the claims by sending A/c Payee Cheque / NEFT / RTGS directly to the beneficiary; however, intimation to this effect has to be furnished to the nodal agency concerned.",
    "documents": "- Photo-Identity card\n- Any Documentary Proof of Age\n- Death Certificate\n- Police Complaint (FIR) (for accidents, if applicable)\n- Post-Mortem Report, if applicable\n- Medical Certificate, if applicable\n- Discharge Certificate (in case of injury)\n- Self-Certification\n- Other Related Documents as required"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "The Powerloom weavers who are between 18 to 59 years of age.",
+    "source_url": "https://www.myscheme.gov.in/schemes/gispw"
+   },
+   {
+    "id": "age-at-most-59",
+    "kind": "require",
+    "clause": "The Powerloom weavers who are between 18 to 59 years of age.",
+    "source_url": "https://www.myscheme.gov.in/schemes/gispw"
+   },
+   {
+    "id": "occupation-powerloom-weaver",
+    "kind": "require",
+    "clause": "The Powerloom weavers who are between 18 to 59 years of age.",
+    "source_url": "https://www.myscheme.gov.in/schemes/gispw"
+   }
+  ]
  },
  {
   "scheme_id": "hepsn",
@@ -572,7 +674,14 @@
    "application": "### Application mode: Offline\n\n> **Application Process:**\n\n**Step 1:** The applicant can visit the nearest Post Office Branch or a designated bank to collect the application form or [download](https://www.indiapost.gov.in/VAS/DOP_PDFFiles/MSSC/Mahila_Samman_Savings_Certificate_2023_English.pdf) it from the [official website](https://dea.gov.in/files/budget_division_documents/MSSC.pdf).\n**Step 2:** Fill out the application form and attach all the required documents.\n**Step 3:** Fill out the declaration and nomination details.\n**Step 4:** Submit the application form with the initial amount of investment/deposit.\n**Step 5:** Receive the certificate that serves as proof of investment in the ‘Mahila Samman Savings Certificate’ scheme.\n**Note:** An application for opening an account under this Scheme shall be made by a woman for herself, or by the guardian on behalf of a minor girl on or before March 31, 2025.\n> **Premature closure of account:**\n\n1. The account shall not be closed before maturity except in the following cases, namely:-\n•\ton the death of the account holder;\n•\twhere the post office or the Bank concerned is satisfied, in cases of extreme compassionate grounds such as medical support in life-threatening diseases of the account holder or death of the guardian, that the operation or continuation of the account is causing undue hardship to the account holder, it may, after complete documentation, by order and for reasons to be recorded in writing, allow premature closure of the account.\n2. Where an account is prematurely closed under sub-paragraph 1, interest on principal amount shall be payable at the rate applicable to the Scheme for which the account has been held.\n3. Premature closure of an account may be permitted, any time after the completion of six months from the date of opening of an Account, for any reason other than provided under sub-paragraph 1, and in which case the balance as stood from time to time in the account shall be eligible only for the interest rate less by 2% than the rate specified in this Scheme.\n4. In calculating the maturity value, any amount in fraction of a rupee shall be rounded off to the nearest rupee and for this purpose; any amount of fifty paisa or more shall be treated as one rupee and any amount less than fifty paisa shall be ignored.",
    "documents": "1.\tPassport size photograph\n2.\tProof of age, i.e. Birth Certificate\n3.\tAadhaar Card\n4.\tPAN Card\n5.\tPay-in-Slip along with deposit amount or cheque\n6.\tThe following documents are accepted as valid documents for the purpose of identification and address proof:\n\n- Passport\n- Driving license\n- Voter’s ID card\n- Job card issued by NREGA signed by the State Government officer\n- Letter issued by the National Population Register containing details of name and address"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "female-gender",
+    "kind": "require",
+    "clause": "This scheme is only for women and girl children.",
+    "source_url": "https://www.myscheme.gov.in/schemes/mssc"
+   }
+  ]
  },
  {
   "scheme_id": "nfbs",
@@ -632,7 +741,26 @@
    "application": "### Application mode: Online\n\n> ***New Registration******:***\n\n**Step 1:** Visit the [Registration ](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)page of the National Scholarships Portal.\n**Step 2:** Guidelines for Registration will appear. Scroll to the bottom. Read carefully the undertaking. Accept the Terms. Click “Continue”.\n**Step 3:** A Registration Form will appear. (The fields marked as * are compulsory). Fill in the details and click “Register”. Your Application ID and password will be displayed. The same will also be sent as an SMS to your registered mobile number.\n> **Fresh Application****:**\n\n**Step 1:** Visit the applicant [Login ](https://scholarships.gov.in/fresh/loginPage)page of the National Scholarships Portal Enter your Application ID and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents. The verification of credentials of the students (caste, educational qualifications etc.) will be done through the DIGILOCKER facility of the MeitY, Govt. of India.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to apply.\n> **Track Payment Status:**\n\nThe student can track their payment status from the template “Know Your Payment” in the [Public Financial Management System (PFMS) Portal](https://pfms.nic.in/Users/LoginDetails/Login.aspx) either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n> **Selection of fresh Awardee Students:**\n\n  - Each State/UT conducts its own test for selection of students for the award of the National Means-cum-Merit Scholarship.\n  - The test is conducted at stage of class-VIII. The students, who fulfill the eligibility criteria, must pass both the tests, i.e., Mental Ability Test (MAT) and Scholastic Aptitude Test (SAT) under NMMSS exam with at least 40 % marks in aggregate taken together for these two tests.\n  - For the SC/ST students, this cut off is 32% marks.\n\n> **Selection of Renewal Awardees Students:**\n\n  - The awardees should get minimum of 60% marks in Class X for continuation of scholarship (relaxable by 5% for SC/ST candidates) in next higher classes.\n  - For continuing the scholarship in class X and XII, the awardees should get clear promotion form class IX to class X and from class XI to class XII in the first attempt.",
    "documents": "1. Aadhaar Card\n1. Educational Certificates/ marksheet\n1. Caste Certificate\n1. Income Certificate of Parents\n1. Disability Certificate, if applicable\n1. Domicile Certificate\n1. Any other supporting documents as required"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The applicant must be a student.",
+    "source_url": "https://www.myscheme.gov.in/schemes/nmmss"
+   },
+   {
+    "id": "annual-family-income-inr-at-most-350000",
+    "kind": "require",
+    "clause": "Students whose parental income from all sources is not more than ₹3,50,000/- per annum are eligible to avail the scholarship.",
+    "source_url": "https://www.myscheme.gov.in/schemes/nmmss"
+   },
+   {
+    "id": "has-bank-account",
+    "kind": "require",
+    "clause": "The awardees will be required to open bank accounts preferably in SBI, any public sector bank, or any scheduled bank which has a core banking facility.",
+    "source_url": "https://www.myscheme.gov.in/schemes/nmmss"
+   }
+  ]
  },
  {
   "scheme_id": "nsap-ignoaps",
@@ -962,7 +1090,44 @@
    "application": "### Application mode: Online - via CSC\n\n**Step 1:** The interested eligible person must visit the [nearest Common Services Centre](https://findmycsc.nic.in/csc/) (CSC) to initiate the registration and enrollment process.\n**Step 2:** The Village Level Entrepreneur (VLE) present at the CSC will key in the Aadhaar number, the exact name of the subscriber as printed on the Aadhaar card, and the date of birth into the system. These details will subsequently be instantly verified with the UIDAI database.\n**Step 3:** The VLE will capture further details of the applicant, including Bank Account details, Mobile Number, Email-id, spouse, and nominee details into the registration portal. A self-certification verifying the required eligibility conditions will also be successfully completed in the system during this step.\n**Step 4:** The system will automatically calculate the exact monthly contribution payable according to the entry age of the subscriber. The subscriber must then pay the full amount of the first subscription in cash to the VLE, who will generate a receipt and hand it over to the subscriber.\n**Step 5:** An Enrolment Form cum Auto Debit mandate will be printed and must be physically signed by the subscriber. The VLE must then scan the signed enrolment cum auto debit mandate and safely upload it into the system.\n**Step 6:** A unique Shram Yogi Pension Account Number will be instantly generated, and a Shram Yogi Card will be printed directly at the CSC. The subscriber will leave the center with the printed Shram Yogi Card and a signed copy of the enrolment form for their personal records.\n\n##### ***Next Steps***\n**Step 1:** The subscriber will regularly receive SMS notifications on their registered mobile phone regarding the activation of the auto-debit facility. An additional mini-statement message will be automatically sent to the mobile device upon every successful monthly deduction of the contribution.\n**Step 2:** The mandatory monthly subscription shall be automatically debited on a fixed date every single month from the subscriber's linked saving account or Jan-Dhan account. The subscriber must proactively maintain sufficient funds in their account to ensure the contribution, along with any applicable penalty or interest, is successfully processed.\n\n##### ***GRIEVANCE REDRESSAL AND HELP SUPPORT***\n\n- A dedicated Call Centre and Project Management Unit actively administer the scheme, supervised tightly by the National Social Security Board. To address any grievances related to the scheme, subscribers can directly contact the official customer care number 1800 267 6888 on a 24*7 basis.\n- The dedicated web portal and mobile application will also have a specific built-in facility specifically for registering complaints and raising issues digitally.\n\n### Application mode: Online\n\n**Step 1:** The subscriber must visit the [official Pradhan Mantri Shram Yogi Maan-dhan web portal](https://maandhan.in/index.php?lang=1) or adequately download the dedicated mobile application on their personal device. This online facility allows the subscriber to conveniently manage their registration digitally.\n**Step 2:** The subscriber must independently self-register using their Aadhaar number and their savings bank account or Jan-Dhan account number on a self-certification basis. This action digitally captures the necessary financial details to authorize the automated monthly contributions strictly required by the scheme.\n##### ***Next Steps***\n**Step 1:** The subscriber will regularly receive SMS notifications on their registered mobile phone regarding the activation of the auto-debit facility. An additional mini-statement message will be automatically sent to the mobile device upon every successful monthly deduction of the contribution.\n**Step 2:** The mandatory monthly subscription shall be automatically debited on a fixed date every single month from the subscriber's linked saving account or Jan-Dhan account. The subscriber must proactively maintain sufficient funds in their account to ensure the contribution, along with any applicable penalty or interest, is successfully processed.\n\n##### ***GRIEVANCE REDRESSAL AND HELP SUPPORT***\n\n- A dedicated Call Centre and Project Management Unit actively administer the scheme, supervised tightly by the National Social Security Board. To address any grievances related to the scheme, subscribers can directly contact the official customer care number 1800 267 6888 on a 24*7 basis.\n- The dedicated web portal and mobile application will also have a specific built-in facility specifically for registering complaints and raising issues digitally.",
    "documents": "- Aadhaar Card\n- Savings Bank Account Passbook / Jan-Dhan Account Passbook\n- Mobile Number\n- Self-Certification (At the time of enrollment)\n- Any other documents as required"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-between-18-and-40",
+    "kind": "require",
+    "clause": "The applicant must have an entry age between 18 and 40 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   },
+   {
+    "id": "age-not-above-40",
+    "kind": "require",
+    "clause": "The applicant must have an entry age between 18 and 40 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   },
+   {
+    "id": "monthly-income-not-above-15000",
+    "kind": "require",
+    "clause": "The applicant must have a monthly income of ₹15,000/- or less.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   },
+   {
+    "id": "has-bank-account",
+    "kind": "require",
+    "clause": "The applicant must possess a Savings Bank Account or Jan Dhan account number with an Indian Financial System Code.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   },
+   {
+    "id": "exclude-income-tax-payer",
+    "kind": "exclude",
+    "clause": "The applicant must not be - An income tax payer.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   },
+   {
+    "id": "exclude-engaged-in-organized-sector",
+    "kind": "exclude",
+    "clause": "The applicant must not be - Engaged in the organized sector.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
+   }
+  ]
  },
  {
   "scheme_id": "pm-vikas",
@@ -1142,7 +1307,32 @@
    "application": "### Application mode: Online\n\n> **Application For New Unit:**\n\n**Step 1:** Visit the [official website](https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp).\n**Step 2:** Click on the “Apply” button under the “Application For New Unit” tab .\n**Step 3:** Furnish all the required details on [the Online Application Form](https://www.kviconline.gov.in/pmegpeportal/jsp/pmegponline.jsp) and click on \"Save Applicant Data\".\n**Step 4:** On the next page, upload the required documents and proceed for final submission.\n> **Application For Existing Units (2****nd** **Loan):**\n\n**Step 1:** Visit the [official website](https://www.kviconline.gov.in/pmegpeportal/pmegphome/index.jsp).\n**Step 2:** Click on the “Apply” button under the “Application For Existing Units (2nd Loan)” tab.\n**Step 3:** Click on the Online Application tab and fill out the [Online Application Form](https://www.kviconline.gov.in/pmegpeportal/pmegpIILOAN/index.jsp).\n**Step 4:** Complete the form and click on Next page, upload the required documents and proceed for final submission.\n> **Login Form For Registered Applicant of Second Loan Subsidy for Upgrading of Existing Unit:**\n\n**Step 1:** Visit the official website of the [PMEGP Portal](https://www.kviconline.gov.in/pmegpeportal/pmegpIILOAN/applicantLogin.jsp).\n**Step 2:** Enter your User ID and Password and click Log in.\n\n### Application mode: Offline\n\n> **Offline Application Form for Individual Applicant:**\n\n**Step 1:** Furnish all the required details on the [Online Application Form](https://www.kviconline.gov.in/pmegpeportal/dashboard/notification/Drfat%20signed.pdf).\n**Step 2:** The filled original form shall be submitted to the concerned KVIC/KVIB/DIC/Coir Board Officers of the State.\n**Step 3:** On submission, the applicant shall receive the Acknowledgement Slip from the department of concerned, KVIC/KVIB/DIC/Coir Board Office.",
    "documents": "1. Caste Certificate\n1. Special Category Certificate, wherever required\n1. Rural Area Certificate\n1. Project Report\n1. Education / EDP / Skill Development Training Certificate\n1. Any other applicable document"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "1. Any individual, above 18 years of age.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmegp"
+   },
+   {
+    "id": "viii-standard-pass-for-higher-projects",
+    "kind": "require",
+    "clause": "3. For setting up of project costing above Rs.10 lakh in the Manufacturing sector and above ₹ 5,00,000 in the Business /Service sector, the beneficiaries should possess at least VIII standard pass educational qualification.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmegp"
+   },
+   {
+    "id": "meat-industry-exclusion",
+    "kind": "exclude",
+    "clause": "1. Any Industry/ Business connected with Meat(slaughtered), i.e., processing, canning and/or serving items made of it as food, production/Manufacturing or sale of intoxicant items like Beedi/Pan/ Cigar/Cigarette etc., any Hotel or Dhaba or sales outlet serving liquor, preparation/producing tobacco as raw materials, tapping of toddy for sale will not be allowed.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmegp"
+   },
+   {
+    "id": "crop-cultivation-exclusion",
+    "kind": "exclude",
+    "clause": "2. Any Industry/Business connected with cultivation of crops/plantation like Tea, Coffee, Rubber etc. Sericulture (Cocoon rearing), Horticulture, Floriculture, Animal Husbandry will not be allowed.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmegp"
+   }
+  ]
  },
  {
   "scheme_id": "pmfby",
@@ -1216,7 +1406,14 @@
    "application": "### Application mode: Offline\n\n**Step 1**- Go to the [official portal](https://pmjdy.gov.in/) of PMJDY.\n**Step 2**- Under the \"e-documents\" section, you will find live links for \"Account Opening Form\". Applicants can access this in both English and Hindi languages. Click on the appropriate language option.\n**Step 3**- This will open the form in PDF format. Download it and get a printout.\n**Step 4**- Fill the form manually with all your bank and personal data, including bank branch, name of town/village, block/district, Aadhaar number, profession, annual income, details of Kisan credit card, and others.\n**Step 5**- Once you fill it out, visit your nearest bank branch and submit it.\nWhile submitting the form, you will need to produce certain documents along with your Mobile number or email Id to qualify for the Jan Dhan Yojana.",
    "documents": "1. AADHAAR\n2. Government ID proofs (Voter Card/PAN Card/Ration card)\n3. Permanent Address proof (Passport/Driving License/Electricity Bill/Telephone Bill/Water Bill)\n4. Passport size photograph\n5. Filled and Signed PMJDY Account opening form\n6. Any other document as notified by the Central Government in consultation with the Regulator."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-at-least-10",
+    "kind": "require",
+    "clause": "If minors above ten years apply, they will require support from their legal guardians for administering their PMJDY account.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmjdy"
+   }
+  ]
  },
  {
   "scheme_id": "pmjjby",
@@ -1303,7 +1500,26 @@
    "application": "### Application mode: Online\n\n   1. Citizen visit the official website of the [Ministry](https://pmmvy.wcd.gov.in/) and click on the Citizen login tab.   1. Enter mobile number and verify. Then enter details like Full Name, State, District, Area, Block, Village and relationship with beneficiary. Then click create account button.\n   1. Once account is created. Click on Login tab on main homepage of the website.\n   1. Now, enter the User ID, Password and Captcha code. Then apply for the scheme.\n   1. After successful login, click on the \"Data Entry\" tab and choose the option \"Beneficiary Registration\".\n   1. Now, enter all the detailed personal details on the Beneficiary registration page.\n   1. Choose suitable option under the Scheme applying for First Child OR Second Child.\n   1. Once all the form details are completed. Click Submit Button.",
    "documents": "**Beneficiaries need documents such as:-**\n\n   1. Aadhaar card,\n   1. Aadhaar mapped bank/post office,\n   1. Bank account details,\n   1. Eligibility proof,\n   1. MCP/RCHI card,\n   1. LMP date,\n   1. ANC date,\n   1. Child birth certificate,\n   1. Child immunization details etc.\n\n**Mentioned below a list of documents which required to upload at the time of registration (any one of**\n**these):-**\n\n   1. Women whose net family income is less than ₹ 8 Lakh per annum.\n   1. Women holding MGNREGA Job Card.\n   1. Women farmers who are beneficiaries under Kisan Samman Nidhi.\n   1. Women holding e-Shram card.\n   1. Women Beneficiaries under Pradhan Mantri Jan Aarogya Yojana (PMJAY) under Ayushman Bharat.\n   1. Women holder of BPL ration Card.\n   1. Women who are partially (40%) or fully disabled (Divyang Jan).\n   1. SC Women.\n   1. ST Women.\n   1. Pregnant and Lactating AWWS/ AWHS/ASHAS.\n   1. Women Beneficiaries holding Ration card under National Food Security Act (NFSA), 2013.\n\nAll the mandatory provisions like Aadhaar, Aadhaar based payment etc. will be checked at the time of registration for smooth and efficient process. Mobile number has been made mandatory for providing information regarding the status of application and disbursement of fund. Mobile App has been introduced for registration under Pradhan Mantri Matru Vandana Yojana (PMMVY)."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-at-least-19",
+    "kind": "require",
+    "clause": "The applicant should be of at least 19 years old and a pregnant women.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmmvy"
+   },
+   {
+    "id": "is-female",
+    "kind": "require",
+    "clause": "The applicant should be of at least 19 years old and a pregnant women.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmmvy"
+   },
+   {
+    "id": "is-pregnant",
+    "kind": "require",
+    "clause": "The applicant should be of at least 19 years old and a pregnant women.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmmvy"
+   }
+  ]
  },
  {
   "scheme_id": "pmmy",
@@ -1548,7 +1764,32 @@
    "exclusions": "1. Scholarship will not be given to more than two students from a family. Provided in case the second child is a twin, the scholarship will be admissible to both.\n1. A scholarship holder under this scheme cannot hold any other scholarship or stipend.\n1. If any candidate furnishes false information / document and is established as false. An action will be initiated for recovery of the amount spent with 15% compound interest thereon. Also, such candidate will be blacklisted for future and appropriate legal action can be taken.\n1. If a student has to repeat a class, he/she would not get any scholarship for that class for a second (or subsequent) year.",
    "application": "### Application mode: Online\n\n**Step 1:**   Keep ready the soft copies of the required documents.\nGo to [http://www.scholarships.gov.in/](http://www.scholarships.gov.in/). And click “New Registration”.\nGuidelines for Registration will appear. Scroll to the bottom.\nRead the undertaking carefully. Accept the Terms. Click “Continue”.\n **Step 2:**  A Registration Form will appear. (The fields marked as * are compulsory)\nFill the details and click “Register”.\nYour Application ID and password will be displayed.\nThe same will also be sent as an SMS on your registered mobile number.\n**Step 3:**  Go to [https://scholarships.gov.in/fresh/newstdRegfrmInstruction](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)\nClick on “Login to Apply”. Enter your Application ID and password.\nType the Captcha and click “Login”.\nOn the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen.\nCreate a new password and confirm.\nClick “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 4:**  On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\nYou can either click on “Save as Draft” to complete the application later.\nElse, click “Final Submit” to submit the application."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The applicant must be a student.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-dis"
+   },
+   {
+    "id": "is-post-matric-student",
+    "kind": "require",
+    "clause": "The applicant must be pursuing a post-matric qualification, i.e. Class 11th, Class 12th, including Polytechnics, Post-Matriculation Diploma/Certificates and Bachelor’s Degree/Diploma in India and Master’s Degree/Diploma.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-dis"
+   },
+   {
+    "id": "disability-percent-at-least-40",
+    "kind": "require",
+    "clause": "The applicant must be disabled, with disability percentage of 40% or above.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-dis"
+   },
+   {
+    "id": "annual-family-income-inr-lte-250000",
+    "kind": "require",
+    "clause": "The Total Annual income of parents/guardians of the applicant (from all sources) must not exceed ₹ 2.50 Lakh per Annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-dis"
+   }
+  ]
  },
  {
   "scheme_id": "post-st",
@@ -1572,7 +1813,26 @@
    "exclusions": "- Candidates who complete a course in one stream will not be eligible to take diploma/degree course of different stream. For example, student will not be eligible for scholarship for pursuing B. Com after completing B.A or BSC or MBBS after doing B.Tech.",
    "application": "### Application mode: Offline\n\n- Application complete in all respects shall be submitted to the Head of the Institution, being attended or last attended by the candidates and shall be addressed to an officer specified for this purpose by the Government of State/Union Territory to which the student belongs, in accordance with the instructions issued by them from time to time."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "social-category-st",
+    "kind": "require",
+    "clause": "Only those candidates who belong to Scheduled Tribes so specified in relation to the State/Union Territory to which the applicant actually belongs (i.e. permanently settled) and who have passed the Matriculation or Higher Secondary or any higher examination of a recognized University or Board of Secondary Education, will be eligible.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-st"
+   },
+   {
+    "id": "annual-family-income-inr",
+    "kind": "require",
+    "clause": "Scholarships will be paid to the students whose parents/guardians’ income from all sources does not exceed ₹ 2,00,000/- per annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-st"
+   },
+   {
+    "id": "is-post-matric-student",
+    "kind": "require",
+    "clause": "These scholarships will be given for the study of all recognized post-matriculation post-secondary courses pursued in recognized institutions.",
+    "source_url": "https://www.myscheme.gov.in/schemes/post-st"
+   }
+  ]
  },
  {
   "scheme_id": "pre-dis",
@@ -1597,7 +1857,26 @@
    "application": "### Application mode: Online\n\n**Step 1:**   Keep ready the soft copies of the required documents.\nGo to [http://www.scholarships.gov.in/](http://www.scholarships.gov.in/). And click “New Registration”.\nGuidelines for Registration will appear. Scroll to the bottom.\nRead carefully the undertaking. Accept the Terms. Click “Continue”.\n **Step 2:**  A Registration Form will appear. (The fields marked as * are compulsory)\nFill in the details and click “Register”.\nYour Application ID and password will be displayed.\nThe same will also be sent as an SMS on your registered mobile number.\n**Step 3:**  Go to [https://scholarships.gov.in/fresh/newstdRegfrmInstruction](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)\nClick on “Login to Apply”. Enter your Application ID and password.\nType the Captcha and click “Login”.\nOn the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen.\nCreate a new password and confirm.\nClick “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 4:**  On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\nYou can either click on “Save as Draft” to complete the application later.\nElse, click “Final Submit” to submit the application.",
    "documents": "1. Disability Certificate issued by the Competent Authority.\n1. Income Certificate of Parent/Guardian.\n1. Proof of Age.\n1. Educational Qualification Certificate.\n1. Photograph.\n1. Bank Account Details.\n1. Aadhaar Details/Alternative Identity Document as applicable.\n1. Other Documents Required as per the National Scholarship Portal application process."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "family-income-lte-250000",
+    "kind": "require",
+    "clause": "The applicant’s parents/guardian’s income from all sources should not exceed ₹2,50,000/- per annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-dis"
+   },
+   {
+    "id": "is-student",
+    "kind": "require",
+    "clause": "The applicant should be a regular, full-time student studying in Classes IX and X.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-dis"
+   },
+   {
+    "id": "benchmark-disability",
+    "kind": "require",
+    "clause": "The applicant should be a student with a benchmark disability and should have a valid disability certificate.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-dis"
+   }
+  ]
  },
  {
   "scheme_id": "pre-sc",
@@ -1621,7 +1900,26 @@
    "application": "### Application mode: Offline\n\n> **Fresh Application:**\n\n**Step 1:** Obtain admission to Class IX or Class X in a Government school or a recognised private school having a valid UDISE code.\n**Step 2:** Apply for the scholarship on the scholarship IT portal on the same day as admission.\n**Step 3:** Provide Aadhaar ID/Aadhaar Enrolment ID and other required eligibility details during registration.\n**Step 4:** Submit the scholarship application through the online portal.\n**Step 5:** The institution verifies that the applicant has been admitted and is a bona fide student.\n**Step 6:** Eligibility, caste status, Aadhaar details, and bank account information are verified through the prescribed digital verification mechanism.\n**Step 7:** Upon approval, the scholarship amount is released through Direct Benefit Transfer into the student's or parent/guardian's account.\n> **Renewal Process**\n\n**Step 1:** The student is promoted to the next class.\n**Step 2:** The institution confirms promotion, attendance, and rejoining of the school.\n**Step 3:** Renewal is processed automatically; no separate renewal application is required.\n**Step 4:** Scholarship is released subject to meeting attendance and academic requirements.",
    "documents": "1. Aadhaar Number.\n1. One copy of the application for scholarship in the prescribed form.\n1. One passport size photograph with signature of the student thereon (for fresh scholarship).\n1. One self-attested copy of certificates, diploma, degree etc. in respect of all examinations passed.\n1. A certificate of Caste duly signed by an authorized Revenue Officer not below the rank of Tehsildar.\n1. Income declaration of the self-employed parents/guardian in the form of a certificate issued by Revenue Officer not below the rank of Tehsildar.\n1. Income Certificate of the employed parents/guardian issued by their employer.\n1. A consolidated certificate of income of the employed parents/guardian from the Revenue Officer (only in case of any other additional source of income)."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "pursue-studies",
+    "kind": "require",
+    "clause": "The applicant should pursue studies in India.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-sc"
+   },
+   {
+    "id": "social-category-sc",
+    "kind": "require",
+    "clause": "The scheme \"Pre-Matric Scholarships to the Students Belonging to Scheduled Castes & Others with Component 1: Pre-Matric Scholarship for Scheduled Caste Students\" has been launched by the Department of Social Justice & Empowerment, Ministry of Social Justice & Empowerment, Government of India, and aims to support parents of Scheduled Caste children through financial assistance for education at the pre-matric stage, improve participation in education, minimise dropouts, particularly during transition stages, and enhance opportunities for progression to post-matric education.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-sc"
+   },
+   {
+    "id": "exclude-post-matric-student",
+    "kind": "exclude",
+    "clause": "The scheme \"Pre-Matric Scholarships to the Students Belonging to Scheduled Castes & Others with Component 1: Pre-Matric Scholarship for Scheduled Caste Students\" has been launched by the Department of Social Justice & Empowerment, Ministry of Social Justice & Empowerment, Government of India, and aims to support parents of Scheduled Caste children through financial assistance for education at the pre-matric stage, improve participation in education, minimise dropouts, particularly during transition stages, and enhance opportunities for progression to post-matric education.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pre-sc"
+   }
+  ]
  },
  {
   "scheme_id": "psgs-dip",
@@ -1658,7 +1956,26 @@
    "application": "### Application mode: Online\n\n> ***New Registration******:***\n\n**Step 1:** Visit the [Registration ](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)page of the National Scholarships Portal.\n**Step 2:** Guidelines for Registration will appear. Scroll to the bottom. Read carefully the undertaking. Accept the Terms. Click “Continue”.\n**Step 3:** A Registration Form will appear. (The fields marked as * are compulsory). Fill in the details and click “Register”. Your Application ID and password will be displayed. The same will also be sent as an SMS to your registered mobile number.\n> **Fresh Application****:**\n\n**Step 1:** Visit the applicant [Login ](https://scholarships.gov.in/fresh/loginPage)page of the National Scholarships Portal Enter your Application ID and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents. The verification of credentials of the students (caste, educational qualifications etc.) will be done through the DIGILOCKER facility of the MeitY, Govt. of India.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to apply.\n> **Track Payment Status****:**\n\nThe student can track their payment status from the template “Know Your Payment” in the [Public Financial Management System (PFMS) Portal](https://pfms.nic.in/Users/LoginDetails/Login.aspx) either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.",
    "documents": "1. Copy of the SSC/10th certificate.\n1. Copy of HSC/12th certificate (In case of degree level).\n1. Copy of ITI certificate (In case of lateral entry for diploma level).\n1. Copy of Diploma certificate (In case of lateral entry for Degree level).\n1. Bank Passbook\n1. Category Certificate\n1. Aadhaar Card\n1. Applicant’s Passport-Size Photo\n1. Study Certificate (Appendix-I)\n1. Annual Family Income Certificate (Appendix II)\n1. Parent’s Declaration (Appendix-III)\n1. Bank Mandate Form (Appendix-IV)\n\n> [Download the Appendix from the pdf.](https://scholarships.gov.in/public/schemeGuidelines/AICTE/AICTE_2010_F.pdf)"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-girl-student",
+    "kind": "require",
+    "clause": "The applicant must be a Girl Student.",
+    "source_url": "https://www.myscheme.gov.in/schemes/psgs-dip"
+   },
+   {
+    "id": "family-income-less-than-8-lakh",
+    "kind": "require",
+    "clause": "The annual income of the family (from all sources) must not be more than ₹ 8,00,000 per annum during the current financial year.",
+    "source_url": "https://www.myscheme.gov.in/schemes/psgs-dip"
+   },
+   {
+    "id": "residence-in-specified-states-uts",
+    "kind": "require",
+    "clause": "All eligible girls (who submit an online scholarship form) from the following 13 Union Territories and North Eastern States i.e., Andaman and Nicobar Islands (UT), Jammu and Kashmir (UT), Ladakh (UT), Dadra and Nagar Haveli & Daman and Diu (UT), Lakshadweep (UT), Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, & Tripura will be given a scholarship by AICTE.",
+    "source_url": "https://www.myscheme.gov.in/schemes/psgs-dip"
+   }
+  ]
  },
  {
   "scheme_id": "rkvyshfshc",
@@ -1682,7 +1999,14 @@
    "application": "### Application mode: Offline\n\n**Step 1:** Farmer approaches a District Agriculture Officer / Block Agriculture Officer for soil testing and generation of a SHC.\n**Step 2:** The concerned officer shall initiate the process for the concerned farmer wherein they assess whether the applicant’s district / village falls under State Annual Action Plan for generation of SHC.\n**Step 3:** Agent visits the farmer and collects farmer details, land details and geo-tags the land through mobile app and takes a sample of the soil for testing\n**Step 4:** The soil is tested on set parameters and a Soil Health report is generated for the farmer’s land\n**Step 5:** The report contains results as well as recommendations on suitable crops for the soil type, and the quantity and type of fertiliser to be used.",
    "documents": "1. Aadhaar Card\n1. Identity Proof\n1. Address Proof\n1. Land Records\n1. Mobile Number\n1. Any other documents as required"
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "is-farmer",
+    "kind": "require",
+    "clause": "The applicant must be a farmer.",
+    "source_url": "https://www.myscheme.gov.in/schemes/rkvyshfshc"
+   }
+  ]
  },
  {
   "scheme_id": "sag",
@@ -1709,7 +2033,26 @@
    "eligibility": "1. The applicant should be an adolescent girl in the age group of 14-18 years.\n1. The applicant should be identified by the concerned State Government.\n1. The applicant should belong to the covered areas under the scheme, including Aspirational Districts of States, including Assam and North-Eastern States.\n1. The applicant should have an Aadhaar number to avail benefits under the scheme.",
    "application": "### Application mode: Offline\n\n- The applicant should approach the nearest Anganwadi Centre (AWC).\n- The concerned State Government identifies eligible adolescent girls under the scheme.\n- The identified beneficiary details are collected and submitted by the State to the Ministry.\n- The applicant’s Aadhaar number is used for availing benefits under the scheme.\n- After identification and registration, the applicant receives eligible benefits, including Take Home Ration and other services, through the concerned delivery platforms."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "age-between-14-and-18",
+    "kind": "require",
+    "clause": "The applicant should be an adolescent girl in the age group of 14-18 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/sag"
+   },
+   {
+    "id": "age-not-above-18",
+    "kind": "require",
+    "clause": "The applicant should be an adolescent girl in the age group of 14-18 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/sag"
+   },
+   {
+    "id": "gender-female",
+    "kind": "require",
+    "clause": "The applicant should be an adolescent girl in the age group of 14-18 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/sag"
+   }
+  ]
  },
  {
   "scheme_id": "sak-deg",
@@ -1737,7 +2080,20 @@
    "exclusions": "1. Students failing to get promoted to the next class/ level would forfeit the scholarship.\n1. The gap period between the year of passing the qualifying examination and the session of admission in the degree course should not be more than two years.\n1. If a candidate failed/drops out in a subsequent year, she/ he will not be eligible for further scholarship.\n1. The grant of scholarship is subject to the condition that the student does not receive any financial assistance in the shape of scholarship/any emoluments, salary, stipend, etc. from any other source during her/ his course of study in the Institute. In case of receipt of any financial assistance from any other sources, the scholarship shall be discontinued and the entire amount of the scholarship will have to be refunded to AICTE by D/Draft drawn in favor of “Member Secretary, AICTE” payable at New Delhi.",
    "application": "### Application mode: Online\n\n> **New Registration****:**\n\n**Step 1:** Visit the [New Registration](https://scholarships.gov.in/otrapplication/#/) page of the National Scholarships Portal.\n**Step 2:** Guidelines for Registration will appear. Scroll to the bottom. Read the undertaking carefully and Accept the Terms. Click “Next”.\n**Step 3:** In the next window, enter your mobile number and OTP. Then click “Verify”.\n**Step 4:** After successful verification, continue with e-KYC process (as applicable).\n**Step 5:** Once completed, your reference number will be generated and the same will be sent to your registered phone number.\n> **Process for OTR ID Number Generation****:**\n\n**Step 1:** Download and install [AadhaarFaceRD](https://play.google.com/store/apps/details?id=in.gov.uidai.facerd) services in the android device.\n**Step 2:** Download and install the [NSP OTR](https://play.google.com/store/apps/details?id=in.gov.scholarships.nspotr&pli=1) App from the Google Play Store.\n**Step 3:** After opening the mobile app Select the option “eKYC with FaceAuth” highlighted in red.\n**Step 4:** Enter the allotted reference number and click on “Send OTP” to receive OTP on your mobile no.\n**Step 5:** Enter the received OTP and captcha in the screen and click Next.\n**Step 6:** Click on “Proceed for Face Authentication” button highlighted in red.\n**Step 7:** UIDAI AadhaarFaceRD services will be invoked for face authentication. Ensure AadhaarFaceRD services are preinstalled on your device.\n**Step 8:** On Successful completion of face-authentication OTR no. will be generated and will also be sent on your registered mobile no.\n> **Fresh Application****:**\n\n**Step 1:** Visit the applicant Login page of the National Scholarships Portal Enter your One Time Registration (OTR) number and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to submit the application.\n> **Track Payment Status****:**\n\nThe student can track their payment status from the template “Know Your Payment” in the [Public Financial Management System (PFMS) Portal](https://pfms.nic.in/static/NewLayoutCommonContent.aspx?RequestPagename=static/TrackNSPpayments.aspx) either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n**NOTE 1:** The National Scholarships Portal will provide the timelines for opening & closing of the portal.\n**NOTE 2:** Online applications will be verified at two levels i.e. by the Institute, where the student is studying and thereafter by the concerned State Higher Education Department or any other Agency/ Official nominated by the State as State Nodal Agency (both for fresh and renewal applicants).\n**NOTE 3:** Students will not be permanently debarred for scholarships due to delay in renewal or verification. However, students will have to submit renewal applications within a cut-off date. Renewal for that year will not be allowed if an applicant misses this deadline."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "disability-at-least-40-percent",
+    "kind": "require",
+    "clause": "Specially-abled students have a disability of not less than 40%.",
+    "source_url": "https://www.myscheme.gov.in/schemes/sak-deg"
+   },
+   {
+    "id": "family-income-not-more-than-8-lakh",
+    "kind": "require",
+    "clause": "Family income from all sources should not be more than ₹8,00,000/- per annum during the current financial year.",
+    "source_url": "https://www.myscheme.gov.in/schemes/sak-deg"
+   }
+  ]
  },
  {
   "scheme_id": "sukanya-samriddhi",
@@ -1791,7 +2147,20 @@
    "exclusions": "1. The applicant shall not be eligible if the annual family income exceeds ₹8,00,000.\n1. The applicant shall not be eligible for a fresh scholarship if he/she is already studying in the 2nd year or a higher year of the course.\n1. The applicant shall not be eligible if he/she is not studying in a notified institution covered under the scheme.\n1. The applicant shall not receive benefits under any other similar scholarship scheme of the Central Government or a State Government for the same course of study.\n1. More than 2 siblings from the same family shall not be eligible to receive benefits under the scheme.\n1. The scholarship shall be discontinued if the applicant changes the institution after selection under the scheme.\n1. The scholarship shall be stopped if the applicant fails to get promoted to the next academic year and shall be restored only after promotion to the next class/year.",
    "application": "### Application mode: Online\n\n**Step 1:** Keep ready the soft copies of the required documents.\nGo to [http://www.scholarships.gov.in/](http://www.scholarships.gov.in/). And click “New Registration”.\nGuidelines for Registration will appear. Scroll to the bottom.\nRead the undertaking carefully. Accept the Terms. Click “Continue”.\n**Step 2:** A Registration Form will appear. (The fields marked as * are compulsory)\nFill the details and click “Register”.\nYour Application ID and password will be displayed.\nThe same will also be sent as an SMS on your registered mobile number.\n**Step 3:** Go to [https://scholarships.gov.in/fresh/newstdRegfrmInstruction](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)\nClick on “Login to Apply”. Enter your Application ID and password.\nType the Captcha and click “Login”.\nOn the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen.\nCreate a new password and confirm.\nClick “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 4:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\nYou can either click on “Save as Draft” to complete the application later.\nElse, click “Final Submit” to submit the application."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "social-category-sc",
+    "kind": "require",
+    "clause": "The applicant should belong to the Scheduled Caste (SC) category.",
+    "source_url": "https://www.myscheme.gov.in/schemes/tce-sc"
+   },
+   {
+    "id": "annual-family-income-lte-800000",
+    "kind": "require",
+    "clause": "The applicant's total annual family income from all sources should not exceed ₹8,00,000.",
+    "source_url": "https://www.myscheme.gov.in/schemes/tce-sc"
+   }
+  ]
  },
  {
   "scheme_id": "tce-swd",
@@ -1819,7 +2188,20 @@
    "exclusions": "1. Not more than two children with disabilities of the same parents will be entitled to receive the benefits of the scheme. Provided in case the second child is a twin, the scholarship will be admissible to both.\n1. If a student is found to have obtained a scholarship by false statements, his/her scholarship will be cancelled forthwith and the amount of the scholarship will be recovered, at the discretion of DEPwD, GoI. The student concerned will be blacklisted and debarred for scholarship in any scheme forever.\n1. If the scholar changes the subject of the course of study for which the scholarship was originally awarded unless such change in course has been approved by DEPwD.\n1. If a student has to repeat a class, he/she would not get any scholarship for that class for a second (or subsequent) year.",
    "application": "### Application mode: Online\n\n**Step 1:**   Keep the soft copies of the required documents.\nGo to [http://www.scholarships.gov.in/](http://www.scholarships.gov.in/). and click “New Registration”.\nGuidelines for Registration will appear. Scroll to the bottom.\nRead the undertaking carefully. Accept the Terms. Click “Continue”.\n**Step 2:**  A Registration Form will appear. (The fields marked as * are compulsory)\nFill in the details and click “Register”.\nYour Application ID and password will be displayed.\nThe same will also be sent as an SMS to your registered mobile number.\n**Step 3:**  Go to [https://scholarships.gov.in/fresh/newstdRegfrmInstruction ](https://scholarships.gov.in/fresh/newstdRegfrmInstruction)\nClick on “Login to Apply”. Enter your Application ID and password.\nType the Captcha and click “Login”.\nOn the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen.\nCreate a new password and confirm.\nClick “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 4:**  On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\nYou can either click on “Save as Draft” to complete the application later.\nOtherwise, click “Final Submit” to submit the application."
   },
-  "rules": []
+  "rules": [
+   {
+    "id": "disability-percent-gte-40",
+    "kind": "require",
+    "clause": "The Percentage of Disability should be 40% or above.",
+    "source_url": "https://www.myscheme.gov.in/schemes/tce-swd"
+   },
+   {
+    "id": "annual-family-income-lte-6-lakh",
+    "kind": "require",
+    "clause": "The Total Annual Income of the Parent / Guardian should be less than or equal to ₹ 6.00 Lakh per Annum.",
+    "source_url": "https://www.myscheme.gov.in/schemes/tce-swd"
+   }
+  ]
  },
  {
   "scheme_id": "vdcspds",

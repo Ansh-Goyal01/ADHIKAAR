@@ -2,210 +2,92 @@ scheme_id: pg-igssgc
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/pg-igssgc
+  hold_reason: The scheme's defining criterion (being the family's only/single girl child,
+    no brother) is entirely unencoded — only age and (previously) an invalid nationality proxy
+    were valid, which would show any young woman as eligible regardless of siblings. Needs
+    a has_brother-type field.
 rules:
-- id: citizen-of-india
-  kind: require
-  when:
-    field: state
-    op: ne
-    value: null
-    any: null
-    all: null
-  clause: The applicant must be a citizen of India.
-  source_url: https://www.myscheme.gov.in/schemes/pg-igssgc
-  ask: Are you a citizen of India?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: age-not-more-than-30
+- id: age-max-30-at-admission
   kind: require
   when:
     field: age
     op: lte
     value: 30
-    any: null
-    all: null
   clause: The age of the applicant should not be more than 30 years at the time of admission
     in the first year of PG course.
   source_url: https://www.myscheme.gov.in/schemes/pg-igssgc
-  ask: Are you 30 years old or less?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: gender-female
-  kind: require
-  when:
-    field: gender
-    op: eq
-    value: female
-    any: null
-    all: null
-  clause: The applicant must be a citizen of India. ... The applicant must be the only girl
-    child in the family.
-  source_url: https://www.myscheme.gov.in/schemes/pg-igssgc
-  ask: Are you female?
+  ask: What was your age at the time of admission to the first year of your PG course?
   self_declared: false
   verify_hint: ''
   review_status: proposed
 blocked_rules:
-- criterion: The applicant must be the only girl child in the family.
+- criterion: The applicant must be a citizen of India.
   proposed_field:
-    name: has_brother
-    type: bool
-    meaning: Whether the applicant has a brother
-  suggested_rule_id: only-girl-child
+    name: is_indian_citizen
+    type: boolean
+    meaning: True if the applicant is a citizen of India.
+  suggested_rule_id: require-indian-citizen
+- criterion: The applicant must be the only girl child in the family. Girl students without
+    having any brothers or the girl student who are twin daughters/ fraternal daughters may
+    also apply. In a family if one son and one daughter are available then the girl child
+    will not be considered for scholarship under the scheme.
+  proposed_field:
+    name: is_only_girl_child_in_family
+    type: boolean
+    meaning: True if the applicant is the only girl child in her family, considering twin/fraternal
+      daughters without brothers as eligible, and excluding families with both a son and a
+      daughter.
+  suggested_rule_id: require-only-girl-child
+- criterion: The applicant must have taken admission to regular, full-time first-year master's
+    degree courses in any designated university or a postgraduate college. This scholarship
+    is available to PG-I year students only.
+  proposed_field:
+    name: is_admitted_to_regular_full_time_pg_first_year
+    type: boolean
+    meaning: True if the applicant has taken admission to a regular, full-time first-year
+      master's degree course.
+  suggested_rule_id: require-pg-first-year-regular-full-time
 - criterion: The applicant must have taken admission to regular, full-time first-year master's
     degree courses in any designated university or a postgraduate college.
   proposed_field:
-    name: is_admitted_to_pgcourse
-    type: bool
-    meaning: Whether the applicant is admitted to a PG course
-  suggested_rule_id: admitted-to-regular-full-time-pg-course
+    name: is_designated_university_or_pg_college
+    type: boolean
+    meaning: True if the educational institution is a designated university or a postgraduate
+      college.
+  suggested_rule_id: require-designated-institution
 - criterion: The candidate should be pursuing a non-professional course and be taking regular
     classes from a recognized institution.
   proposed_field:
-    name: is_pursuing_non_professional_course
-    type: bool
-    meaning: Whether the applicant is pursuing a non-professional course
-  suggested_rule_id: pursuing-non-professional-course
+    name: is_non_professional_pg_course
+    type: boolean
+    meaning: True if the PG course is non-professional.
+  suggested_rule_id: require-non-professional-course
+- criterion: The candidate should be pursuing a non-professional course and be taking regular
+    classes from a recognized institution.
+  proposed_field:
+    name: is_taking_regular_classes_from_recognized_institution
+    type: boolean
+    meaning: True if the student is taking regular classes from a recognized institution.
+  suggested_rule_id: require-regular-classes-recognized-institution
 - criterion: The applicant must not be pursuing education through distance education mode.
+    Admission to PG Course in Distance education mode is not covered under the scheme.
   proposed_field:
-    name: is_pursuing_distance_education
-    type: bool
-    meaning: Whether the applicant is pursuing education through distance education mode
-  suggested_rule_id: not-pursuing-education-through-distance-education-mode
-- criterion: This scholarship is available to PG-I year students only.
-  proposed_field:
-    name: is_pgi_year_student
-    type: bool
-    meaning: Whether the applicant is a PG-I year student
-  suggested_rule_id: pg-i-year-student
-- criterion: Admission to PG Course in Distance education mode is not covered under the scheme.
-  proposed_field:
-    name: is_admitted_to_distance_pgcourse
-    type: bool
-    meaning: Whether the applicant is admitted to a PG course in distance education mode
-  suggested_rule_id: exclude-admission-to-pg-course-in-distance-education-mode
+    name: is_distance_education_mode
+    type: boolean
+    meaning: True if the PG course is pursued through distance education mode.
+  suggested_rule_id: exclude-distance-education
 - criterion: Those Deemed Universities which do not receive funds from the Central/ State
     Government are not eligible institutions under the scheme.
   proposed_field:
-    name: is_deemed_university_without_funds
-    type: bool
-    meaning: Whether the applicant's university is a deemed university without funds
-  suggested_rule_id: exclude-deemed-universities-not-receiving-funds
-- criterion: In a family if one son and one daughter are available then the girl child will
-    not be considered for scholarship under the scheme.
-  proposed_field:
-    name: has_brother
-    type: bool
-    meaning: Whether the applicant has a brother
-  suggested_rule_id: exclude-girl-child-with-brother
-rejected_drafts:
-- draft:
-    id: only-girl-child
-    kind: require
-    when: {}
-    clause: The applicant must be the only girl child in the family.
-    ask: Are you the only girl child in your family?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: admitted-to-regular-full-time-pg-course
-    kind: require
-    when: {}
-    clause: The applicant must have taken admission to regular, full-time first-year master's
-      degree courses in any designated university or a postgraduate college.
-    ask: Have you been admitted to a regular, full-time first-year master's degree course?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: pursuing-non-professional-course
-    kind: require
-    when: {}
-    clause: The candidate should be pursuing a non-professional course and be taking regular
-      classes from a recognized institution.
-    ask: Are you pursuing a non-professional course?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: not-pursuing-education-through-distance-education-mode
-    kind: require
-    when: {}
-    clause: The applicant must not be pursuing education through distance education mode.
-    ask: Are you pursuing education through distance education mode?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: pg-i-year-student
-    kind: require
-    when: {}
-    clause: This scholarship is available to PG-I year students only.
-    ask: Are you a PG-I year student?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: exclude-admission-to-pg-course-in-distance-education-mode
-    kind: exclude
-    when: {}
-    clause: Admission to PG Course in Distance education mode is not covered under the scheme.
-    ask: Have you been admitted to a PG course in distance education mode?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: exclude-deemed-universities-not-receiving-funds
-    kind: exclude
-    when: {}
-    clause: Those Deemed Universities which do not receive funds from the Central/ State Government
-      are not eligible institutions under the scheme.
-    ask: Is your university a deemed university that does not receive funds from the Central/State
-      Government?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
-- draft:
-    id: exclude-girl-child-with-brother
-    kind: exclude
-    when: {}
-    clause: In a family if one son and one daughter are available then the girl child will
-      not be considered for scholarship under the scheme.
-    ask: Do you have a brother?
-    self_declared: false
-    notes_for_reviewer: This rule cannot be directly encoded with the available fields and
-      should be proposed as a new field.
-  error: "1 validation error for Rule\nwhen\n  Value error, condition must be exactly one\
-    \ of: leaf(field/op/value), any, all [type=value_error, input_value={'field': None, 'op':\
-    \ None, 'value': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error"
+    name: is_deemed_university_without_govt_funds
+    type: boolean
+    meaning: True if the educational institution is a Deemed University that does not receive
+      funds from the Central/State Government.
+  suggested_rule_id: exclude-unfunded-deemed-university
+rejected_drafts: []
 simplifications:
-- The application process and notice to be published on the UGC website.
-- The candidates are required to apply online on National Scholarship Portal.
-- 3,000 fresh scholarships will be awarded every year and will be paid on DBT mode on annual
-  basis.
+- The candidates are required to apply online on National Scholarship Portal after initiation
+  of the application process and notice to be published on the UGC website.
+- 3,000 fresh scholarships will be awarded every year

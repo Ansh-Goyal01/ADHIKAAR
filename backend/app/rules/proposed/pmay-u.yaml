@@ -2,8 +2,10 @@ scheme_id: pmay-u
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/pmay-u
+  hold_reason: Extractor required all four income bands (EWS/LIG/MIG-1/MIG-2) simultaneously
+    — these are alternative qualifying bands, not additive. Needs any-of restructuring.
 rules:
 - id: annual-family-income-ews
   kind: require

@@ -2,7 +2,11 @@ scheme_id: nts-ug
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
+  hold_reason: The defining criterion (pursuing a Bachelor's in Agriculture) was mapped onto
+    a free-text occupation exact-string match that can effectively never fire, and the AIEE-admission
+    criterion onto is_post_matric_student; multiple duplicate is_student rules remained. Needs
+    a course-of-study field and restructuring.
   source_url: https://www.myscheme.gov.in/schemes/nts-ug
 rules:
 - id: pursuing-bachelor-degree-in-agriculture
@@ -32,21 +36,6 @@ rules:
     (AIEE) conducted for ICAR admissions.
   source_url: https://www.myscheme.gov.in/schemes/nts-ug
   ask: How did you secure admission to your current course?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: enrolled-in-agricultural-university-outside-state
-  kind: require
-  when:
-    field: state
-    op: ne
-    value: state of domicile
-    any: null
-    all: null
-  clause: The applicant should be enrolled in an Agricultural University located outside his/her
-    State of domicile.
-  source_url: https://www.myscheme.gov.in/schemes/nts-ug
-  ask: Is your university located in your home state?
   self_declared: false
   verify_hint: ''
   review_status: proposed
@@ -124,66 +113,21 @@ rules:
   self_declared: false
   verify_hint: ''
   review_status: proposed
-- id: no-other-scholarship
-  kind: require
-  when:
-    field: annual_family_income_inr
-    op: lt
-    value: null
-    any: null
-    all: null
-  clause: The student must not receive any other scholarship or financial assistance during
-    the course of study.
-  source_url: https://www.myscheme.gov.in/schemes/nts-ug
-  ask: Do you receive any other scholarship or financial assistance?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: minimum-ogpa-cgpa
-  kind: require
-  when:
-    field: annual_family_income_inr
-    op: lt
-    value: null
-    any: null
-    all: null
-  clause: The student must secure a minimum OGPA/CGPA of 7.00 out of 10.00 at the end of the
-    first year (6.50 out of 10.00 for SC/ST students).
-  source_url: https://www.myscheme.gov.in/schemes/nts-ug
-  ask: What is your current OGPA/CGPA?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: The applicant should have secured admission through the All India Entrance Examination
-    (AIEE) conducted for ICAR admissions.
-  proposed_field:
-    name: aiee_admission
-    type: boolean
-    meaning: Whether the applicant secured admission through AIEE
-  suggested_rule_id: aiee-admission
-- criterion: The student must not leave the course within one month of admission.
-  proposed_field:
-    name: course_dropout
-    type: boolean
-    meaning: Whether the student dropped out of the course within one month
-  suggested_rule_id: no-early-dropout
-- criterion: The student must not change the discipline/subject initially allotted for which
-    the scholarship was awarded.
-  proposed_field:
-    name: discipline_change
-    type: boolean
-    meaning: Whether the student changed their discipline/subject
-  suggested_rule_id: no-discipline-change
-- criterion: The student must not change the University during the tenure of the scholarship.
-  proposed_field:
-    name: university_change
-    type: boolean
-    meaning: Whether the student changed their university
-  suggested_rule_id: no-university-change
+blocked_rules: []
 rejected_drafts: []
 simplifications:
 - The scholarship is initially awarded for one year from the date of admission and is renewable
   for the remaining duration of the degree programme, subject to satisfactory academic performance
   and conduct as prescribed by the concerned university.
 - The student must clear all papers in every semester and appear in regular examinations.
+- 'Not modeled: The applicant should have secured admission through the All India Entrance
+  Examination (AIEE) conducted for ICAR admissions.'
+- 'Not modeled: The student must not leave the course within one month of admission.'
+- 'Not modeled: The student must not change the discipline/subject initially allotted for
+  which the scholarship was awarded.'
+- 'Not modeled: The student must not change the University during the tenure of the scholarship.'
+- Cannot verify the university is outside the applicant's home state — only current state
+  of residence is tracked, not a separate domicile state.
+- The no-other-scholarship exclusivity condition is not modeled (no field tracks other scholarships
+  held).
+- The minimum CGPA/OGPA renewal requirement (for continuing students) is not modeled.

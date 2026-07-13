@@ -46,6 +46,7 @@ class UserProfile(BaseModel):
     has_vending_certificate_or_lor: bool | None = None
     is_vishwakarma_trade_artisan: bool | None = None
     is_post_matric_student: bool | None = None
+    is_pregnant: bool | None = None
     notes: str = ""
 
     @field_validator(

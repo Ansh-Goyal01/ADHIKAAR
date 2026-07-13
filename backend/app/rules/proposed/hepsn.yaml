@@ -2,8 +2,10 @@ scheme_id: hepsn
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/hepsn
+  hold_reason: Scheme's applicant is a college/institution, not an individual — doesn't fit
+    the per-person profile model (same class of exclusion as PM-KISAN's institutional landholders).
 rules:
 - id: has-disability
   kind: require

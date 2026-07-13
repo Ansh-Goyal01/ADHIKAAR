@@ -61,6 +61,7 @@ is_street_vendor: bool — sells goods/services from a cart/stall/public space
 has_vending_certificate_or_lor: bool — holds a Certificate of Vending, vendor ID, or LoR
 is_vishwakarma_trade_artisan: bool — self-employed artisan in one of the 18 Vishwakarma trades
 is_post_matric_student: bool — studying beyond class 10 at a recognized institution
+is_pregnant: bool — the person is currently pregnant
 """
 
 # `notes` is free text the engine never tests; excluded from the vocabulary.

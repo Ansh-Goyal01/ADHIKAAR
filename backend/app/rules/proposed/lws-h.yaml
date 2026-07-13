@@ -2,8 +2,12 @@ scheme_id: lws-h
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/lws-h
+  hold_reason: Extractor merged two distinct benefit components (general health treatment
+    for registered workers vs. a specific two-child family-planning-operation benefit) into
+    one required set, wrongly excluding workers seeking the general benefit. Needs the components
+    split.
 rules:
 - id: occupation-is-beedi-cine-or-mine-worker
   kind: require

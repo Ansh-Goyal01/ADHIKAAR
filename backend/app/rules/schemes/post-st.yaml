@@ -1,9 +1,5 @@
 scheme_id: post-st
 version: '2026-07-13'
-extraction:
-  extracted_at: '2026-07-13'
-  status: awaiting-human-review
-  source_url: https://www.myscheme.gov.in/schemes/post-st
 rules:
 - id: social-category-st
   kind: require
@@ -21,7 +17,7 @@ rules:
   ask: What is your social category?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: annual-family-income-inr
   kind: require
   when:
@@ -36,7 +32,7 @@ rules:
   ask: What is your annual family income?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: is-post-matric-student
   kind: require
   when:
@@ -51,52 +47,14 @@ rules:
   ask: Are you a post-matric student?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
-- id: exclude-pursuing-different-stream
-  kind: exclude
-  when:
-    field: is_post_matric_student
-    op: eq
-    value: true
-    any: null
-    all: null
-  clause: Candidates who complete a course in one stream will not be eligible to take diploma/degree
-    course of different stream. For example, student will not be eligible for scholarship
-    for pursuing B. Com after completing B.A or BSC or MBBS after doing B.Tech.
-  source_url: https://www.myscheme.gov.in/schemes/post-st
-  ask: Are you pursuing a different stream?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-- id: exclude-receiving-another-scholarship
-  kind: exclude
-  when:
-    field: has_bank_account
-    op: eq
-    value: true
-    any: null
-    all: null
-  clause: A scholarship holder under this scheme will not hold any other scholarship/stipend.
-  source_url: https://www.myscheme.gov.in/schemes/post-st
-  ask: Are you receiving any other scholarship?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: Recognized institution
-  proposed_field:
-    name: recognized_institution
-    type: bool
-    meaning: Whether the institution is recognized
-  suggested_rule_id: recognized-institution
-- criterion: State/Union Territory to which the applicant actually belongs
-  proposed_field:
-    name: state_of_residence
-    type: str
-    meaning: State/Union Territory of residence
-  suggested_rule_id: state-of-residence
-rejected_drafts: []
+  review_status: verified
 simplifications:
 - The scheme is for pursuing higher education starting from class XI to Post Graduation courses
   in India.
 - The student will be entitled to stipend as per rates listed in the scheme.
+- 'Not modeled: Recognized institution'
+- 'Not modeled: State/Union Territory to which the applicant actually belongs'
+- 'Not modeled: Candidates who complete a course in one stream will not be eligible to take
+  diploma/degree course of different stream. For example, student will not be eligible for
+  scholarship for pursuing B. Com after completing B.A or BSC or MBBS after doing B.Tech.'
+- 'Not modeled: A scholarship holder under this scheme will not hold any other scholarship/stipend.'

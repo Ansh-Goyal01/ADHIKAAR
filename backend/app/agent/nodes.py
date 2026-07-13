@@ -83,6 +83,7 @@ Rules:
     (e.g. powerloom) and traders/vendors are NOT.
   - is_post_matric_student: studying beyond class 10 (class 11/12, diploma, UG, PG) at a
     recognized institution.
+  - is_pregnant: the person is currently pregnant.
   - daughter_age: age of the person's (youngest relevant) daughter, if mentioned.
 - is_enough_to_assess: true if the description gives at least a broad picture
   (some of: age, occupation, income, family situation). false only if it is too

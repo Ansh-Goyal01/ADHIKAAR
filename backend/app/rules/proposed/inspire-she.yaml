@@ -2,8 +2,11 @@ scheme_id: inspire-she
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/inspire-she
+  hold_reason: Extractor conflated 4 alternative merit routes (top-1% Class XII / JEE-AIPMT
+    rank / KVPY / NTSE-Olympiad) into AND-required rules — as encoded, no one could ever qualify.
+    Needs any-of restructuring.
 rules:
 - id: is_student
   kind: require

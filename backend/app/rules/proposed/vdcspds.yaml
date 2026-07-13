@@ -2,8 +2,12 @@ scheme_id: vdcspds
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/vdcspds
+  hold_reason: The scheme's defining criterion (a National Trust Act 1999 disability category
+    — Autism/CP/Intellectual Disability/Multiple Disabilities) is entirely unencoded and doesn't
+    map cleanly onto the existing disability_percent field (a different legal test). Needs
+    a dedicated field.
 rules:
 - id: age-at-least-10
   kind: require

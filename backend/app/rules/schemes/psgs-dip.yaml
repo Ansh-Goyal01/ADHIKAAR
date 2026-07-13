@@ -1,9 +1,5 @@
 scheme_id: psgs-dip
 version: '2026-07-13'
-extraction:
-  extracted_at: '2026-07-13'
-  status: awaiting-human-review
-  source_url: https://www.myscheme.gov.in/schemes/psgs-dip
 rules:
 - id: is-girl-student
   kind: require
@@ -20,7 +16,7 @@ rules:
   ask: Are you a girl student?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: family-income-less-than-8-lakh
   kind: require
   when:
@@ -33,7 +29,7 @@ rules:
   ask: What is your family's annual income from all sources?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: residence-in-specified-states-uts
   kind: require
   when:
@@ -89,46 +85,17 @@ rules:
     or Tripura?'
   self_declared: false
   verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: Applicant must be pursuing either the First year of the Diploma course OR the
-    Second year of the Diploma course through lateral entry.
-  proposed_field:
-    name: is_first_or_second_year_diploma_student
-    type: boolean
-    meaning: Is the applicant pursuing the first year of a diploma course or the second year
-      through lateral entry?
-  suggested_rule_id: is-first-or-second-year-diploma-student
-- criterion: Candidate failed/drops out in a subsequent year.
-  proposed_field:
-    name: has_failed_or_dropped_out_in_subsequent_year
-    type: boolean
-    meaning: Has the applicant failed or dropped out of the course in a subsequent year?
-  suggested_rule_id: exclude-failed-or-dropped-out
-- criterion: Student is in receipt of financial assistance in the shape of scholarship/any
-    emoluments, salary, stipend, etc. from any other source during her course of study in
-    the institute.
-  proposed_field:
-    name: receives_other_financial_assistance
-    type: boolean
-    meaning: Is the applicant receiving any other scholarship, emoluments, salary, or stipend
-      from another source during her course of study?
-  suggested_rule_id: exclude-other-financial-assistance
-- criterion: Gap period between the year of passing the qualifying examination and the admission
-    session in a degree course is more than two years.
-  proposed_field:
-    name: gap_between_qualifying_exam_and_admission_over_two_years
-    type: boolean
-    meaning: Is the gap period between passing the qualifying examination and admission to
-      the degree course more than two years?
-  suggested_rule_id: exclude-long-gap-period
-- criterion: The scholarship is only applicable to a maximum of two girl children of a family.
-  proposed_field:
-    name: number_of_girl_children_receiving_this_scholarship_in_family
-    type: integer
-    meaning: Number of girl children in the family currently receiving this specific scholarship.
-  suggested_rule_id: exclude-more-than-two-girl-children
-rejected_drafts: []
+  review_status: verified
 simplifications:
 - Applicant must be admitted to an AICTE approved institution.
 - Applicant must submit an online scholarship form.
+- 'Not modeled: Applicant must be pursuing either the First year of the Diploma course OR
+  the Second year of the Diploma course through lateral entry.'
+- 'Not modeled: Candidate failed/drops out in a subsequent year.'
+- 'Not modeled: Student is in receipt of financial assistance in the shape of scholarship/any
+  emoluments, salary, stipend, etc. from any other source during her course of study in the
+  institute.'
+- 'Not modeled: Gap period between the year of passing the qualifying examination and the
+  admission session in a degree course is more than two years.'
+- 'Not modeled: The scholarship is only applicable to a maximum of two girl children of a
+  family.'

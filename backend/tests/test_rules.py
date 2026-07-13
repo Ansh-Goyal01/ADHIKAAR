@@ -12,19 +12,45 @@ ALL_RULES = [
     (scheme_id, rule) for scheme_id, scheme in ALL_SCHEMES.items() for rule in scheme.rules
 ]
 
-# Valid-but-different values for Literal-typed fields, keyed by the rule's target value.
-ALT_LITERAL = {"widowed": "single", "female": "male", "rural": "urban", "kutcha": "pucca", "sc": "obc"}
+# Valid-but-different values for known Literal-typed fields, keyed by the rule's
+# target value. Any value not listed here (free-text fields, or a Literal value
+# we haven't seen yet) falls back to a guaranteed-different sentinel string —
+# the exact alternate doesn't matter for a not-satisfied probe, only that it differs.
+ALT_LITERAL = {
+    "widowed": "single",
+    "female": "male",
+    "male": "female",
+    "other": "female",
+    "rural": "urban",
+    "kutcha": "pucca",
+    "sc": "obc",
+    "obc": "sc",
+    "st": "sc",
+    "minority": "general",
+    "general": "sc",
+}
+
+
+def _different_value(value: bool | int | str) -> bool | int | str:
+    if isinstance(value, bool):
+        return not value
+    if isinstance(value, str):
+        return ALT_LITERAL.get(value, f"not-{value}")
+    return value + 1
 
 
 def _leaf_updates(condition: Condition, satisfy: bool) -> dict:
     value = condition.value
     match condition.op:
         case "eq":
-            if satisfy:
-                return {condition.field: value}
-            if isinstance(value, bool):
-                return {condition.field: not value}
-            return {condition.field: ALT_LITERAL[value]}
+            return {condition.field: value if satisfy else _different_value(value)}
+        case "ne":
+            # holds (True) means actual != value: satisfy -> anything else,
+            # not-satisfy -> exactly value. ne/None is untestable (can never
+            # reach "failed" — see NOTES 2026-07-13) and must not reach here.
+            if value is None:
+                raise AssertionError("ne with value=None has no failing state — fix the rule, not this helper")
+            return {condition.field: _different_value(value) if satisfy else value}
         case "gte":
             return {condition.field: value if satisfy else value - 1}
         case "lte":
@@ -43,6 +69,19 @@ def profile_for(condition: Condition, satisfy: bool) -> UserProfile:
         updates: dict = {}
         for leaf in condition.any:
             updates.update(_leaf_updates(leaf, False))
+        return UserProfile(**updates)
+    if condition.all is not None:
+        if satisfy:
+            updates = {}
+            for leaf in condition.all:
+                updates.update(_leaf_updates(leaf, True))
+            return UserProfile(**updates)
+        # One leaf false is enough; keep the rest satisfied so the test
+        # isolates the "at least one requirement fails" path.
+        updates = {}
+        for leaf in condition.all:
+            updates.update(_leaf_updates(leaf, True))
+        updates.update(_leaf_updates(condition.all[0], False))
         return UserProfile(**updates)
     return UserProfile(**_leaf_updates(condition, satisfy))
 

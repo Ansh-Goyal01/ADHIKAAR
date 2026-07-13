@@ -2,8 +2,10 @@ scheme_id: nswf
 version: '2026-07-13'
 extraction:
   extracted_at: '2026-07-13'
-  status: awaiting-human-review
+  status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/nswf
+  hold_reason: Extractor conflated inland-fisherman and marine-fisherman licensing (alternative
+    categories) into AND-required rules. Needs any-of restructuring.
 rules:
 - id: age-below-60
   kind: require

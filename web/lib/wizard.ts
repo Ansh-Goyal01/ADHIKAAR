@@ -337,6 +337,14 @@ export const STEPS: StepDef[] = [
         placeholder: "Age in years",
       },
       {
+        key: "is_pregnant",
+        type: "yesno",
+        label: "Are you currently pregnant?",
+        options: YES_NO_UNSURE,
+        condition: (a) => a.gender === "female",
+        help: "Maternity benefit schemes need this to check eligibility.",
+      },
+      {
         key: "disability_percent",
         type: "number",
         label: "If you live with a disability, what percentage is on your certificate?",
@@ -428,6 +436,7 @@ export function answersToProfile(answers: Answers): UserProfile {
     has_vending_certificate_or_lor: toBool(answers.has_vending_certificate_or_lor),
     is_vishwakarma_trade_artisan: toBool(answers.is_vishwakarma_trade_artisan),
     is_post_matric_student: toBool(answers.is_post_matric_student),
+    is_pregnant: toBool(answers.is_pregnant),
   };
 }
 

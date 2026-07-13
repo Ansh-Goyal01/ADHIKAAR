@@ -1,9 +1,5 @@
 scheme_id: dacssiselosobcebc
 version: '2026-07-13'
-extraction:
-  extracted_at: '2026-07-13'
-  status: awaiting-human-review
-  source_url: https://www.myscheme.gov.in/schemes/dacssiselosobcebc
 rules:
 - id: is-student
   kind: require
@@ -18,7 +14,7 @@ rules:
   ask: Are you currently studying?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: annual-family-income-inr
   kind: require
   when:
@@ -33,7 +29,7 @@ rules:
   ask: What is your annual family income?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
+  review_status: verified
 - id: social-category
   kind: require
   when:
@@ -48,26 +44,14 @@ rules:
   ask: What is your social category?
   self_declared: false
   verify_hint: ''
-  review_status: proposed
-blocked_rules:
-- criterion: The student should have secured admission in the approved course at Masters,
-    M.Phil or PhD levels abroad for the [listed courses](https://socialjustice.gov.in/writereaddata/UploadFile/Guidelines%20ISEL%20Scheme%20(wef%2001%20Oct%202017).pdf).
-  proposed_field:
-    name: approved_course_abroad
-    type: boolean
-    meaning: Whether the student has secured admission in an approved course abroad.
-  suggested_rule_id: approved-course-abroad
-- criterion: The applicant should have availed loan from a scheduled bank under the Education
-    Loan Scheme of the Indian Banks Association (IBA) for the purpose.
-  proposed_field:
-    name: has_education_loan_from_ibc
-    type: boolean
-    meaning: Whether the applicant has an education loan from a scheduled bank under the IBA.
-  suggested_rule_id: has-education-loan-from-ibc
-rejected_drafts: []
+  review_status: verified
 simplifications:
 - The scheme will be implemented by the Nodal Bank as per the MoU between the Banks and the
   Ministry of Social Justice & Empowerment.
 - The funds will be released to the applicants on a first-come-first-served basis, subject
   to a maximum amount to be worked out every year based on the total budget made available
   that year, under the scheme.
+- 'Not modeled: The student should have secured admission in the approved course at Masters,
+  M.Phil or PhD levels abroad for the [listed courses](https://socialjustice.gov.in/writereaddata/UploadFile/Guidelines%20ISEL%20Scheme%20(wef%2001%20Oct%202017).pdf).'
+- 'Not modeled: The applicant should have availed loan from a scheduled bank under the Education
+  Loan Scheme of the Indian Banks Association (IBA) for the purpose.'
