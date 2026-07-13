@@ -83,6 +83,10 @@ class Rule(BaseModel):
     source_url: str
     ask: str  # plain-language question to resolve an unknown
     self_declared: bool = False
+    # For self_declared rules: where/how the person can confirm the fact the
+    # state will verify (office, portal, helpline). Shown on conditional
+    # verdicts so "likely eligible" always comes with a concrete next step.
+    verify_hint: str = ""
     # Human verification state, versioned with the rule itself:
     # proposed = LLM-drafted, lives only in rules/proposed/ (never loaded by
     # the engine); encoded = machine-encoded + unit-tested; verified = a human
@@ -108,6 +112,7 @@ class RuleFinding(BaseModel):
     source_url: str
     ask: str
     self_declared: bool
+    verify_hint: str = ""
 
 
 class RuleVerdict(BaseModel):
@@ -118,6 +123,16 @@ class RuleVerdict(BaseModel):
     @property
     def unknown_asks(self) -> list[str]:
         return [f.ask for f in self.findings if f.status == "unknown"]
+
+    @property
+    def confirmations(self) -> list[str]:
+        """For conditional verdicts: the self-declared facts this verdict rests
+        on, phrased as concrete verification steps (where / how to confirm)."""
+        return [
+            finding.verify_hint
+            for finding in self.findings
+            if finding.self_declared and finding.status == "met" and finding.verify_hint
+        ]
 
 
 def _rule_status(rule: Rule, profile: UserProfile) -> RuleStatus:
@@ -139,6 +154,7 @@ def evaluate_scheme(scheme: SchemeRules, profile: UserProfile) -> RuleVerdict:
             source_url=rule.source_url,
             ask=rule.ask,
             self_declared=rule.self_declared,
+            verify_hint=rule.verify_hint,
         )
         for rule in scheme.rules
     ]

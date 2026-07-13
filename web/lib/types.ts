@@ -22,6 +22,7 @@ export interface SchemeResult {
   summary: string;
   reasons: VerifiedReason[];
   missing_info: string[];
+  confirm_before_applying?: string[];
   documents: string;
   how_to_apply: string;
   page_url: string;

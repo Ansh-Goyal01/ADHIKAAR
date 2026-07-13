@@ -18,6 +18,7 @@ rules:
   - id: poor-household
     kind: require
     self_declared: true
+    verify_hint: "Ask any LPG distributor to check your household in the SECC-2011/Ujjwala beneficiary lists, or apply with the 14-point declaration form they provide."
     when:
       any:
         - { field: has_bpl_card, op: eq, value: true }

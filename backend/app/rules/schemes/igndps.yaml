@@ -22,6 +22,7 @@ rules:
   - id: bpl-household
     kind: require
     self_declared: true
+    verify_hint: "Confirm your household is on the current BPL list at your Gram Panchayat office (rural) or municipal ward office (urban) — carry your BPL/ration card."
     when: { field: has_bpl_card, op: eq, value: true }
     clause: >-
       The applicant should belong to a household living below the poverty line according

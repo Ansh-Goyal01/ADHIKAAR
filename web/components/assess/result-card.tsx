@@ -89,6 +89,20 @@ export function ResultCard({ result }: { result: SchemeResult }) {
           </div>
         )}
 
+        {(result.confirm_before_applying?.length ?? 0) > 0 && (
+          <div className="rounded-lg bg-verdict-info-soft p-3 text-sm leading-relaxed text-verdict-info">
+            <p className="font-medium">
+              Before you apply — this verdict rests on facts the office will
+              verify:
+            </p>
+            <ul className="mt-1.5 list-disc space-y-1 pl-5">
+              {result.confirm_before_applying!.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {result.documents && (
           <Expandable
             title="Documents you'll need"

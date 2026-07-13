@@ -121,6 +121,9 @@ class SchemeResult(BaseModel):
     summary: str
     reasons: list[VerifiedReason]
     missing_info: list[str]
+    # For conditional (likely_eligible) verdicts: the self-declared facts the
+    # verdict rests on, each phrased as a concrete verification step.
+    confirm_before_applying: list[str] = []
     documents: str = ""
     how_to_apply: str = ""
     page_url: str = ""

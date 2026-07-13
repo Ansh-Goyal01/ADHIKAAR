@@ -118,6 +118,27 @@ def test_pm_kisan_all_clear_is_eligible():
     )
 
 
+def test_conditional_verdicts_carry_concrete_confirmation_steps():
+    """'Likely eligible' must always tell the person exactly what to confirm
+    and where — every decisive self-declared rule ships a verify_hint."""
+    verdict = evaluate_scheme(
+        ALL_SCHEMES["nsap-ignoaps"], UserProfile(age=65, has_bpl_card=True)
+    )
+    assert verdict.verdict == "likely_eligible"
+    assert verdict.confirmations, "conditional verdict without a confirmation step"
+    assert "BPL list" in verdict.confirmations[0]
+    assert "Gram Panchayat" in verdict.confirmations[0]
+
+
+def test_every_self_declared_rule_has_a_verify_hint():
+    missing = [
+        f"{scheme_id}:{rule.id}"
+        for scheme_id, rule in ALL_RULES
+        if rule.self_declared and not rule.verify_hint.strip()
+    ]
+    assert not missing, f"self_declared rules without verify_hint: {missing}"
+
+
 def test_pm_kisan_practicing_professional_family_is_excluded():
     assert (
         verdict(

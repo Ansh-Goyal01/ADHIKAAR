@@ -164,6 +164,11 @@ def rules_assess_and_compose(state: AgentState) -> AgentState:
                 missing_info=(
                     verdict.unknown_asks if verdict.verdict == "need_more_info" else []
                 ),
+                confirm_before_applying=(
+                    verdict.confirmations
+                    if verdict.verdict == "likely_eligible"
+                    else []
+                ),
                 documents=doc.sections.get("documents", ""),
                 how_to_apply=doc.sections.get("application", ""),
                 page_url=doc.page_url,

@@ -4,6 +4,7 @@ rules:
   - id: secc-priority-category
     kind: require
     self_declared: true
+    verify_hint: "Check your household in the Ayushman Bharat beneficiary list at mera.pmjay.gov.in, or call the PM-JAY helpline 14555, or ask an Ayushman Mitra at an empanelled hospital."
     when:
       any:
         - { field: is_pmjay_priority_category, op: eq, value: true }
