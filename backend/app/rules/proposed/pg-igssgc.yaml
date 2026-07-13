@@ -4,10 +4,11 @@ extraction:
   extracted_at: '2026-07-13'
   status: held-back-needs-rework
   source_url: https://www.myscheme.gov.in/schemes/pg-igssgc
-  hold_reason: The scheme's defining criterion (being the family's only/single girl child,
-    no brother) is entirely unencoded — only age and (previously) an invalid nationality proxy
-    were valid, which would show any young woman as eligible regardless of siblings. Needs
-    a has_brother-type field.
+  hold_reason: single_girl_child is now available and encodes the defining criterion, but
+    the scheme is POSTGRADUATE-specific (first-year master's course). The only existing study
+    proxy (is_post_matric_student) also covers class 11/12/diploma/UG, so requiring it would
+    show school-age single girl children as eligible for a PG scholarship — a broad false
+    entitlement. Needs a precise PG-course/level field before it can go live.
 rules:
 - id: age-max-30-at-admission
   kind: require

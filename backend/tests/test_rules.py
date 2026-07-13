@@ -1,6 +1,9 @@
 """Every rule in the repository is exercised in all three logic states, plus
 hand-written boundary tests for the verdict composition."""
 
+from collections import defaultdict
+from typing import get_args
+
 import pytest
 
 from app.agent.state import UserProfile
@@ -31,45 +34,79 @@ ALT_LITERAL = {
 }
 
 
-def _different_value(value: bool | int | str) -> bool | int | str:
+def _literal_members(field: str) -> tuple:
+    """Allowed values of a Literal-typed profile field, else ()."""
+    for arg in get_args(UserProfile.model_fields[field].annotation):
+        members = get_args(arg)
+        if members:
+            return members
+    return ()
+
+
+def _alternate(field: str, avoid: set) -> str:
+    """A valid value for `field` that is not in `avoid`. For a Literal field
+    that means a real member outside the set (so it evaluates False, not
+    unknown); for free-text a guaranteed-different sentinel."""
+    for member in _literal_members(field):
+        if member not in avoid:
+            return member
+    # ALT_LITERAL covers the common single-value case; sentinel otherwise.
+    single = next(iter(avoid))
+    return ALT_LITERAL.get(single, f"not-{single}")
+
+
+def _different_value(field: str, value: bool | int | str) -> bool | int | str:
     if isinstance(value, bool):
         return not value
     if isinstance(value, str):
-        return ALT_LITERAL.get(value, f"not-{value}")
+        return _alternate(field, {value})
     return value + 1
 
 
 def _leaf_updates(condition: Condition, satisfy: bool) -> dict:
-    value = condition.value
+    field, value = condition.field, condition.value
     match condition.op:
         case "eq":
-            return {condition.field: value if satisfy else _different_value(value)}
+            return {field: value if satisfy else _different_value(field, value)}
         case "ne":
             # holds (True) means actual != value: satisfy -> anything else,
             # not-satisfy -> exactly value. ne/None is untestable (can never
             # reach "failed" — see NOTES 2026-07-13) and must not reach here.
             if value is None:
                 raise AssertionError("ne with value=None has no failing state — fix the rule, not this helper")
-            return {condition.field: _different_value(value) if satisfy else value}
+            return {field: _different_value(field, value) if satisfy else value}
         case "gte":
-            return {condition.field: value if satisfy else value - 1}
+            return {field: value if satisfy else value - 1}
         case "lte":
-            return {condition.field: value if satisfy else value + 1}
+            return {field: value if satisfy else value + 1}
         case "lt":
-            return {condition.field: value - 1 if satisfy else value}
+            return {field: value - 1 if satisfy else value}
         case "gt":
-            return {condition.field: value + 1 if satisfy else value}
+            return {field: value + 1 if satisfy else value}
     raise AssertionError(f"unhandled op {condition.op}")
+
+
+def _fail_any(leaves: list[Condition]) -> dict:
+    """One value per field that makes every leaf false. Same-field eq leaves
+    (an OR over one field, e.g. disability categories) need a single value
+    outside the whole set, not the per-leaf alternate."""
+    eq_by_field: dict[str, set] = defaultdict(set)
+    updates: dict = {}
+    for leaf in leaves:
+        if leaf.field is not None and leaf.op == "eq" and isinstance(leaf.value, str):
+            eq_by_field[leaf.field].add(leaf.value)
+        else:
+            updates.update(_leaf_updates(leaf, False))
+    for field, avoid in eq_by_field.items():
+        updates[field] = _alternate(field, avoid)
+    return updates
 
 
 def profile_for(condition: Condition, satisfy: bool) -> UserProfile:
     if condition.any is not None:
         if satisfy:
             return UserProfile(**_leaf_updates(condition.any[0], True))
-        updates: dict = {}
-        for leaf in condition.any:
-            updates.update(_leaf_updates(leaf, False))
-        return UserProfile(**updates)
+        return UserProfile(**_fail_any(condition.any))
     if condition.all is not None:
         if satisfy:
             updates = {}
@@ -112,6 +149,44 @@ def test_rule_three_states(scheme_id: str, rule: Rule):
 
 def verdict(scheme_id: str, **facts) -> str:
     return evaluate_scheme(ALL_SCHEMES[scheme_id], UserProfile(**facts)).verdict
+
+
+def test_no_scheme_is_eligible_for_an_empty_profile():
+    """Core safety invariant: with nothing stated, no scheme may assert an
+    entitlement. Every scheme must resolve to need_more_info or not_eligible."""
+    empty = UserProfile()
+    leaked = [
+        sid
+        for sid, scheme in ALL_SCHEMES.items()
+        if evaluate_scheme(scheme, empty).verdict in ("eligible", "likely_eligible")
+    ]
+    assert not leaked, f"schemes eligible for empty profile: {leaked}"
+
+
+def test_every_scheme_has_at_least_one_require_rule():
+    """No all-exclusion scheme (which would be a universal 'yes')."""
+    missing = [
+        sid
+        for sid, scheme in ALL_SCHEMES.items()
+        if not any(rule.kind == "require" for rule in scheme.rules)
+    ]
+    assert not missing, f"schemes with no require rule: {missing}"
+
+
+def test_nfbs_needs_both_breadwinner_death_and_bpl():
+    assert verdict("nfbs", bereavement_event=True, has_bpl_card=True) == "likely_eligible"
+    assert verdict("nfbs", bereavement_event=False, has_bpl_card=True) == "not_eligible"
+    assert verdict("nfbs", bereavement_event=True) == "need_more_info"  # BPL unknown
+    assert verdict("nfbs") == "need_more_info"
+
+
+def test_vdcspds_needs_age_and_a_national_trust_act_category():
+    assert verdict("vdcspds", age=15, disability_type="autism") == "eligible"
+    assert verdict("vdcspds", age=15, disability_type="cerebral_palsy") == "eligible"
+    # "other" is a certified disability outside the four NT-Act categories.
+    assert verdict("vdcspds", age=15, disability_type="other") == "not_eligible"
+    assert verdict("vdcspds", age=8, disability_type="autism") == "not_eligible"
+    assert verdict("vdcspds", age=15) == "need_more_info"  # category unknown
 
 
 def test_ignwps_age_window_boundaries():
