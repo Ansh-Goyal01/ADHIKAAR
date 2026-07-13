@@ -12,8 +12,15 @@ export const GITHUB_URL = "https://github.com/Ansh-Goyal01/adhikaar";
 
 export const MYSCHEME_URL = "https://www.myscheme.gov.in";
 
-/** Derived from the generated catalog so copy can never drift from the data. */
-export const SCHEME_COUNT = schemes.length;
+/** Derived from the generated catalog so copy can never drift from the data.
+ * SCHEME_COUNT counts schemes the eligibility check actually decides (live,
+ * human-reviewed rules); CATALOG_COUNT counts everything browsable. The gap
+ * is the extraction review queue — never claim the bigger number for the check. */
+export const SCHEME_COUNT = schemes.filter(
+  (scheme) => scheme.rules.length > 0,
+).length;
+
+export const CATALOG_COUNT = schemes.length;
 
 export const RULE_COUNT = schemes.reduce(
   (total, scheme) => total + scheme.rules.length,

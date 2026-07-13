@@ -88,7 +88,7 @@ export function SchemeCatalog() {
         <EmptyState
           icon={SearchX}
           title="No schemes match"
-          body="Try a different word, or clear the filters — all 15 schemes will come back."
+          body="Try a different word, or clear the filters — every scheme will come back."
           action={
             <Button
               variant="secondary"
@@ -114,7 +114,14 @@ export function SchemeCatalog() {
                   <span className="font-serif text-lg leading-snug font-semibold">
                     {scheme.short_name}
                   </span>
-                  <Chip tone="neutral">{CATEGORY_LABELS[scheme.category] ?? scheme.category}</Chip>
+                  <span className="flex flex-wrap justify-end gap-1.5">
+                    {scheme.rules.length === 0 && (
+                      <Chip tone="info">Check coming soon</Chip>
+                    )}
+                    <Chip tone="neutral">
+                      {CATEGORY_LABELS[scheme.category] ?? scheme.category}
+                    </Chip>
+                  </span>
                 </div>
                 <p className="text-sm leading-snug text-muted-foreground">{scheme.name}</p>
                 <p className="line-clamp-3 text-sm leading-relaxed text-foreground/80">

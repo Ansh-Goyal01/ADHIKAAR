@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 import { SchemeCatalog } from "@/components/schemes/catalog";
 import { Container } from "@/components/site/container";
-import { SCHEME_COUNT } from "@/lib/site";
+import { CATALOG_COUNT, SCHEME_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Explore schemes",
-  description: `Browse the ${SCHEME_COUNT} central government welfare schemes Adhikaar covers — benefits, eligibility rules, documents, and official sources.`,
+  description: `Browse ${CATALOG_COUNT} central government welfare schemes — benefits, eligibility rules, documents, and official sources. ${SCHEME_COUNT} are covered by the eligibility check today.`,
 };
 
 export default function SchemesPage() {
@@ -17,9 +17,7 @@ export default function SchemesPage() {
           Explore the schemes
         </h1>
         <p className="leading-relaxed text-muted-foreground">
-          Every central scheme Adhikaar covers, with its benefits, the exact
-          eligibility rules we check, and links to the official source. Not sure
-          where to start? The eligibility check reads all of them for you.
+          {`Every central scheme documented here carries its benefits, official sources, and — for the ${SCHEME_COUNT} schemes the eligibility check decides today — the exact rules we check. Schemes marked "check coming soon" have machine-drafted rules awaiting human verification; we don't judge eligibility for them until a person has certified every rule.`}
         </p>
       </div>
       <SchemeCatalog />

@@ -61,6 +61,7 @@ export default async function SchemeDetailPage({
   const { schemeId } = await params;
   const scheme = getScheme(schemeId);
   if (!scheme) notFound();
+  const isCheckable = scheme.rules.length > 0;
 
   return (
     <Container className="flex max-w-3xl flex-col gap-10 py-10 sm:py-14">
@@ -78,19 +79,22 @@ export default async function SchemeDetailPage({
           {scheme.fetched_at && (
             <Chip tone="accent">
               <BadgeCheck aria-hidden="true" />
-              Verified against official text on {scheme.fetched_at}
+              Official text fetched {scheme.fetched_at}
             </Chip>
           )}
+          {!isCheckable && <Chip tone="info">Eligibility check coming soon</Chip>}
         </div>
         <h1 className="font-serif text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           {scheme.name}
         </h1>
         <p className="text-sm text-muted-foreground">{scheme.ministry}</p>
         <div className="flex flex-wrap gap-2 pt-1">
-          <ButtonLink href="/check">
-            Check if you qualify
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </ButtonLink>
+          {isCheckable && (
+            <ButtonLink href="/check">
+              Check if you qualify
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </ButtonLink>
+          )}
           <a
             href={scheme.page_url}
             target="_blank"
@@ -126,6 +130,23 @@ export default async function SchemeDetailPage({
       })}
 
       {/* The exact rules Adhikaar checks */}
+      {!isCheckable && (
+        <section
+          aria-label="Eligibility check status"
+          className="flex flex-col gap-2 rounded-xl border border-verdict-info-border bg-verdict-info-soft p-5"
+        >
+          <p className="text-sm leading-relaxed font-medium text-verdict-info">
+            The eligibility check doesn&rsquo;t decide this scheme yet.
+          </p>
+          <p className="text-sm leading-relaxed text-verdict-info">
+            Its rules have been drafted from the official text and are waiting
+            for human verification — we never judge eligibility from rules a
+            person hasn&rsquo;t certified. Until then, use the official page
+            below; the documented benefits and sources here are already drawn
+            from government text.
+          </p>
+        </section>
+      )}
       {scheme.rules.length > 0 && (
         <section aria-labelledby="section-rules" className="flex flex-col gap-3">
           <h2
@@ -199,7 +220,9 @@ export default async function SchemeDetailPage({
           Wondering if this applies to you?
         </p>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          {`Answer a few plain questions and we'll check this scheme — and the other ${SCHEME_COUNT - 1} — against the official rules.`}
+          {isCheckable
+            ? `Answer a few plain questions and we'll check this scheme — and the other ${SCHEME_COUNT - 1} the check covers — against the official rules.`
+            : `Answer a few plain questions and we'll check the ${SCHEME_COUNT} schemes the eligibility check covers today — this one joins them once its rules pass human review.`}
         </p>
         <ButtonLink href="/check">
           Check your eligibility
