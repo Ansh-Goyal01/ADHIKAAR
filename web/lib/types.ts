@@ -61,6 +61,15 @@ export interface UserProfile {
   is_vishwakarma_trade_artisan?: boolean | null;
   is_pregnant?: boolean | null;
   is_post_matric_student?: boolean | null;
+  single_girl_child?: boolean | null;
+  disability_type?:
+    | "autism"
+    | "cerebral_palsy"
+    | "intellectual_disability"
+    | "multiple_disabilities"
+    | "other"
+    | null;
+  bereavement_event?: boolean | null;
   notes?: string;
 }
 

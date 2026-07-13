@@ -47,10 +47,34 @@ class UserProfile(BaseModel):
     is_vishwakarma_trade_artisan: bool | None = None
     is_post_matric_student: bool | None = None
     is_pregnant: bool | None = None
+    # The applicant is the only girl child of the family (no brother; per scheme
+    # text, a girl with a brother is not a "single girl child").
+    single_girl_child: bool | None = None
+    # Disability category as enumerated in the National Trust Act 1999 / RPwD Act
+    # scheme text (Autism, Cerebral Palsy, Intellectual Disability, Multiple
+    # Disabilities); "other" for a certified disability outside those four.
+    disability_type: (
+        Literal[
+            "autism",
+            "cerebral_palsy",
+            "intellectual_disability",
+            "multiple_disabilities",
+            "other",
+        ]
+        | None
+    ) = None
+    # The family's primary breadwinner has died (National Family Benefit Scheme).
+    bereavement_event: bool | None = None
     notes: str = ""
 
     @field_validator(
-        "gender", "marital_status", "area", "social_category", "house_type", mode="before"
+        "gender",
+        "marital_status",
+        "area",
+        "social_category",
+        "house_type",
+        "disability_type",
+        mode="before",
     )
     @classmethod
     def _normalize_category(cls, value: object, info) -> object:

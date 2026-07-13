@@ -345,6 +345,15 @@ export const STEPS: StepDef[] = [
         help: "Maternity benefit schemes need this to check eligibility.",
       },
       {
+        key: "single_girl_child",
+        type: "yesno",
+        label: "Are you the only girl child in your family (no brother)?",
+        options: YES_NO_UNSURE,
+        condition: (a) => a.gender === "female",
+        whyWeAsk:
+          "A few scholarships are reserved for a family's single girl child. We only use this to check those, and nothing is stored.",
+      },
+      {
         key: "disability_percent",
         type: "number",
         label: "If you live with a disability, what percentage is on your certificate?",
@@ -354,6 +363,31 @@ export const STEPS: StepDef[] = [
         min: 0,
         max: 100,
         placeholder: "e.g. 80",
+      },
+      {
+        key: "disability_type",
+        type: "select",
+        label: "Which category is on the disability certificate?",
+        condition: (a) => Number(a.disability_percent) > 0,
+        optional: true,
+        whyWeAsk:
+          "Some disability schemes apply only to specific categories named in the National Trust Act. Leave this blank if you're not sure.",
+        options: [
+          { value: "", label: "Prefer not to say / not sure" },
+          { value: "autism", label: "Autism" },
+          { value: "cerebral_palsy", label: "Cerebral palsy" },
+          { value: "intellectual_disability", label: "Intellectual disability" },
+          { value: "multiple_disabilities", label: "Multiple disabilities" },
+          { value: "other", label: "Another disability" },
+        ],
+      },
+      {
+        key: "bereavement_event",
+        type: "yesno",
+        label: "Has the main earner of your family passed away?",
+        options: YES_NO_UNSURE,
+        whyWeAsk:
+          "The National Family Benefit Scheme gives a one-time payment to a poor family whose primary breadwinner has died. We ask only to check that scheme.",
       },
       {
         key: "is_pmjay_priority_category",
@@ -437,6 +471,13 @@ export function answersToProfile(answers: Answers): UserProfile {
     is_vishwakarma_trade_artisan: toBool(answers.is_vishwakarma_trade_artisan),
     is_post_matric_student: toBool(answers.is_post_matric_student),
     is_pregnant: toBool(answers.is_pregnant),
+    single_girl_child: toBool(answers.single_girl_child),
+    // Free-form category string; the backend normalizes/validates it, mapping
+    // any unrecognized value to null ("not stated").
+    disability_type: answers.disability_type
+      ? (String(answers.disability_type) as UserProfile["disability_type"])
+      : null,
+    bereavement_event: toBool(answers.bereavement_event),
   };
 }
 

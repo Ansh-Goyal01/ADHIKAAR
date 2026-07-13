@@ -62,6 +62,9 @@ has_vending_certificate_or_lor: bool — holds a Certificate of Vending, vendor 
 is_vishwakarma_trade_artisan: bool — self-employed artisan in one of the 18 Vishwakarma trades
 is_post_matric_student: bool — studying beyond class 10 at a recognized institution
 is_pregnant: bool — the person is currently pregnant
+single_girl_child: bool — the applicant is the only girl child in the family (no brother)
+disability_type: one of autism|cerebral_palsy|intellectual_disability|multiple_disabilities|other
+bereavement_event: bool — the family's primary breadwinner has died
 """
 
 # `notes` is free text the engine never tests; excluded from the vocabulary.

@@ -84,6 +84,10 @@ Rules:
   - is_post_matric_student: studying beyond class 10 (class 11/12, diploma, UG, PG) at a
     recognized institution.
   - is_pregnant: the person is currently pregnant.
+  - single_girl_child: the applicant is the only girl child in the family (no brother).
+  - disability_type: the certified disability CATEGORY, if stated — one of "autism",
+    "cerebral_palsy", "intellectual_disability", "multiple_disabilities", or "other".
+  - bereavement_event: the family's primary breadwinner (main earner) has died.
   - daughter_age: age of the person's (youngest relevant) daughter, if mentioned.
 - is_enough_to_assess: true if the description gives at least a broad picture
   (some of: age, occupation, income, family situation). false only if it is too
