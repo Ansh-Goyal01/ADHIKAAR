@@ -42,3 +42,7 @@ simplifications:
 - 'Official exclusion not yet encoded: persons who availed credit-based self-employment schemes
   (e.g. PMEGP, PM SVANidhi, Mudra) in the past 5 years.'
 - The one-registration-per-family restriction is not modeled.
+- 'The govt-service exclusion covers the applicant AND family: the wizard ask ("Are
+  you or any family member...") captures self despite the field name saying family
+  member (2026-07-14 semantic audit flag refuted at the wizard layer, certified;
+  vocabulary description aligned).'

@@ -54,3 +54,10 @@ rules:
   source_url: https://www.myscheme.gov.in/schemes/pmay-g
   ask: Is any member of your household a government employee?
   review_status: verified
+simplifications:
+- 'Not modeled: houseless households are in the eligible universe regardless of
+  area, but the rural-household rule denies urban houseless applicants (2026-07-14
+  semantic audit, certified: kept — needs a houseless profile field to model).'
+- 'Not modeled: the more-than-2-rooms filter — kutcha-house rule tests wall/roof
+  type only; the wizard ask mentions "up to 2 rooms" but the engine cannot test
+  room count (2026-07-14 semantic audit, certified: kept).'

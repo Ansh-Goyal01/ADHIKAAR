@@ -69,3 +69,7 @@ simplifications:
 - 'Not modeled: award scholarships to eligible domiciled students.'
 - 'Not modeled: Divyang (Disabled) students are eligible for an additional allowance equal
   to 10% of the applicable academic allowance.'
+- 'Framing note: the clause speaks of supporting PARENTS of Scheduled Caste children;
+  the rules test the wizard applicant''s own social_category and student status, so
+  a parent filling the wizard for their child answers as the child (2026-07-14
+  semantic audit, certified: kept — the report wording addresses the child).'

@@ -25,3 +25,14 @@ rules:
   ask: Do you have a Certificate of Vending, a ULB vendor ID card, a survey listing, or a
     Letter of Recommendation?
   review_status: verified
+simplifications:
+- 'Vending must occur within ULB geographical limits, but residence area is
+  deliberately NOT required: the official text makes peri-urban/RURAL-resident
+  vendors eligible with a ULB/TVC-issued LoR, so the urban nexus is carried by
+  the ULB-issued certificate/survey/LoR requirement instead. A require area=urban
+  rule would wrongly deny them (2026-07-14 semantic audit flag refuted against
+  the official text, certified).'
+- 'Survey-identified vendors without a Certificate of Vending are eligible per
+  the official text; the wizard ask includes "a survey listing" so they can
+  answer yes, but the field name (has_vending_certificate_or_lor) undersells
+  this — vocabulary description updated to match (2026-07-14, certified).'

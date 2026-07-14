@@ -55,3 +55,8 @@ simplifications:
   M.Phil or PhD levels abroad for the [listed courses](https://socialjustice.gov.in/writereaddata/UploadFile/Guidelines%20ISEL%20Scheme%20(wef%2001%20Oct%202017).pdf).'
 - 'Not modeled: The applicant should have availed loan from a scheduled bank under the Education
   Loan Scheme of the Indian Banks Association (IBA) for the purpose.'
+- 'Not modeled: Economically Backward Classes (EBCs) also qualify, but the closed
+  social_category vocabulary (general/sc/st/obc/minority) cannot express EBC, so
+  the social-category rule admits OBC only — EBC applicants are wrongly denied
+  (2026-07-14 semantic audit, certified: kept — needs an ebc category or income-based
+  route, a schema decision).'

@@ -47,7 +47,7 @@ has_bank_account: bool — holds an individual bank/post-office account
 pays_income_tax: bool — person or family member paid income tax
 is_student: bool — currently studying
 daughter_age: int — age of the (youngest relevant) daughter
-family_member_in_govt_service: bool — any family member holds a government job
+family_member_in_govt_service: bool — the applicant or any family member holds a government job
 receives_govt_pension_over_10k: bool — family member draws govt pension above Rs 10,000/month
 holds_constitutional_or_political_post: bool — self/family holds(-held) constitutional/elected post
 is_practicing_registered_professional: bool — self/family is a registered practicing professional
@@ -58,7 +58,7 @@ owns_motorized_vehicle: bool — household owns a motorised 2/3/4-wheeler or fis
 is_pmjay_priority_category: bool — household matches an SECC deprivation/occupational category
 has_lpg_connection: bool — household already has an LPG connection
 is_street_vendor: bool — sells goods/services from a cart/stall/public space
-has_vending_certificate_or_lor: bool — holds a Certificate of Vending, vendor ID, or LoR
+has_vending_certificate_or_lor: bool — holds a Certificate of Vending or vendor ID, is listed in the ULB vending survey, or holds a LoR
 is_vishwakarma_trade_artisan: bool — self-employed artisan in one of the 18 Vishwakarma trades
 is_post_matric_student: bool — studying beyond class 10 at a recognized institution
 is_pregnant: bool — the person is currently pregnant
