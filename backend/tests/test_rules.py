@@ -289,6 +289,14 @@ def test_pmuy_male_applicant_not_eligible():
     assert verdict("pmuy", gender="male", age=30, has_bpl_card=True, has_lpg_connection=False) == "not_eligible"
 
 
+def test_pmegp_low_income_adult_is_not_denied():
+    """Regression for the removed viii-standard rule: it bound the clause's
+    PROJECT COST to family income and flattened its conditional into an income
+    floor, denying everyone under ₹5 lakh. Low income must never deny PMEGP."""
+    assert verdict("pmegp", age=45, occupation="farmer", annual_family_income_inr=80000) == "eligible"
+    assert verdict("pmegp", age=17, occupation="farmer", annual_family_income_inr=80000) == "not_eligible"
+
+
 def test_missing_fact_yields_need_more_info_with_ask():
     result = evaluate_scheme(
         ALL_SCHEMES["nsap-ignoaps"], UserProfile(age=65)  # BPL status unknown

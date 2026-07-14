@@ -1,5 +1,5 @@
 scheme_id: pmegp
-version: '2026-07-13'
+version: '2026-07-14'
 rules:
 - id: age-at-least-18
   kind: require
@@ -12,32 +12,6 @@ rules:
   clause: 1. Any individual, above 18 years of age.
   source_url: https://www.myscheme.gov.in/schemes/pmegp
   ask: How old are you?
-  self_declared: false
-  verify_hint: ''
-  review_status: verified
-- id: viii-standard-pass-for-higher-projects
-  kind: require
-  when:
-    field: null
-    op: null
-    value: null
-    any:
-    - field: annual_family_income_inr
-      op: gt
-      value: 1000000
-      any: null
-      all: null
-    - field: annual_family_income_inr
-      op: gt
-      value: 500000
-      any: null
-      all: null
-    all: null
-  clause: 3. For setting up of project costing above Rs.10 lakh in the Manufacturing sector
-    and above ₹ 5,00,000 in the Business /Service sector, the beneficiaries should possess
-    at least VIII standard pass educational qualification.
-  source_url: https://www.myscheme.gov.in/schemes/pmegp
-  ask: Do you have at least an VIII standard pass for projects above 10 lakh or 5 lakh?
   self_declared: false
   verify_hint: ''
   review_status: verified
@@ -78,7 +52,10 @@ rules:
 simplifications:
 - State-specific notifications and enrollment windows
 - Document formalities for applying to PMEGP
-- 'Not modeled: VIII standard pass educational qualification'
+- 'Not modeled: VIII standard pass educational qualification (a mis-encoded rule for
+  this clause — project cost bound to family income, conditional flattened into an
+  income floor — was removed 2026-07-14; needs a project_cost_inr field to model
+  honestly)'
 - 'Not modeled: Existing subsidies or schemes'
 - 'Not modeled: Margin money adjustment status'
 - 'Not modeled: Loan repayment status'
