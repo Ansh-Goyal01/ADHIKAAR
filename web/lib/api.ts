@@ -12,13 +12,16 @@ export class ApiError extends Error {
 export async function assess(
   message: string,
   profile: UserProfile | null,
+  lang: string = "en",
 ): Promise<AssessResponse> {
   let response: Response;
   try {
     response = await fetch(`${API_URL}/api/assess`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, profile }),
+      // lang translates PROSE only, server-side at the edge; verdicts, scheme
+      // names, amounts, and citations are language-invariant.
+      body: JSON.stringify({ message, profile, lang }),
     });
   } catch {
     throw new ApiError(

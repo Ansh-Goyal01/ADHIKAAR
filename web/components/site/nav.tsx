@@ -6,18 +6,21 @@ import { usePathname } from "next/navigation";
 import { Menu, ScrollText, X } from "lucide-react";
 
 import { Container } from "@/components/site/container";
+import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { ButtonLink } from "@/components/ui/button";
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/schemes", label: "Explore schemes" },
-  { href: "/about", label: "About" },
+  { href: "/how-it-works", key: "nav.howItWorks" },
+  { href: "/schemes", key: "nav.exploreSchemes" },
+  { href: "/about", key: "nav.about" },
 ];
 
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const t = useT();
 
   return (
     <header className="print-hidden sticky top-0 z-40 border-b border-border bg-background">
@@ -32,7 +35,7 @@ export function SiteNav() {
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
-          {LINKS.map(({ href, label }) => (
+          {LINKS.map(({ href, key }) => (
             <Link
               key={href}
               href={href}
@@ -42,23 +45,25 @@ export function SiteNav() {
                 pathname === href && "text-foreground",
               )}
             >
-              {label}
+              {t(key)}
             </Link>
           ))}
+          <LanguageSwitcher className="ml-1" />
           <ButtonLink href="/check" className="ml-2">
-            Check eligibility
+            {t("nav.checkEligibility")}
           </ButtonLink>
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher />
           <ButtonLink href="/check" size="sm">
-            Check eligibility
+            {t("nav.checkEligibility")}
           </ButtonLink>
           <button
             type="button"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
             onClick={() => setOpen((v) => !v)}
             className="flex size-10 items-center justify-center rounded-lg text-foreground transition-colors duration-150 hover:bg-muted"
           >
@@ -78,7 +83,7 @@ export function SiteNav() {
           className="border-t border-border bg-background md:hidden"
         >
           <Container className="flex flex-col gap-1 py-3">
-            {LINKS.map(({ href, label }) => (
+            {LINKS.map(({ href, key }) => (
               <Link
                 key={href}
                 href={href}
@@ -86,7 +91,7 @@ export function SiteNav() {
                 onClick={() => setOpen(false)}
                 className="rounded-md px-3 py-2.5 text-base text-foreground transition-colors duration-150 hover:bg-muted"
               >
-                {label}
+                {t(key)}
               </Link>
             ))}
           </Container>

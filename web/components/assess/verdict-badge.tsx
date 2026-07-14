@@ -1,36 +1,36 @@
+"use client";
+
 import { CheckCircle2, CircleDashed, HelpCircle, MinusCircle } from "lucide-react";
 
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { Verdict } from "@/lib/types";
 
-const VERDICT_STYLES: Record<
-  Verdict,
-  { label: string; className: string; Icon: typeof CheckCircle2 }
-> = {
+// The verdict ENUM is canonical and language-invariant; only its display
+// label is localized (via the verdicts.* dictionary keys).
+const VERDICT_STYLES: Record<Verdict, { className: string; Icon: typeof CheckCircle2 }> = {
   eligible: {
-    label: "You appear eligible",
     className: "border-verdict-yes-border bg-verdict-yes-soft text-verdict-yes",
     Icon: CheckCircle2,
   },
   likely_eligible: {
-    label: "Likely eligible",
     className: "border-verdict-yes-border bg-verdict-yes-soft text-verdict-yes",
     Icon: CircleDashed,
   },
   need_more_info: {
-    label: "Needs one more detail",
     className: "border-verdict-info-border bg-verdict-info-soft text-verdict-info",
     Icon: HelpCircle,
   },
   not_eligible: {
-    label: "Not eligible for this one",
     className: "border-verdict-no-border bg-verdict-no-soft text-verdict-no",
     Icon: MinusCircle,
   },
 };
 
 export function VerdictBadge({ verdict }: { verdict: Verdict }) {
-  const { label, className, Icon } = VERDICT_STYLES[verdict];
+  const t = useT();
+  const { className, Icon } = VERDICT_STYLES[verdict];
+  const label = t(`verdicts.${verdict}`);
   return (
     <span
       className={cn(

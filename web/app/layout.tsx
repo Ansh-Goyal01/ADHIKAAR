@@ -6,6 +6,8 @@ import "./globals.css";
 import { SiteFooter } from "@/components/site/footer";
 import { SiteNav } from "@/components/site/nav";
 import { ToastProvider } from "@/components/ui/toast";
+import { LanguageProvider } from "@/lib/i18n";
+import { SkipLink } from "@/components/site/skip-link";
 import { SCHEME_COUNT } from "@/lib/site";
 
 const inter = Inter({
@@ -35,19 +37,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable} h-full`}>
       <body className="flex min-h-full flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2.5 focus:text-sm focus:font-medium focus:text-primary-foreground"
-        >
-          Skip to content
-        </a>
-        <ToastProvider>
-          <SiteNav />
-          <main id="main" className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-        </ToastProvider>
+        <LanguageProvider>
+          <SkipLink />
+          <ToastProvider>
+            <SiteNav />
+            <main id="main" className="flex-1">
+              {children}
+            </main>
+            <SiteFooter />
+          </ToastProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

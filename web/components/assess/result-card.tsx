@@ -4,8 +4,10 @@ import { useState } from "react";
 import { ChevronDown, ExternalLink, FileText, Landmark } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { ReadAloud } from "@/components/ui/read-aloud";
 import type { SchemeResult } from "@/lib/types";
 import { CitationChip } from "./citation-chip";
 import { VerdictBadge } from "./verdict-badge";
@@ -50,6 +52,16 @@ function Expandable({
 }
 
 export function ResultCard({ result }: { result: SchemeResult }) {
+  const t = useT();
+  // Read-aloud covers the decision content of this card: verdict label,
+  // summary, and every reason — in the user's language.
+  const spokenText = [
+    result.scheme_name,
+    t(`verdicts.${result.verdict}`),
+    result.summary,
+    ...result.reasons.map((r) => r.text),
+    ...(result.confirm_before_applying ?? []),
+  ].join(". ");
   return (
     <Card className="border-border bg-card shadow-xs">
       <CardHeader className="gap-2">
@@ -57,7 +69,10 @@ export function ResultCard({ result }: { result: SchemeResult }) {
           <h3 className="font-serif text-lg leading-snug font-semibold">
             {result.scheme_name}
           </h3>
-          <VerdictBadge verdict={result.verdict} />
+          <span className="flex items-center gap-1">
+            <VerdictBadge verdict={result.verdict} />
+            <ReadAloud text={spokenText} />
+          </span>
         </div>
         <p className="text-[15px] leading-relaxed text-foreground">{result.summary}</p>
       </CardHeader>
@@ -65,7 +80,7 @@ export function ResultCard({ result }: { result: SchemeResult }) {
         {result.reasons.length > 0 && (
           <div>
             <h4 className="mb-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-              Why — grounded in the official text
+              {t("card.why")}
             </h4>
             <ul className="space-y-3">
               {result.reasons.map((reason, i) => (
@@ -84,17 +99,14 @@ export function ResultCard({ result }: { result: SchemeResult }) {
 
         {result.missing_info.length > 0 && (
           <div className="rounded-lg bg-verdict-info-soft p-3 text-sm leading-relaxed text-verdict-info">
-            <span className="font-medium">To be sure, confirm: </span>
+            <span className="font-medium">{t("card.confirm")}</span>
             {result.missing_info.join(" · ")}
           </div>
         )}
 
         {(result.confirm_before_applying?.length ?? 0) > 0 && (
           <div className="rounded-lg bg-verdict-info-soft p-3 text-sm leading-relaxed text-verdict-info">
-            <p className="font-medium">
-              Before you apply — this verdict rests on facts the office will
-              verify:
-            </p>
+            <p className="font-medium">{t("card.beforeApply")}</p>
             <ul className="mt-1.5 list-disc space-y-1 pl-5">
               {result.confirm_before_applying!.map((step) => (
                 <li key={step}>{step}</li>
@@ -105,7 +117,7 @@ export function ResultCard({ result }: { result: SchemeResult }) {
 
         {result.documents && (
           <Expandable
-            title="Documents you'll need"
+            title={t("card.documents")}
             icon={<FileText className="size-4 text-accent" aria-hidden="true" />}
           >
             <ReactMarkdown>{result.documents}</ReactMarkdown>
@@ -113,7 +125,7 @@ export function ResultCard({ result }: { result: SchemeResult }) {
         )}
         {result.how_to_apply && (
           <Expandable
-            title="How to apply"
+            title={t("card.howToApply")}
             icon={<Landmark className="size-4 text-accent" aria-hidden="true" />}
           >
             <ReactMarkdown>{result.how_to_apply}</ReactMarkdown>
@@ -127,7 +139,7 @@ export function ResultCard({ result }: { result: SchemeResult }) {
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-xs font-medium text-accent underline-offset-2 hover:underline"
           >
-            Official scheme page <ExternalLink className="size-3" aria-hidden="true" />
+            {t("card.officialPage")} <ExternalLink className="size-3" aria-hidden="true" />
           </a>
           {result.references.slice(0, 2).map((ref) => (
             <a
