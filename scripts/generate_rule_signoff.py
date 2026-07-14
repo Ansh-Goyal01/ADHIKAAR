@@ -18,10 +18,38 @@ ROOT = Path(__file__).resolve().parent.parent
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
 PROPOSED_DIR = ROOT / "backend" / "app" / "rules" / "proposed"
 CORPUS_DIR = ROOT / "data" / "corpus"
+AUDIT_RESULTS_DIR = ROOT / "backend" / "evals" / "results"
 OUT = ROOT / "obsidian-vault" / "03-Rules-as-code" / "Rule-Sign-off-Checklist.md"
 QUEUE_OUT = ROOT / "obsidian-vault" / "03-Rules-as-code" / "Review-Queue.md"
 
 STATUS_LABEL = {"encoded": "☐ encoded — awaiting sign-off", "verified": "✅ verified"}
+
+
+def latest_semantic_audit() -> dict:
+    """Per-rule findings from the newest semantic-audit artifact, or {} if none.
+
+    Keyed (scheme_id, rule_id). The audit is a generated suspicion layer — the
+    checklist renders it beside each encoded condition so the signer reviews
+    the condition's LOGIC, not just the clause text (the PMEGP lesson)."""
+    artifacts = sorted(AUDIT_RESULTS_DIR.glob("semantic-audit-*.json"))
+    if not artifacts:
+        return {}
+    artifact = json.loads(artifacts[-1].read_text(encoding="utf-8"))
+    return {
+        (scheme_id, finding["rule_id"]): finding
+        for scheme_id, findings in artifact["schemes"].items()
+        for finding in findings
+    }
+
+
+def semantic_cell(finding: dict | None) -> str:
+    if finding is None:
+        return "—"
+    if finding["verdict"] == "faithful":
+        return "✓ faithful"
+    marker = "🚨" if finding["failure_direction"] == "false_entitlement" else "🚩"
+    reason = " ".join(finding["reason"].split()).replace("|", "\\|")
+    return f"{marker} {finding['mismatch_type']} — {reason}"
 
 
 def condition_text(when: dict) -> str:
@@ -68,22 +96,37 @@ def main() -> None:
         "the site's limitations page must say rules are machine-encoded and tested "
         "but pending certification.",
         "",
-        "How to check one rule (~2 min): open the source URL, find the clause, "
-        "confirm (1) the quoted clause matches the official text, (2) the encoded "
-        "condition captures it — thresholds exact, direction right (require vs "
-        "exclude), (3) facts the person can't reliably self-report are marked "
+        "How to check one rule (~2 min): open the source URL, find the clause, then",
+        "",
+        "1. **Clause text** — the quoted clause matches the official text verbatim.",
+        "2. **CONDITION LOGIC** — the encoded condition captures the clause's *logic*, "
+        "not just its topic: the profile **field means what the clause tests** (not a "
+        "look-alike binding — PMEGP once bound *project cost* to *family income*), the "
+        "**operator/threshold** are exact and point the right way, an **IF-THEN clause "
+        "is not flattened** into a bare requirement, **OR-alternatives are `any_of`** "
+        "(not stacked requires), and disqualifiers are `exclude`, not `require`.",
+        "3. **Self-declared** — facts the person can't reliably self-report are marked "
         "`self_declared`.",
+        "",
+        "> [!warning] Clause-verbatim review alone is NOT sufficient. A rule can quote "
+        "> the clause perfectly while encoding different logic — that is exactly how "
+        "> the PMEGP defect shipped as `verified`. Step 2 is the one that catches it; "
+        "> the *semantic check* column ([[Condition-Semantics-Audit]]) is an "
+        "> independent-family LLM's opinion on step 2, rendered beside each rule.",
         "",
     ]
 
+    audit = latest_semantic_audit()
     for scheme in schemes:
         sid = scheme["scheme_id"]
         simplifications = scheme.get("simplifications") or []
         lines += [
             f"## {scheme_name(sid)} (`{sid}`, rules v{scheme['version']})",
             "",
-            "| # | rule | kind | encoded condition | official clause (as encoded) | status |",
-            "|---|------|------|-------------------|------------------------------|--------|",
+            "| # | rule | kind | **ENCODED CONDITION** | semantic check | "
+            "official clause (as encoded) | status |",
+            "|---|------|------|-----------------------|----------------|"
+            "------------------------------|--------|",
         ]
         for i, rule in enumerate(scheme["rules"], 1):
             clause = " ".join(rule["clause"].split())
@@ -91,7 +134,8 @@ def main() -> None:
             status = STATUS_LABEL[rule.get("review_status", "encoded")]
             lines.append(
                 f"| {i} | `{rule['id']}`{flags} | {rule['kind']} | "
-                f"{condition_text(rule['when'])} | {clause} "
+                f"**{condition_text(rule['when'])}** | "
+                f"{semantic_cell(audit.get((sid, rule['id'])))} | {clause} "
                 f"([source]({rule['source_url']})) | {status} |"
             )
         lines.append("")

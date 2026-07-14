@@ -31,6 +31,11 @@ class Settings(BaseSettings):
     # Faithfulness judge runs on a separate model: its own free-tier quota bucket,
     # and it reduces self-preference when judging the 70B generator's claims.
     groq_judge_model: str = "llama-3.1-8b-instant"
+    # Condition-semantics auditor must be family-independent from BOTH rule
+    # extractors (Gemini primary, Llama fallback) — an extractor family judging
+    # its own structural rewrites is the self-preference risk the audit exists
+    # to remove.
+    semantic_audit_model: str = "openai/gpt-oss-20b"
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     # Local ONNX cross-encoder for reranking (free, CPU, ~80MB on disk).
     reranker_model: str = "Xenova/ms-marco-MiniLM-L-6-v2"
