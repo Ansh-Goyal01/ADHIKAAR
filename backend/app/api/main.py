@@ -11,6 +11,7 @@ from fastapi.responses import JSONResponse
 from app.agent.graph import run_assessment
 from app.agent.nodes import corpus_by_id
 from app.api.schemas import AssessRequest, AssessResponse, SchemeSummary
+from app.i18n.translate import to_english, translate_response
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 logger = logging.getLogger("adhikaar.api")
@@ -85,8 +86,11 @@ def assess(request: AssessRequest) -> AssessResponse:
     and send their reply together with the returned `profile`.
     """
     prior = request.profile.model_dump(exclude_none=True) if request.profile else None
+    # Inbound edge: free text → canonical English. The engine and extractor
+    # never see the user's language; structured profile fields pass untouched.
+    message = to_english(request.message, request.lang)
     try:
-        state = run_assessment(request.message, prior, engine=request.engine)
+        state = run_assessment(message, prior, engine=request.engine)
     except Exception:
         logger.exception("assessment pipeline failed")
         raise HTTPException(
@@ -94,9 +98,12 @@ def assess(request: AssessRequest) -> AssessResponse:
             detail="We couldn't complete the assessment right now. Please try again.",
         ) from None
 
-    return AssessResponse(
+    response = AssessResponse(
         status=state["status"],
         question=state.get("question"),
         profile=state["profile"],
         results=state.get("results", []),
     )
+    # Outbound edge: prose → user's language. Verdicts, scheme names, amounts,
+    # URLs, and citations are language-invariant by construction.
+    return translate_response(response, request.lang)

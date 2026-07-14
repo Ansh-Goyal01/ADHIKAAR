@@ -28,6 +28,14 @@ class AssessRequest(BaseModel):
         description="Override the decider: deterministic rules engine (default) or "
         "LLM-only baseline (kept for comparison).",
     )
+    lang: str = Field(
+        default="en",
+        max_length=8,
+        description="Report language (BCP-47 primary subtag, e.g. 'hi'). The "
+        "engine always reasons in canonical English; only free-text input and "
+        "report prose are translated. Verdicts, scheme names, amounts, and "
+        "citations are language-invariant.",
+    )
 
 
 class AssessResponse(BaseModel):

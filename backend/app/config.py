@@ -36,6 +36,12 @@ class Settings(BaseSettings):
     # its own structural rewrites is the self-preference risk the audit exists
     # to remove.
     semantic_audit_model: str = "openai/gpt-oss-20b"
+    # Translation at the edges (app/i18n/translate.py): "llm" (default — the
+    # existing free-tier Gemini→Groq plumbing, disk-cached), "indictrans2"
+    # (local AI4Bharat model, offline, optional heavy deps), or "bhashini"
+    # (govt API, needs BHASHINI_API_KEY).
+    translation_provider: str = "llm"
+    bhashini_api_key: str = ""
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     # Local ONNX cross-encoder for reranking (free, CPU, ~80MB on disk).
     reranker_model: str = "Xenova/ms-marco-MiniLM-L-6-v2"
