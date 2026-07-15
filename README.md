@@ -1,5 +1,7 @@
 # Adhikaar
 
+> **🚧 Work in progress.** This is under active development and not yet production-ready. Core pipeline (rules engine, retrieval, eval harness) is working end-to-end; multilingual support (Hindi + 9 regional languages) is mid-rollout. Expect rough edges and breaking changes.
+
 **A verifiable public-benefit reasoning engine for Indian welfare schemes.**
 
 Describe your situation in plain language — *"I'm a 45-year-old widow in rural Bihar with a BPL card"* — and Adhikaar tells you which central government welfare schemes you're eligible for, **why**, what documents you need, and how to apply. Every eligibility claim is grounded in and cited to official scheme text.
@@ -125,7 +127,8 @@ Open http://localhost:3000. Run the tests with `uv run pytest` (backend/).
 - **Self-reported facts.** BPL/SECC list membership can't be verified from a conversation; such verdicts are explicitly conditional (*likely eligible*).
 - **Simplified rules.** Some rarely-triggered exclusions aren't encoded (e.g. PM-KISAN's constitutional-post holders); PMJAY's ₹10k/month exclusion is approximated from annual income. Every simplification is listed in the rule sign-off notes.
 - **PMS-SC provenance.** The official guidelines PDF is a scan; its corpus text is a Gemini transcription cross-checked against the department's pages — flagged for clause-level human verification.
-- **English only**, small eval set (counts, not significance claims), and the faithfulness judge shares a model family with the Phase-1 generator (noted bias risk).
+- **Multilingual UI in progress.** Hindi is fully validated end-to-end; 9 more Indic languages (Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu) are machine-translated and being reviewed for parity.
+- Small eval set (counts, not significance claims), and the faithfulness judge shares a model family with the Phase-1 generator (noted bias risk).
 - **Not legal advice.** Final decisions always rest with the implementing authorities.
 
 ## License & data

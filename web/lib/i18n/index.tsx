@@ -9,12 +9,33 @@
 import * as React from "react";
 
 import { DEFAULT_LANG, LANG_STORAGE_KEY, enabledLanguages, LANGUAGES } from "./config";
+import { bn, bnWizard } from "./locales/bn";
 import { en, type UiDict } from "./locales/en";
+import { gu, guWizard } from "./locales/gu";
 import { hi, hiWizard } from "./locales/hi";
+import { kn, knWizard } from "./locales/kn";
+import { ml, mlWizard } from "./locales/ml";
+import { mr, mrWizard } from "./locales/mr";
+import { or, orWizard } from "./locales/or";
+import { pa, paWizard } from "./locales/pa";
+import { ta, taWizard } from "./locales/ta";
+import { te, teWizard } from "./locales/te";
 import type { WizardOverlay } from "./overlay";
 
-const UI_DICTS: Record<string, UiDict> = { en, hi };
-const WIZARD_OVERLAYS: Record<string, WizardOverlay | null> = { en: null, hi: hiWizard };
+const UI_DICTS: Record<string, UiDict> = { en, hi, bn, mr, te, ta, gu, kn, ml, pa, or };
+const WIZARD_OVERLAYS: Record<string, WizardOverlay | null> = {
+  en: null,
+  hi: hiWizard,
+  bn: bnWizard,
+  mr: mrWizard,
+  te: teWizard,
+  ta: taWizard,
+  gu: guWizard,
+  kn: knWizard,
+  ml: mlWizard,
+  pa: paWizard,
+  or: orWizard,
+};
 
 interface LanguageContextValue {
   lang: string;
