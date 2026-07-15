@@ -69,10 +69,18 @@ class TranslationProvider(Protocol):
     def translate_batch(self, texts: list[str], target: str) -> list[str]: ...
 
 
+class _IndexedTranslation(BaseModel):
+    i: int
+    text: str
+
+
 class _TranslationBatch(BaseModel):
-    translations: list[str]
+    translations: list[_IndexedTranslation]
 
 
+# Inputs and outputs are INDEXED because an LLM may return a batch shuffled —
+# a mere count check once let a scheme's how-to-apply land in a reason slot.
+# The index makes alignment provable instead of assumed.
 _LLM_PROMPT = """Translate the following English texts to {language} for a government
 welfare-scheme eligibility report read by ordinary citizens.
 
@@ -84,9 +92,10 @@ Rules — these protect legally meaningful content:
 - Keep markdown structure (headings, lists, links, bold) exactly.
 - Plain, warm, respectful register (in Hindi use the आप form). Prefer everyday
   words over bureaucratic ones. Do not add, drop, or soften any condition.
-- Return exactly {n} translations, in the same order as the inputs.
+- Return one object per input as {{"i": <its index>, "text": "<translation>"}} —
+  every index exactly once, {n} in total.
 
-Input texts (JSON array):
+Input texts (JSON array of [index, text] pairs):
 {texts_json}
 """
 
@@ -101,19 +110,21 @@ class LLMTranslationProvider:
 
         from app.llm.router import generate_structured_resilient
 
-        def _count_ok(result: _TranslationBatch) -> None:
-            if len(result.translations) != len(texts):
+        def _indices_ok(result: _TranslationBatch) -> None:
+            got = sorted(t.i for t in result.translations)
+            if got != list(range(len(texts))):
                 raise ValueError(
-                    f"expected {len(texts)} translations, got {len(result.translations)}"
+                    f"expected indices 0..{len(texts) - 1} exactly once, got {got}"
                 )
 
         prompt = _LLM_PROMPT.format(
             language=SUPPORTED_LANGUAGES[target],
             n=len(texts),
-            texts_json=json.dumps(texts, ensure_ascii=False),
+            texts_json=json.dumps(list(enumerate(texts)), ensure_ascii=False),
         )
-        result = generate_structured_resilient(prompt, _TranslationBatch, validate=_count_ok)
-        return result.translations
+        result = generate_structured_resilient(prompt, _TranslationBatch, validate=_indices_ok)
+        by_index = {t.i: t.text for t in result.translations}
+        return [by_index[i] for i in range(len(texts))]
 
 
 class IndicTrans2Provider:
@@ -260,11 +271,12 @@ def to_english(text: str, source: str) -> str:
 
             prompt = (
                 f"Translate this {SUPPORTED_LANGUAGES.get(source, source)} text to English, "
-                "preserving all numbers, amounts, and names exactly:\n"
+                "preserving all numbers, amounts, and names exactly. Return one object "
+                'as {"i": 0, "text": "<the English translation>"}:\n'
                 f"{json.dumps([text], ensure_ascii=False)}"
             )
             result = generate_structured_resilient(prompt, _TranslationBatch)
-            english = result.translations[0]
+            english = result.translations[0].text
         else:  # pragma: no cover — provider-dependent
             english = provider.translate_batch([text], "en")[0]
     except Exception:  # noqa: BLE001 — pass through rather than fail the request

@@ -1,6 +1,5 @@
 """Translation-at-the-edges: verdict invariance and canonical-value protection."""
 
-from unittest.mock import patch
 
 import pytest
 
@@ -142,3 +141,56 @@ def test_to_english_passthrough_for_english_and_blank(fake_provider):
     assert tr.to_english("I am a farmer", "en") == "I am a farmer"
     assert tr.to_english("   ", "hi") == "   "
     assert fake_provider.calls == []
+
+
+def _indexed_batch(pairs: list[tuple[int, str]]) -> tr._TranslationBatch:
+    return tr._TranslationBatch(
+        translations=[tr._IndexedTranslation(i=i, text=t) for i, t in pairs]
+    )
+
+
+def test_llm_batch_realigns_shuffled_indices(monkeypatch):
+    """The LLM may return a batch out of order; indices make alignment provable."""
+
+    def fake_generate(prompt, schema, validate=None):
+        result = _indexed_batch([(2, "सी"), (0, "ए"), (1, "बी")])
+        if validate is not None:
+            validate(result)
+        return result
+
+    import app.llm.router as router
+
+    monkeypatch.setattr(router, "generate_structured_resilient", fake_generate)
+    provider = tr.LLMTranslationProvider()
+    assert provider.translate_batch(["a", "b", "c"], "hi") == ["ए", "बी", "सी"]
+
+
+def test_llm_batch_rejects_missing_or_duplicate_indices(monkeypatch):
+    def fake_generate(prompt, schema, validate=None):
+        result = _indexed_batch([(0, "ए"), (0, "ए"), (2, "सी")])
+        if validate is not None:
+            validate(result)
+        return result
+
+    import app.llm.router as router
+
+    monkeypatch.setattr(router, "generate_structured_resilient", fake_generate)
+    with pytest.raises(ValueError, match="exactly once"):
+        tr.LLMTranslationProvider().translate_batch(["a", "b", "c"], "hi")
+
+
+def test_to_english_unwraps_indexed_translation(monkeypatch):
+    """to_english must return a plain string, not an _IndexedTranslation model."""
+
+    def fake_generate(prompt, schema, validate=None):
+        return _indexed_batch([(0, "I am a farmer")])
+
+    import app.llm.router as router
+
+    monkeypatch.setattr(router, "generate_structured_resilient", fake_generate)
+    monkeypatch.setattr(tr, "_provider", tr.LLMTranslationProvider())
+    text = f"मैं किसान हूँ ({__import__('uuid').uuid4()})"  # unique: dodge disk cache
+    english = tr.to_english(text, "hi")
+    assert english == "I am a farmer"
+    assert isinstance(english, str)
+    monkeypatch.setattr(tr, "_provider", None)
