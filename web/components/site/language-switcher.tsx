@@ -16,7 +16,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
   return (
     <label className={`flex items-center gap-1.5 ${className ?? ""}`}>
-      <Languages className="size-4 text-muted-foreground" aria-hidden="true" />
+      {/* Decorative only — dropped on the tightest screens so the Hindi CTA
+          plus longer native language names never overflow a 360–390px row. */}
+      <Languages className="size-4 text-muted-foreground max-sm:hidden" aria-hidden="true" />
       <span className="sr-only">{t("nav.language")}</span>
       <select
         value={lang}

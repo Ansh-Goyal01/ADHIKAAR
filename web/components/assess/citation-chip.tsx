@@ -3,23 +3,27 @@
 import { useState } from "react";
 import { ChevronDown, ExternalLink, Quote } from "lucide-react";
 
+import { useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { VerifiedCitation } from "@/lib/types";
 
-const SECTION_LABELS: Record<string, string> = {
-  eligibility: "Eligibility clause",
-  exclusions: "Exclusion clause",
-  benefits: "Benefits",
-  details: "Scheme details",
-  application: "How to apply",
-  documents: "Documents",
-  faq: "Official FAQ",
-};
+const KNOWN_SECTIONS = new Set([
+  "eligibility",
+  "exclusions",
+  "benefits",
+  "details",
+  "application",
+  "documents",
+  "faq",
+]);
 
 /** A tappable reference chip that reveals the verbatim official text it cites. */
 export function CitationChip({ citation }: { citation: VerifiedCitation }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
-  const label = SECTION_LABELS[citation.section] ?? "Official text";
+  const label = KNOWN_SECTIONS.has(citation.section)
+    ? t(`citation.sections.${citation.section}`)
+    : t("citation.officialText");
 
   return (
     <div className="inline-block max-w-full align-top">
@@ -52,7 +56,7 @@ export function CitationChip({ citation }: { citation: VerifiedCitation }) {
           rel="noopener noreferrer"
           className="mt-2 flex w-fit items-center gap-1 text-xs font-medium text-accent underline-offset-2 hover:underline"
         >
-          View the official source
+          {t("citation.viewSource")}
           <ExternalLink className="size-3" aria-hidden="true" />
         </a>
       </blockquote>
