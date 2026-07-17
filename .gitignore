@@ -35,12 +35,12 @@ obsidian-vault/
 Thumbs.db
 *.log
 
-# Claude Code local session config
+# Local AI assistant session config
 .claude/
 
 # Personal working notes & task tracking - not for the public repo
 TASKS.md
 NOTES.md
 
-# Claude Code skills lockfile - local tooling, not project code
+# AI assistant skills lockfile - local tooling, not project code
 skills-lock.json

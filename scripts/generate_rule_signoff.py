@@ -88,7 +88,7 @@ def main() -> None:
         "> Source of truth is `review_status` on each rule in",
         "> `backend/app/rules/schemes/*.yaml`. To certify a rule, read the clause",
         "> beside the linked official source; then flip its `review_status` to",
-        "> `verified` (or tell Claude to). Regenerate with",
+        "> `verified` manually. Regenerate with",
         "> `python -X utf8 scripts/generate_rule_signoff.py`.",
         "",
         f"**Progress: {verified}/{total} rules verified.** "
