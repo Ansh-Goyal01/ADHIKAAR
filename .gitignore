@@ -37,3 +37,10 @@ Thumbs.db
 
 # Claude Code local session config
 .claude/
+
+# Personal working notes & task tracking - not for the public repo
+TASKS.md
+NOTES.md
+
+# Claude Code skills lockfile - local tooling, not project code
+skills-lock.json
