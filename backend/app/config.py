@@ -50,6 +50,7 @@ class Settings(BaseSettings):
     corpus_dir: Path = DATA_DIR / "corpus"
     chroma_dir: Path = DATA_DIR / "chroma"
     cache_dir: Path = DATA_DIR / "cache"
+    feedback_dir: Path = DATA_DIR / "feedback"
 
 
 settings = Settings()

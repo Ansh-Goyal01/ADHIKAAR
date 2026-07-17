@@ -1,4 +1,4 @@
-"""Generate web/lib/data/schemes.json from the committed corpus + rules repository.
+"""Generate frontend/lib/data/schemes.json from the committed corpus + rules repository.
 
 The Explore pages are statically generated from this file so they stay fast and
 readable even when the free-tier backend is cold. Re-run after any corpus or
@@ -14,15 +14,15 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "data" / "corpus"
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
-OUT = ROOT / "web" / "lib" / "data" / "schemes.json"
+OUT = ROOT / "frontend" / "lib" / "data" / "schemes.json"
 
-# Schemes deliberately outside Adhikaar's scope — the applicant is not an
+# Schemes deliberately outside Adhikaar's scope â€” the applicant is not an
 # individual, so the eligibility check can never apply. Distinct from
 # "coming soon" (a rules-pending state): this is a final, honest exclusion.
 OUT_OF_SCOPE = {
     "hepsn": (
         "This grant is applied for by a college or institution, not by an "
-        "individual — so a personal eligibility check doesn't apply."
+        "individual â€” so a personal eligibility check doesn't apply."
     ),
 }
 
@@ -31,7 +31,7 @@ def strip_markdown(text: str) -> str:
     """Corpus sections are markdown-ish; catalog snippets must be plain prose."""
     out = re.sub(r"^\s{0,3}#{1,6}\s*", "", text, flags=re.MULTILINE)  # headings
     out = re.sub(r"^\s{0,3}>\s?", "", out, flags=re.MULTILINE)  # blockquotes
-    # list markers — bullets tolerate a missing space after the marker ("-Cashless…")
+    # list markers â€” bullets tolerate a missing space after the marker ("-Cashlessâ€¦")
     out = re.sub(r"^\s*(?:[-*+]\s*|\d+\.\s+)", "", out, flags=re.MULTILINE)
     out = re.sub(r"\*\*([^*]+)\*\*", r"\1", out)  # bold
     out = re.sub(r"\*([^*]+)\*", r"\1", out)  # italics
@@ -44,13 +44,13 @@ def first_sentences(text: str, max_chars: int = 220) -> str:
     """A short, clean snippet for catalog cards."""
     flat = re.sub(r"\s+", " ", strip_markdown(text or "")).strip()
     # bullets glued to the previous sentence survive line-based stripping
-    # ("…per year.- Comprehensive…") — a sentence break is what was meant
+    # ("â€¦per year.- Comprehensiveâ€¦") â€” a sentence break is what was meant
     flat = re.sub(r"\.\s*-\s+", ". ", flat)
     if len(flat) <= max_chars:
         return flat
     cut = flat[:max_chars]
     last_stop = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
-    return cut[: last_stop + 1] if last_stop > 80 else cut.rsplit(" ", 1)[0] + "…"
+    return cut[: last_stop + 1] if last_stop > 80 else cut.rsplit(" ", 1)[0] + "â€¦"
 
 
 def load_rules(scheme_id: str) -> list[dict]:

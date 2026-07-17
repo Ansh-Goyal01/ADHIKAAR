@@ -1,8 +1,11 @@
 """Adhikaar API — assessment pipeline over 15 central welfare schemes."""
 
+import json
 import logging
+import re
 import time
 from collections import defaultdict, deque
+from datetime import UTC, datetime
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +13,14 @@ from fastapi.responses import JSONResponse
 
 from app.agent.graph import run_assessment
 from app.agent.nodes import corpus_by_id
-from app.api.schemas import AssessRequest, AssessResponse, SchemeSummary
+from app.api.schemas import (
+    AssessRequest,
+    AssessResponse,
+    FeedbackRequest,
+    FeedbackResponse,
+    SchemeSummary,
+)
+from app.config import settings
 from app.i18n.translate import to_english, translate_response
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
@@ -42,7 +52,7 @@ _request_times: defaultdict[str, deque[float]] = defaultdict(deque)
 
 @app.middleware("http")
 async def rate_limit_assess(request: Request, call_next):
-    if request.url.path == "/api/assess" and request.method == "POST":
+    if request.url.path in ("/api/assess", "/api/feedback") and request.method == "POST":
         client_ip = request.client.host if request.client else "unknown"
         now = time.monotonic()
         window = _request_times[client_ip]
@@ -76,6 +86,43 @@ def list_schemes() -> list[SchemeSummary]:
         )
         for doc in corpus_by_id().values()
     ]
+
+
+# Users are told nothing personal is stored, so redact identifiers they may
+# paste into free text anyway: emails and long digit runs (phone/Aadhaar).
+_PII_PATTERNS = [
+    re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+"),
+    re.compile(r"(?<!\d)(?:\+?91[\s-]?)?\d{10,12}(?!\d)"),
+]
+
+
+def _redact(text: str) -> str:
+    for pattern in _PII_PATTERNS:
+        text = pattern.sub("[redacted]", text)
+    return text
+
+
+@app.post("/api/feedback", response_model=FeedbackResponse)
+def feedback(report: FeedbackRequest) -> FeedbackResponse:
+    """Record a PII-free issue report (append-only JSONL on disk)."""
+    record = {
+        "ts": datetime.now(UTC).isoformat(timespec="seconds"),
+        "category": report.category,
+        "scheme_id": report.scheme_id,
+        "message": _redact(report.message.strip()),
+        "lang": report.lang,
+    }
+    try:
+        settings.feedback_dir.mkdir(parents=True, exist_ok=True)
+        with (settings.feedback_dir / "feedback.jsonl").open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record, ensure_ascii=False) + "\n")
+    except OSError:
+        logger.exception("could not persist feedback")
+        raise HTTPException(
+            status_code=503,
+            detail="We couldn't record your report right now. Please try again.",
+        ) from None
+    return FeedbackResponse(status="ok")
 
 
 @app.post("/api/assess", response_model=AssessResponse)

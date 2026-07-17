@@ -38,6 +38,22 @@ class AssessRequest(BaseModel):
     )
 
 
+class FeedbackRequest(BaseModel):
+    """A PII-free issue report. Deliberately has no profile, name, or contact
+    fields — extra fields are ignored, and free text is redacted server-side."""
+
+    category: Literal[
+        "wrong_verdict", "missing_scheme", "translation", "documents", "other"
+    ]
+    scheme_id: str | None = Field(default=None, max_length=64)
+    message: str = Field(min_length=3, max_length=2000)
+    lang: str = Field(default="en", max_length=8)
+
+
+class FeedbackResponse(BaseModel):
+    status: Literal["ok"]
+
+
 class AssessResponse(BaseModel):
     status: Literal["ok", "need_info"]
     question: str | None = Field(default=None, description="Set when status is need_info")

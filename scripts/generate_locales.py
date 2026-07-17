@@ -1,20 +1,20 @@
 """Generate machine-translated locale files for every supported language.
 
-Reads the canonical English strings exported by `node web/scripts/i18n-export.mts`
-(web/lib/i18n/locales/source-strings.json) and translates every leaf through the
-backend's own translation pipeline (`app.i18n.translate.translate_many`) — the
+Reads the canonical English strings exported by `node frontend/scripts/i18n-export.mts`
+(frontend/lib/i18n/locales/source-strings.json) and translates every leaf through the
+backend's own translation pipeline (`app.i18n.translate.translate_many`) â€” the
 same provider, disk cache, and canonical-value protections the report prose
-uses. Each target language becomes web/lib/i18n/locales/<code>.ts with the same
+uses. Each target language becomes frontend/lib/i18n/locales/<code>.ts with the same
 shape as the hand-reviewed hi.ts (a UiDict + a WizardOverlay).
 
 Safety rails:
-- Interpolation placeholders ({count}, {code}, …) must survive translation
+- Interpolation placeholders ({count}, {code}, â€¦) must survive translation
   byte-for-byte; a string that loses one falls back to English and is reported.
 - Failed/missing translations fall back to English (the runtime does the same
-  for missing keys) — a locale can ship partial and never break the UI.
+  for missing keys) â€” a locale can ship partial and never break the UI.
 - Output files are marked machine-translated pending native-speaker review.
 
-Run (LLM calls are disk-cached — reruns are free and deterministic):
+Run (LLM calls are disk-cached â€” reruns are free and deterministic):
 
     backend/.venv/Scripts/python.exe -X utf8 -u scripts/generate_locales.py
 """
@@ -31,27 +31,27 @@ sys.path.insert(0, str(ROOT / "backend"))
 import app.i18n.translate as tr  # noqa: E402
 from app.i18n.translate import SUPPORTED_LANGUAGES, translate_many  # noqa: E402
 
-# UI strings are long and Indic scripts are verbose — 16-string batches
+# UI strings are long and Indic scripts are verbose â€” 16-string batches
 # overran the model's output budget on Tamil (indices 0..5 of 0..15 came
 # back). Halving the batch keeps every response comfortably inside it.
 tr._BATCH_SIZE = 8
 
-LOCALES_DIR = ROOT / "web" / "lib" / "i18n" / "locales"
+LOCALES_DIR = ROOT / "frontend" / "lib" / "i18n" / "locales"
 SOURCE = LOCALES_DIR / "source-strings.json"
 
 # Hand-reviewed locales are never overwritten by the generator.
 HAND_REVIEWED = {"en", "hi"}
 
 ENDONYMS = {
-    "bn": "বাংলা",
-    "mr": "मराठी",
-    "te": "తెలుగు",
-    "ta": "தமிழ்",
-    "gu": "ગુજરાતી",
-    "kn": "ಕನ್ನಡ",
-    "ml": "മലയാളം",
-    "pa": "ਪੰਜਾਬੀ",
-    "or": "ଓଡ଼ିଆ",
+    "bn": "à¦¬à¦¾à¦‚à¦²à¦¾",
+    "mr": "à¤®à¤°à¤¾à¤ à¥€",
+    "te": "à°¤à±†à°²à±à°—à±",
+    "ta": "à®¤à®®à®¿à®´à¯",
+    "gu": "àª—à«àªœàª°àª¾àª¤à«€",
+    "kn": "à²•à²¨à³à²¨à²¡",
+    "ml": "à´®à´²à´¯à´¾à´³à´‚",
+    "pa": "à¨ªà©°à¨œà¨¾à¨¬à©€",
+    "or": "à¬“à¬¡à¬¼à¬¿à¬†",
 }
 
 PLACEHOLDER = re.compile(r"\{\w+\}")
@@ -86,7 +86,7 @@ def translate_tree(tree: dict, lang: str) -> tuple[dict, list[str]]:
     for (path, source), output in zip(leaves, translated, strict=True):
         wanted = set(PLACEHOLDER.findall(source))
         if output == source or not output.strip():
-            # Identical output is only a miss for real prose — acronym-only
+            # Identical output is only a miss for real prose â€” acronym-only
             # labels (OBC, SC) correctly pass through unchanged.
             if re.search(r"[a-z]", source):
                 fallbacks.append(".".join(path))
@@ -112,13 +112,13 @@ def write_locale(code: str, ui: dict, wizard: dict, fallbacks: list[str]) -> Non
         else "all strings translated"
     )
     header = (
-        f"/** {language} ({endonym}) — MACHINE-TRANSLATED, pending native-speaker review.\n"
+        f"/** {language} ({endonym}) â€” MACHINE-TRANSLATED, pending native-speaker review.\n"
         f" *\n"
         f" * Generated {date.today().isoformat()} by scripts/generate_locales.py through the\n"
         f" * backend translation pipeline (disk-cached, canonical values copied through).\n"
         f" * Coverage: {review_note}. Do not hand-edit strings here without also\n"
         f" * recording the review in the vault sign-off notes; regenerate with:\n"
-        f" *   node web/scripts/i18n-export.mts\n"
+        f" *   node frontend/scripts/i18n-export.mts\n"
         f" *   backend/.venv/Scripts/python.exe -X utf8 -u scripts/generate_locales.py\n"
         f" */\n"
     )
@@ -141,7 +141,7 @@ def main() -> None:
         wizard, wiz_fallbacks = translate_tree(source["wizard"], code)
         fallbacks = ui_fallbacks + wiz_fallbacks
         write_locale(code, ui, wizard, fallbacks)
-        print(f"    wrote {code}.ts — {len(fallbacks)} English fallbacks")
+        print(f"    wrote {code}.ts â€” {len(fallbacks)} English fallbacks")
         for path in fallbacks:
             print(f"      fallback: {path}")
     print("done")
