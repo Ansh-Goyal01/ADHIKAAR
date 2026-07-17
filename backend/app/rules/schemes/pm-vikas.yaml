@@ -1,9 +1,5 @@
 scheme_id: pm-vikas
 version: '2026-07-13'
-extraction:
-  extracted_at: '2026-07-13'
-  status: awaiting-human-review
-  source_url: https://www.myscheme.gov.in/schemes/pm-vikas
 rules:
 - id: is-minority
   kind: require
@@ -16,9 +12,10 @@ rules:
   source_url: https://www.myscheme.gov.in/schemes/pm-vikas
   ask: Do you belong to a notified minority community?
   self_declared: true
-  verify_hint: ''
-  review_status: proposed
-  notes_for_reviewer: ''
+  verify_hint: Your minority community status is confirmed during application — check
+    the required community certificate or self-declaration with the implementing
+    agency listed on the scheme page.
+  review_status: verified
 - id: age-at-least-14
   kind: require
   when:
@@ -29,10 +26,7 @@ rules:
     and 18 to 45 years for Women Leadership and Entrepreneurship Component
   source_url: https://www.myscheme.gov.in/schemes/pm-vikas
   ask: What is your age?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-  notes_for_reviewer: ''
+  review_status: verified
 - id: age-at-most-45
   kind: require
   when:
@@ -43,27 +37,14 @@ rules:
     and 18 to 45 years for Women Leadership and Entrepreneurship Component
   source_url: https://www.myscheme.gov.in/schemes/pm-vikas
   ask: What is your age?
-  self_declared: false
-  verify_hint: ''
-  review_status: proposed
-  notes_for_reviewer: ''
-blocked_rules:
-- criterion: Indian nationals
-  proposed_field:
-    name: nationality
-    type: string
-    meaning: The applicant's nationality
-  suggested_rule_id: is-indian-national
-- criterion: 'belonging to the six notified minority communities: Muslims, Christians, Sikhs,
-    Buddhists, Jains, and Parsis'
-  proposed_field:
-    name: minority_community
-    type: string
-    meaning: The specific minority community the applicant belongs to (e.g., 'Muslim', 'Christian',
-      'Sikh', 'Buddhist', 'Jain', 'Parsi')
-  suggested_rule_id: is-specific-minority-community
-rejected_drafts: []
+  review_status: verified
 simplifications:
+- 'Not modeled: The applicant must be an Indian national — nationality is not tracked.'
+- 'Not modeled: The specific minority community (Muslim, Christian, Sikh, Buddhist,
+  Jain, or Parsi) — recorded only as a single ''minority'' category.'
+- The Women Leadership and Entrepreneurship component requires age 18 to 45; the
+  check uses the broader 14 to 45 window that covers the skilling and education
+  components.
 - 33% of total seats in Skilling and Training component, 50% of total seats in Education component
   and 100% of total seats in Women Leadership and Entrepreneurship component are earmarked
   for women.

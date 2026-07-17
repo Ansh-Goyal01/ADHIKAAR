@@ -26,7 +26,16 @@ function describe(t: T, profile: UserProfile): string[] {
       t("chips.income", { amount: profile.annual_family_income_inr.toLocaleString("en-IN") }),
     );
   if (profile.social_category && profile.social_category !== "general")
-    chips.push(profile.social_category.toUpperCase());
+    chips.push(
+      // Short codes (sc, st, obc, ews, dnt) read as acronyms; longer values
+      // (minority, safai_mitra) read as words.
+      profile.social_category.length <= 3
+        ? profile.social_category.toUpperCase()
+        : profile.social_category
+            .split("_")
+            .map((word) => word[0].toUpperCase() + word.slice(1))
+            .join(" "),
+    );
   if (profile.has_bpl_card) chips.push(t("chips.bplCard"));
   if (profile.is_farmer_with_land) chips.push(t("chips.ownsFarmland"));
   if (profile.cultivates_crops) chips.push(t("chips.cultivatesCrops"));

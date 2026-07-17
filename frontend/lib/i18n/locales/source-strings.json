@@ -492,6 +492,18 @@
           "st": {
             "label": "ST"
           },
+          "ews": {
+            "label": "EWS (Economically Weaker Section)"
+          },
+          "dnt": {
+            "label": "DNT (Denotified or Nomadic Tribe)"
+          },
+          "safai_mitra": {
+            "label": "Safai Mitra (sanitation worker or waste picker)"
+          },
+          "minority": {
+            "label": "Minority (Muslim, Christian, Sikh, Buddhist, Jain, Parsi)"
+          },
           "unsure": {
             "label": "Prefer not to say"
           }

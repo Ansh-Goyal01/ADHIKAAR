@@ -1,10 +1,10 @@
-/** Gujarati (ગુજરાતી) — MACHINE-TRANSLATED, pending native-speaker review.
+/** Gujarati (àª—à«àªœàª°àª¾àª¤à«€) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-15 by scripts/generate_locales.py through the
+ * Generated 2026-07-17 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
- *   node web/scripts/i18n-export.mts
+ *   node frontend/scripts/i18n-export.mts
  *   backend/.venv/Scripts/python.exe -X utf8 -u scripts/generate_locales.py
  */
 
@@ -95,40 +95,40 @@ export const gu: UiDict = {
     "plainWords": "સાદા શબ્દો સંપૂર્ણ છે.",
     "typeAnswer": "તમારો જવાબ ટાઈપ કરો",
     "continueToReport": "મારી રિપોર્ટ પર આગળ વધો",
-    "checklistTitle": "એકઠા કરવાના દસ્તાવેજો",
-    "checklistLead": "ઉપરની યોજનાઓમાં માંગેલા બધા દસ્તાવેજો એક જ યાદીમાં — એકઠા થાય તેમ નિશાન કરો. છાપેલા અહેવાલમાં ખાલી ખાના કચેરીએ લઈ જવાની ચકાસણી-યાદી બની જાય છે."
+    "checklistTitle": "એકત્ર કરવાના દસ્તાવેજો",
+    "checklistLead": "ઉપરની યોજનાઓ જે કંઈ માંગે છે, તે બધું એક યાદીમાં — જેમ જેમ તમે વસ્તુઓ એકત્રિત કરો તેમ તેમ તેના પર નિશાન કરો. છાપ્યા પછી, ખાલી બોક્સ એક ચેકલિસ્ટ બનાવે છે જે તમે ઓફિસ લઈ જઈ શકો છો."
   },
   "whatIf": {
-    "title": "જો પરિસ્થિતિ જુદી હોત તો?",
-    "lead": "જુદી ઉંમર, આવક કે BPL કાર્ડ અજમાવીને જુઓ કયા ચુકાદા બદલાશે — ચકાસણી એ જ સત્તાવાર નિયમોથી થાય છે. ઉપરનો તમારો અહેવાલ એમનો એમ રહે છે, કંઈ સંગ્રહાતું નથી.",
+    "title": "જો વસ્તુઓ અલગ હોત તો શું?",
+    "lead": "અલગ ઉંમર, આવક, અથવા BPL કાર્ડ અજમાવો અને જુઓ કે કયા ચુકાદાઓ બદલાશે — તે જ સત્તાવાર નિયમો સામે તપાસવામાં આવશે. તમારો ઉપરનો અહેવાલ અકબંધ રહેશે, અને કંઈપણ સંગ્રહિત થશે નહીં.",
     "age": "ઉંમર",
-    "income": "વાર્ષિક કૌટુંબિક આવક (₹)",
+    "income": "વાર્ષિક કુટુંબની આવક (₹)",
     "bplCard": "BPL કાર્ડ છે",
-    "run": "શું બદલાય છે તે જુઓ",
-    "running": "નિયમો ચકાસાઈ રહ્યા છે…",
-    "noChange": "આ મૂલ્યોથી કોઈ ચુકાદો બદલાતો નથી.",
-    "changesHeading": "બદલાનારા ચુકાદા",
-    "error": "સિમ્યુલેશન ચાલી શક્યું નહીં. કૃપા કરી ફરી પ્રયત્ન કરો."
+    "run": "જુઓ શું બદલાય છે",
+    "running": "નિયમો તપાસી રહ્યાં છે…",
+    "noChange": "આ મૂલ્યો સાથે કોઈ ચુકાદા બદલાતા નથી.",
+    "changesHeading": "ચુકાદા જે બદલાઈ શકે",
+    "error": "સિમ્યુલેશન ચાલી શક્યું નહીં. કૃપા કરીને ફરી પ્રયાસ કરો."
   },
   "feedback": {
-    "title": "આ અહેવાલમાં સમસ્યા જણાવો",
-    "lead": "ખોટો ચુકાદો, ખરાબ અનુવાદ કે જૂની દસ્તાવેજ યાદી દેખાઈ? અમને કહો — તે સીધું જાળવણી કરનારાઓ સુધી પહોંચે છે.",
-    "category": "કેવા પ્રકારની સમસ્યા?",
+    "title": "આ અહેવાલ સાથે સમસ્યાને અહેવાલ આપો",
+    "lead": "ખોટો ચુકાદો, ખરાબ ભાષાંતર, અથવા જૂની દસ્તાવેજોની યાદી જોઈ? અમને કહો — તે સીધા ટેકનીશિયનોને મળે છે.",
+    "category": "શું પ્રકારની સમસ્યા?",
     "categories": {
-      "wrong_verdict": "એક ચુકાદો ખોટો લાગે છે",
-      "missing_scheme": "એક યોજના ખૂટે છે",
-      "translation": "અનુવાદ બરાબર નથી",
-      "documents": "દસ્તાવેજો કે પગલાં જૂનાં છે",
-      "other": "બીજું કંઈક"
+      "wrong_verdict": "ચુકાદો ખોટો લાગે છે",
+      "missing_scheme": "એક યોજના ગુમ છે",
+      "translation": "એક અનુવાદ ખોટો છે",
+      "documents": "દસ્તાવેજો અથવા પગલાં જૂના થઈ ગયા છે",
+      "other": "બીજું કંઈ"
     },
     "scheme": "કઈ યોજના?",
-    "schemeNone": "કોઈ એક યોજના વિશે નથી",
+    "schemeNone": "એક યોજના વિશે નથી",
     "message": "શું ખોટું થયું?",
-    "noPii": "કૃપા કરી તમારું નામ, ફોન કે કોઈ ઓળખ નંબર ન લખો — અહેવાલ અનામી હોય છે, અને ઓળખ માહિતી આપમેળે દૂર થાય છે.",
+    "noPii": "કૃપા કરીને તમારું નામ, ફોન, અથવા કોઈપણ ID નંબર શામેલ કરશો નહીં — અહેવાલો અનામી હોય છે, અને ઓળખકર્તાઓ આપમેળે દૂર કરવામાં આવે છે.",
     "submit": "અહેવાલ મોકલો",
-    "sending": "મોકલાઈ રહ્યો છે…",
-    "sent": "આભાર — તમારો અહેવાલ નોંધાયો.",
-    "error": "તમારો અહેવાલ મોકલી શકાયો નહીં. કૃપા કરી ફરી પ્રયત્ન કરો."
+    "sending": "મોકલી રહ્યું…",
+    "sent": "આભાર - તમારો અહેવાલ નોંધાયો.",
+    "error": "તમારો અહેવાલ મોકલી શક્યો નહીં. કૃપા કરીને ફરી પ્રયાસ કરો."
   },
   "card": {
     "why": "શા માટે — સત્તાવાર દસ્તાવેજમાં આધારિત",
@@ -163,7 +163,7 @@ export const gu: UiDict = {
     "govtJobInFamily": "કુટુંબમાં સરકારી નોકરી",
     "ownsVehicle": "વાહન ધરાવે છે",
     "noLpg": "LPG જોડાણ નથી",
-    "streetVendor": "રસ્તા પર વેપાર કરે છે",
+    "streetVendor": "રસ્તા પર વેચનાર",
     "vendingCertificate": "વેપાર પ્રમાણપત્ર",
     "artisan": "પરંપરાગત કારીગર",
     "postMatricStudent": "પ્રમાણપત્ર પછીનો વિદ્યાર્થી",
@@ -265,7 +265,7 @@ export const guWizard: WizardOverlay = {
           "label": "બીજું લિંગ"
         },
         "unsure": {
-          "label": "કહેવાનું પસંદ નથી"
+          "label": "કહેવાની જરૂર નથી"
         }
       }
     },
@@ -286,7 +286,7 @@ export const guWizard: WizardOverlay = {
           "label": "તલાક લીધેલ અથવા અલગ"
         },
         "unsure": {
-          "label": "કહેવાનું પસંદ નથી"
+          "label": "કહેવાની જરૂર નથી"
         }
       }
     },
@@ -504,6 +504,18 @@ export const guWizard: WizardOverlay = {
         },
         "st": {
           "label": "એસટી"
+        },
+        "ews": {
+          "label": "આર્થિક રીતે નબળા વર્ગ (EWS)"
+        },
+        "dnt": {
+          "label": "વિસ્થાપિત અથવા આદિજાતિઓ (DNT)"
+        },
+        "safai_mitra": {
+          "label": "સફાઈ મિત્ર (સફાઈ કામદાર અથવા કચરો એકત્રિત કરનાર)"
+        },
+        "minority": {
+          "label": "અલ્પસંખ્યક (મુસ્લિમ, ખ્રિસ્તી, શીખ, બૌદ્ધ, જૈન, પારસી)"
         },
         "unsure": {
           "label": "કહેવાની જરૂર નથી"

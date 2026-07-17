@@ -14,7 +14,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "data" / "corpus"
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
+FRESHNESS_DIR = ROOT / "data" / "freshness"
 OUT = ROOT / "frontend" / "lib" / "data" / "schemes.json"
+FRESHNESS_OUT = ROOT / "frontend" / "lib" / "data" / "freshness.json"
 
 # Schemes deliberately outside Adhikaar's scope â€” the applicant is not an
 # individual, so the eligibility check can never apply. Distinct from
@@ -69,6 +71,30 @@ def load_rules(scheme_id: str) -> list[dict]:
     ]
 
 
+def latest_freshness_summary() -> dict | None:
+    """Condense the newest R7 monitor report (data/freshness/report-*.json) for
+    the frontend: when the catalog was last diffed against live myScheme text,
+    and which schemes drifted. Reports are date-named, so lexical max = newest."""
+    reports = sorted(FRESHNESS_DIR.glob("report-*.json"))
+    if not reports:
+        return None
+    report = json.loads(reports[-1].read_text(encoding="utf-8"))
+    return {
+        "generated_at": report["generated_at"],
+        "schemes_checked": report["schemes_checked"],
+        "fetch_failures": report["fetch_failures"],
+        "changed": {
+            diff["scheme_id"]: {
+                "needs_review": diff["needs_review"],
+                "sections": [
+                    f'{change["section"]} ({change["change"]})' for change in diff["changes"]
+                ],
+            }
+            for diff in report["changed"]
+        },
+    }
+
+
 def main() -> None:
     schemes = []
     for path in sorted(CORPUS_DIR.glob("*.json")):
@@ -108,6 +134,13 @@ def main() -> None:
         json.dumps(schemes, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
     )
     print(f"{len(schemes)} schemes -> {OUT}")
+
+    freshness = latest_freshness_summary()
+    FRESHNESS_OUT.write_text(
+        json.dumps(freshness, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+    )
+    label = freshness["generated_at"][:10] if freshness else "no report yet"
+    print(f"freshness ({label}) -> {FRESHNESS_OUT}")
 
 
 if __name__ == "__main__":

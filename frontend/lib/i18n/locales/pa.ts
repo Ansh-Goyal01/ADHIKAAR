@@ -1,11 +1,10 @@
-/** Punjabi (ਪੰਜਾਬੀ) — MACHINE-TRANSLATED, pending native-speaker review.
+/** Punjabi (à¨ªà©°à¨œà¨¾à¨¬à©€) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-15 by scripts/generate_locales.py through the
+ * Generated 2026-07-17 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
- * Coverage: full — the 1 generator fallback (chips.yearsOld) was hand-translated
- * 2026-07-17 (recorded in vault Multilingual sign-off notes). Do not hand-edit strings here without also
+ * Coverage: 1 strings fell back to English (see generator output). Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
- *   node web/scripts/i18n-export.mts
+ *   node frontend/scripts/i18n-export.mts
  *   backend/.venv/Scripts/python.exe -X utf8 -u scripts/generate_locales.py
  */
 
@@ -96,40 +95,40 @@ export const pa: UiDict = {
     "plainWords": "ਸਾਧਾਰਨ ਸ਼ਬਦ ਬਿਲਕੁਲ ਠੀਕ ਹਨ।",
     "typeAnswer": "ਆਪਣਾ ਉੱਤਰ ਟਾਈਪ ਕਰੋ",
     "continueToReport": "ਮੇਰੀ ਰਿਪੋਰਟ ਨੂੰ ਜਾਰੀ ਰੱਖੋ",
-    "checklistTitle": "ਇਕੱਠੇ ਕਰਨ ਵਾਲੇ ਦਸਤਾਵੇਜ਼",
-    "checklistLead": "ਉੱਪਰ ਦੀਆਂ ਯੋਜਨਾਵਾਂ ਵਿੱਚ ਮੰਗੇ ਗਏ ਸਾਰੇ ਦਸਤਾਵੇਜ਼ ਇੱਕੋ ਸੂਚੀ ਵਿੱਚ — ਜੋ ਇਕੱਠਾ ਹੋ ਜਾਵੇ, ਉਸ 'ਤੇ ਨਿਸ਼ਾਨ ਲਾਓ। ਛਪੀ ਰਿਪੋਰਟ ਵਿੱਚ ਖਾਲੀ ਖਾਨੇ ਦਫ਼ਤਰ ਲਿਜਾਣ ਵਾਲੀ ਜਾਂਚ-ਸੂਚੀ ਬਣ ਜਾਂਦੇ ਹਨ।"
+    "checklistTitle": "ਇਕੱਠਾ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼",
+    "checklistLead": "ਉਪਰੋਕਤ ਸਕੀਮਾਂ ਦੁਆਰਾ ਪੁੱਛੀ ਗਈ ਹਰ ਚੀਜ਼, ਇੱਕ ਸੂਚੀ ਵਿੱਚ — ਜਿਵੇਂ ਤੁਸੀਂ ਇਕੱਠਾ ਕਰਦੇ ਹੋ ਉਨ੍ਹਾਂ ਨੂੰ ਟਿਕ ਕਰੋ. ਛਾਪਿਆ ਹੋਇਆ, ਖਾਲੀ ਬਕਸੇ ਇੱਕ ਸੂਚੀ ਬਣਾਉਂਦੇ ਹਨ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਦਫ਼ਤਰ ਵਿੱਚ ਲੈ ਜਾ ਸਕਦੇ ਹੋ."
   },
   "whatIf": {
-    "title": "ਜੇ ਹਾਲਾਤ ਵੱਖਰੇ ਹੁੰਦੇ ਤਾਂ?",
-    "lead": "ਵੱਖਰੀ ਉਮਰ, ਆਮਦਨ ਜਾਂ BPL ਕਾਰਡ ਅਜ਼ਮਾ ਕੇ ਵੇਖੋ ਕਿਹੜੇ ਫ਼ੈਸਲੇ ਬਦਲਣਗੇ — ਜਾਂਚ ਉਹੀ ਸਰਕਾਰੀ ਨਿਯਮਾਂ ਨਾਲ ਹੁੰਦੀ ਹੈ। ਉੱਪਰ ਦੀ ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਜਿਉਂ ਦੀ ਤਿਉਂ ਰਹਿੰਦੀ ਹੈ, ਕੁਝ ਵੀ ਸਾਂਭਿਆ ਨਹੀਂ ਜਾਂਦਾ।",
+    "title": "ਜੇ ਚੀਜ਼ਾਂ ਵੱਖਰੀਆਂ ਹੁੰਦੀਆਂ?",
+    "lead": "ਇੱਕ ਵੱਖਰੀ ਉਮਰ, ਆਮਦਨ, ਜਾਂ ਬੀਪੀਐਲ ਕਾਰਡ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਅਤੇ ਦੇਖੋ ਕਿ ਕਿਹੜੇ ਫੈਸਲੇ ਉਲਟ ਜਾਣਗੇ — ਉਹੀ ਅਧਿਕਾਰਤ ਨਿਯਮਾਂ ਦੇ ਵਿਰੁੱਧ ਜਾਂਚ ਕੀਤੀ ਜਾਵੇਗੀ. ਉਪਰੋਕਤ ਤੁਹਾਡਾ ਰਿਪੋਰਟ ਅਛੂਤਾ ਰਹਿੰਦਾ ਹੈ, ਅਤੇ ਕੁਝ ਵੀ ਸਟੋਰ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ.",
     "age": "ਉਮਰ",
     "income": "ਸਾਲਾਨਾ ਪਰਿਵਾਰਕ ਆਮਦਨ (₹)",
-    "bplCard": "BPL ਕਾਰਡ ਹੈ",
-    "run": "ਵੇਖੋ ਕੀ ਬਦਲਦਾ ਹੈ",
-    "running": "ਨਿਯਮ ਜਾਂਚੇ ਜਾ ਰਹੇ ਹਨ…",
-    "noChange": "ਇਨ੍ਹਾਂ ਮੁੱਲਾਂ ਨਾਲ ਕੋਈ ਫ਼ੈਸਲਾ ਨਹੀਂ ਬਦਲਦਾ।",
-    "changesHeading": "ਬਦਲਣ ਵਾਲੇ ਫ਼ੈਸਲੇ",
-    "error": "ਸਿਮੂਲੇਸ਼ਨ ਨਹੀਂ ਚੱਲ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    "bplCard": "ਕੀ ਬੀਪੀਐਲ ਕਾਰਡ ਹੈ",
+    "run": "ਬਦਲਾਅ ਵੇਖੋ",
+    "running": "ਨਿਯਮਾਂ ਦੀ ਜਾਂਚ ਕਰ ਰਹੇ ਹਾਂ…",
+    "noChange": "ਇਹਨਾਂ ਮੁੱਲਾਂ ਨਾਲ ਕੋਈ ਵੀ ਫੈਸਲੇ ਬਦਲਦੇ ਨਹੀਂ ਹਨ।",
+    "changesHeading": "ਫੈਸਲੇ ਜੋ ਬਦਲ ਸਕਦੇ ਹਨ",
+    "error": "ਸਿਮੂਲੇਸ਼ਨ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "feedback": {
-    "title": "ਇਸ ਰਿਪੋਰਟ ਵਿੱਚ ਸਮੱਸਿਆ ਦੱਸੋ",
-    "lead": "ਗਲਤ ਫ਼ੈਸਲਾ, ਮਾੜਾ ਅਨੁਵਾਦ ਜਾਂ ਪੁਰਾਣੀ ਦਸਤਾਵੇਜ਼ ਸੂਚੀ ਦਿਖੀ? ਸਾਨੂੰ ਦੱਸੋ — ਇਹ ਸਿੱਧਾ ਸੰਭਾਲ ਕਰਨ ਵਾਲਿਆਂ ਤੱਕ ਪਹੁੰਚਦੀ ਹੈ।",
-    "category": "ਕਿਸ ਤਰ੍ਹਾਂ ਦੀ ਸਮੱਸਿਆ?",
+    "title": "ਇਸ ਰਿਪੋਰਟ ਨਾਲ ਇੱਕ ਸਮੱਸਿਆ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "lead": "ਇੱਕ ਗਲਤ ਫੈਸਲਾ, ਇੱਕ ਮਾੜੀ ਅਨੁਵਾਦ, ਜਾਂ ਇੱਕ ਪੁਰਾਣੀ ਦਸਤਾਵੇਜ਼ ਸੂਚੀ ਨੂੰ ਚਿੰਨ੍ਹਿਤ ਕੀਤਾ? ਸਾਨੂੰ ਦੱਸੋ - ਇਹ ਸਿੱਧੇ ਤੌਰ 'ਤੇ ਰੱਖਿਅਕਾਂ ਨੂੰ ਜਾਂਦਾ ਹੈ।",
+    "category": "ਸਮੱਸਿਆ ਦਾ ਕਿਹੜਾ ਕਿਸਮ ਹੈ?",
     "categories": {
-      "wrong_verdict": "ਇੱਕ ਫ਼ੈਸਲਾ ਗਲਤ ਲੱਗਦਾ ਹੈ",
-      "missing_scheme": "ਇੱਕ ਯੋਜਨਾ ਗੁੰਮ ਹੈ",
-      "translation": "ਅਨੁਵਾਦ ਠੀਕ ਨਹੀਂ",
+      "wrong_verdict": "ਇੱਕ ਫੈਸਲਾ ਗਲਤ ਲਗਦਾ ਹੈ",
+      "missing_scheme": "ਇੱਕ ਯੋਜਨਾ ਗਈ ਆ ਰਹੀ ਹੈ",
+      "translation": "ਅਨੁਵਾਦ ਠੀਕ ਨਹੀਂ ਹੈ",
       "documents": "ਦਸਤਾਵੇਜ਼ ਜਾਂ ਕਦਮ ਪੁਰਾਣੇ ਹਨ",
       "other": "ਕੁਝ ਹੋਰ"
     },
     "scheme": "ਕਿਹੜੀ ਯੋਜਨਾ?",
-    "schemeNone": "ਕਿਸੇ ਇੱਕ ਯੋਜਨਾ ਬਾਰੇ ਨਹੀਂ",
+    "schemeNone": "ਇੱਕ ਯੋਜਨਾ ਬਾਰੇ ਨਹੀਂ",
     "message": "ਕੀ ਗਲਤ ਹੋਇਆ?",
-    "noPii": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨਾਂ, ਫ਼ੋਨ ਜਾਂ ਕੋਈ ਪਛਾਣ ਨੰਬਰ ਨਾ ਲਿਖੋ — ਰਿਪੋਰਟਾਂ ਗੁੰਮਨਾਮ ਹਨ, ਅਤੇ ਪਛਾਣ ਜਾਣਕਾਰੀ ਆਪਣੇ ਆਪ ਹਟਾ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ।",
+    "noPii": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨਾਮ, ਫੋਨ, ਜਾਂ ਕਿਸੇ ਵੀ ਆਈਡੀ ਨੰਬਰ ਸ਼ਾਮਲ ਨਾ ਕਰੋ - ਰਿਪੋਰਟਾਂ ਗੁਮਨਾਮ ਹਨ, ਅਤੇ ਪਛਾਣਕਰਤਾ ਆਪਣੇ ਆਪ ਹਟਾ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।",
     "submit": "ਰਿਪੋਰਟ ਭੇਜੋ",
-    "sending": "ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ…",
-    "sent": "ਧੰਨਵਾਦ — ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਦਰਜ ਹੋ ਗਈ।",
-    "error": "ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਨਹੀਂ ਭੇਜੀ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    "sending": "ਭੇਜਣਾ…",
+    "sent": "ਧੰਨਵਾਦ — ਆਪਣੀ ਰਿਪੋਰਟ ਦਰਜ ਕੀਤੀ ਗਈ।",
+    "error": "ਆਪਣੀ ਰਿਪੋਰਟ ਭੇਜੀ ਨਹੀਂ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "card": {
     "why": "ਕਿਉਂ — ਅਧਿਕਾਰਤ ਪਾਠ ਵਿੱਚ ਜੜ੍ਹੀ",
@@ -152,7 +151,7 @@ export const pa: UiDict = {
   "chips": {
     "heading": "ਤੁਸੀਂ ਸਾਨੂੰ ਜੋ ਦੱਸਿਆ ਹੈ ਉਸਦੇ ਅਧਾਰ ਤੇ",
     "ariaLabel": "ਉਹ ਤੱਥ ਜਿਸ ਤੇ ਇਹ ਰਿਪੋਰਟ ਅਧਾਰਤ ਹੈ",
-    "yearsOld": "{age} ਸਾਲ ਦੀ ਉਮਰ",
+    "yearsOld": "{age} years old",
     "income": "₹ {amount}/ਸਾਲ ਪਰਿਵਾਰਕ ਆਮਦਨ",
     "bplCard": "BPL ਕਾਰਡ",
     "ownsFarmland": "ਕਿਸੇ ਵੀ ਜ਼ਮੀਨ ਦਾ ਮਾਲਕ ਹੈ",
@@ -266,7 +265,7 @@ export const paWizard: WizardOverlay = {
           "label": "ਹੋਰ ਲਿੰਗ"
         },
         "unsure": {
-          "label": "ਪਸੰਦ ਨਹੀਂ ਹੈ"
+          "label": "ਕਹਿਣਾ ਪਸੰਦ ਨਹੀਂ"
         }
       }
     },
@@ -287,7 +286,7 @@ export const paWizard: WizardOverlay = {
           "label": "ਤਲਾਕਸ਼ੁਦਾ ਜਾਂ ਵੱਖਰੇ ਹੋਏ"
         },
         "unsure": {
-          "label": "ਕਹਿਣਾ ਨਹੀਂ ਹੈ"
+          "label": "ਕਹਿਣਾ ਪਸੰਦ ਨਹੀਂ"
         }
       }
     },
@@ -505,6 +504,18 @@ export const paWizard: WizardOverlay = {
         },
         "st": {
           "label": "ਐਸਟੀ"
+        },
+        "ews": {
+          "label": "ਆਰਥਿਕ ਤੌਰ 'ਤੇ ਕਮਜ਼ੋਰ ਵਰਗ (EWS)"
+        },
+        "dnt": {
+          "label": "ਬੇਨਾਮਜ਼ੀਕਰਨ ਵਾਲੇ ਜਾਂ ਚਾਹੀਆਂ ਜਨਜਾਤੀਆਂ (DNT)"
+        },
+        "safai_mitra": {
+          "label": "ਸਫਾਈ ਮਿੱਤਰ (ਸਫਾਈ ਕਰਮਚਾਰੀ ਜਾਂ ਕੂੜਾ ਇਕੱਠਾ ਕਰਨ ਵਾਲਾ)"
+        },
+        "minority": {
+          "label": "ਘੱਟਗਿਣਤੀ (ਮੁਸਲਿਮ, ਈਸਾਈ, ਸਿੱਖ, ਬੋਧੀ, ਜੈਨ, ਪਾਰਸੀ)"
         },
         "unsure": {
           "label": "ਕਹਿਣਾ ਪਸੰਦ ਨਹੀਂ"

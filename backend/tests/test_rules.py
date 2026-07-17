@@ -86,6 +86,16 @@ def _leaf_updates(condition: Condition, satisfy: bool) -> dict:
     raise AssertionError(f"unhandled op {condition.op}")
 
 
+def _collect_leaves(condition: Condition) -> list[Condition]:
+    if condition.any is not None or condition.all is not None:
+        return [
+            leaf
+            for child in (condition.any or condition.all)
+            for leaf in _collect_leaves(child)
+        ]
+    return [condition]
+
+
 def _fail_any(leaves: list[Condition]) -> dict:
     """One value per field that makes every leaf false. Same-field eq leaves
     (an OR over one field, e.g. disability categories) need a single value
@@ -102,25 +112,35 @@ def _fail_any(leaves: list[Condition]) -> dict:
     return updates
 
 
-def profile_for(condition: Condition, satisfy: bool) -> UserProfile:
+def _satisfy_updates(condition: Condition) -> dict:
     if condition.any is not None:
-        if satisfy:
-            return UserProfile(**_leaf_updates(condition.any[0], True))
-        return UserProfile(**_fail_any(condition.any))
+        return _satisfy_updates(condition.any[0])
     if condition.all is not None:
-        if satisfy:
-            updates = {}
-            for leaf in condition.all:
-                updates.update(_leaf_updates(leaf, True))
-            return UserProfile(**updates)
-        # One leaf false is enough; keep the rest satisfied so the test
+        updates: dict = {}
+        for child in condition.all:
+            updates.update(_satisfy_updates(child))
+        return updates
+    return _leaf_updates(condition, True)
+
+
+def _falsify_updates(condition: Condition) -> dict:
+    if condition.any is not None:
+        # Every leaf false makes any combinator tree false, whatever its shape
+        # (nested any/all included — e.g. pm-daksh's income rule).
+        return _fail_any(_collect_leaves(condition))
+    if condition.all is not None:
+        # One child false is enough; keep the rest satisfied so the test
         # isolates the "at least one requirement fails" path.
-        updates = {}
-        for leaf in condition.all:
-            updates.update(_leaf_updates(leaf, True))
-        updates.update(_leaf_updates(condition.all[0], False))
-        return UserProfile(**updates)
-    return UserProfile(**_leaf_updates(condition, satisfy))
+        updates = _satisfy_updates(condition)
+        updates.update(_falsify_updates(condition.all[0]))
+        return updates
+    return _leaf_updates(condition, False)
+
+
+def profile_for(condition: Condition, satisfy: bool) -> UserProfile:
+    if satisfy:
+        return UserProfile(**_satisfy_updates(condition))
+    return UserProfile(**_falsify_updates(condition))
 
 
 @pytest.mark.parametrize(

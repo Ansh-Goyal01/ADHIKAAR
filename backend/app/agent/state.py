@@ -24,7 +24,10 @@ class UserProfile(BaseModel):
     occupation: str | None = None
     is_farmer_with_land: bool | None = None
     annual_family_income_inr: int | None = None
-    social_category: Literal["general", "sc", "st", "obc", "minority"] | None = None
+    social_category: (
+        Literal["general", "sc", "st", "obc", "minority", "ews", "dnt", "safai_mitra"]
+        | None
+    ) = None
     has_bpl_card: bool | None = None
     disability_percent: int | None = None
     has_bank_account: bool | None = None

@@ -262,6 +262,16 @@ export const STEPS: StepDef[] = [
           { value: "obc", label: "OBC" },
           { value: "sc", label: "SC" },
           { value: "st", label: "ST" },
+          { value: "ews", label: "EWS (Economically Weaker Section)" },
+          { value: "dnt", label: "DNT (Denotified or Nomadic Tribe)" },
+          {
+            value: "safai_mitra",
+            label: "Safai Mitra (sanitation worker or waste picker)",
+          },
+          {
+            value: "minority",
+            label: "Minority (Muslim, Christian, Sikh, Buddhist, Jain, Parsi)",
+          },
           { value: "unsure", label: "Prefer not to say" },
         ],
         whyWeAsk:

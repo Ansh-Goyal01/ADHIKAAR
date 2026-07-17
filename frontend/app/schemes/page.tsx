@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { SchemeCatalog } from "@/components/schemes/catalog";
 import { Container } from "@/components/site/container";
+import { CHANGED_COUNT, FRESHNESS, LAST_CHECKED } from "@/lib/freshness";
 import { CATALOG_COUNT, SCHEME_COUNT } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,6 +20,15 @@ export default function SchemesPage() {
         <p className="leading-relaxed text-muted-foreground">
           {`Every central scheme documented here carries its benefits, official sources, and — for the ${SCHEME_COUNT} schemes the eligibility check decides today — the exact rules we check. Schemes marked "check coming soon" have machine-drafted rules awaiting human verification; we don't judge eligibility for them until a person has certified every rule.`}
         </p>
+        {FRESHNESS && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {`Freshness: all ${FRESHNESS.schemes_checked} myScheme-sourced pages were re-fetched and diffed against our audited text on ${LAST_CHECKED} — ${
+              CHANGED_COUNT === 0
+                ? "no changes found."
+                : `${CHANGED_COUNT} changed and ${CHANGED_COUNT === 1 ? "is" : "are"} flagged on their pages.`
+            }`}
+          </p>
+        )}
       </div>
       <SchemeCatalog />
     </Container>

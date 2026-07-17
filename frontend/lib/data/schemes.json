@@ -634,7 +634,14 @@
    "eligibility": "1. Farmers - individual/joint borrowers who are owner cultivators;\n1. Tenant farmers, oral lessees & share croppers;\n1. Self Help Groups (SHGs) or Joint Liability Groups (JLGs) of farmers including tenant farmers, share croppers etc",
    "application": "### Application mode: Online\n\n1. Visit the website of the bank you wish to apply for the kisan credit card scheme.\n1. From the list of options, choose the Kisan Credit Card.\n1. On clicking the option of ‘Apply’, the website will redirect you to the application page.\n1. Fill the form with the required details and click on ‘Submit’.\n1. On doing so, an application reference number will be sent. If you are eligible, the bank will get back to you for the further process within 3-4 working days.\n\n### Application mode: Offline\n\n1. Offline applications can be done by visiting the branch of the bank of your choice or by downloading the application form from the website of the bank as well.\n1. The applicant can visit the branch and begin the application process with the help of the bank representative."
   },
-  "rules": [],
+  "rules": [
+   {
+    "id": "is-farmer-or-cultivator",
+    "kind": "require",
+    "clause": "Farmers - individual/joint borrowers who are owner cultivators; Tenant farmers, oral lessees & share croppers;",
+    "source_url": "https://www.myscheme.gov.in/schemes/kcc"
+   }
+  ],
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -961,7 +968,32 @@
    "application": "### Application mode: Online\n\n**Step 1:**  Visit the website of [Skill India Digital Hub](https://www.skillindiadigital.gov.in/home) (SIDH). On top-right side, click on the \"Register\" button.\n**Step 2:** Choose \"Learner/Participant\" in next page.\n**Step 3:** Enter your mobile number. Click on \"Continue\".\n**Step 4:** Validate the OTP and set a password.\n**Step 5:** After login, validate your profile through e-KYC to complete the registration process.",
    "documents": "1. Identity proof i.e. Aadhaar Card\n   1. Passport Size photograph\n   1. Caste/community certificate\n   1. Income certificate, if applicable\n   1. Proof of age\n   1. Residence proof\n   1. Educational Qualification certificates\n   1. Occupation Certificate in case Safai Mitras including waster pickers\n   1. Bank account details/Bank Passbook (Aadhaar linked bank account)\n   1. Any other documents as required"
   },
-  "rules": [],
+  "rules": [
+   {
+    "id": "age-at-least-18",
+    "kind": "require",
+    "clause": "- Applicant must be aged between 18 and 45 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-daksh"
+   },
+   {
+    "id": "age-at-most-45",
+    "kind": "require",
+    "clause": "- Applicant must be aged between 18 and 45 years.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-daksh"
+   },
+   {
+    "id": "social-category",
+    "kind": "require",
+    "clause": "- Applicant must belong to one of the following groups: 1. Scheduled Castes (SC); 1. Other Backward Classes (OBC); 1. Economically Weaker Sections (EWS); 1. Denotified & Nomadic Tribes (DNT0, or 1. Safai Mitras (including Waste Pickers).",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-daksh"
+   },
+   {
+    "id": "annual-family-income",
+    "kind": "require",
+    "clause": "- Applicant from OBC or EWS must have an annual family income below ₹3,00,000/- . - Applicant from SC, DNT, or Safai Mitras (including Waste Pickers) has no income limit.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-daksh"
+   }
+  ],
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1218,7 +1250,26 @@
    "application": "### Application mode: Online\n\n**Step 1:** **Register/Login**\n\n  - Visit the [SIDH Portal](https://www.skillindiadigital.gov.in/home), register as a Learner/Participant (Candidate) or log in if already registered, and complete e-KYC using your personal details.\n**Step 02: Profile Setup**\n\n  - Create your account password/PIN, verify your mobile number via OTP, and ensure all profile details (name, date of birth, and contact information) are accurate and updated.\n\n**Step 03: Explore Schemes & Courses**\n\n  - Access your dashboard and search for PM VIKAS and job roles. Use filters such as scheme, mode, and sector to find suitable courses or batches.\n\n**Step 04: Show Interest / Apply for a Batch**\n\n  - Choose a batch for your preferred job role and submit your interest or application. You may select up to five batches, which will be reviewed by the training partner /training centre.\n\n**Step 05**: **Finalise Enrolment & Status**\n\n  - After approval from the training partner/training centre, accept the invitation through your portal to confirm enrolment. Track your application status under the “Applications” section.",
    "documents": "1. Aadhaar card and aadhar linked bank account.\n1. EWS Certificate for non-minority candidates.\n1. Educational Qualification in line with the training programme being applied for."
   },
-  "rules": [],
+  "rules": [
+   {
+    "id": "is-minority",
+    "kind": "require",
+    "clause": "Indian nationals belonging to the six notified minority communities: Muslims, Christians, Sikhs, Buddhists, Jains, and Parsis with following:",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-vikas"
+   },
+   {
+    "id": "age-at-least-14",
+    "kind": "require",
+    "clause": "The Age of the applicant should be 14 to 45 years for skilling and education component and 18 to 45 years for Women Leadership and Entrepreneurship Component",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-vikas"
+   },
+   {
+    "id": "age-at-most-45",
+    "kind": "require",
+    "clause": "The Age of the applicant should be 14 to 45 years for skilling and education component and 18 to 45 years for Women Leadership and Entrepreneurship Component",
+    "source_url": "https://www.myscheme.gov.in/schemes/pm-vikas"
+   }
+  ],
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1317,7 +1368,32 @@
    "application": "### Application mode: Online\n\n**Step 1:** Interested beneficiary who wants to own a house under PMAY-U 2.0 can register herself/himself on the [PMAY-U 2.0 website](https://pmay-urban.gov.in/), wherein it is required to click on ‘Apply for PMAY-U 2.0’ tab.\n**Step 2:** The User is required to read and understand the instructions carefully, her/his eligibility criteria, the option to choose any one vertical out of the four verticals of PMAY-U 2,0 before availing the benefits.\n**Step 3:** After proceeding, the User needs to undergo the eligibility check for the scheme.\n**Step 4:** Once the Eligibility check is completed, the user shall give consent for Aadhaar authentication.\n**Step 5:** User will then be taken to the Beneficiary Survey Form for all verticals. The survey form has different sections.\n> User Manual: [Click here](https://pmaymis.gov.in/PMAYMIS2_2024/PDF/UserManual/BeneficairyApplication_for_SoP_27_12_24.pdf).\n\n### Application mode: Offline\n\n**Step 1:** Visit a [Common Service Centre (CSC) near you](https://cscindia.info/).\n**Step 2:** Purchase the application form by paying ₹ 25 (plus GST) at the counter.\n**Step 3:** In the form, fill in all the mandatory details, and attach copies of the required documents. The details to be filled include name, contact number, other personal details, bank account and income details, among others.\n**Step 3:** Submit the duly filled and signed application form at the CSC.",
    "documents": "1. Aadhaar Number (or Aadhaar/ Aadhaar Enrolment ID)\n1. Self-Certificate / Affidavit as Proof of Income.\n1. Identity and Residential Proof (PAN card, Voter ID, Driving License)\n1. Proof of Minority Community (if the applicant belongs to a Minority Community)\n1. Proof of Nationality\n1. EWS Certificate / LIG Certificate / MIG Certificate (as applicable)\n1. Salary Slips\n1. IT Return Statements\n1. Property Valuation Certificate\n1. Bank Details and Account Statement\n1. Affidavit / Proof that the applicant does not own a ‘pucca’ house\n1. Affidavit / Proof that the applicant is constructing a home under the scheme"
   },
-  "rules": [],
+  "rules": [
+   {
+    "id": "annual-family-income",
+    "kind": "require",
+    "clause": "1. The family identifies as one of the following - a) Economically Weaker Section (EWS): households with annual income up to ₹3,00,000. b) Low Income Group (LIG): households with annual income between ₹3,00,001 and ₹6,00,000. c) Middle Income Group-1 (MIG-1): households with annual income between ₹6,00,001 and ₹12,00,000. d) Middle Income Group-2 (MIG-2): households with annual income between ₹12,00,001 and ₹18,00,000.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-u"
+   },
+   {
+    "id": "no-pucca-house",
+    "kind": "exclude",
+    "clause": "2. The applicant or his/her family members must not own a pucca house in any part of the country.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-u"
+   },
+   {
+    "id": "family-structure",
+    "kind": "require",
+    "clause": "3. The family must comprise of husband/wife and unmarried children.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-u"
+   },
+   {
+    "id": "urban-residence",
+    "kind": "require",
+    "clause": "4. The town/city in which the family resides must be covered under the scheme.",
+    "source_url": "https://www.myscheme.gov.in/schemes/pmay-u"
+   }
+  ],
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },

@@ -16,6 +16,7 @@ import ReactMarkdown from "react-markdown";
 import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { LAST_CHECKED, getDrift, wasChecked } from "@/lib/freshness";
 import { CATEGORY_LABELS, SCHEMES, getScheme } from "@/lib/schemes";
 import { SCHEME_COUNT } from "@/lib/site";
 
@@ -62,6 +63,8 @@ export default async function SchemeDetailPage({
   const scheme = getScheme(schemeId);
   if (!scheme) notFound();
   const isCheckable = scheme.rules.length > 0 && !scheme.out_of_scope;
+  const drift = getDrift(scheme.scheme_id);
+  const isFreshnessVerified = wasChecked(scheme) && !drift;
 
   return (
     <Container className="flex max-w-3xl flex-col gap-10 py-10 sm:py-14">
@@ -81,6 +84,15 @@ export default async function SchemeDetailPage({
               <BadgeCheck aria-hidden="true" />
               Official text fetched {scheme.fetched_at}
             </Chip>
+          )}
+          {isFreshnessVerified && LAST_CHECKED && (
+            <Chip tone="yes">
+              <ShieldCheck aria-hidden="true" />
+              Re-checked against myScheme {LAST_CHECKED} — unchanged
+            </Chip>
+          )}
+          {drift && (
+            <Chip tone="info">Official page changed — under re-review</Chip>
           )}
           {scheme.out_of_scope ? (
             <Chip tone="neutral">Individuals only — out of scope</Chip>
@@ -110,6 +122,25 @@ export default async function SchemeDetailPage({
           </a>
         </div>
       </header>
+
+      {/* R7 drift notice: the live official page no longer matches the text our
+          rules were audited against — say so before showing that text. */}
+      {drift && (
+        <section
+          aria-label="Source freshness"
+          className="flex flex-col gap-2 rounded-xl border border-verdict-info-border bg-verdict-info-soft p-5"
+        >
+          <p className="text-sm leading-relaxed font-medium text-verdict-info">
+            The official page has changed since we last verified this scheme.
+          </p>
+          <p className="text-sm leading-relaxed text-verdict-info">
+            {`Our monitor found changes on myScheme (${drift.sections.join(", ")}) after the text below was fetched. `}
+            {drift.needs_review
+              ? "The changed sections affect eligibility, so the rules are being re-reviewed — until then, treat verdicts for this scheme as provisional and confirm on the official page."
+              : "The changes don't touch the eligibility text our rules are built on, but the official page is always the final word."}
+          </p>
+        </section>
+      )}
 
       {/* Official sections */}
       {SECTION_ORDER.map(({ key, title, icon: Icon }) => {
