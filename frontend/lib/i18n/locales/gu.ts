@@ -1,6 +1,6 @@
 /** Gujarati (àª—à«àªœàª°àª¾àª¤à«€) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const gu: UiDict = {
     "continueToReport": "મારી રિપોર્ટ પર આગળ વધો",
     "checklistTitle": "એકત્ર કરવાના દસ્તાવેજો",
     "checklistLead": "ઉપરની યોજનાઓ જે કંઈ માંગે છે, તે બધું એક યાદીમાં — જેમ જેમ તમે વસ્તુઓ એકત્રિત કરો તેમ તેમ તેના પર નિશાન કરો. છાપ્યા પછી, ખાલી બોક્સ એક ચેકલિસ્ટ બનાવે છે જે તમે ઓફિસ લઈ જઈ શકો છો."
+  },
+  "nearMiss": {
+    "title": "લગભગ યોગ્યતા",
+    "bodyEligible": "આ એકમાત્ર નિયમ છે જેને તમે પૂરો કરતા નથી — બીજી બધી જરૂરિયાતો સારી રીતે થાય છે.",
+    "bodyLikely": "આ એકમાત્ર નિયમ છે જેને તમે પૂરો કરતા નથી — બીજું બધું સારી રીતે થાય છે, કાર્યાલય દ્વારા તપાસવામાં આવતા તથ્યો જાણીને.",
+    "needAgeAtLeast": "તે {value} વયથી લાગુ થશે.",
+    "needAgeAtMost": "તે {value} વય સુધી લાગુ થાય છે.",
+    "needIncomeAtMost": "તેમાં વાર્ષિક કુટુંબની આવક {amount} રૂપિયા અથવા તેથી ઓછી જરૂરી છે.",
+    "needIncomeAtLeast": "તેમાં વાર્ષિક કુટુંબની આવક {amount} રૂપિયા અથવા તેથી વધુ જરૂરી છે.",
+    "ruleAsks": "નિર્ણાયક નિયમ:"
   },
   "whatIf": {
     "title": "જો વસ્તુઓ અલગ હોત તો શું?",

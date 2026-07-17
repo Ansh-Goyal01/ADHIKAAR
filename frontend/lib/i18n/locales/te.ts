@@ -1,6 +1,6 @@
 /** Telugu (à°¤à±†à°²à±à°—à±) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const te: UiDict = {
     "continueToReport": "నా నివేదికకు కొనసాగించండి",
     "checklistTitle": "సేకరించాల్సిన పత్రాలు",
     "checklistLead": "పైన పేర్కొన్న పథకాలకు అవసరమైనవన్నీ, ఒకే జాబితాలో — మీరు వాటిని సేకరించినప్పుడు టిక్ చేయండి. ప్రింట్ చేసినప్పుడు, ఖాళీ పెట్టెలు మీరు కార్యాలయానికి తీసుకెళ్లగల చెక్‌లిస్ట్‌గా మారతాయి."
+  },
+  "nearMiss": {
+    "title": "అర్హత సాధించడానికి దగ్గరగా",
+    "bodyEligible": "మీరు పాటించని ఏకైక నియమం ఇది — మిగిలిన అన్ని అర్హతలు సరిపోయాయి.",
+    "bodyLikely": "మీరు పాటించని ఏకైక నియమం ఇది — కార్యాలయం ధృవీకరించే వాస్తవాలు పెండింగ్‌లో ఉండగా, మిగిలినవన్నీ సరిపోయాయి.",
+    "needAgeAtLeast": "ఇది {value} వయస్సు నుండి వర్తిస్తుంది.",
+    "needAgeAtMost": "ఇది {value} వయస్సు వరకు వర్తిస్తుంది.",
+    "needIncomeAtMost": "దీనికి సంవత్సరానికి ₹{amount} లేదా అంతకంటే తక్కువ కుటుంబ ఆదాయం అవసరం.",
+    "needIncomeAtLeast": "దీనికి సంవత్సరానికి కనీసం ₹{amount} కుటుంబ ఆదాయం అవసరం.",
+    "ruleAsks": "నిర్ణయించే నియమం:"
   },
   "whatIf": {
     "title": "ఒకవేళ విషయాలు భిన్నంగా ఉంటే?",

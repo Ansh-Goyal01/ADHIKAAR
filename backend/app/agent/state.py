@@ -139,6 +139,32 @@ class VerifiedReason(BaseModel):
     citations: list[VerifiedCitation]
 
 
+Op = Literal["eq", "ne", "gt", "gte", "lt", "lte"]
+
+
+class NearMissCondition(BaseModel):
+    """One leaf comparison the person would need to satisfy (require) or
+    escape (exclude) — language-invariant, rendered client-side."""
+
+    field: str
+    op: Op
+    value: bool | int | str
+
+
+class NearMiss(BaseModel):
+    """R1 — a scheme blocked by exactly ONE rule, where resolving that rule
+    alone would make the person eligible. Deterministic: the blocking rule's
+    official clause plus the concrete leaf conditions."""
+
+    rule_id: str
+    kind: Literal["require", "exclude"]
+    clause: str
+    source_url: str
+    ask: str
+    unlocked_verdict: Verdict  # what the verdict becomes with the blocker resolved
+    conditions: list[NearMissCondition]
+
+
 class SchemeResult(BaseModel):
     """Final per-scheme answer returned by the API."""
 
@@ -157,6 +183,9 @@ class SchemeResult(BaseModel):
     page_url: str = ""
     references: list[dict[str, str]] = []
     dropped_claims: int = 0
+    # R1: set only on not_eligible verdicts that are exactly one rule away
+    # from eligible — the "close to qualifying" suggestion.
+    near_miss: NearMiss | None = None
 
 
 class AgentState(TypedDict, total=False):

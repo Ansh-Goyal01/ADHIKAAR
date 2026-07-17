@@ -20,7 +20,7 @@ from app.agent.state import (
     VerifiedReason,
 )
 from app.llm.router import generate_structured_resilient
-from app.rules.engine import RuleFinding, RuleVerdict, evaluate_scheme
+from app.rules.engine import RuleFinding, RuleVerdict, evaluate_scheme, find_near_miss
 from app.rules.loader import load_all_rules
 
 logger = logging.getLogger(__name__)
@@ -136,8 +136,9 @@ def rules_assess_and_compose(state: AgentState) -> AgentState:
     corpus = corpus_by_id()
     retrieved_schemes = {c.scheme_id for c in state.get("retrieved", [])}
 
+    all_rules = load_all_rules()
     verdicts = [
-        evaluate_scheme(scheme_rules, profile) for scheme_rules in load_all_rules().values()
+        evaluate_scheme(scheme_rules, profile) for scheme_rules in all_rules.values()
     ]
     # need_more_info is shown only for schemes retrieval found on-topic — otherwise a
     # sparse profile would bury the user in questions about irrelevant schemes.
@@ -174,6 +175,9 @@ def rules_assess_and_compose(state: AgentState) -> AgentState:
                 page_url=doc.page_url,
                 references=[r.model_dump() for r in doc.references],
                 dropped_claims=0,
+                near_miss=find_near_miss(
+                    all_rules[verdict.scheme_id], verdict, profile
+                ),
             )
         )
     results.sort(key=lambda r: VERDICT_ORDER[r.verdict])

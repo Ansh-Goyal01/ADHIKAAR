@@ -14,6 +14,24 @@ export interface VerifiedReason {
   citations: VerifiedCitation[];
 }
 
+export interface NearMissCondition {
+  field: string;
+  op: "eq" | "ne" | "gt" | "gte" | "lt" | "lte";
+  value: boolean | number | string;
+}
+
+/** R1 — a scheme blocked by exactly one rule; resolving it alone would
+ * make the person eligible. Computed by the deterministic rules engine. */
+export interface NearMiss {
+  rule_id: string;
+  kind: "require" | "exclude";
+  clause: string;
+  source_url: string;
+  ask: string;
+  unlocked_verdict: Verdict;
+  conditions: NearMissCondition[];
+}
+
 export interface SchemeResult {
   scheme_id: string;
   scheme_name: string;
@@ -28,6 +46,7 @@ export interface SchemeResult {
   page_url: string;
   references: { title: string; url: string }[];
   dropped_claims: number;
+  near_miss?: NearMiss | null;
 }
 
 export interface UserProfile {

@@ -1,6 +1,6 @@
 /** Kannada (à²•à²¨à³à²¨à²¡) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const kn: UiDict = {
     "continueToReport": "ನನ್ನ ವರದಿಗೆ ಮುಂದುವರಿಯಿರಿ",
     "checklistTitle": "ಸಂಗ್ರಹಿಸಬೇಕಾದ ದಾಖಲೆಗಳು",
     "checklistLead": "ಮೇಲಿನ ಯೋಜನೆಗಳಿಗೆ ಅಗತ್ಯವಿರುವ ಎಲ್ಲಾ ವಿಷಯಗಳು, ಒಂದು ಪಟ್ಟಿಯಲ್ಲಿ — ಸಂಗ್ರಹಿಸಿದಂತೆ ವಸ್ತುಗಳನ್ನು ಗುರುತಿಸಿ. ಮುದ್ರಿಸಿದಾಗ, ಖಾಲಿ ಪೆಟ್ಟಿಗಳು ಕಛೇರಿಗೆ ಕೊಂಡೊಯ್ಯಬಹುದಾದ ಚೆಕ್‌ಲಿಸ್ಟ್ ಆಗಿರುತ್ತವೆ."
+  },
+  "nearMiss": {
+    "title": "ಅರ್ಹತೆ ಪಡೆಯಲು ಸನಿಹ",
+    "bodyEligible": "ಇದು ನಿಮಗೆ ಅರ್ಹತೆ ಪಡೆಯದ ಏಕೈಕ ನಿಯಮ — ಇತರ ಎಲ್ಲಾ ಅವಶ್ಯಕತೆಗಳು ಸರಿಹೋಗುತ್ತವೆ.",
+    "bodyLikely": "ಇದು ನಿಮಗೆ ಅರ್ಹತೆ ಪಡೆಯದ ಏಕೈಕ ನಿಯಮ — ಇತರ ಎಲ್ಲಾ ವಿಷಯಗಳು ಕಚೇರಿ ದೃಢೀಕರಿಸುವ ವಾಸ್ತವಾಂಶಗಳನ್ನು ಮುಂದುಮಾತುಗೊಂಡು ಸರಿಹೋಗುತ್ತವೆ.",
+    "needAgeAtLeast": "ಇದು {value} ವಯಸ್ಸಿನಿಂದ ಅನ್ವಯಿಸುತ್ತದೆ.",
+    "needAgeAtMost": "ಇದು {value} ವಯಸ್ಸಿನವರೆಗೆ ಅನ್ವಯಿಸುತ್ತದೆ.",
+    "needIncomeAtMost": "ಇದಕ್ಕೆ ಕುಟುಂಬದ ವಾರ್ಷಿಕ ಆದಾಯ ₹{amount} ಅಥವಾ ಕಡಿಮೆ ಅವಶ್ಯಕವಿದೆ.",
+    "needIncomeAtLeast": "ಇದಕ್ಕೆ ಕುಟುಂಬದ ವಾರ್ಷಿಕ ಆದಾಯ ₹{amount} ಅಥವಾ ಹೆಚ್ಚಿನದು ಅವಶ್ಯಕವಿದೆ.",
+    "ruleAsks": "ನಿರ್ಣಯಿಸುವ ನಿಯಮ:"
   },
   "whatIf": {
     "title": "ವಿಷಯಗಳು ಭಿನ್ನವಾಗಿದ್ದರೆ ಏನಾಗುತ್ತದೆ?",

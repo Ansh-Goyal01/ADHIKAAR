@@ -1,6 +1,6 @@
 /** Marathi (à¤®à¤°à¤¾à¤ à¥€) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const mr: UiDict = {
     "continueToReport": "माझ्या अहवालावर पुढे जा",
     "checklistTitle": "कागदपत्रे गोळा करण्यासाठी",
     "checklistLead": "वरील योजनांसाठी आवश्यक असलेली सर्व कागदपत्रे, एका यादीत — तुम्ही ती गोळा करताच त्यांच्यासमोर टिक करा. छापल्यावर, रिकाम्या चौकटींची एक चेकलिस्ट तयार होते जी तुम्ही कार्यालयात घेऊन जाऊ शकता."
+  },
+  "nearMiss": {
+    "title": "पात्रता नजीक",
+    "bodyEligible": "हे एकमेव नियम आहे ज्याची पूर्तता तुम्ही करू शकत नाही — इतर सर्व आवश्यकता पूर्ण आहेत.",
+    "bodyLikely": "हे एकमेव नियम आहे ज्याची पूर्तता तुम्ही करू शकत नाही — इतर सर्व गोष्टी पूर्ण आहेत, कार्यालयाच्या तपासणी अधीन.",
+    "needAgeAtLeast": "ते वय {value} पासून लागू होईल.",
+    "needAgeAtMost": "ते वय {value} पर्यंत लागू आहे.",
+    "needIncomeAtMost": "त्यासाठी कुटुंबाची वार्षिक उत्पन्न ₹{amount} किंवा त्यापेक्षा कमी असणे आवश्यक आहे.",
+    "needIncomeAtLeast": "त्यासाठी कुटुंबाची वार्षिक उत्पन्न ₹{amount} किंवा त्यापेक्षा जास्त असणे आवश्यक आहे.",
+    "ruleAsks": "निर्णय घेणारा नियम:"
   },
   "whatIf": {
     "title": "जर गोष्टी वेगळ्या असत्या तर काय?",

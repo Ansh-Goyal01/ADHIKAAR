@@ -1,6 +1,6 @@
 /** Tamil (à®¤à®®à®¿à®´à¯) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const ta: UiDict = {
     "continueToReport": "என் அறிக்கைக்குச் செல்லுங்கள்",
     "checklistTitle": "சேகரிக்க வேண்டிய ஆவணங்கள்",
     "checklistLead": "மேலே உள்ள திட்டங்களுக்குத் தேவையான அனைத்து ஆவணங்களும் ஒரே பட்டியலில் உள்ளன — நீங்கள் சேகரிக்கும்போது அவற்றை சரிபார்க்கவும். அச்சிடப்பட்டால், இந்த வெற்றுப் பெட்டிகள் நீங்கள் அலுவலகத்திற்கு எடுத்துச் செல்லக்கூடிய சரிபார்ப்புப் பட்டியலாக மாறும்."
+  },
+  "nearMiss": {
+    "title": "தகுதியாக இருக்கிறது",
+    "bodyEligible": "இது நீங்கள் பூர்த்தி செய்யாத ஒரே விதியாகும் — மற்ற அனைத்து தேவைகளும் சரிபார்க்கப்பட்டுள்ளன.",
+    "bodyLikely": "இது நீங்கள் பூர்த்தி செய்யாத ஒரே விதியாகும் — மற்ற அனைத்தும் உண்மைகளை அலுவலகம் சரிபார்ப்பதைக் காத்திருக்கிறது.",
+    "needAgeAtLeast": "இது {value} வயது முதல் பொருந்தும்.",
+    "needAgeAtMost": "இது {value} வயது வரை பொருந்தும்.",
+    "needIncomeAtMost": "இது குடும்ப வருமானம் ஆண்டுக்கு ₹{amount} அல்லது அதைவிட குறைவாக இருக்க வேண்டும்.",
+    "needIncomeAtLeast": "இது குடும்ப வருமானம் ஆண்டுக்கு குறைந்தது ₹{amount} அவசியம்.",
+    "ruleAsks": "முடிவு செய்யும் விதி:"
   },
   "whatIf": {
     "title": "விஷயங்கள் வேறுபட்டால் என்ன ஆகும்?",

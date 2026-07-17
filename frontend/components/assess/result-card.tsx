@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ReadAloud } from "@/components/ui/read-aloud";
 import type { SchemeResult } from "@/lib/types";
 import { CitationChip } from "./citation-chip";
+import { NearMissNotice } from "./near-miss-notice";
 import { VerdictBadge } from "./verdict-badge";
 
 function Expandable({
@@ -96,6 +97,8 @@ export function ResultCard({ result }: { result: SchemeResult }) {
             </ul>
           </div>
         )}
+
+        {result.near_miss && <NearMissNotice nearMiss={result.near_miss} />}
 
         {result.missing_info.length > 0 && (
           <div className="rounded-lg bg-verdict-info-soft p-3 text-sm leading-relaxed text-verdict-info">

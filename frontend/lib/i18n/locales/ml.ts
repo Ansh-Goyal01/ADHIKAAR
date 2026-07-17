@@ -1,6 +1,6 @@
 /** Malayalam (à´®à´²à´¯à´¾à´³à´‚) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const ml: UiDict = {
     "continueToReport": "എന്റെ റിപ്പോർട്ടിലേക്ക് തുടരുക",
     "checklistTitle": "ശേഖരിക്കേണ്ട രേഖകൾ",
     "checklistLead": "മുകളിലെ പദ്ധതികൾക്കായി ആവശ്യമായ എല്ലാം, ഒരു പട്ടികയിൽ - ശേഖരിക്കുമ്പോൾ അവയുടെ ഇടയിൽ ടിക്ക് ചെയ്യുക. അച്ചടിച്ചാൽ, ഒരു ചെക്ക്‌ലിസ്റ്റ് ഉണ്ടാകും, അത് ഓഫീസിലേക്ക് കൊണ്ടുപോകാം."
+  },
+  "nearMiss": {
+    "title": "യോഗ്യതയ്ക്ക് സമീപം",
+    "bodyEligible": "ഇതാണ് നിങ്ങൾ പാലിക്കാത്ത ഏക നിയമം — മറ്റെല്ലാ ആവശ്യകതകളും രൂപപ്പെടുത്തിയിരിക്കുന്നു.",
+    "bodyLikely": "ഇതാണ് നിങ്ങൾ പാലിക്കാത്ത ഏക നിയമം — എല്ലാം ഓഫീസ് വെറിഫൈ ചെയ്യുന്ന വസ്തുതകൾ കാത്തിരിക്കുന്നു.",
+    "needAgeAtLeast": "ഇത് {value} വയസ്സുമുതൽ ബാധകമാകും.",
+    "needAgeAtMost": "ഇത് {value} വയസ്സുവരെ ബാധകമാകും.",
+    "needIncomeAtMost": "ഇതിന് {amount} രൂപയോ അതിനേക്കാൾ കുറവോ ആയ കുടുംബ വരുമാനം ആവശ്യമാണ്.",
+    "needIncomeAtLeast": "ഇതിന് കുറഞ്ഞത് {amount} രൂപ ആയ കുടുംബ വരുമാനം ആവശ്യമാണ്.",
+    "ruleAsks": "തീരുമാനിക്കുന്ന നിയമം:"
   },
   "whatIf": {
     "title": "കാര്യങ്ങൾ വ്യത്യസ്തമായിരുന്നെങ്കിൽ?",

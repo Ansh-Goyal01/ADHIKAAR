@@ -1,6 +1,6 @@
 /** Odia (à¬“à¬¡à¬¼à¬¿à¬†) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const or: UiDict = {
     "continueToReport": "ମୋ ରିପୋର୍ଟ୍ କୁ ଚଲି ଜାଅ",
     "checklistTitle": "ସଂଗ୍ରହ କରିବା ଦଲିଲ",
     "checklistLead": "ଉପରୋକ୍ତ ଯୋଜନା ପାଇଁ ସମସ୍ତ କିଛି, ଏକ ତାଲିକାରେ — ଆପଣ ସଂଗ୍ରହ କରିବା ବସ୍ତୁ ଗୁଡିକ ଚିହ୍ନିତ କରନ୍ତୁ। ମୁଦ୍ରିତ, ଖାଲି ବକ୍ସ ଗୁଡିକ ଏକ ତାଲିକା ତିଆରି କରନ୍ତୁ ଯାହା ଆପଣ କାର୍ଯାଲୟକୁ ନିଯାଇ ପାରିବେ।"
+  },
+  "nearMiss": {
+    "title": "ଯୋଗ୍ୟତা ପାଇବାକୁ ନିକଟ",
+    "bodyEligible": "ଏହା ହିଁ ଏକମାତ୍ର ନିୟମ ଯାହା ତୁମେ ପୂରଣ କରୁ ନାହିଁ — ଅନ୍ୟ ସମସ୍ତ ଆବଶ୍ୟକତା ଠିକ୍ ଅଛି",
+    "bodyLikely": "ଏହା ହିଁ ଏକମାତ୍ର ନିୟମ ଯାହା ତୁମେ ପୂରଣ କରୁ ନାହିଁ — ଅନ୍ୟ ସମସ୍ତ କଥା କାର୍ଯାଲୟ ଯାଚାଇ କରିବା ପରେ ଠିକ୍ ଅଛି",
+    "needAgeAtLeast": "ଏହା {value} ବୟସ ଆରମ୍ଭ",
+    "needAgeAtMost": "ଏହା {value} ବୟସ ପର୍ଯ୍ୟନ୍ତ ପ୍ରଯୋଜ୍ୟ",
+    "needIncomeAtMost": "ଏଥିପାଇଁ ପାରିବାରିକ ବାର୍ଷିକ ଆୟ {amount} ଟଙ୍କା କିମ୍ବା ତାଠାରୁ କମ୍ ହୋଇଥିବା ଆବଶ୍ୟକ",
+    "needIncomeAtLeast": "ଏଥିପାଇଁ ପାରିବାରିକ ବାର୍ଷିକ ଆୟ {amount} ଟଙ୍କା କିମ୍ବା ତାଠାରୁ ଅଧିକ ହୋଇଥିବା ଆବଶ୍ୟକ",
+    "ruleAsks": "ନିର୍ଣ୍ଣୟ କରୁଥିବା ନିୟମ:"
   },
   "whatIf": {
     "title": "ଯଦି ଜିନିଷ ଭିନ୍ନ ହୋଇଥାନ୍ତେ?",

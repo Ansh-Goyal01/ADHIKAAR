@@ -1,6 +1,6 @@
 /** Punjabi (à¨ªà©°à¨œà¨¾à¨¬à©€) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: 1 strings fell back to English (see generator output). Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const pa: UiDict = {
     "continueToReport": "ਮੇਰੀ ਰਿਪੋਰਟ ਨੂੰ ਜਾਰੀ ਰੱਖੋ",
     "checklistTitle": "ਇਕੱਠਾ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼",
     "checklistLead": "ਉਪਰੋਕਤ ਸਕੀਮਾਂ ਦੁਆਰਾ ਪੁੱਛੀ ਗਈ ਹਰ ਚੀਜ਼, ਇੱਕ ਸੂਚੀ ਵਿੱਚ — ਜਿਵੇਂ ਤੁਸੀਂ ਇਕੱਠਾ ਕਰਦੇ ਹੋ ਉਨ੍ਹਾਂ ਨੂੰ ਟਿਕ ਕਰੋ. ਛਾਪਿਆ ਹੋਇਆ, ਖਾਲੀ ਬਕਸੇ ਇੱਕ ਸੂਚੀ ਬਣਾਉਂਦੇ ਹਨ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਦਫ਼ਤਰ ਵਿੱਚ ਲੈ ਜਾ ਸਕਦੇ ਹੋ."
+  },
+  "nearMiss": {
+    "title": "ਯੋਗਤਾ ਦੇ ਨੇੜੇ",
+    "bodyEligible": "ਇਹ ਇੱਕਲਾ ਨਿਯਮ ਹੈ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਪੂਰਾ ਨਹੀਂ ਕਰਦੇ - ਹਰ ਦੂਜੀ ਲੋੜ ਠੀਕ ਹੈ।",
+    "bodyLikely": "ਇਹ ਇੱਕਲਾ ਨਿਯਮ ਹੈ ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਪੂਰਾ ਨਹੀਂ ਕਰਦੇ - ਬਾਕੀ ਸਭ ਕੁਝ ਠੀਕ ਹੈ, ਦਫਤਰ ਦੁਆਰਾ ਵੇਰਿਫਾਈ ਕੀਤੇ ਗਏ ਤੱਥਾਂ ਦੇ ਅਧਾਰ ਤੇ।",
+    "needAgeAtLeast": "ਇਹ {value} ਉਮਰ ਤੋਂ ਲਾਗੂ ਹੋਵੇਗਾ।",
+    "needAgeAtMost": "ਇਹ {value} ਉਮਰ ਤਕ ਲਾਗੂ ਹੁੰਦਾ ਹੈ।",
+    "needIncomeAtMost": "ਇਸ ਲਈ ਪਰਿਵਾਰਕ ਸਾਲਾਨਾ ਆਮਦਨ {amount} ਰੁਪਏ ਜਾਂ ਇਸ ਤੋਂ ਘੱਟ ਦੀ ਲੋੜ ਹੈ।",
+    "needIncomeAtLeast": "ਇਸ ਲਈ ਪਰਿਵਾਰਕ ਸਾਲਾਨਾ ਆਮਦਨ ਘੱਟੋ-ਘੱਟ {amount} ਰੁਪਏ ਜਾਂ ਇਸ ਤੋਂ ਵੱਧ ਦੀ ਲੋੜ ਹੈ।",
+    "ruleAsks": "ਫੈਸਲਾ ਕਰਨ ਵਾਲਾ ਨਿਯਮ:"
   },
   "whatIf": {
     "title": "ਜੇ ਚੀਜ਼ਾਂ ਵੱਖਰੀਆਂ ਹੁੰਦੀਆਂ?",

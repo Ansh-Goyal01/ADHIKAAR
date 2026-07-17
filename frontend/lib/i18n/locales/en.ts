@@ -100,6 +100,18 @@ export const en = {
     checklistLead:
       "Everything the schemes above ask for, in one list — tick items off as you collect them. Printed, the empty boxes make a checklist you can carry to the office.",
   },
+  nearMiss: {
+    title: "Close to qualifying",
+    bodyEligible:
+      "This is the only rule you don't meet — every other requirement checks out.",
+    bodyLikely:
+      "This is the only rule you don't meet — everything else checks out, pending facts the office verifies.",
+    needAgeAtLeast: "It would apply from age {value}.",
+    needAgeAtMost: "It applies up to age {value}.",
+    needIncomeAtMost: "It requires an annual family income of ₹{amount} or less.",
+    needIncomeAtLeast: "It requires an annual family income of at least ₹{amount}.",
+    ruleAsks: "The rule that decides:",
+  },
   whatIf: {
     title: "What if things were different?",
     lead: "Try a different age, income, or a BPL card and see which verdicts would flip — checked against the same official rules. Your report above stays untouched, and nothing is stored.",

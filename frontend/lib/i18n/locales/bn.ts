@@ -1,6 +1,6 @@
 /** Bengali (à¦¬à¦¾à¦‚à¦²à¦¾) â€” MACHINE-TRANSLATED, pending native-speaker review.
  *
- * Generated 2026-07-17 by scripts/generate_locales.py through the
+ * Generated 2026-07-18 by scripts/generate_locales.py through the
  * backend translation pipeline (disk-cached, canonical values copied through).
  * Coverage: all strings translated. Do not hand-edit strings here without also
  * recording the review in the vault sign-off notes; regenerate with:
@@ -97,6 +97,16 @@ export const bn: UiDict = {
     "continueToReport": "আমার প্রতিবেদনে চালিয়ে যান",
     "checklistTitle": "সংগ্রহ করার জন্য নথি",
     "checklistLead": "উপরের প্রকল্পগুলির জন্য যা যা প্রয়োজন, তার একটি তালিকা — আপনি সংগ্রহ করার সময় প্রতিটি আইটেম টিক দিন। প্রিন্ট করা হলে, খালি বাক্সগুলি একটি চেকলিস্ট তৈরি করবে যা আপনি অফিসে নিয়ে যেতে পারবেন।"
+  },
+  "nearMiss": {
+    "title": "যোগ্যতার কাছাকাছি",
+    "bodyEligible": "এটি একমাত্র নিয়ম যা আপনি পূরণ করেন না — অন্যান্য সমস্ত প্রয়োজনীয়তা ঠিক আছে।",
+    "bodyLikely": "এটি একমাত্র নিয়ম যা আপনি পূরণ করেন না — অন্য সবকিছু ঠিক আছে, যা অফিস দ্বারা যাচাই করা তথ্যের উপর নির্ভর করে।",
+    "needAgeAtLeast": "এটি {value} বছর বয়স থেকে প্রযোজ্য হবে।",
+    "needAgeAtMost": "এটি {value} বছর বয়স পর্যন্ত প্রযোজ্য।",
+    "needIncomeAtMost": "এর জন্য বার্ষিক পারিবারিক আয় ₹{amount} বা তার কম হওয়া প্রয়োজন।",
+    "needIncomeAtLeast": "এর জন্য বার্ষিক পারিবারিক আয় কমপক্ষে ₹{amount} হওয়া প্রয়োজন।",
+    "ruleAsks": "যে নিয়মটি নির্ধারণ করে:"
   },
   "whatIf": {
     "title": "যদি পরিস্থিতি ভিন্ন হতো?",

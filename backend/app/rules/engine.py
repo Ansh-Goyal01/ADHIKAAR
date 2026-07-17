@@ -12,9 +12,8 @@ from typing import Literal
 
 from pydantic import BaseModel, model_validator
 
-from app.agent.state import UserProfile, Verdict
+from app.agent.state import NearMiss, NearMissCondition, Op, UserProfile, Verdict
 
-Op = Literal["eq", "ne", "gt", "gte", "lt", "lte"]
 RuleStatus = Literal["met", "failed", "excluded", "unknown"]
 
 
@@ -136,6 +135,60 @@ class RuleVerdict(BaseModel):
             for finding in self.findings
             if finding.self_declared and finding.status == "met" and finding.verify_hint
         ]
+
+
+def _blocking_leaves(
+    condition: Condition, profile: UserProfile, blocking: bool
+) -> list[NearMissCondition]:
+    """Leaves that decide the blocker. For a failed require (`blocking=False`)
+    these are the leaves evaluating False — what the person doesn't satisfy.
+    For a triggered exclude (`blocking=True`) the leaves evaluating True —
+    what pulls them into the exclusion."""
+    if condition.any is not None or condition.all is not None:
+        return [
+            leaf
+            for child in (condition.any or condition.all or [])
+            for leaf in _blocking_leaves(child, profile, blocking)
+        ]
+    if evaluate_condition(condition, profile) is blocking:
+        return [
+            NearMissCondition(field=condition.field, op=condition.op, value=condition.value)
+        ]
+    return []
+
+
+def find_near_miss(
+    scheme: SchemeRules, verdict: "RuleVerdict", profile: UserProfile
+) -> NearMiss | None:
+    """A near miss is a not_eligible verdict with exactly one failed/excluded
+    rule where re-evaluating WITHOUT that rule yields eligible or
+    likely_eligible — i.e. one blocker away, nothing else missing."""
+    if verdict.verdict != "not_eligible":
+        return None
+    blockers = [f for f in verdict.findings if f.status in ("failed", "excluded")]
+    if len(blockers) != 1:
+        return None
+    blocker = blockers[0]
+
+    remaining = SchemeRules(
+        scheme_id=scheme.scheme_id,
+        version=scheme.version,
+        rules=[r for r in scheme.rules if r.id != blocker.rule_id],
+    )
+    unlocked = evaluate_scheme(remaining, profile).verdict
+    if unlocked not in ("eligible", "likely_eligible"):
+        return None
+
+    rule = next(r for r in scheme.rules if r.id == blocker.rule_id)
+    return NearMiss(
+        rule_id=rule.id,
+        kind=rule.kind,
+        clause=rule.clause,
+        source_url=rule.source_url,
+        ask=rule.ask,
+        unlocked_verdict=unlocked,
+        conditions=_blocking_leaves(rule.when, profile, blocking=rule.kind == "exclude"),
+    )
 
 
 def _rule_status(rule: Rule, profile: UserProfile) -> RuleStatus:

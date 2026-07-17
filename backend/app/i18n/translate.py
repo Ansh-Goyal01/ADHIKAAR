@@ -314,6 +314,9 @@ def translate_response(response: AssessResponse, target: str) -> AssessResponse:
                 "confirm": [add(c) for c in result.confirm_before_applying],
                 "documents": add(result.documents),
                 "how_to_apply": add(result.how_to_apply),
+                # near-miss: only the ask prose is translated; the clause is a
+                # verbatim official quote and stays untouched like citations.
+                "near_miss_ask": add(result.near_miss.ask) if result.near_miss else None,
             }
         )
 
@@ -344,6 +347,13 @@ def translate_response(response: AssessResponse, target: str) -> AssessResponse:
                     ],
                     "documents": pick(slot["documents"], result.documents),
                     "how_to_apply": pick(slot["how_to_apply"], result.how_to_apply),
+                    "near_miss": (
+                        result.near_miss.model_copy(
+                            update={"ask": pick(slot["near_miss_ask"], result.near_miss.ask)}
+                        )
+                        if result.near_miss
+                        else None
+                    ),
                 }
             )
         )
