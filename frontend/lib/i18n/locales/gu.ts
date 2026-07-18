@@ -8,6 +8,7 @@
  *   backend/.venv/Scripts/python.exe -X utf8 -u scripts/generate_locales.py
  */
 
+/* Interim 2026-07-18: 90 missing keys filled with English pending the running locale regeneration. */
 import type { UiDict } from "./en";
 import type { WizardOverlay } from "../overlay";
 
@@ -96,7 +97,16 @@ export const gu: UiDict = {
     "typeAnswer": "તમારો જવાબ ટાઈપ કરો",
     "continueToReport": "મારી રિપોર્ટ પર આગળ વધો",
     "checklistTitle": "એકત્ર કરવાના દસ્તાવેજો",
-    "checklistLead": "ઉપરની યોજનાઓ જે કંઈ માંગે છે, તે બધું એક યાદીમાં — જેમ જેમ તમે વસ્તુઓ એકત્રિત કરો તેમ તેમ તેના પર નિશાન કરો. છાપ્યા પછી, ખાલી બોક્સ એક ચેકલિસ્ટ બનાવે છે જે તમે ઓફિસ લઈ જઈ શકો છો."
+    "checklistLead": "ઉપરની યોજનાઓ જે કંઈ માંગે છે, તે બધું એક યાદીમાં — જેમ જેમ તમે વસ્તુઓ એકત્રિત કરો તેમ તેમ તેના પર નિશાન કરો. છાપ્યા પછી, ખાલી બોક્સ એક ચેકલિસ્ટ બનાવે છે જે તમે ઓફિસ લઈ જઈ શકો છો.",
+    "shareWhatsApp": "Share on WhatsApp",
+    "whatsappMessage": "My scheme eligibility report from Adhikaar — every verdict explained and cited to the official rules:",
+    "valueTitle": "What this could be worth",
+    "valueTotal": "about {amount} a year",
+    "valuePerYear": "{amount} a year",
+    "valueCover": "{amount} insurance cover",
+    "valueOneTime": "{amount} one-time",
+    "valueVaries": "amount varies",
+    "valueNote": "Estimates from the official benefit text, shown only where a person has verified the amount against it. The implementing office's calculation is always final."
   },
   "nearMiss": {
     "title": "લગભગ યોગ્યતા",
@@ -213,6 +223,113 @@ export const gu: UiDict = {
       "other": "બીજું કામ"
     }
   },
+  "marketing": {
+    "home": {
+      "heroTitle": "શું સરકારી સહાય તમને મળે છે તે જાણો",
+      "heroLead": "થોડા સરળ પ્રશ્નોના જવાબ આપો. અધિકાર તપાસે છે {schemeCount} કેન્દ્ર સરકારની યોજનાઓના સત્તાવાર નિયમો અને દરેક દાવાને સરકારના શબ્દોથી જોડે છે.",
+      "ctaCheck": "તમારી પાત્રતા ચકાસો",
+      "ctaHow": "આ કેવી રીતે કામ કરે છે",
+      "heroNote": "મફત · કોઈ લોગિનની જરૂર નથી · લગભગ 3 મિનિટ",
+      "trustGrounded": "સત્તાવાર દસ્તાવેજોમાંથી",
+      "trustCited": "દરેક દાવાનો સંદર્ભ",
+      "trustCovered": "{schemeCount} કેન્દ્રીય યોજનાઓ આવરી લેવામાં આવી છે",
+      "trustOpenSource": "ખુલ્લું સ્ત્રોત",
+      "howTitle": "કાર્ય પ્રણાલી",
+      "howLead": "તમારી સ્થિતિથી રિપોર્ટ સુધીના ત્રણ પગલાં",
+      "stepLabel": "પગલું {number}",
+      "step1Title": "આપની વિશે કહો",
+      "step1Body": "તમારી ઉંમર, કારકિર્દી અને ઘરના સદસ્યો વિશે થોડા સાદા પ્રશ્નો. કોઈ લોગિન, કોઈ દસ્તાવેજો અને કંઈ સંગ્રહિત નથી",
+      "step2Title": "અમે સત્તાવાર નિયમોની તપાસ કરીએ છીએ",
+      "step2Body": "તમારા જવાબો દરેક યોજનાની વાસ્તવિક પાત્રતાની કલમો સામે પરીક્ષણ કરવામાં આવે છે — સરકારના પોતાના લખાણમાંથી લખાયેલા નિયમો દ્વારા, અનુમાન દ્વારા નહીં",
+      "step3Title": "તમને સૂચિત અહેવાલ મળે છે",
+      "step3Body": "દરેક યોજના માટે: તમે કેમ યોગ્ય છો, તમને શું મળશે, કયા દસ્તાવેજો લાવવા અને ક્યાં અરજી કરવાની — દરેક દાવો તેના સત્તાવાર સ્ત્રોતને સંકલિત કરે છે",
+      "differentTitle": "મોટાભાગના સાધનો શોધે છે અને સારાંશ આપે છે. અધિકાર નક્કી કરે છે — અને તેને સાબિત પણ કરે છે.",
+      "differentBody1": "એક ચેટબોટ જે યોજનાનો માત્ર મૂળભૂત લખાણ પ્રાપ્ત કરી શકે છે તે આત્મવિશ્વાસથી દેખાઈ શકે છે અને તેમ છતાં ખોટી હોઈ શકે છે — અને ખોટી \"તમે યોગ્ય છો\" ના કહેવાથી વાસ્તવિક લોકોને વાસ્તવિક સમય અને આશાનું નુકસાન થઈ શકે છે. અધિકાર અલગ રીતે કામ કરે છે: દરેક પાત્રતાનો નિયમ સત્તાવાર પરિબળમાંથી લખવામાં આવે છે, તમારા જવાબો તે નિયમો સામે નક્કરતાથી તપાસવામાં આવે છે, અને તમને જોવાનું પહેલાં એક વેરિફાયર દરેક વાક્યની સમજૂતી સ્ત્રોત સામે પક્ષે પક્ષે થી ચકાસે છે.",
+      "differentBody2": "જ્યારે અમે બંને પ્રકારની પદ્ધતિઓનો એકજ કેસોમાં પરીક્ષણ કર્યું, ત્યારે સાદી ભાષાનું AI 16 હક્કો શોધી કાઢ્યા જે અસ્તિત્વમાં નહોતા.",
+      "differentBody2Strong": "અધિકારના નિયમ એન્જિને શૂન્ય શોધ્યા.",
+      "differentBody2End": "અને જ્યારે તેની પાસે પૂરતી માહિતી નથી, ત્યારે તે પૂછે છે — તે કદી અંદાજ લગાવતું નથી.",
+      "flowSituation": "તમારી સ્થિતિ",
+      "flowRetrieved": "સરકારી લખાણમાંથી મેળવેલા સત્તાવાર નિયમો",
+      "flowDecides": "નિશ્ચિત નિયમ એન્જિન નક્કી કરે છે",
+      "flowVerifier": "વેરિફાયર દરેક દાવાની તપાસ સ્ત્રોત સામે કરે છે",
+      "flowCited": "ઉદ્ધર્યા ઉત્તર તમે રાખી શકો છો",
+      "readFull": "સંપૂર્ણ સમજૂતી વાંચો",
+      "closingTitle": "ત્રણ મિનિટ. કોઈ લોગિન નહીં. એક અહેવાલ જેને તમે ઓફિસે લઈ જઈ શકો છો"
+    },
+    "about": {
+      "title": "અધિકારનો અર્થ છે “હક” — કારણ કે આ હકો છે",
+      "intro1": "ભારત વિશ્વના કેટલાક સૌથી મોટા કલ્યાણકારી કાર્યક્રમો ચલાવે છે, પરંતુ તમને શું મળે છે તે જાણવા માટે હજુ પણ નિષ્ણાતની જરૂર છે: નિયમો પોર્ટલ્સ અને પીડીએફ્સ પર ફેલાયેલા છે, વહીવટકર્તાઓ માટે લખાયેલી ભાષામાં. ઘણા હકો એવા નથી કે લોકો યોગ્ય નથી, પરંતુ કારણ કે તેઓ કદી શોધી શકતા નથી કે તેઓ યોગ્ય છે",
+      "intro2": "અધિકાર એ આ તફાવતને ધ્યાનથી ભરવાનો પ્રયાસ છે. તે એક પ્રશ્નનો જવાબ આપે છે — “હું શું હક્ક ધરાવું છું?” — {schemeCount} કેન્દ્રીય યોજનાઓ માટે, સાદી ભાષામાં, દરેક દાવા સરકારના પોતાના લખાણમાંથી અનુસરવામાં આવે છે. તે ખાતરીથી ખોટું હોવા કરતાં “નિશ્ચિત નથી, ઓફિસે આ પૂછો” કહેવાનું પસંદ કરે છે",
+      "openTitle": "ઓપન સોર્સ, તપાસક",
+      "openBody": "સમગ્ર સિસ્ટમ ખુલ્લી છે: નિયમોના ફાઇલો (દરેક નિયમનો એક કલમ), મૂલ્યાંકન ડેટાસેટ અને પરિણામો, અને આ સાઇટ. જો તમને કોઈ નિયમ ખોટો અથવા પુરાણો લાગે, તો તમે ચોક્કસ લાઇન પર બરાબર સૂચના કરી શકો છો — અને સુધારો પણ કરી શકો છો.",
+      "linkSource": "સોર્સ કોડ અને નિયમ ફાઇલો ગિટહબ પર",
+      "linkMyscheme": "માયસ્કીમ — સત્તાવાર યોજના પોર્ટલ",
+      "privacyTitle": "ગોપનીયતા, સરળતાથી",
+      "privacyBody": "કોઈ એકાઉન્ટ અથવા લોકોનો ડેટાબેઝ નથી. તમારા જવાબો તમારા બ્રાઉઝરમાં અને તમે જાળવવા માટે પસંદ કરેલા લિંક અથવા રિઝ્યુમ કોડમાં જ રહે છે; તેઓ ફક્ત તમારો અહેવાલ ગણતરી કરવા માટે પાત્રતા એન્જિનને મોકલવામાં આવે છે, અને ત્યાં સંગ્રહિત નથી.",
+      "finePrintTitle": "સત્યની સાચી છાપ",
+      "contactTitle": "સંપર્ક",
+      "contactBody": "કોઈ નિયમમાં ભૂલ મળી, અથવા વધુ યોજનાઓને આવરી લેવામાં મદદ કરવા માંગો છો?",
+      "contactLink": "GitHub પર એક મુદ્દો ખોલો",
+      "contactEnd": "— સુધારાઓ આ પ્રોજેક્ટનો સૌથી મૂલ્યવાન યોગદાન છે.",
+      "closing": "જાણો કે તમને શું મળવાનું છે."
+    },
+    "howItWorks": {
+      "title": "તેનું કામ તપાસી શકાય તે માટે બનાવવામાં આવ્યું છે",
+      "intro": "મોટાભાગના AI સાધનો દસ્તાવેજોને શોધીને અને જે શોધે છે તેનું સારાંશ કરીને પાત્રતાના પ્રશ્નોના જવાબો આપે છે. તે સાચું લાગી શકે છે પરંતુ ખોટું હોય છે. Adhikaar કામને અલગ કરે છે: ભાષા મોડેલો ફક્ત વાંચે છે અને સમજાવે છે — એક નિશ્ચિત નિયમ એન્જિન નક્કી કરે છે, અને તમે જે જુઓ છો તેના પહેલાં સત્તાવાર લખાણ સામે દરેક દાવાની તપાસ કરે છે.",
+      "pipelineTitle": "તમારા જવાબોથી એક સૂચિત અહેવાલ",
+      "pipe1Title": "તમારી પરિસ્થિતિ",
+      "pipe1Body": "તમે થોડા સાદા પ્રશ્નોના જવાબો આપો છો — ઉંમર, કામ, ઘર. કોઈ લોગિન નથી, અને કંઈપણ કિતે સંગ્રહિત નથી.",
+      "pipe2Title": "અધિકૃત નિયમો મળે છે",
+      "pipe2Body": "યોજનાનો લેખ સરકારી સ્ત્રોતો — માયસ્કીમ અને અધિકૃત માર્ગદર્શિકાઓ — તેના વિભાગીય લેબલો અને સ્ત્રોત લિંક્સ સાથે મેળવેલ છે. {schemeCount} કેન્દ્રીય યોજનાઓ, {ruleCount} એનકોડેડ નિયમો.",
+      "pipe3Title": "નિયમોનું એન્જિન નક્કી કરે છે — આઇ નહીં",
+      "pipe3Body": "દરેક પાત્રતાની કલમ એક્ઝિક્યુટેબલ નિયમ તરીકે લખવામાં આવે છે. તમારા જવાબો તેના સામે નક્કર, નહીં મળેલા અથવા અજાણ તરીકે તપાસવામાં આવે છે. અજાણ કદી પણ અંદાજ બનતું નથી — તે પ્રશ્ન બની જાય છે.",
+      "pipe4Title": "વેરિફાયર દરેક દાવાની તપાસ કરે છે",
+      "pipe4Body": "તમને પહોંચે તે પહેલાં, સંદર્ભિત અધિકૃત લેખ સામે સમજૂતીની દરેક વાક્યની તપાસ કરવામાં આવે છે. તપાસી શકાતી નથી એવા દાવાઓ દૂર કરવામાં આવે છે.",
+      "pipe5Title": "તમને સંદર્ભિત જવાબ મળે છે",
+      "pipe5Body": "દરેક ચૂકાદો તેના પર આધારિત છે તે ચોક્કસ કલમ, અધિકૃત સ્ત્રોતનું લિંક, અને સત્ય ભરેલા 'સંભવિત' શબ્દો સાથે કાર્યાલય હજી પણ એક તથ્યની તપાસ કરવામાં છે.",
+      "measuredTitle": "માપદંડો, નિમ્ણતાથી",
+      "measuredLead": "આપણે નિયમ એન્જિનનો ઉપયોગ 41 લેબલ કેસોમાં કર્યો - જેમાં સમાન માહિતી પ્રાપ્ત થઈ, સમાન મૂળ મોડેલ, ફક્ત નિર્ણાયક અલગ છે.",
+      "statFpCaption": "નિયમ એન્જિન દ્વારા ખોટી હક્કોનો દાવો (એઆઈ આધારિત 16 દાવા કર્યા)",
+      "statAccCaption": "પાત્રતાની ચોક્કસતા, એઆઈ-માત્ર આધારના 57% સામે",
+      "statFaithCaption": "તેના દાવાઓને સાબિતી આપવામાં વધુ સફળતા",
+      "measuredNote": "નાનો લેબલ મૂલ્યાંકન સેટ - આને એન્જિનિયરિંગ ગણતરી તરીકે ગણો, વસ્તી આંકડાઓ નહીં. સંપૂર્ણ પદ્ધતિ અને કાચી માહિતી ખુલ્લી સ્રોત સંગ્રહમાં છે.",
+      "principlesTitle": "તેના પાછળના સિદ્ધાંતો",
+      "prin1Title": "અમે ક્યારેય હક્કની કલ્પના કરતા નથી",
+      "prin1Body": "ખોટું “તમે લાયક છો” વાસ્તવિક લોકોને બસનો ભાડો, કતારો અને આશા ખર્ચવાની પડે છે. નિયમ એન્જિન એવું જ નક્કી કરી શકે છે જે સત્તાવાર પરિબળો દ્વારા ટેકો આપવામાં આવે છે. આપણા મૂલ્યાંકનમાં તેણે 92 નિર્ણયો અથવા ફેરફારો કર્યા છે — એઆઈ-માત્ર આધારભૂત રેખાએ 16 ખોટી હક્કની ઘોષણા કરી છે.",
+      "prin2Title": "“ખાતરી નથી” એ પ્રથમ વર્ગનો જવાબ છે",
+      "prin2Body": "લાયકાતના નિયમોને અહીં ત્રણ પરિણામો મળે છે: પૂર્ણ, અપૂર્ણ અને અજાણ. અજાણ વસ્તુ ક્યારેય પ્રશ્ન અથવા સત્ય “વધુ વિગતની જરૂર” તરીકે બદલાય છે — ક્યારેય આંતરિક ધારણા તરફ નહીં.",
+      "prin3Title": "કેટલીક હકીકતો ફક્ત ઓફિસ દ્વારા ચકાસી શકાય છે",
+      "prin3Body": "તમારું પરિવાર બીપીએલ અથવા એસઇસીસીની યાદીમાં છે કે નહીં તેની તપાસ વાતચીતમાંથી થઈ શકતી નથી. આવા તથ્યો પર આધારિત ચૂકાદાઓને “સંભવિત રીતે લાયક” તરીકે ચિહ્નિત કરવામાં આવે છે અને અહેવાલ ખરેખર શું પુષ્ટિ કરવાની જરૂર છે તેનું કહે છે.",
+      "prin4Title": "તાજગી દેખાય છે",
+      "prin4Body": "દરેક યોજનાના પૃષ્ઠે તેના સત્તાવાર લખાણને કઈ તારીખે મેળવવામાં આવ્યું હતું અને ચકાસવામાં આવ્યું હતું તેની તારીખ દર્શાવવામાં આવે છે. જો લખાણ એક નકલ (એક સ્કેન કરેલ પીડીએફ છે) તો પણ તેની જાણ કરવામાં આવે છે.",
+      "limitsTitle": "આ શું કરી શકતું નથી (હજુ સુધી)",
+      "limitCoverage": "પાત્રતા તપાસ આજે {schemeCount} કેન્દ્રીય યોજનાઓ નક્કી કરે છે. {pendingCount} વધુ યોજનાઓ કેટલોગમાં મશીન-ડ્રાફ્ટેડ નિયમો માનવ તપાસ માટે નોંધાયેલ છે — દરેક યોજના તપાસમાં જોડાય છે જ્યારે વ્યક્તિ દરેક નિયમને તેના સત્તાવાર સ્ત્રોત સામે પ્રમાણિત કરે છે.",
+      "limitOutOfScope": "એક વધુ યોજના સંદર્ભ માટે જ યાદીમાં છે: તેના અરજદાર એક સંસ્થા છે, વ્યક્તિ નહીં, તેથી વ્યક્તિગત તપાસ લાગુ પડતી નથી.",
+      "limitStates": "રાજ્ય યોજનાઓ — ઘણીવાર સૌથી સંબંધિત — હજુ સુધી સમાવિષ્ટ નથી, તેથી 'અહીં પાત્ર નથી' કદી 'ક્યાંય પાત્ર નથી' ના અર્થમાં થતું નથી.",
+      "limitSelfReported": "જવાબો સ્વ-રિપોર્ટ કરવામાં આવે છે. આખરી નિર્ણય હંમેશા અમલી પ્રાધિકરણ સાથે રહે છે, અને આ અહેવાલ તેમને લઈ જવા માટે બનાવવામાં આવ્યો છે — તેમને બદલે નહીં. જ્યાં કોઈ ચૂકાદો એક તથ્ય પર આધારિત હોય છે જે ફક્ત ઓફિસ દ્વારા ચકાસી શકાય છે (BPL અથવા SECC યાદી), ત્યાં અહેવાલ હવે ચોક્કસ કરે છે કે શું ચકાસવું અને ક્યાં.",
+      "limitSimplified": "થોડા વિરલ ચાલિત માપદંડો સરળ કરવામાં આવ્યા છે — ઉદાહરણ તરીકે, PM-KISANના બંધારણીય પદ ધારકો અને પ્રથિબંધિત વ્યાવસાયિકો માટેના અપવાદો હવે એનકોડ થયા છે, જ્યારે જાહેર કરવામાં આવેલ પાક વિસ્તારો (PMFBY) અને બે-ખાતા-પ્રતિ-પરિવારની મર્યાદા (સુખન્યા સમૃદ્ધિ) નથી. દરેક બાકી રહેલ સરળીકરણ ખુલ્લી-સ્ત્રોત નિયમ ફાઇલોમાં તે નિયમની બાજુમાં યાદીમાં છે.",
+      "limitLanguages": "અંગ્રેજી અને હિન્દી ઉપરાંત, અન્ય નવ ભાષાઓ મશીન-અનુવાદિત છે અને હજુ સુધી મૂળ-વક્તાની સમીક્ષાની રાહ જોઈ રહી છે — કેટલાક સ્થળોએ શબ્દો ખામીભર્યા હોઈ શકે છે.",
+      "closing": "તેને સમજવાનો શ્રેષ્ઠ માર્ગ એ છે કે તમે તેનો પ્રયાસ કરો."
+    },
+    "lifeEvents": {
+      "eyebrow": "A check for this moment",
+      "relevantTitle": "This check covers, among others:",
+      "ctaNote": "About 3 minutes · No login · Answers stay on your device",
+      "startCheck": "Start the check",
+      "widowedTitle": "Support after losing your spouse",
+      "widowedLead": "A monthly widow pension and survivor benefits exist, but many go unclaimed simply because nobody says so at the office. Answer a few plain questions and see exactly what you can claim — every answer backed by the official rules.",
+      "pregnantTitle": "Expecting a child? Check what support you can claim now",
+      "pregnantLead": "Health cover and family-support schemes have specific windows — some must be claimed during pregnancy or soon after birth. A few questions show what applies to you, with the official text to take along.",
+      "farmerTitle": "Farming a small holding? Some support is yours by right",
+      "farmerLead": "Income support, crop insurance, and pension schemes exist for farming families — with exclusions that are hard to guess. Check which ones your household can actually claim, cited to the official rules.",
+      "studentTitle": "Scholarships your family may be missing",
+      "studentLead": "Post-matric scholarships and education support depend on category, income, and course — rules that are easy to misread. Answer for the student in your family and see what applies, with sources.",
+      "seniorTitle": "Past 60? A monthly pension may already be yours",
+      "seniorLead": "Old-age pensions are small but real, and the eligibility rules are precise. Two minutes of questions show whether you or a parent can claim one — and exactly what to take to the office.",
+      "disabilityTitle": "Living with a disability? Check your entitlements",
+      "disabilityLead": "Disability pensions and support schemes depend on the certified disability percentage and a few facts about your household. See what the official rules say you can claim."
+    }
+  },
   "citation": {
     "sections": {
       "eligibility": "પાત્રતા કલમ",
@@ -225,6 +342,141 @@ export const gu: UiDict = {
     },
     "officialText": "સત્તાવાર લખાણ",
     "viewSource": "સત્તાવાર સ્ત્રોત જુઓ"
+  },
+  "voice": {
+    "speak": "Answer by speaking",
+    "stop": "Stop listening"
+  },
+  "family": {
+    "addMember": "Add a family member",
+    "addMemberHelp": "One report for the whole household: add a family member and the shared details — income, home, ration card — carry over, so only their personal questions remain.",
+    "reportLabel": "Family entitlement report",
+    "entitledTitle": "Together, your family may be entitled to {count} benefits",
+    "noEntitlementTitle": "We couldn't confirm an entitlement for the family yet",
+    "lead": "Each person was checked separately against the same official rules — household facts were shared, everything personal is their own answers. Every verdict below is cited, exactly as in a single report.",
+    "memberLabel": "Family member {n}",
+    "needInfo": "One more detail is needed to finish this member's check:",
+    "noneForMember": "No scheme matched for this member — circumstances change, and so can this.",
+    "notMatchedCount": "{count} schemes didn't match for this member."
+  },
+  "docGuides": {
+    "title": "How to get these documents",
+    "lead": "Practical notes for the documents your schemes ask for. Fees and timelines vary by state — treat these as typical, not exact.",
+    "whereLabel": "Where",
+    "costLabel": "Cost",
+    "timeLabel": "Time",
+    "aadhaar": {
+      "name": "Aadhaar card",
+      "where": "Any Aadhaar Seva Kendra or Common Service Centre (CSC); book or locate one on uidai.gov.in.",
+      "cost": "First enrolment is free; most updates cost about ₹50.",
+      "time": "Enrolment takes minutes; the card arrives by post within about 30 days. The enrolment slip works as proof sooner."
+    },
+    "bank_account": {
+      "name": "Bank account / passbook",
+      "where": "Any bank branch, India Post Payments Bank, or a banking correspondent. Ask for a Jan Dhan (PMJDY) account — zero balance, no charges.",
+      "cost": "Free for Jan Dhan accounts.",
+      "time": "Usually opened the same day with Aadhaar."
+    },
+    "caste_certificate": {
+      "name": "Caste / category certificate",
+      "where": "Your tehsil / SDM office, or your state’s e-district portal online.",
+      "cost": "Free to about ₹50 depending on the state.",
+      "time": "Typically 2–4 weeks."
+    },
+    "income_certificate": {
+      "name": "Income certificate",
+      "where": "Tehsil / revenue office, or your state’s e-district portal.",
+      "cost": "Nominal (usually under ₹50).",
+      "time": "Typically 1–3 weeks. Note: most states treat it as valid for 6–12 months, so check yours is current."
+    },
+    "bpl_card": {
+      "name": "BPL listing",
+      "where": "Your gram panchayat or the district food & civil supplies office keeps the BPL / SECC list; ask them to check your family’s inclusion.",
+      "cost": "Checking the list is free.",
+      "time": "The check itself is quick; adding a family to the list is a state process that can take much longer."
+    },
+    "ration_card": {
+      "name": "Ration card",
+      "where": "Your state food & civil supplies department — online portal or the local ration office.",
+      "cost": "Free to nominal, by state.",
+      "time": "Typically 2–4 weeks."
+    },
+    "land_records": {
+      "name": "Land records (khasra / khatauni)",
+      "where": "Your patwari or tehsil office; most states also give instant online copies on their bhulekh / land-records portal.",
+      "cost": "Online copies are free or a few rupees; certified copies cost a small fee.",
+      "time": "Online: immediate. Certified copy: a few days."
+    },
+    "disability_certificate": {
+      "name": "Disability certificate / UDID",
+      "where": "The medical board at a government hospital; apply for the UDID card on swavlambancard.gov.in.",
+      "cost": "Free.",
+      "time": "A few weeks including the medical assessment."
+    },
+    "photo": {
+      "name": "Passport-size photographs",
+      "where": "Any photo studio.",
+      "cost": "About ₹30–100 for a set.",
+      "time": "Same day."
+    },
+    "age_proof": {
+      "name": "Proof of age / birth certificate",
+      "where": "The municipal body or gram panchayat where the birth was registered; a school-leaving certificate usually also works.",
+      "cost": "Free to nominal.",
+      "time": "Typically 1–2 weeks for a fresh copy."
+    },
+    "residence_proof": {
+      "name": "Residence / domicile certificate",
+      "where": "Tehsil office or your state’s e-district portal.",
+      "cost": "Nominal.",
+      "time": "Typically 1–3 weeks."
+    },
+    "death_certificate": {
+      "name": "Death certificate",
+      "where": "The municipal body or gram panchayat where the death was registered.",
+      "cost": "Free to nominal (first copy is often free).",
+      "time": "Typically 1–2 weeks."
+    }
+  }
+,
+"catalog": {
+    "title": "Explore the schemes",
+    "lead": "Every central scheme documented here carries its benefits, official sources, and — for the {schemeCount} schemes the eligibility check decides today — the exact rules we check. Schemes marked “check coming soon” have machine-drafted rules awaiting human verification; we don’t judge eligibility for them until a person has certified every rule.",
+    "freshnessUnchanged": "Freshness: all {checked} myScheme-sourced pages were re-fetched and diffed against our audited text on {date} — no changes found.",
+    "freshnessChanged": "Freshness: all {checked} myScheme-sourced pages were re-fetched and diffed against our audited text on {date} — {changed} changed and are flagged on their pages.",
+    "searchLabel": "Search schemes",
+    "searchPlaceholder": "Search by name or benefit",
+    "filterCategoryLabel": "Filter by category",
+    "filterAudienceLabel": "Filter by who it's for",
+    "allCategories": "All categories",
+    "everyone": "Everyone",
+    "showing": "Showing {shown} of {total} schemes",
+    "emptyTitle": "No schemes match",
+    "emptyBody": "Try a different word, or clear the filters — every scheme will come back.",
+    "emptyClear": "Clear search and filters",
+    "individualsOnly": "Individuals only",
+    "comingSoon": "Check coming soon",
+    "viewDetails": "View details",
+    "categories": {
+      "farmers": "Farming",
+      "pension": "Pensions",
+      "insurance": "Insurance",
+      "health": "Health",
+      "housing": "Housing",
+      "education": "Education",
+      "livelihood": "Livelihood",
+      "household": "Household",
+      "savings": "Savings"
+    },
+    "audiences": {
+      "women": "Women & daughters",
+      "farmers": "Farmers",
+      "workers": "Workers & vendors",
+      "students": "Students",
+      "seniors": "Older adults",
+      "disability": "Persons with disabilities",
+      "families": "Low-income families"
+    }
   }
 };
 

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CORPUS_DIR = ROOT / "data" / "corpus"
 RULES_DIR = ROOT / "backend" / "app" / "rules" / "schemes"
 FRESHNESS_DIR = ROOT / "data" / "freshness"
+BENEFIT_VALUES = ROOT / "data" / "benefit_values.yaml"
 OUT = ROOT / "frontend" / "lib" / "data" / "schemes.json"
 FRESHNESS_OUT = ROOT / "frontend" / "lib" / "data" / "freshness.json"
 
@@ -71,6 +72,23 @@ def load_rules(scheme_id: str) -> list[dict]:
     ]
 
 
+def load_benefit_values() -> dict[str, dict]:
+    """R6 — verified benefit-value entries only. Pending entries never reach
+    the frontend: same nothing-unverified-is-live invariant as rules."""
+    if not BENEFIT_VALUES.exists():
+        return {}
+    doc = yaml.safe_load(BENEFIT_VALUES.read_text(encoding="utf-8")) or {}
+    verified = {}
+    for scheme_id, entry in (doc.get("schemes") or {}).items():
+        if entry.get("review_status") == "verified":
+            verified[scheme_id] = {
+                "label": entry["label"],
+                "amount_inr": entry["amount_inr"],
+                "period": entry["period"],
+            }
+    return verified
+
+
 def latest_freshness_summary() -> dict | None:
     """Condense the newest R7 monitor report (data/freshness/report-*.json) for
     the frontend: when the catalog was last diffed against live myScheme text,
@@ -96,6 +114,7 @@ def latest_freshness_summary() -> dict | None:
 
 
 def main() -> None:
+    benefit_values = load_benefit_values()
     schemes = []
     for path in sorted(CORPUS_DIR.glob("*.json")):
         doc = json.loads(path.read_text(encoding="utf-8"))
@@ -124,6 +143,7 @@ def main() -> None:
                     if sections.get(key)
                 },
                 "rules": load_rules(doc["scheme_id"]),
+                "benefit_value": benefit_values.get(doc["scheme_id"]),
                 "out_of_scope": doc["scheme_id"] in OUT_OF_SCOPE,
                 "out_of_scope_reason": OUT_OF_SCOPE.get(doc["scheme_id"], ""),
             }

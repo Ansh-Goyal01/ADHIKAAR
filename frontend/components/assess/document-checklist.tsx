@@ -35,9 +35,11 @@ export function DocumentChecklist({ results }: { results: SchemeResult[] }) {
         </div>
       </div>
 
-      <div className="print-avoid-break flex flex-col gap-5 rounded-xl border border-border bg-card p-5">
+      {/* avoid-break sits on each scheme block, not the whole card — keeping
+          the full card intact would push it to a fresh page and waste one. */}
+      <div className="flex flex-col gap-5 rounded-xl border border-border bg-card p-5 print:gap-2 print:border-0 print:p-0">
         {withDocuments.map((result) => (
-          <div key={result.scheme_id}>
+          <div key={result.scheme_id} className="print-avoid-break">
             <h3 className="mb-2 text-sm font-semibold text-foreground">{result.short_name}</h3>
             <ReactMarkdown
               components={{

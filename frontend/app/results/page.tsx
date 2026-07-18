@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowRight,
   CheckCircle2,
@@ -10,10 +10,15 @@ import {
   MinusCircle,
   Printer,
   RefreshCw,
+  UserPlus,
 } from "lucide-react";
 
 import { ResultsSkeleton } from "@/components/assess/skeletons";
+import { DocGuides } from "@/components/assess/doc-guides";
+import { PrintSchemeList } from "@/components/assess/print-scheme-list";
 import { DocumentChecklist } from "@/components/assess/document-checklist";
+import { FamilyReport } from "@/components/assess/family-report";
+import { ValueHeadline } from "@/components/assess/value-headline";
 import { FeedbackForm } from "@/components/assess/feedback-form";
 import { ProfileChips } from "@/components/assess/profile-chips";
 import { ResultCard } from "@/components/assess/result-card";
@@ -26,6 +31,9 @@ import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/toast";
 import { ReadAloud } from "@/components/ui/read-aloud";
+import { VoiceInput } from "@/components/ui/voice-input";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { decodeFamily, saveFamilyMembers } from "@/lib/family";
 import { ApiError, assess } from "@/lib/api";
 import { useLanguage, useT } from "@/lib/i18n";
 import { SCHEME_COUNT } from "@/lib/site";
@@ -124,7 +132,8 @@ function SectionHeading({
         <h2 className="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
           {title} <span className="text-muted-foreground">({count})</span>
         </h2>
-        <p className="mt-0.5 text-sm leading-relaxed text-muted-foreground">{lead}</p>
+        {/* Guidance prose earns its place on screen; on paper only facts do. */}
+        <p className="print-hidden mt-0.5 text-sm leading-relaxed text-muted-foreground">{lead}</p>
       </div>
     </div>
   );
@@ -132,6 +141,7 @@ function SectionHeading({
 
 function ResultsContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const toast = useToast();
   const isClient = useIsClient();
   const t = useT();
@@ -144,6 +154,13 @@ function ResultsContent() {
   const answers = React.useMemo(
     () => (isClient ? loadAnswers(code) : undefined),
     [code, isClient],
+  );
+
+  // R2 — a ?f= link is a whole-household report and takes over the page.
+  const familyCode = searchParams.get("f");
+  const familyMembers = React.useMemo(
+    () => (familyCode ? decodeFamily(familyCode) : null),
+    [familyCode],
   );
 
   const fallbacks = React.useMemo(
@@ -160,7 +177,7 @@ function ResultsContent() {
   // Re-runs when the language changes too: same verdicts (language-invariant
   // by construction), freshly translated prose.
   React.useEffect(() => {
-    if (!answers) return;
+    if (familyMembers || !answers) return;
     let cancelled = false;
     void computeAssessment("", answersToProfile(answers), lang, fallbacks).then((next) => {
       if (!cancelled) setPhase(next);
@@ -168,14 +185,18 @@ function ResultsContent() {
     return () => {
       cancelled = true;
     };
-  }, [answers, lang, fallbacks]);
+  }, [answers, lang, fallbacks, familyMembers]);
+
+  // Derive the code from loaded answers when the URL doesn't carry one, so
+  // a shared link always reproduces this report for its recipient.
+  const shareUrl = () => {
+    const shareCode = code ?? (answers ? encodeAnswers(answers) : null);
+    return shareCode ? `${window.location.origin}/results?p=${shareCode}` : null;
+  };
 
   const handleCopyLink = async () => {
-    // Derive the code from loaded answers when the URL doesn't carry one, so
-    // the copied link always reproduces this report for its recipient.
-    const shareCode = code ?? (answers ? encodeAnswers(answers) : null);
-    if (!shareCode) return;
-    const url = `${window.location.origin}/results?p=${shareCode}`;
+    const url = shareUrl();
+    if (!url) return;
     try {
       await navigator.clipboard.writeText(url);
       toast(t("results.linkCopied"));
@@ -183,6 +204,23 @@ function ResultsContent() {
       toast(t("results.linkCopyFailed"));
     }
   };
+
+  const handleWhatsAppShare = () => {
+    const url = shareUrl();
+    if (!url) return;
+    // wa.me works logged-out and app-less (falls back to WhatsApp Web),
+    // and carries the report as a link — the report itself stays unstored.
+    const text = `${t("results.whatsappMessage")}\n${url}`;
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
+  if (isClient && familyMembers) {
+    return <FamilyReport members={familyMembers} />;
+  }
 
   if (isClient && answers === null) {
     return (
@@ -260,11 +298,18 @@ function ResultsContent() {
             label={t("results.yourAnswer")}
             help={t("results.plainWords")}
           >
-            <Input
-              value={followUp}
-              onChange={(e) => setFollowUp(e.target.value)}
-              placeholder={t("results.typeAnswer")}
-            />
+            <div className="flex items-center gap-2">
+              <Input
+                value={followUp}
+                onChange={(e) => setFollowUp(e.target.value)}
+                placeholder={t("results.typeAnswer")}
+              />
+              <VoiceInput
+                onResult={(transcript) =>
+                  setFollowUp((prev) => (prev.trim() ? `${prev.trim()} ${transcript}` : transcript))
+                }
+              />
+            </div>
           </Field>
           <Button type="submit" disabled={!followUp.trim() || followUpBusy} className="w-fit">
             {t("results.continueToReport")}
@@ -298,9 +343,9 @@ function ResultsContent() {
         : t("results.noneLead", { count: SCHEME_COUNT });
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 print:gap-4">
       {/* Report header */}
-      <header className="flex flex-col gap-4">
+      <header className="flex flex-col gap-4 print:gap-2">
         <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
           {t("results.reportLabel")} · {reportDate}
         </p>
@@ -323,11 +368,31 @@ function ResultsContent() {
             <Link2 className="size-4" aria-hidden="true" />
             {t("results.copyLink")}
           </Button>
+          <Button variant="secondary" onClick={handleWhatsAppShare}>
+            <WhatsAppIcon className="size-4" />
+            {t("results.shareWhatsApp")}
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              // R2 — this report's answers become household member 1; the
+              // wizard reopens with only the shared household facts kept.
+              if (!answers) return;
+              saveFamilyMembers([answers]);
+              router.push("/check?member=new");
+            }}
+          >
+            <UserPlus className="size-4" aria-hidden="true" />
+            {t("family.addMember")}
+          </Button>
           <ButtonLink variant="ghost" href="/check">
             <RefreshCw className="size-4" aria-hidden="true" />
             {t("results.changeAnswers")}
           </ButtonLink>
         </div>
+        <p className="print-hidden text-sm leading-relaxed text-muted-foreground">
+          {t("family.addMemberHelp")}
+        </p>
       </header>
 
       {groups.entitled.length > 0 && (
@@ -339,7 +404,8 @@ function ResultsContent() {
             lead={t("results.entitledSectionLead")}
             count={groups.entitled.length}
           />
-          <div className="flex flex-col gap-4">
+          <PrintSchemeList results={groups.entitled} />
+          <div className="print-hidden flex flex-col gap-4">
             {groups.entitled.map((result) => (
               <ResultCard key={result.scheme_id} result={result} />
             ))}
@@ -347,7 +413,11 @@ function ResultsContent() {
         </section>
       )}
 
+      {groups.entitled.length > 0 && <ValueHeadline results={groups.entitled} />}
+
       {groups.entitled.length > 0 && <DocumentChecklist results={groups.entitled} />}
+
+      {groups.entitled.length > 0 && <DocGuides results={groups.entitled} />}
 
       {groups.moreInfo.length > 0 && (
         <section aria-label={t("results.moreInfoSection")} className="flex flex-col gap-5">
@@ -358,7 +428,8 @@ function ResultsContent() {
             lead={t("results.moreInfoSectionLead")}
             count={groups.moreInfo.length}
           />
-          <div className="flex flex-col gap-4">
+          <PrintSchemeList results={groups.moreInfo} />
+          <div className="print-hidden flex flex-col gap-4">
             {groups.moreInfo.map((result) => (
               <ResultCard key={result.scheme_id} result={result} />
             ))}
@@ -375,7 +446,12 @@ function ResultsContent() {
             lead={t("results.notEligibleSectionLead")}
             count={groups.notEligible.length}
           />
-          <div className="flex flex-col gap-4">
+          {/* On paper a name list carries everything these cards say — the
+              full cards would multiply the printed report several times over. */}
+          <p className="hidden print-block text-sm leading-relaxed text-muted-foreground">
+            {groups.notEligible.map((r) => r.short_name).join(" · ")}
+          </p>
+          <div className="print-hidden flex flex-col gap-4">
             {groups.notEligible.map((result) => (
               <ResultCard key={result.scheme_id} result={result} />
             ))}

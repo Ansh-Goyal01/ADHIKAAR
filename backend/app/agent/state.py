@@ -179,6 +179,9 @@ class SchemeResult(BaseModel):
     # verdict rests on, each phrased as a concrete verification step.
     confirm_before_applying: list[str] = []
     documents: str = ""
+    # R4: language-invariant keys of common document types detected in the
+    # documents section — the frontend renders localized how-to guides per key.
+    document_guide_keys: list[str] = []
     how_to_apply: str = ""
     page_url: str = ""
     references: list[dict[str, str]] = []

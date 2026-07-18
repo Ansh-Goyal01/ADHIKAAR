@@ -42,6 +42,9 @@ export interface SchemeResult {
   missing_info: string[];
   confirm_before_applying?: string[];
   documents: string;
+  /** R4 — language-invariant keys of common documents detected in `documents`;
+   * localized how-to guides render per key (docGuides dictionary). */
+  document_guide_keys?: string[];
   how_to_apply: string;
   page_url: string;
   references: { title: string; url: string }[];

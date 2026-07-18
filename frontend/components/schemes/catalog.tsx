@@ -11,15 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
-import {
-  AUDIENCE_LABELS,
-  CATEGORIES,
-  CATEGORY_LABELS,
-  SCHEMES,
-  audiencesOf,
-} from "@/lib/schemes";
+import { useT } from "@/lib/i18n";
+import { AUDIENCES_ALL, CATEGORIES, SCHEMES, audiencesOf } from "@/lib/schemes";
 
 export function SchemeCatalog() {
+  const t = useT();
   const [query, setQuery] = React.useState("");
   const [category, setCategory] = React.useState("");
   const [audience, setAudience] = React.useState("");
@@ -45,50 +41,50 @@ export function SchemeCatalog() {
           />
           <Input
             type="search"
-            aria-label="Search schemes"
-            placeholder="Search by name or benefit"
+            aria-label={t("catalog.searchLabel")}
+            placeholder={t("catalog.searchPlaceholder")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="pl-10"
           />
         </div>
         <Select
-          aria-label="Filter by category"
+          aria-label={t("catalog.filterCategoryLabel")}
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           className="sm:w-44"
         >
-          <option value="">All categories</option>
+          <option value="">{t("catalog.allCategories")}</option>
           {CATEGORIES.map((c) => (
             <option key={c} value={c}>
-              {CATEGORY_LABELS[c] ?? c}
+              {t(`catalog.categories.${c}`)}
             </option>
           ))}
         </Select>
         <Select
-          aria-label="Filter by who it's for"
+          aria-label={t("catalog.filterAudienceLabel")}
           value={audience}
           onChange={(e) => setAudience(e.target.value)}
           className="sm:w-52"
         >
-          <option value="">Everyone</option>
-          {Object.entries(AUDIENCE_LABELS).map(([value, label]) => (
+          <option value="">{t("catalog.everyone")}</option>
+          {AUDIENCES_ALL.map((value) => (
             <option key={value} value={value}>
-              {label}
+              {t(`catalog.audiences.${value}`)}
             </option>
           ))}
         </Select>
       </div>
 
       <p className="text-sm text-muted-foreground" role="status">
-        Showing {filtered.length} of {SCHEMES.length} schemes
+        {t("catalog.showing", { shown: filtered.length, total: SCHEMES.length })}
       </p>
 
       {filtered.length === 0 ? (
         <EmptyState
           icon={SearchX}
-          title="No schemes match"
-          body="Try a different word, or clear the filters — every scheme will come back."
+          title={t("catalog.emptyTitle")}
+          body={t("catalog.emptyBody")}
           action={
             <Button
               variant="secondary"
@@ -98,7 +94,7 @@ export function SchemeCatalog() {
                 setAudience("");
               }}
             >
-              Clear search and filters
+              {t("catalog.emptyClear")}
             </Button>
           }
         />
@@ -116,15 +112,13 @@ export function SchemeCatalog() {
                   </span>
                   <span className="flex flex-wrap justify-end gap-1.5">
                     {scheme.out_of_scope ? (
-                      <Chip tone="neutral">Individuals only</Chip>
+                      <Chip tone="neutral">{t("catalog.individualsOnly")}</Chip>
                     ) : (
                       scheme.rules.length === 0 && (
-                        <Chip tone="info">Check coming soon</Chip>
+                        <Chip tone="info">{t("catalog.comingSoon")}</Chip>
                       )
                     )}
-                    <Chip tone="neutral">
-                      {CATEGORY_LABELS[scheme.category] ?? scheme.category}
-                    </Chip>
+                    <Chip tone="neutral">{t(`catalog.categories.${scheme.category}`)}</Chip>
                   </span>
                 </div>
                 <p className="text-sm leading-snug text-muted-foreground">{scheme.name}</p>
@@ -132,7 +126,7 @@ export function SchemeCatalog() {
                   {scheme.benefit_snippet}
                 </p>
                 <span className="mt-auto flex items-center gap-1 pt-1 text-sm font-medium text-accent">
-                  View details
+                  {t("catalog.viewDetails")}
                   <ArrowRight
                     className="size-3.5 transition-transform duration-150 group-hover:translate-x-0.5"
                     aria-hidden="true"

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   BadgeCheck,
@@ -12,65 +14,74 @@ import {
 
 import { Container } from "@/components/site/container";
 import { ButtonLink } from "@/components/ui/button";
+import { useT } from "@/lib/i18n";
 import { SCHEME_COUNT } from "@/lib/site";
 
-const TRUST_ITEMS = [
-  { icon: BookOpenCheck, label: "Grounded in official documents" },
-  { icon: BadgeCheck, label: "Every claim cited" },
-  { icon: ListChecks, label: `${SCHEME_COUNT} central schemes covered` },
-  { icon: CodeXml, label: "Open source" },
-];
-
-const STEPS = [
-  {
-    icon: MessageCircleQuestion,
-    title: "Tell us about yourself",
-    body: "A few plain questions about your age, work, and household. No login, no documents, and nothing is stored.",
-  },
-  {
-    icon: Scale,
-    title: "We check the official rules",
-    body: "Your answers are tested against each scheme's actual eligibility clauses — by rules written from the government's own text, not by guesswork.",
-  },
-  {
-    icon: FileText,
-    title: "You get a cited report",
-    body: "For every scheme: why you qualify, what you'll receive, which documents to bring, and where to apply — each claim linked to its official source.",
-  },
-];
-
 export default function LandingPage() {
+  const t = useT();
+
+  const trustItems = [
+    { icon: BookOpenCheck, label: t("marketing.home.trustGrounded") },
+    { icon: BadgeCheck, label: t("marketing.home.trustCited") },
+    { icon: ListChecks, label: t("marketing.home.trustCovered", { schemeCount: SCHEME_COUNT }) },
+    { icon: CodeXml, label: t("marketing.home.trustOpenSource") },
+  ];
+
+  const steps = [
+    {
+      icon: MessageCircleQuestion,
+      title: t("marketing.home.step1Title"),
+      body: t("marketing.home.step1Body"),
+    },
+    {
+      icon: Scale,
+      title: t("marketing.home.step2Title"),
+      body: t("marketing.home.step2Body"),
+    },
+    {
+      icon: FileText,
+      title: t("marketing.home.step3Title"),
+      body: t("marketing.home.step3Body"),
+    },
+  ];
+
+  const flow = [
+    { label: t("marketing.home.flowSituation"), tone: "plain" },
+    { label: t("marketing.home.flowRetrieved"), tone: "plain" },
+    { label: t("marketing.home.flowDecides"), tone: "accent" },
+    { label: t("marketing.home.flowVerifier"), tone: "plain" },
+    { label: t("marketing.home.flowCited"), tone: "plain" },
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-border">
         <Container className="flex flex-col items-center py-20 text-center sm:py-24">
           <h1 className="max-w-3xl font-serif text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
-            Find out exactly what government support you&rsquo;re entitled to
+            {t("marketing.home.heroTitle")}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-balance">
-            {`Answer a few plain questions. Adhikaar checks the official rules of ${SCHEME_COUNT} central government schemes and shows its work — every claim linked to the government's own words.`}
+            {t("marketing.home.heroLead", { schemeCount: SCHEME_COUNT })}
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <ButtonLink href="/check" size="lg">
-              Check your eligibility
+              {t("marketing.home.ctaCheck")}
               <ArrowRight className="size-4.5" aria-hidden="true" />
             </ButtonLink>
             <ButtonLink href="/how-it-works" size="lg" variant="secondary">
-              See how it works
+              {t("marketing.home.ctaHow")}
             </ButtonLink>
           </div>
-          <p className="mt-5 text-sm text-muted-foreground">
-            Free · No login · Takes about 3 minutes
-          </p>
+          <p className="mt-5 text-sm text-muted-foreground">{t("marketing.home.heroNote")}</p>
         </Container>
       </section>
 
       {/* Trust strip */}
-      <section aria-label="Why you can trust this" className="border-b border-border bg-card">
+      <section aria-label={t("marketing.home.trustGrounded")} className="border-b border-border bg-card">
         <Container>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-4 py-6 md:grid-cols-4">
-            {TRUST_ITEMS.map(({ icon: Icon, label }) => (
+            {trustItems.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center justify-center gap-2.5 text-center">
                 <Icon className="size-4.5 shrink-0 text-accent" aria-hidden="true" />
                 <span className="text-sm font-medium text-foreground">{label}</span>
@@ -88,14 +99,12 @@ export default function LandingPage() {
               id="how-heading"
               className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
             >
-              How it works
+              {t("marketing.home.howTitle")}
             </h2>
-            <p className="max-w-xl text-muted-foreground">
-              Three steps from your situation to a report you can keep.
-            </p>
+            <p className="max-w-xl text-muted-foreground">{t("marketing.home.howLead")}</p>
           </div>
           <ol className="grid gap-6 md:grid-cols-3">
-            {STEPS.map(({ icon: Icon, title, body }, index) => (
+            {steps.map(({ icon: Icon, title, body }, index) => (
               <li
                 key={title}
                 className="flex flex-col gap-4 rounded-xl border border-border bg-card p-6 shadow-card"
@@ -105,7 +114,7 @@ export default function LandingPage() {
                     <Icon className="size-5" aria-hidden="true" />
                   </span>
                   <span className="text-sm font-medium text-muted-foreground tabular-nums">
-                    Step {index + 1}
+                    {t("marketing.home.stepLabel", { number: index + 1 })}
                   </span>
                 </div>
                 <h3 className="text-lg leading-snug font-semibold">{title}</h3>
@@ -124,38 +133,25 @@ export default function LandingPage() {
               id="different-heading"
               className="font-serif text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
             >
-              Most tools search and summarise. Adhikaar decides — and proves it.
+              {t("marketing.home.differentTitle")}
             </h2>
             <p className="leading-relaxed text-muted-foreground">
-              A chatbot that merely retrieves scheme text can sound confident and still be
-              wrong — and a wrong &ldquo;you qualify&rdquo; costs real people real time and
-              hope. Adhikaar works differently: every eligibility rule is written down from
-              the official clause, your answers are checked against those rules
-              deterministically, and a verifier confirms every sentence of the explanation
-              against the source before you see it.
+              {t("marketing.home.differentBody1")}
             </p>
             <p className="leading-relaxed text-muted-foreground">
-              When we tested both approaches on the same cases, the plain-language AI
-              invented 16 entitlements that didn&rsquo;t exist.{" "}
+              {t("marketing.home.differentBody2")}{" "}
               <strong className="font-semibold text-foreground">
-                Adhikaar&rsquo;s rules engine invented zero.
+                {t("marketing.home.differentBody2Strong")}
               </strong>{" "}
-              And when it doesn&rsquo;t have enough information, it asks — it never
-              guesses.
+              {t("marketing.home.differentBody2End")}
             </p>
             <ButtonLink href="/how-it-works" variant="secondary" className="w-fit">
-              Read the full explanation
+              {t("marketing.home.readFull")}
             </ButtonLink>
           </div>
 
           <div className="flex flex-col gap-3" aria-hidden="true">
-            {[
-              { label: "Your situation", tone: "plain" },
-              { label: "Official rules retrieved from government text", tone: "plain" },
-              { label: "Deterministic rules engine decides", tone: "accent" },
-              { label: "Verifier checks every claim against the source", tone: "plain" },
-              { label: "Cited answer you can keep", tone: "plain" },
-            ].map(({ label, tone }, index, list) => (
+            {flow.map(({ label, tone }, index, list) => (
               <div key={label} className="flex flex-col items-center gap-3">
                 <div
                   className={
@@ -183,10 +179,10 @@ export default function LandingPage() {
             id="cta-heading"
             className="max-w-2xl font-serif text-3xl font-semibold tracking-tight text-balance sm:text-4xl"
           >
-            Three minutes. No login. A report you can take to the office.
+            {t("marketing.home.closingTitle")}
           </h2>
           <ButtonLink href="/check" size="lg">
-            Check your eligibility
+            {t("marketing.home.ctaCheck")}
             <ArrowRight className="size-4.5" aria-hidden="true" />
           </ButtonLink>
         </Container>

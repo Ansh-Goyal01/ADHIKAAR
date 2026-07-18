@@ -22,6 +22,7 @@ from app.ingestion.models import CorpusDoc
 from app.llm.router import generate_structured_resilient
 from app.retrieval.rerank import search_reranked
 from app.retrieval.search import RetrievedChunk, get_sections
+from app.rules.doc_guides import guide_keys_for
 from app.rules.engine import evaluate_scheme
 from app.rules.loader import load_all_rules
 
@@ -334,6 +335,7 @@ def verify_and_compose(state: AgentState) -> AgentState:
                 reasons=verified_reasons,
                 missing_info=missing,
                 documents=doc.sections.get("documents", ""),
+                document_guide_keys=guide_keys_for(doc.sections.get("documents", "")),
                 how_to_apply=doc.sections.get("application", ""),
                 page_url=doc.page_url,
                 references=[r.model_dump() for r in doc.references],

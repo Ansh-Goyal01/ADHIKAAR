@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 
 import "./globals.css";
@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     template: "%s · Adhikaar",
   },
   description: `Answer a few plain-language questions and Adhikaar checks ${SCHEME_COUNT} Indian central government welfare schemes — explaining exactly why you qualify, with every claim cited to the official scheme text.`,
+  applicationName: "Adhikaar",
+  appleWebApp: {
+    capable: true,
+    title: "Adhikaar",
+    statusBarStyle: "default",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#96431f",
 };
 
 export default function RootLayout({

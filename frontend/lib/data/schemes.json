@@ -64,6 +64,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/ab-pmjay"
    }
   ],
+  "benefit_value": {
+   "label": "₹5 lakh per family per year of health cover",
+   "amount_inr": 500000,
+   "period": "cover"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -120,6 +125,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/apy"
    }
   ],
+  "benefit_value": {
+   "label": "₹1,000–₹5,000 monthly pension from age 60",
+   "amount_inr": 0,
+   "period": "varies"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -173,6 +183,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/bhmnsp"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -210,6 +221,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/cmhtp-crwtp-smile"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -255,6 +267,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/csspremsobcsi"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -309,6 +322,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/csss-cus"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -362,6 +376,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/dacssiselosobcebc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -419,6 +434,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/gispw"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -445,6 +461,7 @@
    "documents": "1. Aadhaar Card.\n1. 2-Passport Sized Photograph (Signed Across).\n1. Residential Certificate.\n1. Disability Certificate.\n1. Details of the Bank Account (Bank Name, Branch Name, Address, IFSC, etc).\n1. Proof of the Latest Educational Qualification (Passing Certificate or Marksheet)\n1. Bonafide Certificate from the School/College\n1. Any other document required by the College or the District Social Welfare Office."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": true,
   "out_of_scope_reason": "This grant is applied for by a college or institution, not by an individual â€” so a personal eligibility check doesn't apply."
  },
@@ -503,6 +520,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/igndps"
    }
   ],
+  "benefit_value": {
+   "label": "₹300 per month",
+   "amount_inr": 3600,
+   "period": "month"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -568,6 +590,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/ignwps"
    }
   ],
+  "benefit_value": {
+   "label": "₹300 per month",
+   "amount_inr": 3600,
+   "period": "month"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -602,6 +629,7 @@
    "documents": "> **During Application**\n\n1. Class XII Mark Sheets(mandatory)\n1. Class X Mark Sheet/Certificate (for proof of date of birth)(mandatory)\n1. [Endorsement Certificate](https://online-inspire.gov.in/Content/EndorsementFormForB.Sc.pdf) in the prescribed format, signed by the Principal of the College/Director of the Institute/Registrar of the University (mandatory)1. Eligibility Note/Advisory Note (if provided by the State/Central Board) (not mandatory)\n1. Front page of SBI Bank Passbook (containing Account Number and your name)\n1. BSc/Int. MSc [Performance Report](https://online-inspire.gov.in/Content/Format%20SHE%20Performance%20Report.pdf)1. [BSc/Int. MSc. annual or semester Mark Sheets](https://online-inspire.gov.in/Content/Format%20SHE%20Performance%20Report.pdf)\n\n> **Upon Selection**\n\nSelected candidates will have to upload the required documents on their web portal within the prescribed time limit (time limit mentioned in the offer letter) for further consideration by the Department."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -642,6 +670,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/kcc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -684,6 +713,7 @@
    "documents": "- Valid Identity Card of the Worker.\n- Medical Prescription or Treatment Recommendation Letter (Required for Surgeries, Tuberculosis, Cancer, Heart, Kidney, Mental Diseases, Leprosy, and Spectacles).\n- Original Bills and Receipts of Medical Expenditure (Required for Treatment Reimbursement Claims).\n- Prior Approval Letter from the Welfare Commissioner (Required for Heart Ailments, Kidney Treatment, and Cancer Treatments).\n- Birth Certificates of Children (Required for Maternity Benefits and Family Planning Operation Scheme)."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -717,6 +747,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/mssc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -755,6 +786,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/nfbs"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -813,6 +845,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/nmmss"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -860,6 +893,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/nsap-ignoaps"
    }
   ],
+  "benefit_value": {
+   "label": "₹200 per month (₹500 from age 80)",
+   "amount_inr": 2400,
+   "period": "month"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -883,6 +921,7 @@
    "eligibility": "**Eligibility Criteria for Inland Fishermen**\n\n1. Fishermen living in coastal areas and with whom the respective States and Union Territories have officially licensed are eligible for this scheme.\n1. The age of fishermen must be below 60 years old.\n1. Applicant fishermen must belong to the BPL (Below Poverty Line) category.\n1. They must be engaged in full-time activities inland.\n\n**Eligibility Criteria for Marine Fishermen**\n\nAll marine fishermen who operate under State, Union Territories, and FISHCOPFED are eligible for this government scheme for fishermen. However, there are other eligibility parameters marine fishermen must fulfill. These include -\n\n1. Their respective States and Union Territories must officially license marine fishermen.\n1. They must involve themselves in full-time activities at sea.\n1. They must be a member of the Welfare Society or Federation or Cooperative Society.\n1. Please note that the fishermen under FISHCOPFED can avail of funds available under the insurance component only."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -913,6 +952,7 @@
    "documents": "- Recent passport-size photograph.\n- Signature.\n- Thumb impression.\n- Admission proof through AIEE.\n- Aadhaar number.\n- Aadhaar-linked bank account details.\n- Any other documents prescribed by ICAR or the concerned University."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -943,6 +983,7 @@
    "application": "### Application mode: Online\n\n> **Procedure for Applying**\n\n> **New Registration****:**\n\n**Step 1:** Visit the [New Registration](https://scholarships.gov.in/otrapplication/#/) page of the National Scholarships Portal.\n**Step 2:** Guidelines for Registration will appear. Scroll to the bottom. Read the undertaking carefully and Accept the Terms. Click “Next”.\n**Step 3:** In the next window, enter your mobile number and OTP. Then click “Verify”.\n**Step 4:** After successful verification, continue with e-KYC process (as applicable).\n**Step 5:** Once completed, your reference number will be generated and the same will be sent to your registered phone number.\n> **Process for OTR ID Number Generation****:**\n\n**Step 1:** Download and install [AadhaarFaceRD](https://play.google.com/store/apps/details?id=in.gov.uidai.facerd) services in the android device.\n**Step 2:** Download and install the [NSP OTR](https://play.google.com/store/apps/details?id=in.gov.scholarships.nspotr&pli=1) App from the Google Play Store.\n**Step 3:** After opening the mobile app Select the option “eKYC with FaceAuth” highlighted in red.\n**Step 4:** Enter the allotted reference number and click on “Send OTP” to receive OTP on your mobile no.\n**Step 5:** Enter the received OTP and captcha in the screen and click Next.\n**Step 6:** Click on “Proceed for Face Authentication” button highlighted in red.\n**Step 7:** UIDAI AadhaarFaceRD services will be invoked for face authentication. Ensure AadhaarFaceRD services are preinstalled on your device.\n**Step 8:** On Successful completion of face-authentication OTR no. will be generated and will also be sent on your registered mobile no.\n> **Fresh Application****:**\n\n**Step 1:** Visit the applicant [Login ](https://scholarships.gov.in/otrapplication/#/login-page)page of the National Scholarships Portal Enter your One Time Registration (OTR) number and password.\n**Step 2:** Type the Captcha and click “Login”.\n**Step 3:** On the next screen, provide the OTP received on your registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click “Submit”. You will be directed to the “Applicant’s Dashboard”.\n**Step 5:** On the left pane, click “Application Form”. The fields marked as * are compulsory. Fill in the details and upload the documents.\n**Step 6:** You can either click on “Save as Draft” to complete the application later. Else, click “Final Submit” to submit the application.\n> **Track Payment Status****:**\n\nThe student can track their payment status from the template “Know Your Payment” in the [Public Financial Management System (PFMS) Portal](https://pfms.nic.in/static/NewLayoutCommonContent.aspx?RequestPagename=static/TrackNSPpayments.aspx) either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n\n> **Notes**\n\n- Applications will be invited once a year on the National e-Scholarship Portal of the Government of India. 2. Short notifications will also be uploaded on the UGC website.\n- Incomplete applications will be summarily rejected. Only verified online applications will be considered for the award of scholarship.\n- An affidavit regarding the single girl child status may be uploaded as per the format given in Annexure-II.\n- The joining report as per Annexure-I has to be uploaded."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -994,6 +1035,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pm-daksh"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1070,6 +1112,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pm-kisan"
    }
   ],
+  "benefit_value": {
+   "label": "₹6,000 per year",
+   "amount_inr": 6000,
+   "period": "year"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1137,6 +1184,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pm-svanidhi"
    }
   ],
+  "benefit_value": {
+   "label": "Working-capital loan up to ₹15,000 (first tranche)",
+   "amount_inr": 15000,
+   "period": "one_time"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1221,6 +1273,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pm-sym"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1270,6 +1323,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pm-vikas"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1335,6 +1389,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmay-g"
    }
   ],
+  "benefit_value": {
+   "label": "₹1.20 lakh housing assistance (plain areas)",
+   "amount_inr": 120000,
+   "period": "one_time"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1394,6 +1453,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmay-u"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1472,6 +1532,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmegp"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1520,6 +1581,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmfby"
    }
   ],
+  "benefit_value": {
+   "label": "Crop insurance at 2% premium or less",
+   "amount_inr": 0,
+   "period": "varies"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1557,6 +1623,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmjdy"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1601,6 +1668,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmjjby"
    }
   ],
+  "benefit_value": {
+   "label": "₹2 lakh life cover for ₹436 a year",
+   "amount_inr": 200000,
+   "period": "cover"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1667,6 +1739,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmmvy"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1697,6 +1770,7 @@
    "documents": "##### For Shishu Loan\n\n- Proof of Identity – Self- attested copy of Voter’s ID Card / Driving Licence / PAN Card / Aadhaar Card / Passport / Photo IDs issued by Govt. authority etc.\n- Proof of Residence: Recent telephone bill / electricity bill / property tax receipt (not older than 2 months) / Voter’s ID Card / Aadhar Card / Passport of Individual / Proprietor / Partners Bank passbook or latest account statement duly attested by Bank Officials / Domicile Certificate / Certificate issued by Govt. Authority / Local Panchayat / Municipality etc.\n- Applicant’s recent coloured Photograph (2 copies) not older than 6 months.\n- Quotation of Machinery / other items to be purchased.\n- Name of supplier / details of machinery / price of machinery and / or items to be purchased.\n- Proof of Identity / Address of the Business Enterprise – Copies of relevant Licences / Registration Certificates / Other Documents pertaining to the ownership, identity of address of business unit, if any.\n\n##### **For Kishore, Tarun and Tarun Plus Loan**\n\n- Proof of Identity - Self attested copy of Voter’s ID card / Driving License / PAN Card / Aadhar Card/Passport.\n- Proof of Residence - Recent telephone bill, electricity bill, property tax receipt (not older than 2 months), Voter’s ID card, Aadhar Card & Passport of Proprietor/Partners/Directors.\n- Applicant’s recent coloured Photograph (2 copies) not older than 6 months.\n- Proof of Identity/Address of the Business Enterprise -Copies of relevant licenses/registration certificates/other documents pertaining to the ownership, identity and address of business unit.\n- Applicant should not be defaulter in any Bank/Financial institution.\n- Statement of accounts (for the last six months), from the existing banker, if any.\n- Last two years balance sheets of the units along with income tax/sales tax return etc. (Applicable for all cases from Rs.2 Lacs and above).\n- Projected balance sheets for one year in case of working capital limits and for the period of the loan in case of term loan (Applicable for all cases from Rs.2 Lacs and above).\n1. Sales achieved during the current financial year up to the date of submission of application.\n1. Project report (for the proposed project) containing details of technical & economic viability.\n1. Memorandum and Articles of Association of the company/Partnership Deed of Partners etc.\n1. In absence of third party guarantee, Asset & Liability statement from the borrower including Directors & Partners may be sought to know the net-worth."
   },
   "rules": [],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1741,6 +1815,11 @@
     "source_url": "https://socialjustice.gov.in/schemes/25"
    }
   ],
+  "benefit_value": {
+   "label": "Tuition + academic allowance (course-dependent)",
+   "amount_inr": 0,
+   "period": "varies"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1785,6 +1864,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmsby"
    }
   ],
+  "benefit_value": {
+   "label": "₹2 lakh accident cover for ₹20 a year",
+   "amount_inr": 200000,
+   "period": "cover"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1844,6 +1928,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmuy"
    }
   ],
+  "benefit_value": {
+   "label": "Free LPG connection (₹1,600 support)",
+   "amount_inr": 1600,
+   "period": "one_time"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1898,6 +1987,11 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pmv"
    }
   ],
+  "benefit_value": {
+   "label": "₹15,000 toolkit + ₹500/day training stipend",
+   "amount_inr": 15000,
+   "period": "one_time"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1949,6 +2043,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/post-dis"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -1994,6 +2089,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/post-st"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2040,6 +2136,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pre-dis"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2085,6 +2182,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/pre-sc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2143,6 +2241,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/psgs-dip"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2176,6 +2275,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/rkvyshfshc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2224,6 +2324,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/sag"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2267,6 +2368,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/sak-deg"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2299,6 +2401,11 @@
     "source_url": "https://www.indiapost.gov.in/documents/offerings/schemesandservices/posb/SukanyaSamriddhiAccountScheme2019English.pdf"
    }
   ],
+  "benefit_value": {
+   "label": "High-interest savings for a daughter",
+   "amount_inr": 0,
+   "period": "varies"
+  },
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2338,6 +2445,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/tce-sc"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2381,6 +2489,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/tce-swd"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  },
@@ -2425,6 +2534,7 @@
     "source_url": "https://www.myscheme.gov.in/schemes/vdcspds"
    }
   ],
+  "benefit_value": null,
   "out_of_scope": false,
   "out_of_scope_reason": ""
  }

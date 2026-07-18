@@ -10,6 +10,14 @@ export interface SchemeRule {
   source_url: string;
 }
 
+/** R6 — human-verified benefit value (benefit_values.yaml). `amount_inr` is
+ * annualized for recurring periods; entries exist only once certified. */
+export interface BenefitValue {
+  label: string;
+  amount_inr: number;
+  period: "year" | "month" | "one_time" | "cover" | "varies";
+}
+
 export interface SchemeData {
   scheme_id: string;
   short_name: string;
@@ -24,6 +32,7 @@ export interface SchemeData {
     Record<"details" | "benefits" | "eligibility" | "exclusions" | "application" | "documents", string>
   >;
   rules: SchemeRule[];
+  benefit_value?: BenefitValue | null;
   /** Applicant is not an individual — the eligibility check can never apply.
    * Distinct from "coming soon" (rules pending review). */
   out_of_scope?: boolean;
@@ -43,6 +52,18 @@ export const CATEGORY_LABELS: Record<string, string> = {
   household: "Household",
   savings: "Savings",
 };
+
+/** Audience keys for the catalog filter, in display order. Localized labels
+ * live in the i18n dictionary under `catalog.audiences.*`. */
+export const AUDIENCES_ALL = [
+  "women",
+  "farmers",
+  "workers",
+  "students",
+  "seniors",
+  "disability",
+  "families",
+] as const;
 
 /** Hand-curated audiences for the catalog filter — who a scheme is chiefly for. */
 export const AUDIENCE_LABELS: Record<string, string> = {

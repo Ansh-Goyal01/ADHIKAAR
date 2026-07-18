@@ -8,6 +8,7 @@ if it fails, deterministic template summaries ship instead.
 """
 
 import logging
+import os
 
 from pydantic import BaseModel
 
@@ -20,6 +21,7 @@ from app.agent.state import (
     VerifiedReason,
 )
 from app.llm.router import generate_structured_resilient
+from app.rules.doc_guides import guide_keys_for
 from app.rules.engine import RuleFinding, RuleVerdict, evaluate_scheme, find_near_miss
 from app.rules.loader import load_all_rules
 
@@ -104,6 +106,11 @@ person as "you", faithfully reflecting the verdict and its decisive findings.
 
 
 def _llm_summaries(state: AgentState, verdicts: list[RuleVerdict]) -> dict[str, str]:
+    # Escape hatch for exhausted free-tier quotas: skip the LLM entirely and
+    # ship the deterministic template summaries without waiting out the
+    # provider retry ladder.
+    if os.environ.get("ADHIKAAR_TEMPLATE_SUMMARIES") == "1":
+        return {}
     explain = [v for v in verdicts if v.verdict != "not_eligible"]
     if not explain:
         return {}
@@ -171,6 +178,7 @@ def rules_assess_and_compose(state: AgentState) -> AgentState:
                     else []
                 ),
                 documents=doc.sections.get("documents", ""),
+                document_guide_keys=guide_keys_for(doc.sections.get("documents", "")),
                 how_to_apply=doc.sections.get("application", ""),
                 page_url=doc.page_url,
                 references=[r.model_dump() for r in doc.references],

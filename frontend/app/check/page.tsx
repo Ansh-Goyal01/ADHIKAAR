@@ -13,7 +13,15 @@ import { Select } from "@/components/ui/select";
 import { ReadAloud } from "@/components/ui/read-aloud";
 import { Stepper } from "@/components/ui/stepper";
 import { useToast } from "@/components/ui/toast";
+import {
+  clearFamilyMembers,
+  encodeFamily,
+  householdAnswers,
+  loadFamilyMembers,
+  saveFamilyMembers,
+} from "@/lib/family";
 import { localizeStep, useT, useWizardOverlay } from "@/lib/i18n";
+import { lifeEventByKey } from "@/lib/life-events";
 import { useIsClient } from "@/lib/use-is-client";
 import {
   type Answers,
@@ -226,15 +234,23 @@ export default function CheckPage() {
   const isClient = useIsClient();
   // Lazy-initialised from this browser's saved answers; during SSR the
   // initialiser runs without localStorage and yields a fresh start.
+  // A ?life= entry point (R5) seeds the answers the event implies on top.
   const [answers, setAnswers] = React.useState<Answers>(() => {
     if (typeof window === "undefined") return {};
+    let saved: Answers = {};
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      const parsed = saved ? decodeAnswers(saved) : null;
-      return parsed ?? {};
+      const stored = localStorage.getItem(STORAGE_KEY);
+      saved = (stored ? decodeAnswers(stored) : null) ?? {};
     } catch {
-      return {}; // Private mode or blocked storage — start fresh.
+      // Private mode or blocked storage — start fresh.
     }
+    const params = new URLSearchParams(window.location.search);
+    // Family mode (R2): a new member starts from the household's shared
+    // answers only — personal questions are asked fresh.
+    if (params.get("member") === "new") return householdAnswers(saved);
+    const lifeKey = params.get("life");
+    const preset = lifeKey ? lifeEventByKey(lifeKey)?.answers : undefined;
+    return preset ? { ...saved, ...preset } : saved;
   });
   const [stepIndex, setStepIndex] = React.useState(0);
   const [errors, setErrors] = React.useState<Record<string, string>>({});
@@ -282,9 +298,24 @@ export default function CheckPage() {
     goTo(stepIndex + 1);
   };
 
+  // An organic /check visit (no ?member=new) starts a fresh check — any
+  // abandoned family run would otherwise resurface as a surprise family report.
+  React.useEffect(() => {
+    if (!isClient) return;
+    if (new URLSearchParams(window.location.search).get("member") !== "new") {
+      clearFamilyMembers();
+    }
+  }, [isClient]);
+
   const handleSubmit = () => {
-    const code = encodeAnswers(answers);
-    router.push(`/results?p=${code}`);
+    const members = loadFamilyMembers();
+    if (members.length > 0) {
+      const all = [...members, answers];
+      saveFamilyMembers(all);
+      router.push(`/results?f=${encodeFamily(all)}`);
+      return;
+    }
+    router.push(`/results?p=${encodeAnswers(answers)}`);
   };
 
   const handleSaveCode = async () => {

@@ -102,6 +102,11 @@ body {
 
 /* The eligibility report doubles as a keepable printed document */
 @media print {
+  /* Compact print scale: the whole layout is rem-based, so shrinking the
+     root font condenses cards, gaps, and type together (~25 → ~5 pages). */
+  html {
+    font-size: 10px;
+  }
   body {
     background: #ffffff;
   }
@@ -119,6 +124,6 @@ body {
     break-inside: avoid;
   }
   @page {
-    margin: 18mm 15mm;
+    margin: 12mm 12mm;
   }
 }
