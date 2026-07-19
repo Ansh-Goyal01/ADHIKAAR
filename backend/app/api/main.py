@@ -1,4 +1,4 @@
-"""Adhikaar API — assessment pipeline over 15 central welfare schemes."""
+"""Adhikaar API — assessment pipeline over the central welfare schemes in the corpus."""
 
 import json
 import logging
@@ -30,7 +30,7 @@ app = FastAPI(
     title="Adhikaar API",
     description=(
         "A verifiable public-benefit reasoning engine: cited eligibility answers for "
-        "15 Indian central welfare schemes, grounded in official scheme text."
+        "Indian central welfare schemes, grounded in official scheme text."
     ),
     version="0.1.0",
 )

@@ -24,4 +24,8 @@ COPY data/raw /app/data/raw
 RUN python -m app.ingestion index
 
 EXPOSE 7860
-CMD ["uvicorn", "app.api.main:app", "--host", "0.0.0.0", "--port", "7860"]
+# --forwarded-allow-ips: Spaces terminates TLS at its own proxy, so the socket
+# peer is the proxy, not the visitor. Without trusting X-Forwarded-For every
+# visitor shares one bucket and the per-IP rate limit throttles the whole Space
+# at 10 requests/minute. Only the platform proxy can reach this port.
+CMD ["uvicorn", "app.api.main:app", "--host", "0.0.0.0", "--port", "7860", "--forwarded-allow-ips", "*"]

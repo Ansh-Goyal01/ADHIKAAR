@@ -1,4 +1,4 @@
-"""Registry of the 15 central welfare schemes in the corpus.
+"""Registry of the central welfare schemes in the corpus.
 
 The slug is the scheme's identifier on myscheme.gov.in and doubles as the
 stable scheme_id everywhere in Adhikaar (corpus, index, rules, eval labels).

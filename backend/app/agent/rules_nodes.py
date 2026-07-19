@@ -1,6 +1,6 @@
 """Phase 2 nodes: the deterministic rules engine decides; the LLM only explains.
 
-The engine evaluates all 15 schemes against the typed profile. Reasons cite the
+The engine evaluates every live scheme against the typed profile. Reasons cite the
 rule's source clause (official text, human-verified at encoding time), so no
 chunk-containment verification is needed — grounding holds by construction.
 The LLM writes the one-line friendly summaries and can never change a verdict;

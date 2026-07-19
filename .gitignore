@@ -41,6 +41,7 @@ Thumbs.db
 # Personal working notes & task tracking - not for the public repo
 TASKS.md
 NOTES.md
+plan.txt
 
 # AI assistant skills lockfile - local tooling, not project code
 skills-lock.json
