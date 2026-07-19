@@ -10,10 +10,11 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 
-# Vector store & caches (rebuildable artifacts)
-data/chroma/
+# Caches (rebuildable artifacts)
 data/cache/
 .cache/
+# NOTE: data/chroma/ is intentionally tracked — the Vercel function bundle
+# has no build step that can rebuild the index, so it ships committed.
 
 # User feedback reports (PII-free, but still user content â€” not for the public repo)
 data/feedback/
