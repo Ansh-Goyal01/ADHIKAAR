@@ -1,14 +1,3 @@
----
-title: Adhikaar
-emoji: 📜
-colorFrom: yellow
-colorTo: red
-sdk: docker
-app_port: 7860
-pinned: false
-short_description: A verifiable public-benefit reasoning engine for Indian welfare schemes.
----
-
 <div align="center">
 
 # अधिकार · Adhikaar
